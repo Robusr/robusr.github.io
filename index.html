@@ -523,55 +523,61 @@ async function typeText(element, text, speed = 16) {
 }
 
 // ============================================================
-//  ASCII Art: Image -> Text (reads name.png)
-//  Uses luminance + contrast stretch for crisp pixel output.
+//  ASCII Art: Image -> Pixel Text (reads name.png)
+//  Alpha-aware + gamma correction for sharp dot-matrix output.
 // ============================================================
 async function imageToASCII(imagePath, maxWidth) {
   return new Promise((resolve) => {
     const img = new Image();
     img.onload = () => {
       try {
-        // Extended 16-level character ramp (dark -> bright)
-        const charRamp = ' .,:;+*?%S#@';
+        // Tight 8-level ramp for crisp pixel-art / dot-matrix look
+        const charRamp = ' .:=+*#@';
         const ratio    = img.height / img.width;
         const width    = Math.min(maxWidth, img.width);
-        // Terminal characters are ~2:1 height:width; 0.52 corrects for typical monospace
         const height   = Math.max(6, Math.floor(width * ratio * 0.82));
 
         const canvas = document.createElement('canvas');
         canvas.width  = width;
         canvas.height = height;
         const ctx = canvas.getContext('2d');
-        // Black background for consistent luminance
+        // Composite onto black so transparent pixels → (0,0,0,255)
         ctx.fillStyle = '#000';
         ctx.fillRect(0, 0, width, height);
         ctx.drawImage(img, 0, 0, width, height);
 
         const data = ctx.getImageData(0, 0, width, height).data;
 
-        // --- First pass: find min/max luminance for contrast stretch ---
+        // ---- First pass: min/max luminance (opaque pixels only) ----
         let minLum = 255, maxLum = 0;
         const lums = [];
         for (let y = 0; y < height; y++) {
           for (let x = 0; x < width; x++) {
-            const i   = (y * width + x) * 4;
-            const lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+            const i = (y * width + x) * 4;
+            const a = data[i + 3];
+            let lum;
+            if (a < 128) {
+              lum = 0;              // semi-transparent → background
+            } else {
+              lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+            }
             lums.push(lum);
             if (lum < minLum) minLum = lum;
             if (lum > maxLum) maxLum = lum;
           }
         }
 
-        // Avoid divide-by-zero on flat images
         const range = maxLum - minLum || 1;
+        const gamma = 2.2;           // push mid-tones → dark for clean edges
 
-        // --- Second pass: map to characters with contrast stretch ---
+        // ---- Second pass: map to characters with gamma ----
         let result = '';
         let idx = 0;
         for (let y = 0; y < height; y++) {
           for (let x = 0; x < width; x++) {
             const stretched = ((lums[idx] - minLum) / range) * 255;
-            const ci = Math.floor(stretched / 256 * charRamp.length);
+            const corrected = Math.pow(stretched / 255, gamma) * 255;
+            const ci = Math.floor(corrected / 256 * charRamp.length);
             result += charRamp[Math.min(Math.max(ci, 0), charRamp.length - 1)];
             idx++;
           }
@@ -628,7 +634,7 @@ async function showStartupScreen() {
   // ---- Step 2: System info ----
   const sysDiv = document.createElement('div');
   sysDiv.className = 'sysinfo';
-  sysDiv.textContent = tStr('sysinfo', personalInfo.name, personalInfo.tagline[locale]);
+  sysDiv.textContent = tStr('sysinfo', 'guest', personalInfo.tagline[locale]);
   output.appendChild(sysDiv);
 
   // ---- Step 3: Separator ----
