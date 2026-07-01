@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Personal homepage with terminal interface">
+<meta name="description" content="Robusr's Utopia">
 <title>Terminal</title>
 <style>
 /* ===== Reset & Base ===== */
@@ -83,7 +83,7 @@ html, body {
   text-overflow: ellipsis;
 }
 
-/* ===== Terminal Body (output + input) ===== */
+/* ===== Terminal Body ===== */
 .body {
   flex: 1;
   overflow-y: auto;
@@ -102,7 +102,6 @@ html, body {
 .body::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.22);
 }
-/* Firefox */
 .body { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.12) transparent; }
 
 /* ===== Output Area ===== */
@@ -129,13 +128,28 @@ html, body {
   line-height: 1.65;
   white-space: pre-wrap;
   word-break: break-word;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
 }
 
 .response a {
   color: #66D9EF;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.response .highlight { color: #A6E22E; }
+.response .dim       { color: #8888A0; }
+.response .accent    { color: #66D9EF; }
+.response .header    { color: #F8F8F2; font-weight: bold; }
+.response .tag        {
+  display: inline-block;
+  color: #FFBD2E;
+  background: rgba(255, 189, 46, 0.12);
+  padding: 0 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  margin-left: 6px;
+  vertical-align: middle;
 }
 
 .welcome {
@@ -169,19 +183,19 @@ html, body {
 
 #cmdInput::placeholder { color: rgba(255,255,255,0.2); }
 
-/* ===== Blinking Cursor (shown when input is focused) ===== */
-.cursor {
-  display: inline-block;
-  width: 8px;
-  height: 15px;
-  background: #A6E22E;
-  margin-left: 1px;
-  vertical-align: text-bottom;
-  animation: blink 1s step-end infinite;
+/* ===== Loading Spinner ===== */
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
+.spinner {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-top-color: #66D9EF;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 /* ===== Mobile ===== */
@@ -213,7 +227,7 @@ html, body {
       <span class="light yellow"></span>
       <span class="light green"></span>
     </div>
-    <span class="title">guest@personal-site — -zsh — 80×24</span>
+    <span class="title" id="titleBar">guest@robu — -zsh — 80×24</span>
   </div>
 
   <!-- Terminal Body -->
@@ -222,7 +236,7 @@ html, body {
     <div class="input-line">
       <span class="prompt-arrow">➜</span>
       <span class="prompt-path">~</span>
-      <input type="text" id="cmdInput" placeholder="输入命令或问题…" autofocus
+      <input type="text" id="cmdInput" autofocus
              autocomplete="off" autocapitalize="off" spellcheck="false">
     </div>
   </div>
@@ -230,29 +244,143 @@ html, body {
 
 <script>
 // ============================================================
-//  Personal Info Configuration — 在这里填写你的个人信息
+//  Personal Info — Fill in your own details below
 // ============================================================
 const personalInfo = {
   name: 'Robusr',
-  bio: '一名热爱技术与创造的开发者，喜欢探索前端工程、工具链和有趣的交互设计。',
-  skills: [
-    'JavaScript / TypeScript',
-    'React / Vue',
-    'Node.js',
-    'Python',
-    'Git / GitHub',
-    '前端工程化 (Webpack, Vite)',
-  ],
+  bio:   '一个有趣的老东西。',
+  skills: ['Coding', 'Writing', 'Designing', 'Chating', 'Drinking'],
   contact: {
-    email: 'your-email@example.com',
+    email:  'Robusr@outlook.com',
     github: 'https://github.com/Robusr',
+    wechat: 'RobusrID',
   },
-  projects: [
-    { name: 'Personal Terminal Homepage', desc: '一个模拟 macOS 终端的个人主页', url: 'https://github.com/Robusr/Robusr.github.io' },
-    // 在此添加更多项目：
-    // { name: 'Project Name', desc: 'Description', url: 'https://...' },
-  ],
 };
+
+// ============================================================
+//  i18n — English-first; switch with:  lang / zh / en
+// ============================================================
+let locale = 'en';
+
+const t = {
+  en: {
+    welcome: (name) => [
+      `╭────────────────────────────────────────────╮`,
+      `│                                            │`,
+      `│       Welcome to ${name}'s Homepage          │`,
+      `│                                            │`,
+      `│  Type <span class="accent">help</span> to see available commands         │`,
+      `│  Or just ask me anything, e.g.:            │`,
+      `│    <span class="dim">· Who are you?</span>                       │`,
+      `│    <span class="dim">· What can you do?</span>                  │`,
+      `│    <span class="dim">· How to reach you?</span>                 │`,
+      `│                                            │`,
+      `╰────────────────────────────────────────────╯`,
+    ].join('\n'),
+    placeholder: 'Type a command or question…',
+    about: (name, bio) => `👤  ${name}\n${'─'.repeat(28)}\n${bio}`,
+    skills: (skills) => {
+      const lines = ['📦  Skills', '─'.repeat(24)];
+      skills.forEach((s, i) => lines.push(`  ${String(i + 1).padStart(2, ' ')}. ${s}`));
+      return lines.join('\n');
+    },
+    contact: (c) => [
+      '📬  Contact',
+      '─'.repeat(24),
+      `  Email:   ${c.email}`,
+      `  GitHub:  ${c.github}`,
+      `  WeChat:  ${c.wechat}`,
+    ].join('\n'),
+    projectsLoading: 'Fetching repositories from GitHub…',
+    projectsFailed: '⚠  Failed to fetch repos. Please visit: https://github.com/Robusr',
+    projectsTitle: '🚀  GitHub Repositories',
+    projectsEmpty: '  No public repositories found.',
+    projectsForkTag: 'fork',
+    help: [
+      '╔══════════════════════════════════════╗',
+      '║     💻  Available Commands            ║',
+      '╠══════════════════════════════════════╣',
+      '║  help      Show this help             ║',
+      '║  about     Display bio                ║',
+      '║  skills    List skills                ║',
+      '║  contact   Show contact info          ║',
+      '║  projects  List GitHub repos          ║',
+      '║  lang      Toggle EN / 中文            ║',
+      '║  clear     Clear screen               ║',
+      '╠══════════════════════════════════════╣',
+      '║  💬  Or ask naturally:                ║',
+      '║  · Who are you?                       ║',
+      '║  · What can you do?                   ║',
+      '║  · How to reach you?                  ║',
+      '║  · Show me your projects              ║',
+      '╚══════════════════════════════════════╝',
+    ].join('\n'),
+    notFound: 'Sorry, I haven\'t learned how to answer that yet. Try typing help to see what I can do.',
+    langSwitch: 'Switched to English.',
+    titleBar: 'guest@robu — -zsh — 80×24',
+  },
+  zh: {
+    welcome: (name) => [
+      `╭────────────────────────────────────────────╮`,
+      `│                                            │`,
+      `│       欢迎来到 ${name} 的个人主页             │`,
+      `│                                            │`,
+      `│  输入 <span class="accent">help</span> 查看可用命令                  │`,
+      `│  也可以直接向我提问，例如：                  │`,
+      `│    <span class="dim">· 你是谁？</span>                         │`,
+      `│    <span class="dim">· 你会什么？</span>                       │`,
+      `│    <span class="dim">· 怎么联系你？</span>                     │`,
+      `│                                            │`,
+      `╰────────────────────────────────────────────╯`,
+    ].join('\n'),
+    placeholder: '输入命令或问题…',
+    about: (name, bio) => `👤  ${name}\n${'─'.repeat(28)}\n${bio}`,
+    skills: (skills) => {
+      const lines = ['📦  技能清单', '─'.repeat(24)];
+      skills.forEach((s, i) => lines.push(`  ${String(i + 1).padStart(2, ' ')}. ${s}`));
+      return lines.join('\n');
+    },
+    contact: (c) => [
+      '📬  联系方式',
+      '─'.repeat(24),
+      `  邮箱:    ${c.email}`,
+      `  GitHub:  ${c.github}`,
+      `  微信:    ${c.wechat}`,
+    ].join('\n'),
+    projectsLoading: '正在从 GitHub 获取仓库列表…',
+    projectsFailed: '⚠  获取仓库失败。请访问: https://github.com/Robusr',
+    projectsTitle: '🚀  GitHub 仓库',
+    projectsEmpty: '  暂无公开仓库。',
+    projectsForkTag: 'fork',
+    help: [
+      '╔══════════════════════════════════════╗',
+      '║     💻  可用命令                       ║',
+      '╠══════════════════════════════════════╣',
+      '║  help      显示此帮助                  ║',
+      '║  about     个人简介                   ║',
+      '║  skills    技能列表                   ║',
+      '║  contact   联系方式                   ║',
+      '║  projects  查看 GitHub 仓库            ║',
+      '║  lang      切换 EN / 中文              ║',
+      '║  clear     清屏                       ║',
+      '╠══════════════════════════════════════╣',
+      '║  💬  也可以直接提问：                   ║',
+      '║  · 你是谁？                            ║',
+      '║  · 你会什么？                          ║',
+      '║  · 怎么联系你？                        ║',
+      '║  · 你做过什么项目？                    ║',
+      '╚══════════════════════════════════════╝',
+    ].join('\n'),
+    notFound: '抱歉，我还没学会回答这个问题。试试输入 help 看看我能做什么吧。',
+    langSwitch: '已切换为中文。',
+    titleBar: 'guest@robu — -zsh — 80×24',
+  }
+};
+
+function tStr(key, ...args) {
+  const fn = t[locale][key];
+  return typeof fn === 'function' ? fn(...args) : fn;
+}
 
 // ============================================================
 //  DOM References
@@ -260,13 +388,15 @@ const personalInfo = {
 const terminalBody = document.getElementById('terminalBody');
 const output       = document.getElementById('output');
 const cmdInput     = document.getElementById('cmdInput');
+const titleBar     = document.getElementById('titleBar');
 
 // ============================================================
 //  State
 // ============================================================
 let commandHistory = [];
 let historyIndex   = -1;
-let isTyping       = false;   // true while typewriter effect is running
+let isTyping       = false;
+let ghReposCache   = null;   // cached GitHub API response
 
 // ============================================================
 //  Helpers
@@ -275,19 +405,22 @@ function scrollToBottom() {
   terminalBody.scrollTop = terminalBody.scrollHeight;
 }
 
-/** Promise-based delay */
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-/**
- * Create a command-line element (prompt + user text) and append to output.
- * Returns the response div so caller can type into it.
- */
+function escapeHTML(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/** Append a command-line entry and return a response div for typewriter */
 function appendCommandLine(cmd) {
   const line = document.createElement('div');
   line.className = 'cmd-line';
-  line.innerHTML = `<span class="prompt-arrow">➜</span> <span class="prompt-path">~</span> <span class="cmd-text">${escapeHTML(cmd)}</span>`;
+  line.innerHTML =
+    `<span class="prompt-arrow">➜</span> <span class="prompt-path">~</span> <span class="cmd-text">${escapeHTML(cmd)}</span>`;
   output.appendChild(line);
 
   const resp = document.createElement('div');
@@ -296,29 +429,49 @@ function appendCommandLine(cmd) {
   return resp;
 }
 
-/** Escape HTML special chars */
-function escapeHTML(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+/** Append a raw-text response without typewriter effect (for instant messages) */
+function appendInstantResponse(text) {
+  const resp = document.createElement('div');
+  resp.className = 'response';
+  resp.textContent = text;
+  output.appendChild(resp);
+  return resp;
 }
 
 // ============================================================
 //  Typewriter Effect
 // ============================================================
-async function typeText(element, text, speed = 20) {
+async function typeHTML(element, html, speed = 18) {
   isTyping = true;
   cmdInput.disabled = true;
-  element.textContent = '';
 
-  for (let i = 0; i < text.length; i++) {
-    element.textContent += text[i];
+  // Build up innerHTML character by character, respecting HTML tags
+  let result = '';
+  let i = 0;
+  const tagRegex = /<[^>]*>/g;
+
+  while (i < html.length) {
+    // Check for HTML tag at current position
+    const remaining = html.slice(i);
+    const tagMatch = remaining.match(/^<[^>]*>/);
+    if (tagMatch) {
+      result += tagMatch[0];
+      i += tagMatch[0].length;
+      element.innerHTML = result;
+      scrollToBottom();
+      continue;
+    }
+
+    result += html[i];
+    element.innerHTML = result;
     scrollToBottom();
-    // Slow down on punctuation for a more natural feel
-    const ch = text[i];
-    const pause = (ch === '.' || ch === '、' || ch === '。') ? speed * 4
-                : (ch === ',' || ch === '，') ? speed * 2
-                : speed;
+    i++;
+
+    const ch = html[i - 1];
+    const pause =
+      (ch === '.' || ch === '。') ? speed * 5 :
+      (ch === ',' || ch === '，') ? speed * 3 :
+      speed;
     await delay(pause);
   }
 
@@ -328,64 +481,79 @@ async function typeText(element, text, speed = 20) {
   scrollToBottom();
 }
 
-// ============================================================
-//  Response Formatters (Shell-style output)
-// ============================================================
-function formatAbout() {
-  return [
-    `👤 ${personalInfo.name}`,
-    `─`.repeat(28),
-    personalInfo.bio,
-  ].join('\n');
+async function typeText(element, text, speed = 18) {
+  // Use the HTML path (escaped) so punctuation pauses work
+  await typeHTML(element, escapeHTML(text).replace(/\n/g, '<br>'), speed);
 }
 
-function formatSkills() {
-  const lines = ['📦 技能清单', '─'.repeat(24)];
-  personalInfo.skills.forEach((s, i) => {
-    lines.push(`  ${String(i + 1).padStart(2, ' ')}. ${s}`);
-  });
-  return lines.join('\n');
-}
-
-function formatContact() {
-  return [
-    '📬 联系方式',
-    '─'.repeat(24),
-    `  Email:  ${personalInfo.contact.email}`,
-    `  GitHub: ${personalInfo.contact.github}`,
-  ].join('\n');
+// ============================================================
+//  GitHub Repo Fetching
+// ============================================================
+async function fetchGitHubRepos() {
+  try {
+    const res = await fetch('https://api.github.com/users/Robusr/repos?per_page=50&sort=updated');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    // Cache only originals (non-forks) + forks separately
+    ghReposCache = {
+      originals: data.filter(r => !r.fork),
+      forks:     data.filter(r => r.fork),
+    };
+  } catch {
+    ghReposCache = null;
+  }
 }
 
 function formatProjects() {
-  const lines = ['🚀 项目作品', '═'.repeat(32)];
-  personalInfo.projects.forEach((p, i) => {
-    lines.push(`  ${i + 1}. ${p.name}`);
-    lines.push(`     ${p.desc}`);
-    lines.push(`     🔗 ${p.url}`);
+  if (!ghReposCache) {
+    return `<span class="dim">${escapeHTML(tStr('projectsFailed'))}</span>`;
+  }
+
+  const { originals, forks } = ghReposCache;
+  const lines = [tStr('projectsTitle'), '═'.repeat(40), ''];
+
+  if (originals.length === 0 && forks.length === 0) {
+    lines.push(tStr('projectsEmpty'));
+    return lines.join('\n');
+  }
+
+  originals.forEach((r, i) => {
+    lines.push(`  <span class="highlight">${i + 1}.</span> <span class="header">${escapeHTML(r.name)}</span>`);
+    if (r.description) {
+      lines.push(`     <span class="dim">${escapeHTML(r.description)}</span>`);
+    }
+    lines.push(`     <span class="accent">🔗 ${escapeHTML(r.html_url)}</span>`);
+    if (r.language) {
+      lines.push(`     <span class="dim">📄 ${escapeHTML(r.language)}</span>  ⭐ ${r.stargazers_count}  📅 ${new Date(r.created_at).getFullYear()}`);
+    }
     lines.push('');
   });
+
+  if (forks.length > 0) {
+    lines.push('<span class="dim">─'.repeat(40) + '</span>');
+    lines.push(`<span class="dim">Forked repositories:</span>`);
+    lines.push('');
+    forks.forEach((r, i) => {
+      const desc = r.description ? ` — ${r.description}` : '';
+      lines.push(`  <span class="dim">${i + 1}.</span> <span class="dim">${escapeHTML(r.name)}</span> <span class="tag">${tStr('projectsForkTag')}</span><span class="dim">${escapeHTML(desc)}</span>`);
+      lines.push(`     <span class="accent">🔗 ${escapeHTML(r.html_url)}</span>`);
+      lines.push('');
+    });
+  }
+
   return lines.join('\n');
 }
 
-function formatHelp() {
-  return [
-    '╔══════════════════════════════════╗',
-    '║     💻 可用命令 / Commands        ║',
-    '╠══════════════════════════════════╣',
-    '║  help     显示此帮助              ║',
-    '║  about    个人简介                ║',
-    '║  skills   技能列表                ║',
-    '║  contact  联系方式                ║',
-    '║  projects 项目作品                ║',
-    '║  clear    清屏                    ║',
-    '╠══════════════════════════════════╣',
-    '║  💬 也可以直接提问，例如：         ║',
-    '║  · 你叫什么名字？                 ║',
-    '║  · 你会什么？                    ║',
-    '║  · 怎么联系你？                  ║',
-    '║  · 你做过什么项目？              ║',
-    '╚══════════════════════════════════╝',
-  ].join('\n');
+// ============================================================
+//  Language Switch
+// ============================================================
+function switchLanguage(lang) {
+  if (lang === locale) return;
+  locale = lang;
+  cmdInput.placeholder = tStr('placeholder');
+  titleBar.textContent = tStr('titleBar');
+  appendInstantResponse(`✨  ${tStr('langSwitch')}`);
+  scrollToBottom();
 }
 
 // ============================================================
@@ -394,11 +562,19 @@ function formatHelp() {
 function matchNaturalLanguage(input) {
   const lower = input.toLowerCase();
 
-  if (/name|名字|叫什么|是谁|称呼|姓名/.test(lower)) return 'about';
-  if (/skill|技能|会什么|能力|技术|tech|擅长|懂什么|你会/.test(lower)) return 'skills';
-  if (/contact|联系|email|邮箱|github|微信|电话|找到你|联系你|怎么联系/.test(lower)) return 'contact';
-  if (/project|项目|作品|portfolio|做过|写过/.test(lower)) return 'projects';
-  if (/bio|简介|介绍|about|关于|背景|who|你是/.test(lower)) return 'about';
+  // English patterns
+  if (/who are you|your name|what.*name/.test(lower)) return 'about';
+  if (/what (can|do) you do|skill|ability|tech/.test(lower)) return 'skills';
+  if (/contact|email|reach|find you|github|wechat/.test(lower)) return 'contact';
+  if (/project|repo|github|code|work|portfolio/.test(lower)) return 'projects';
+  if (/about|bio|intro|tell me about|describe/.test(lower)) return 'about';
+
+  // Chinese patterns
+  if (/名字|叫什么|是谁|称呼|姓名|你是谁/.test(lower)) return 'about';
+  if (/技能|会什么|能力|技术|擅长|懂什么|你会/.test(lower)) return 'skills';
+  if (/联系|邮箱|微信|电话|找到你|联系你|怎么联系/.test(lower)) return 'contact';
+  if (/项目|作品|做过|写过|仓库|github/.test(lower)) return 'projects';
+  if (/简介|介绍|about|关于|背景/.test(lower)) return 'about';
 
   return null;
 }
@@ -410,74 +586,81 @@ async function executeCommand(raw) {
   const cmd = raw.trim();
   if (!cmd) return;
 
-  // Record history (don't duplicate consecutive same commands)
+  // Record history (skip consecutive duplicates)
   if (commandHistory.length === 0 || commandHistory[commandHistory.length - 1] !== cmd) {
     commandHistory.push(cmd);
   }
   historyIndex = commandHistory.length;
 
-  // Append command line to output
   const respDiv = appendCommandLine(cmd);
   scrollToBottom();
 
-  let responseText = '';
-
-  // --- Exact command matching (including aliases) ---
   const lower = cmd.toLowerCase();
 
+  // --- Exact commands ---
   if (lower === 'help' || lower === 'h' || lower === '?') {
-    responseText = formatHelp();
+    await typeHTML(respDiv, tStr('help'));
   } else if (lower === 'about' || lower === 'whoami') {
-    responseText = formatAbout();
+    await typeText(respDiv, tStr('about', personalInfo.name, personalInfo.bio));
   } else if (lower === 'skills' || lower === 'skill') {
-    responseText = formatSkills();
+    await typeText(respDiv, tStr('skills', personalInfo.skills));
   } else if (lower === 'contact') {
-    responseText = formatContact();
+    await typeText(respDiv, tStr('contact', personalInfo.contact));
   } else if (lower === 'projects' || lower === 'project' || lower === 'portfolio') {
-    responseText = formatProjects();
+    if (!ghReposCache) {
+      // Still loading — show spinner then wait
+      respDiv.innerHTML = `<span class="spinner"></span> ${escapeHTML(tStr('projectsLoading'))}`;
+      scrollToBottom();
+      // Try fetching now in case pre-fetch failed
+      await fetchGitHubRepos();
+    }
+    const html = formatProjects();
+    respDiv.innerHTML = '';
+    await typeHTML(respDiv, html, 8); // faster for longer output
+  } else if (lower === 'lang' || lower === 'locale' || lower === 'zh' || lower === 'cn') {
+    if (lower === 'zh' || lower === 'cn') {
+      switchLanguage('zh');
+    } else {
+      switchLanguage(locale === 'en' ? 'zh' : 'en');
+    }
+    // Remove the response div (lang switch prints its own message)
+    respDiv.remove();
+  } else if (lower === 'en') {
+    switchLanguage('en');
+    respDiv.remove();
   } else if (lower === 'clear' || lower === 'cls') {
     output.innerHTML = '';
     cmdInput.value = '';
     cmdInput.focus();
-    return; // clear 不需要打字机效果
   } else {
     // --- Natural language fallback ---
     const intent = matchNaturalLanguage(cmd);
+    let responseText;
     if (intent === 'about') {
-      responseText = formatAbout();
+      responseText = tStr('about', personalInfo.name, personalInfo.bio);
     } else if (intent === 'skills') {
-      responseText = formatSkills();
+      responseText = tStr('skills', personalInfo.skills);
     } else if (intent === 'contact') {
-      responseText = formatContact();
+      responseText = tStr('contact', personalInfo.contact);
     } else if (intent === 'projects') {
-      responseText = formatProjects();
+      if (!ghReposCache) await fetchGitHubRepos();
+      respDiv.innerHTML = '';
+      await typeHTML(respDiv, formatProjects(), 8);
+      return;
     } else {
-      responseText = '抱歉，我还没学会回答这个问题。试试输入 help 看看我能做什么吧。';
+      responseText = tStr('notFound');
     }
+    await typeText(respDiv, responseText);
   }
-
-  // Typewriter output
-  await typeText(respDiv, responseText);
 }
 
 // ============================================================
-//  Welcome Message (shown on startup)
+//  Welcome Message
 // ============================================================
 function showWelcome() {
   const welcome = document.createElement('div');
   welcome.className = 'welcome';
-  welcome.innerHTML = [
-    '<span style="color:#A6E22E;">╭────────────────────────────────────────╮</span>',
-    '<span style="color:#A6E22E;">│</span>  <span style="color:#F8F8F2;font-weight:bold;">欢迎来到 ' + escapeHTML(personalInfo.name) + ' 的个人主页</span>     <span style="color:#A6E22E;">│</span>',
-    '<span style="color:#A6E22E;">│</span>                                        <span style="color:#A6E22E;">│</span>',
-    '<span style="color:#A6E22E;">│</span>  输入 <span style="color:#66D9EF;">help</span> 查看可用命令              <span style="color:#A6E22E;">│</span>',
-    '<span style="color:#A6E22E;">│</span>  也可以直接向我提问，例如：            <span style="color:#A6E22E;">│</span>',
-    '<span style="color:#A6E22E;">│</span>    <span style="color:#8888A0;">· 你叫什么名字？</span>                      <span style="color:#A6E22E;">│</span>',
-    '<span style="color:#A6E22E;">│</span>    <span style="color:#8888A0;">· 你会什么技能？</span>                      <span style="color:#A6E22E;">│</span>',
-    '<span style="color:#A6E22E;">│</span>    <span style="color:#8888A0;">· 怎么联系你？</span>                        <span style="color:#A6E22E;">│</span>',
-    '<span style="color:#A6E22E;">╰────────────────────────────────────────╯</span>',
-    '',
-  ].join('\n');
+  welcome.innerHTML = tStr('welcome', personalInfo.name);
   output.appendChild(welcome);
   scrollToBottom();
 }
@@ -485,8 +668,6 @@ function showWelcome() {
 // ============================================================
 //  Event Listeners
 // ============================================================
-
-// Enter / Arrow keys
 cmdInput.addEventListener('keydown', (e) => {
   if (isTyping) {
     e.preventDefault();
@@ -504,7 +685,6 @@ cmdInput.addEventListener('keydown', (e) => {
       historyIndex--;
       cmdInput.value = commandHistory[historyIndex];
     }
-    // Move cursor to end
     cmdInput.setSelectionRange(cmdInput.value.length, cmdInput.value.length);
   } else if (e.key === 'ArrowDown') {
     e.preventDefault();
@@ -519,31 +699,25 @@ cmdInput.addEventListener('keydown', (e) => {
   }
 });
 
-// Click anywhere on body to focus input
+// Click anywhere in terminal body → focus input
 terminalBody.addEventListener('click', () => {
-  if (!isTyping) {
-    cmdInput.focus();
-  }
+  if (!isTyping) cmdInput.focus();
 });
 
-// Keep focus on input when clicking it directly
 cmdInput.addEventListener('click', (e) => {
   e.stopPropagation();
-});
-
-// Prevent blur during typing
-cmdInput.addEventListener('blur', () => {
-  if (!isTyping) {
-    // Allow natural blur, but re-focus shortly after to keep terminal feel
-    // Only re-focus if the user didn't intentionally click away
-  }
 });
 
 // ============================================================
 //  Init
 // ============================================================
+cmdInput.placeholder = tStr('placeholder');
+titleBar.textContent = tStr('titleBar');
 showWelcome();
 cmdInput.focus();
+
+// Pre-fetch GitHub repos in background for instant `projects` response
+fetchGitHubRepos();
 </script>
 
 </body>
