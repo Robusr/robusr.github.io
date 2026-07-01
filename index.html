@@ -523,112 +523,41 @@ async function typeText(element, text, speed = 16) {
 }
 
 // ============================================================
-//  ASCII Art: Image -> Pixel Text (reads name.png)
-//  Alpha-aware + gamma correction for sharp dot-matrix output.
+//  ASCII Pixel-Art Logo — pre-computed from name.png (96x19)
+//  Generated locally via Pillow: binarised with adaptive mean
+//  threshold, bias=0.45.  Regenerate with:
+//    python3 scripts/ascii_gen.py
 // ============================================================
-async function imageToASCII(imagePath, maxWidth) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => {
-      try {
-        // Tight 8-level ramp for crisp pixel-art / dot-matrix look
-        const charRamp = ' .:=+*#@';
-        const ratio    = img.height / img.width;
-        const width    = Math.min(maxWidth, img.width);
-        const height   = Math.max(6, Math.floor(width * ratio * 0.82));
-
-        const canvas = document.createElement('canvas');
-        canvas.width  = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        // Composite onto black so transparent pixels → (0,0,0,255)
-        ctx.fillStyle = '#000';
-        ctx.fillRect(0, 0, width, height);
-        ctx.drawImage(img, 0, 0, width, height);
-
-        const data = ctx.getImageData(0, 0, width, height).data;
-
-        // ---- First pass: min/max luminance (opaque pixels only) ----
-        let minLum = 255, maxLum = 0;
-        const lums = [];
-        for (let y = 0; y < height; y++) {
-          for (let x = 0; x < width; x++) {
-            const i = (y * width + x) * 4;
-            const a = data[i + 3];
-            let lum;
-            if (a < 128) {
-              lum = 0;              // semi-transparent → background
-            } else {
-              lum = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
-            }
-            lums.push(lum);
-            if (lum < minLum) minLum = lum;
-            if (lum > maxLum) maxLum = lum;
-          }
-        }
-
-        const range = maxLum - minLum || 1;
-        const gamma = 2.2;           // push mid-tones → dark for clean edges
-
-        // ---- Second pass: map to characters with gamma ----
-        let result = '';
-        let idx = 0;
-        for (let y = 0; y < height; y++) {
-          for (let x = 0; x < width; x++) {
-            const stretched = ((lums[idx] - minLum) / range) * 255;
-            const corrected = Math.pow(stretched / 255, gamma) * 255;
-            const ci = Math.floor(corrected / 256 * charRamp.length);
-            result += charRamp[Math.min(Math.max(ci, 0), charRamp.length - 1)];
-            idx++;
-          }
-          result += '\n';
-        }
-        resolve(result.trimEnd());
-      } catch (e) {
-        console.error('imageToASCII error:', e);
-        resolve(null);
-      }
-    };
-    img.onerror = (e) => {
-      console.error('Failed to load image:', imagePath, e);
-      resolve(null);
-    };
-    img.src = imagePath;
-  });
-}
+const LOGO_ART = [
+'                                                                                          ####  ',
+'                                                                                        ########',
+'                                                                                     ####### ## ',
+'                                                                              ## ###  ## ##     ',
+'                                                                           #############  #   ##',
+'                            ##                                            #    #### ############',
+'         ##                                                                #   # #####   ###### ',
+'        #   #                                                              ## #####        ###  ',
+' #          #                                                             ##   ######           ',
+' #               #######        ### ###  # #    ##      #######   ####     #####  ## ###        ',
+' #          #   ## #### ##      ####  ## ##     ##     ##### #    #    #      # #  ## ###       ',
+' #      ###    #  #      #          #            #     # ##  ###      ### #    ###### ####      ',
+' #   ######    #  #       #                      #        ## ###                ## #   ###      ',
+' #     #  ##          ##                         #     ##    #       ##          ###   ##       ',
+' #         #          ##  #                             ###    #     ##          # ## ## ##     ',
+' #      #  ##  #          #                               ###  ##    ##           ###### ##     ',
+'            #  ## #                 #  #      #         ##   # ##    #            # ### ##      ',
+'         #  #   ## # ##     #   ####  #   #   ####  ##   #   # #     ###        # #########     ',
+'         ##  ##  #####     #### ### ##      #  #     #   #  ###  #     #       ## ###### ###    ',
+].join('\n');
 
 // ============================================================
-//  Startup: neofetch-style logo + system info
+//  Startup: pixel logo + system info + full command list
 // ============================================================
-async function showStartupScreen() {
-  // ---- Step 1: ASCII pixel-art logo from name.png (robotic arm) ----
-  const logo = await imageToASCII('./name.png', 96);
-
+function showStartupScreen() {
+  // ---- Step 1: Hardcoded ASCII pixel-art logo (name.png, 96x19) ----
   const logoDiv = document.createElement('div');
   logoDiv.className = 'ascii-logo';
-
-  if (logo) {
-    logoDiv.textContent = logo;
-  } else {
-    // Fallback: classic Ubuntu circle-of-friends
-    logoDiv.textContent = [
-      '            .-/+oossssoo+/-.            ',
-      '        -+ssssssssssssssssssss+-        ',
-      '     -+ssssssssssssssssssssssssss+-     ',
-      '   -+ssssssssssssssssssssssssssssss+-   ',
-      '  :ssssssssssssssssssssssssssssssssss:  ',
-      ' :ssssssssssssssssssssssssssssssssssss: ',
-      ':ssssssssssssssssssssssssssssssssssssss:',
-      ':ssssssssssssssssssssssssssssssssssssss:',
-      ':ssssssssssssssssssssssssssssssssssssss:',
-      ' :ssssssssssssssssssssssssssssssssssss: ',
-      '  :ssssssssssssssssssssssssssssssssss:  ',
-      '   -+ssssssssssssssssssssssssssssss+-   ',
-      '     -+ssssssssssssssssssssssssss+-     ',
-      '        -+ssssssssssssssssssss+-        ',
-      '            .-/+oossssoo+/-.            ',
-    ].join('\n');
-  }
+  logoDiv.textContent = LOGO_ART;
   output.appendChild(logoDiv);
 
   // ---- Step 2: System info ----
@@ -965,10 +894,9 @@ cmdInput.addEventListener('click', (e) => e.stopPropagation());
 cmdInput.placeholder = tStr('placeholder');
 titleBar.textContent = tStr('titleBar');
 
-showStartupScreen().then(() => {
-  cmdInput.focus();
-  scrollToBottom();
-});
+showStartupScreen();
+cmdInput.focus();
+scrollToBottom();
 
 // Pre-fetch GitHub data in background (unauthenticated)
 fetchGitHubProfile();
