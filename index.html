@@ -159,10 +159,10 @@ html, body {
 /* ASCII logo */
 .ascii-logo {
   color: #A6E22E;
-  font-size: 11px;
-  line-height: 1.2;
+  font-size: 12px;
+  line-height: 1.25;
   white-space: pre;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .sysinfo {
@@ -536,7 +536,7 @@ async function imageToASCII(imagePath, maxWidth) {
         const ratio    = img.height / img.width;
         const width    = Math.min(maxWidth, img.width);
         // Terminal characters are ~2:1 height:width; 0.52 corrects for typical monospace
-        const height   = Math.max(4, Math.floor(width * ratio * 0.52));
+        const height   = Math.max(6, Math.floor(width * ratio * 0.82));
 
         const canvas = document.createElement('canvas');
         canvas.width  = width;
@@ -595,31 +595,17 @@ async function imageToASCII(imagePath, maxWidth) {
 //  Startup: neofetch-style logo + system info
 // ============================================================
 async function showStartupScreen() {
-  const logo = await imageToASCII('./name.png', 72);
+  // ---- Step 1: ASCII pixel-art logo from name.png (robotic arm) ----
+  const logo = await imageToASCII('./name.png', 96);
+
+  const logoDiv = document.createElement('div');
+  logoDiv.className = 'ascii-logo';
 
   if (logo) {
-    const logoLines = logo.split('\n');
-    const sysLines  = tStr('sysinfo', personalInfo.name, personalInfo.tagline[locale]).split('\n');
-
-    const logoWidth = Math.max(...logoLines.map(l => l.length));
-    const pad = logoWidth + 4;
-
-    const maxRows = Math.max(logoLines.length, sysLines.length);
-    for (let r = 0; r < maxRows; r++) {
-      const logoPart = r < logoLines.length ? logoLines[r] : '';
-      const sysPart  = r < sysLines.length  ? sysLines[r]  : '';
-
-      const line = document.createElement('div');
-      line.style.whiteSpace = 'pre';
-      line.innerHTML =
-        `<span class="ascii-logo" style="display:inline;">${escapeHTML(logoPart)}</span>` +
-        `${' '.repeat(Math.max(0, pad - logoPart.length))}` +
-        `<span class="sysinfo" style="display:inline;">${escapeHTML(sysPart)}</span>`;
-      output.appendChild(line);
-    }
+    logoDiv.textContent = logo;
   } else {
-    // No logo file -- show classic Ubuntu-style ASCII art as fallback
-    const fallbackLogo = [
+    // Fallback: classic Ubuntu circle-of-friends
+    logoDiv.textContent = [
       '            .-/+oossssoo+/-.            ',
       '        -+ssssssssssssssssssss+-        ',
       '     -+ssssssssssssssssssssssssss+-     ',
@@ -636,37 +622,26 @@ async function showStartupScreen() {
       '        -+ssssssssssssssssssss+-        ',
       '            .-/+oossssoo+/-.            ',
     ].join('\n');
-
-    const logoLines = fallbackLogo.split('\n');
-    const sysLines  = tStr('sysinfo', personalInfo.name, personalInfo.tagline[locale]).split('\n');
-    const logoWidth = Math.max(...logoLines.map(l => l.length));
-    const pad = logoWidth + 4;
-
-    const maxRows = Math.max(logoLines.length, sysLines.length);
-    for (let r = 0; r < maxRows; r++) {
-      const logoPart = r < logoLines.length ? logoLines[r] : '';
-      const sysPart  = r < sysLines.length  ? sysLines[r]  : '';
-      const line = document.createElement('div');
-      line.style.whiteSpace = 'pre';
-      line.innerHTML =
-        `<span class="ascii-logo" style="display:inline;">${escapeHTML(logoPart)}</span>` +
-        `${' '.repeat(Math.max(0, pad - logoPart.length))}` +
-        `<span class="sysinfo" style="display:inline;">${escapeHTML(sysPart)}</span>`;
-      output.appendChild(line);
-    }
   }
+  output.appendChild(logoDiv);
 
-  // Separator
+  // ---- Step 2: System info ----
+  const sysDiv = document.createElement('div');
+  sysDiv.className = 'sysinfo';
+  sysDiv.textContent = tStr('sysinfo', personalInfo.name, personalInfo.tagline[locale]);
+  output.appendChild(sysDiv);
+
+  // ---- Step 3: Separator ----
   const sep = document.createElement('div');
   sep.className = 'response';
-  sep.innerHTML = '<span class="dim">' + '-'.repeat(48) + '</span>';
+  sep.innerHTML = '<span class="dim">' + '='.repeat(48) + '</span>';
   output.appendChild(sep);
 
-  // Welcome box
-  const welcome = document.createElement('div');
-  welcome.className = 'welcome';
-  welcome.textContent = tStr('welcome');
-  output.appendChild(welcome);
+  // ---- Step 4: Full command list ----
+  const helpDiv = document.createElement('div');
+  helpDiv.className = 'welcome';
+  helpDiv.textContent = tStr('help');
+  output.appendChild(helpDiv);
 
   scrollToBottom();
 }
