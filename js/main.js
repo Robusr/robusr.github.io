@@ -174,31 +174,30 @@ function tStr(key, ...args) {
 }
 
 // ============================================================
-//  ASCII Pixel-Art Logo — "Robusr :)" + row-shift slant,
-//  per-letter colour.  83x13 upright, 1-char/row reversed.
-//  Smiley face shares warm yellow tone.
+//  ASCII Pixel-Art Logo — "Robusr" + row-shift slant,
+//  per-letter colour.  71x13 upright, 1-char/row reversed.
 //  Regenerate:  python3 scripts/ascii_gen.py
 // ============================================================
 const LOGO_UP = [
-'                                                                               ##  ',
-'######              ##                                                          ## ',
-'#######             ##                                                          ## ',
-'##   ###            ##                                                          ## ',
-'##    ##     ##     ## ##     #    #      ##       #  #                #         ##',
-'##   ###   #####    ######   ###   ##   ######    #######             ###        ##',
-'#######   #######   #######   #    ##  #######    #######             ###        ##',
-'######    ##   ##   ##   ##  ###   ##  ##         ###                 ###        ##',
-'#######   ##    ##  ##   ### ###   ##  ###        ##                   #         ##',
-'##   ##   ##    ##  ##    ## ###   ##   #####     ##                             ##',
-'##   ##   ##    ##  ##   ### ###   ##     ####    ##                             ##',
-'##    ##  ##   ###  ##   ##   ##  ###       ##    ##                  ###        ##',
-'##    ##  ###  ##   ### ###   ##  ###  ##   ##    ##                  ###        ##',
+'########                 ##                                            ',
+'#########                ##                                            ',
+'###   ###                ##                                            ',
+'###    ###               ##                                            ',
+'###    ###    ######     ## ####     ##    ##     ######      ### #### ',
+'###   ###    ########    ########    ##    ##    ########     #########',
+'########     ###  ###    ###  ####   ##    ##    ###   ##     ####   # ',
+'#######     ###    ###   ##    ###   ##    ##    ##           ###      ',
+'###  ###    ###    ###   ##     ##   ##    ##    ####         ###      ',
+'###   ###   ##      ##   ##     ##   ##    ##     ######      ###      ',
+'###    ##   ###    ###   ##     ##   ##    ##         ###     ###      ',
+'###    ###  ###    ###   ##    ###   ##    ##          ##     ###      ',
+'###     ##   ###  ###    ###  ####   ###  ###    ##   ###     ###      ',
 ];
-const LOGO_UP_SPLITS = [9, 18, 27, 36, 46, 55, 64, 73];
-const LOGO_UP_WIDTH = 83;
-const LOGO_COLORS = ['#FF6188','#FC9867','#FFD866','#A9DC76','#78DCE8','#AB9DF2','#8888A0','#FFBD2E','#FFBD2E'];
+const LOGO_UP_SPLITS = [11, 23, 35, 47, 59];
+const LOGO_UP_WIDTH = 71;
+const LOGO_COLORS = ['#FF6188','#FC9867','#FFD866','#A9DC76','#78DCE8','#AB9DF2'];
 const LOGO_SLANT = 1;
-const LOGO_DIR = 'reverse';  // top rows more indent
+const LOGO_DIR = 'reverse';
 const LOGO_ROWS = LOGO_UP.length;
 const LOGO_TOTAL_W = LOGO_UP_WIDTH + LOGO_SLANT * (LOGO_ROWS - 1);
 
