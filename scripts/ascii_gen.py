@@ -1,67 +1,63 @@
 #!/usr/bin/env python3
 """
-Generate a hardcoded ASCII pixel-art logo block from name.png.
+Generate a hardcoded ASCII pixel-art logo from text.
+
+Renders the target string with a monospace font at a small bitmap
+size, binarises, and emits a JavaScript LOGO_ART array ready to
+paste into index.html.
 
 Usage:
-    python3 scripts/ascii_gen.py > /tmp/logo.txt
-
-Then copy the LOGO_ART array from stdout into index.html.
+    python3 scripts/ascii_gen.py
+    python3 scripts/ascii_gen.py "YOURNAME" 100 14 18
 
 Dependencies: Pillow (pip install Pillow)
 """
 
-from PIL import Image
 import sys
+from PIL import Image, ImageDraw, ImageFont
 
-IMG_PATH = 'name.png'
-MAX_WIDTH = 96
-V_CORR = 0.85
-THRESHOLD_BIAS = 0.45   # lower = more foreground detail
+TEXT       = sys.argv[1] if len(sys.argv) > 1 else 'Robusr'
+WIDTH      = int(sys.argv[2]) if len(sys.argv) > 2 else 100
+HEIGHT     = int(sys.argv[3]) if len(sys.argv) > 3 else 13
+FONT_SIZE  = int(sys.argv[4]) if len(sys.argv) > 4 else 18
+THRESH_BIAS = 0.5  # lower = more foreground
 
 
 def main():
-    img = Image.open(IMG_PATH).convert('RGBA')
+    img = Image.new('L', (WIDTH, HEIGHT), 0)
+    draw = ImageDraw.Draw(img)
 
-    # Auto-crop transparent borders
-    bbox = img.getbbox()
-    if bbox:
-        img = img.crop(bbox)
-        print(f'// Auto-cropped: {bbox[0]},{bbox[1]} -> {bbox[2]},{bbox[3]}  '
-              f'({img.width}x{img.height})', file=sys.stderr)
+    # Try Menlo (macOS), fall back to default
+    try:
+        font = ImageFont.truetype('/System/Library/Fonts/Menlo.ttc', FONT_SIZE)
+    except Exception:
+        font = ImageFont.load_default()
 
-    ratio = img.height / img.width
-    width = min(MAX_WIDTH, img.width)
-    height = max(8, int(width * ratio * V_CORR))
+    # Centre the text
+    bbox = draw.textbbox((0, 0), TEXT, font=font)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    x = (WIDTH - tw) // 2
+    y = (HEIGHT - th) // 2 - bbox[1]
+    draw.text((x, y), TEXT, fill=255, font=font)
 
-    # Composite onto black
-    bg = Image.new('RGBA', (width, height), (0, 0, 0, 255))
-    resized = img.resize((width, height), Image.LANCZOS)
-    bg.paste(resized, (0, 0), resized)
+    pixels = list(img.getdata())
+    nonzero = [p for p in pixels if p > 10]
+    thresh = (sum(nonzero) / len(nonzero)) * THRESH_BIAS if nonzero else 128
 
-    # Collect luminance values (alpha-gated)
-    pixels = list(bg.getdata())
-    lums = []
-    for r, g, b, a in pixels:
-        if a < 128:
-            lums.append(0)
-        else:
-            lums.append(0.299 * r + 0.587 * g + 0.114 * b)
-
-    # Adaptive threshold (mean of foreground * bias)
-    nonzero = [lum for lum in lums if lum > 2]
-    threshold = (sum(nonzero) / len(nonzero)) * THRESHOLD_BIAS if nonzero else 50
-
-    print(f'// {width}x{height} chars, threshold={threshold:.1f}, '
-          f'bias={THRESHOLD_BIAS}', file=sys.stderr)
-
-    # Emit LOGO_ART JavaScript array
-    print('const LOGO_ART = [')
-    for row in range(height):
+    lines = []
+    for row in range(HEIGHT):
         line = ''
-        for col in range(width):
-            idx = row * width + col
-            line += '#' if lums[idx] > threshold else ' '
-        print(f"'{line}',")
+        for col in range(WIDTH):
+            idx = row * WIDTH + col
+            line += '#' if pixels[idx] > thresh else ' '
+        lines.append(line)
+
+    widths = set(len(l) for l in lines)
+    print(f'// {len(lines)} lines, widths={widths}, thresh={thresh:.0f}',
+          file=sys.stderr)
+    print('const LOGO_ART = [')
+    for l in lines:
+        print(f"'{l}',")
     print("].join('\\n');")
 
 
