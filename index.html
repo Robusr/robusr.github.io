@@ -523,49 +523,68 @@ async function typeText(element, text, speed = 16) {
 }
 
 // ============================================================
-//  ASCII Pixel-Art Logo — row-shift italic "Robusr", per-letter
-//  colour.  83x13, Menlo 20pt, 1-char/row reversed slant.
+//  ASCII Pixel-Art Logo — upright "Robusr" + row-shift slant,
+//  per-letter colour.  71x13 upright, 1-char/row reversed.
+//  Colour applied in upright space; slant padding is plain spaces
+//  OUTSIDE the <span> tags so splits stay aligned.
 //  Regenerate:  python3 scripts/ascii_gen.py
 // ============================================================
-const LOGO_LINES = [
-'            ########                 ##                                            ',
-'           #########                ##                                             ',
-'          ###   ###                ##                                              ',
-'         ###    ###               ##                                               ',
-'        ###    ###    ######     ## ####     ##    ##     ######      ### ####     ',
-'       ###   ###    ########    ########    ##    ##    ########     #########     ',
-'      ########     ###  ###    ###  ####   ##    ##    ###   ##     ####   #       ',
-'     #######     ###    ###   ##    ###   ##    ##    ##           ###             ',
-'    ###  ###    ###    ###   ##     ##   ##    ##    ####         ###              ',
-'   ###   ###   ##      ##   ##     ##   ##    ##     ######      ###               ',
-'  ###    ##   ###    ###   ##     ##   ##    ##         ###     ###                ',
-' ###    ###  ###    ###   ##    ###   ##    ##          ##     ###                 ',
-'###     ##   ###  ###    ###  ####   ###  ###    ##   ###     ###                  ',
+const LOGO_UP = [
+'########                 ##                                            ',
+'#########                ##                                            ',
+'###   ###                ##                                            ',
+'###    ###               ##                                            ',
+'###    ###    ######     ## ####     ##    ##     ######      ### #### ',
+'###   ###    ########    ########    ##    ##    ########     #########',
+'########     ###  ###    ###  ####   ##    ##    ###   ##     ####   # ',
+'#######     ###    ###   ##    ###   ##    ##    ##           ###      ',
+'###  ###    ###    ###   ##     ##   ##    ##    ####         ###      ',
+'###   ###   ##      ##   ##     ##   ##    ##     ######      ###      ',
+'###    ##   ###    ###   ##     ##   ##    ##         ###     ###      ',
+'###    ###  ###    ###   ##    ###   ##    ##          ##     ###      ',
+'###     ##   ###  ###    ###  ####   ###  ###    ##   ###     ###      ',
 ];
-const LOGO_SPLITS = [11, 23, 35, 47, 59];  // R,o,b,u,s end columns
+const LOGO_UP_SPLITS = [11, 23, 35, 47, 59];  // R,o,b,u,s end cols in upright space
+const LOGO_UP_WIDTH = 71;
 const LOGO_COLORS = ['#FF6188','#FC9867','#FFD866','#A9DC76','#78DCE8','#AB9DF2'];
-const LOGO_WIDTH = 83;
+const LOGO_SLANT = 1;
+const LOGO_DIR = 'reverse';  // top rows more indent
+const LOGO_ROWS = LOGO_UP.length;
+const LOGO_TOTAL_W = LOGO_UP_WIDTH + LOGO_SLANT * (LOGO_ROWS - 1);
 
 // ============================================================
 //  Startup: pixel logo + system info + full command list
 // ============================================================
 function showStartupScreen() {
-  // ---- Step 1: Italic "Robusr" logo, each letter a different colour ----
+  // ---- Step 1: "Robusr" logo: upright colouring + row-shift slant padding outside spans ----
   const logoDiv = document.createElement('div');
   logoDiv.className = 'ascii-logo';
-  for (const line of LOGO_LINES) {
-    const row = document.createElement('div');
-    row.style.whiteSpace = 'pre';
-    let html = '';
+  for (let r = 0; r < LOGO_ROWS; r++) {
+    const line = LOGO_UP[r];
+    // Row-shift: reversed = top rows get more leading spaces
+    const leftPad  = LOGO_DIR === 'reverse'
+      ? LOGO_SLANT * (LOGO_ROWS - 1 - r)
+      : LOGO_SLANT * r;
+    const rightPad = LOGO_TOTAL_W - leftPad - LOGO_UP_WIDTH;
+
+    const rowDiv = document.createElement('div');
+    rowDiv.style.whiteSpace = 'pre';
+
+    // Leading spaces (outside coloured spans)
+    let html = ' '.repeat(leftPad);
+    // Per-letter coloured segments (upright space splits)
     let cursor = 0;
     for (let i = 0; i < LOGO_COLORS.length; i++) {
-      const end = (i < LOGO_SPLITS.length) ? LOGO_SPLITS[i] : LOGO_WIDTH;
+      const end = (i < LOGO_UP_SPLITS.length) ? LOGO_UP_SPLITS[i] : LOGO_UP_WIDTH;
       const seg = line.slice(cursor, end);
       html += `<span style="color:${LOGO_COLORS[i]};">${escapeHTML(seg)}</span>`;
       cursor = end;
     }
-    row.innerHTML = html;
-    logoDiv.appendChild(row);
+    // Trailing spaces (outside coloured spans)
+    html += ' '.repeat(rightPad);
+
+    rowDiv.innerHTML = html;
+    logoDiv.appendChild(rowDiv);
   }
   output.appendChild(logoDiv);
 
