@@ -145,6 +145,45 @@ html, body {
   vertical-align: middle;
 }
 
+/* Inline code & code blocks (Markdown rendering) */
+.response code {
+  font-family: 'Fira Code', 'Menlo', 'Consolas', 'SF Mono', 'Monaco', monospace;
+  font-size: 12.5px;
+  color: #FFD866;
+  background: rgba(255, 216, 102, 0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 216, 102, 0.15);
+}
+
+.response pre {
+  margin: 6px 0;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+.response pre code {
+  color: #C0C0C8;
+  background: none;
+  padding: 0;
+  border: none;
+  font-size: 12px;
+}
+
+/* Unordered / Ordered lists (Markdown rendering) */
+.response ul, .response ol {
+  margin: 4px 0 4px 1.2em;
+  padding: 0;
+}
+
+.response li {
+  margin: 2px 0;
+}
+
 .welcome {
   color: #8888A0;
   font-size: 13px;
