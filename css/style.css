@@ -15,7 +15,7 @@ html, body {
 .bg {
   position: fixed;
   inset: 0;
-  background: url('../assets/img/Street.jpg') center / cover no-repeat;
+  background: url('../assets/img/Street.webp') center / cover no-repeat;
   z-index: 0;
 }
 
