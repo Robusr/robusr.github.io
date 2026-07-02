@@ -1,5 +1,7 @@
 # Robusr's Utopia
 
+[ [中文](./README.zh-CN.md) ]
+
 A macOS Terminal-style personal homepage that simulates an interactive
 shell session.  Visitors can type commands or ask natural-language
 questions to learn about me, browse my GitHub projects, and view live
