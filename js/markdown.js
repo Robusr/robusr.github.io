@@ -13,13 +13,13 @@
 //    ```code block```      → <pre><code>…</code></pre>
 // ============================================================
 
-function escapeHTML(str) {
+export function escapeHTML(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
 }
 
-function parseMarkdown(text) {
+export function parseMarkdown(text) {
   if (!text) return '';
 
   // ---- Per-call list state (closure-isolated, not module-global) ----

@@ -3,6 +3,9 @@
 
 import { SYSTEM_PROMPT } from '../../prompt/system.js';
 
+const MODEL      = 'deepseek-chat';
+const MAX_TOKENS = 512;
+
 export async function onRequestPost({ request, env }) {
   // Parse and validate body
   let body;
@@ -31,12 +34,12 @@ export async function onRequestPost({ request, env }) {
       'Authorization': `Bearer ${env.DEEPSEEK_API_KEY}`,
     },
     body: JSON.stringify({
-      model: 'deepseek-chat',
+      model: MODEL,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         { role: 'user', content: message },
       ],
-      max_tokens: 512,
+      max_tokens: MAX_TOKENS,
       stream: true,
     }),
   });
