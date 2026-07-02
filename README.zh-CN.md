@@ -1,3 +1,5 @@
+<div align="center">
+
 # Robusr's Utopia
 
 [ [English](./README.md) ]
@@ -8,6 +10,8 @@
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)]()
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)]()
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)]()
+
+</div>
 
 一个模拟 macOS 终端交互的个人主页。访客可以输入命令、提问或自由聊天 --
 由 DeepSeek AI 驱动，搭载从真实的 Robusr 蒸馏而来的人格设定。
