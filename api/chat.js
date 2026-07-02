@@ -2,10 +2,12 @@
 // Zero external dependencies — uses Node.js 18+ native fetch
 
 import { readFileSync } from 'fs';
-import { join } from 'path';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const SYSTEM_PROMPT = readFileSync(
-  join(process.cwd(), 'prompt', 'system.md'), 'utf-8'
+  join(__dirname, '..', 'prompt', 'system.md'), 'utf-8'
 );
 
 // Simple in-memory rate limiter: max 1 request per 30s per IP
