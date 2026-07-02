@@ -91,6 +91,9 @@ const t = {
       '|  - What can you do?                      |',
       '|  - How to reach you?                     |',
       '|  - Show me your projects                 |',
+      '|                                           |',
+      '|  >  Chat freely — I\'m AI-powered         |',
+      '|     with my own personality.              |',
       '+==========================================+',
     ].join('\n'),
     notFound: "Sorry, I haven't learned how to answer that yet. Try typing help to see what I can do.",
@@ -159,6 +162,9 @@ const t = {
       '|  - 你会什么？                              |',
       '|  - 怎么联系你？                            |',
       '|  - 你做过什么项目？                        |',
+      '|                                             |',
+      '|  >  自由对话 — 我是 AI 驱动的聊天机器人     |',
+      '|     拥有我自己的人格设定。                  |',
       '+==========================================+',
     ].join('\n'),
     notFound: '抱歉，我还没学会回答这个问题。试试输入 help 看看我能做什么吧。',
@@ -217,6 +223,8 @@ let historyIndex   = -1;
 let isTyping       = false;
 let ghReposCache   = null;
 let ghProfileCache = null;
+let streamAbort    = null;   // AbortController for cancelling LLM stream
+let streamCancelled = false; // true when user pressed Esc
 
 // ============================================================
 //  Helpers
@@ -312,11 +320,16 @@ async function typeStream(element, reader) {
 
   const decoder = new TextDecoder();
   let buffer = '';
+  let timeout;
 
   try {
+    timeout = setTimeout(() => reader.cancel(), 30_000);
+
     while (true) {
       const { done, value } = await reader.read();
+      clearTimeout(timeout);
       if (done) break;
+      timeout = setTimeout(() => reader.cancel(), 30_000);
 
       buffer += decoder.decode(value, { stream: true });
       const lines = buffer.split('\n');
@@ -338,10 +351,16 @@ async function typeStream(element, reader) {
       scrollToBottom();
     }
   } catch {
-    element.innerHTML +=
-      '<span class="dim">\n--- Connection lost ---</span>';
+    if (streamCancelled) {
+      element.innerHTML +=
+        '<span class="dim">\n--- Cancelled ---</span>';
+    } else {
+      element.innerHTML +=
+        '<span class="dim">\n--- Connection lost ---</span>';
+    }
   }
 
+  clearTimeout(timeout);
   isTyping = false;
   cmdInput.disabled = false;
   cmdInput.focus();
@@ -535,6 +554,30 @@ function matchNaturalLanguage(input) {
 }
 
 // ============================================================
+//  Response helpers — avoid duplication between exact commands
+//  and natural-language intent dispatch
+// ============================================================
+function respondAbout(respDiv) {
+  return typeText(respDiv, tStr('about', personalInfo.name, personalInfo.bio));
+}
+
+function respondSkills(respDiv) {
+  const title = tStr('skillsTitle');
+  const list = personalInfo.skills[locale]
+    .map((s, i) => `  ${String(i + 1).padStart(2, ' ')}. ${s}`)
+    .join('\n');
+  return typeText(respDiv, `${title}\n${'-'.repeat(24)}\n${list}`);
+}
+
+function respondContact(respDiv) {
+  return typeText(respDiv, [
+    tStr('contactTitle'),
+    '-'.repeat(24),
+    tStr('contact', personalInfo.contact),
+  ].join('\n'));
+}
+
+// ============================================================
 //  Command Execution
 // ============================================================
 async function executeCommand(raw) {
@@ -559,26 +602,17 @@ async function executeCommand(raw) {
 
   // ---- About ----
   else if (lower === 'about' || lower === 'whoami') {
-    await typeText(respDiv, tStr('about', personalInfo.name, personalInfo.bio));
+    await respondAbout(respDiv);
   }
 
   // ---- Skills ----
   else if (lower === 'skills' || lower === 'skill') {
-    const title = tStr('skillsTitle');
-    const list = personalInfo.skills[locale]
-      .map((s, i) => `  ${String(i + 1).padStart(2, ' ')}. ${s}`)
-      .join('\n');
-    await typeText(respDiv, `${title}\n${'-'.repeat(24)}\n${list}`);
+    await respondSkills(respDiv);
   }
 
   // ---- Contact ----
   else if (lower === 'contact') {
-    const lines = [
-      tStr('contactTitle'),
-      '-'.repeat(24),
-      tStr('contact', personalInfo.contact),
-    ].join('\n');
-    await typeText(respDiv, lines);
+    await respondContact(respDiv);
   }
 
   // ---- Projects ----
@@ -630,19 +664,11 @@ async function executeCommand(raw) {
     if (intent === 'help') {
       await typeHTML(respDiv, tStr('help'));
     } else if (intent === 'about') {
-      await typeText(respDiv, tStr('about', personalInfo.name, personalInfo.bio));
+      await respondAbout(respDiv);
     } else if (intent === 'skills') {
-      const title = tStr('skillsTitle');
-      const list = personalInfo.skills[locale]
-        .map((s, i) => `  ${String(i + 1).padStart(2, ' ')}. ${s}`)
-        .join('\n');
-      await typeText(respDiv, `${title}\n${'-'.repeat(24)}\n${list}`);
+      await respondSkills(respDiv);
     } else if (intent === 'contact') {
-      await typeText(respDiv, [
-        tStr('contactTitle'),
-        '-'.repeat(24),
-        tStr('contact', personalInfo.contact),
-      ].join('\n'));
+      await respondContact(respDiv);
     } else if (intent === 'projects') {
       if (!ghReposCache) {
         respDiv.innerHTML = `<span class="spinner"></span> ${escapeHTML(tStr('projectsLoading'))}`;
@@ -662,12 +688,14 @@ async function executeCommand(raw) {
     } else {
       // === DeepSeek LLM Chat ===
       respDiv.innerHTML = '<span class="spinner"></span>';
+      streamAbort = new AbortController();
 
       try {
         const resp = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: cmd }),
+          signal: streamAbort.signal,
         });
 
         if (!resp.ok) {
@@ -683,9 +711,17 @@ async function executeCommand(raw) {
           const reader = resp.body.getReader();
           await typeStream(respDiv, reader);
         }
-      } catch {
-        respDiv.innerHTML =
-          `<span class="dim">${escapeHTML('[!] 网络连接失败 — Network error. Check your connection.')}</span>`;
+      } catch (err) {
+        if (streamCancelled || err.name === 'AbortError') {
+          respDiv.innerHTML =
+            '<span class="dim">--- Cancelled ---</span>';
+        } else {
+          respDiv.innerHTML =
+            `<span class="dim">${escapeHTML('[!] 网络连接失败 — Network error. Check your connection.')}</span>`;
+        }
+      } finally {
+        streamAbort = null;
+        streamCancelled = false;
       }
     }
   }
@@ -695,6 +731,22 @@ async function executeCommand(raw) {
 //  Event Listeners
 // ============================================================
 cmdInput.addEventListener('keydown', (e) => {
+  // Esc — cancel in-progress LLM stream
+  if (e.key === 'Escape' && streamAbort) {
+    e.preventDefault();
+    streamCancelled = true;
+    streamAbort.abort();
+    return;
+  }
+
+  // Ctrl+L / Cmd+L — clear terminal
+  if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
+    e.preventDefault();
+    output.innerHTML = '';
+    cmdInput.value = '';
+    return;
+  }
+
   if (isTyping) { e.preventDefault(); return; }
 
   if (e.key === 'Enter') {
@@ -711,7 +763,7 @@ cmdInput.addEventListener('keydown', (e) => {
     cmdInput.setSelectionRange(cmdInput.value.length, cmdInput.value.length);
   } else if (e.key === 'ArrowDown') {
     e.preventDefault();
-    if (historyIndex < commandHistory.length - 1) {
+    if (historyIndex < commandHistory.length) {
       historyIndex++;
       cmdInput.value = commandHistory[historyIndex];
     } else {
