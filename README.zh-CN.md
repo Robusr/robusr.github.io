@@ -2,9 +2,22 @@
 
 [ [English](./README.md) ]
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Cloudflare Pages](https://img.shields.io/badge/deploy-Cloudflare%20Pages-F38020)](https://pages.cloudflare.com)
+[![DeepSeek](https://img.shields.io/badge/AI-DeepSeek%20chat-4B6BFB)](https://platform.deepseek.com)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)]()
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)]()
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)]()
+
 一个模拟 macOS 终端交互的个人主页。访客可以输入命令、提问或自由聊天 --
 由 DeepSeek AI 驱动，搭载从真实的 Robusr 蒸馏而来的人格设定。
 一切都在毛玻璃终端窗口中完成，访问 [robusr.cn](https://robusr.cn)。
+
+AI 人格由独立项目定义 --
+**[Robusr-skill](https://github.com/Robusr/Robusr-skill)**，一个 Claude Code
+Skill，建模了 Robusr 的自我记忆、价值观、说话风格和情感模式。
+同一套人格设定同时驱动终端对话和 Claude Code Skill，
+在不同平台上保持一致的表达风格。
 
 ![终端截屏](./assets/img/example.png)
 

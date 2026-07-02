@@ -2,10 +2,23 @@
 
 [ [中文](./README.zh-CN.md) ]
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Cloudflare Pages](https://img.shields.io/badge/deploy-Cloudflare%20Pages-F38020)](https://pages.cloudflare.com)
+[![DeepSeek](https://img.shields.io/badge/AI-DeepSeek%20chat-4B6BFB)](https://platform.deepseek.com)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)]()
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)]()
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)]()
+
 A macOS Terminal-style personal homepage that simulates an interactive
 shell session. Visitors can type commands, ask questions, or chat freely --
 powered by DeepSeek AI with a custom persona distilled from the real Robusr.
 Everything runs inside a frosted-glass terminal window at [robusr.cn](https://robusr.cn).
+
+The AI persona is defined in a separate project --
+**[Robusr-skill](https://github.com/Robusr/Robusr-skill)**, a Claude Code
+skill that models Robusr's self-memory, values, speaking style, and
+emotional patterns. The same persona drives both the terminal chat and the
+Claude Code skill, keeping the voice consistent across surfaces.
 
 ![Terminal Screenshot](./assets/img/example.png)
 
