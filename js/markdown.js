@@ -13,13 +13,9 @@
 //    ```code block```      → <pre><code>…</code></pre>
 // ============================================================
 
-function escapeHTML(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
+import { escapeHTML } from './ui.js';
 
-function parseMarkdown(text) {
+export function parseMarkdown(text) {
   if (!text) return '';
 
   // ---- Per-call list state (closure-isolated, not module-global) ----
@@ -65,7 +61,6 @@ function parseMarkdown(text) {
 
     // Fenced-code placeholder — pass through untouched
     if (raw.startsWith('\x00FENCE')) {
-      // Close any open list before the fence
       flushList(out);
       out.push(raw);
       i++;
@@ -139,8 +134,6 @@ function parseInline(text) {
     '<a href="$2" target="_blank" rel="noopener" class="accent">$1</a>');
 
   // Bold + italic: iterate until stable → supports nesting
-  //   **bold *and italic***  →  <span class="bold">bold <span class="dim">and italic</span></span>
-  //   *italic **and bold***  →  <span class="dim">italic <span class="bold">and bold</span></span>
   let prev;
   do {
     prev = out;
@@ -150,4 +143,3 @@ function parseInline(text) {
 
   return out;
 }
-
