@@ -40,9 +40,15 @@ Claude Code skill, keeping the voice consistent across surfaces.
 - **ASCII pixel-art logo** rendered in italic with per-letter rainbow
   colours (generated offline via Pillow)
 - **Dual-language i18n** -- English by default, toggle to Chinese with
-  the `lang` command
+  the `lang` command.  All strings live in `data/i18n.json` with
+  `{{var}}` template placeholders
+- **JSON-driven config** -- personal info, skills, and contact details
+  are stored in `data/personal.json`.  Edit the JSON, refresh the page,
+  and you're done — no JavaScript changes required
 - **Live GitHub integration** -- fetches public repository list and
   profile stats from the GitHub API at page load
+- **Markdown rendering** -- LLM responses support rich formatting:
+  bold, italic, inline code, links, lists, and fenced code blocks
 - **Natural-language matching** -- ask "Who are you?", "What can you
   do?", or "Show me your projects" in either English or Chinese
 - **Responsive layout** -- adapts to mobile viewports with smaller
@@ -73,7 +79,11 @@ or just say hello.
 ├── css/
 │   └── style.css             # All styles
 ├── js/
-│   └── main.js               # Terminal engine, i18n, commands, LLM client
+│   ├── main.js               # Terminal engine, commands, LLM client
+│   └── markdown.js           # Lightweight Markdown → HTML parser
+├── data/
+│   ├── personal.json         # Editable personal info (name, bio, skills, contact)
+│   └── i18n.json             # English / Chinese UI strings ({{var}} templates)
 ├── functions/
 │   └── api/
 │       └── chat.js           # Cloudflare Pages Function -- DeepSeek API proxy
@@ -96,17 +106,30 @@ or just say hello.
 
 ### Personal Info
 
-Edit the `personalInfo` object at the top of [js/main.js](js/main.js):
+Edit [data/personal.json](data/personal.json) — no JavaScript knowledge needed:
 
-```javascript
-const personalInfo = {
-  name:    'YourName',
-  tagline: { en: "...", zh: "..." },
-  bio:     { en: "...", zh: "..." },
-  skills:  { en: [...], zh: [...] },
-  contact: { email: '...', github: '...', wechat: '...' },
-};
+```json
+{
+  "name": "YourName",
+  "tagline": { "en": "...", "zh": "..." },
+  "bio":     { "en": "...", "zh": "..." },
+  "skills":  { "en": [...], "zh": [...] },
+  "contact": { "email": "...", "github": "...", "wechat": "..." },
+  "githubUser": "YourGitHub"
+}
 ```
+
+UI strings live in [data/i18n.json](data/i18n.json) and use
+`{{var}}` placeholders that are filled from `personal.json` at
+runtime.  Add a language by duplicating the `en` block, translating
+the values, and adding a toggle in `js/main.js`.
+
+### Markdown Styling
+
+Add or modify Markdown syntax by editing [js/markdown.js](js/markdown.js).
+The parser emits HTML tags that map to CSS classes defined in
+[css/style.css](css/style.css) under the `.response` scope
+(`code`, `pre`, `ul`, `ol`, `li`).
 
 ### System Prompt
 
@@ -165,6 +188,8 @@ simply falls back to an error message when `/api/chat` is unavailable.
 | AI | DeepSeek API (`deepseek-chat`, streaming SSE) |
 | Font | Fira Code / Menlo / Consolas / SF Mono (system stack) |
 | Data | GitHub REST API (unauthenticated, public data) |
+| Config | JSON (`data/personal.json`, `data/i18n.json`) |
+| Markdown | Custom zero-dependency parser (`js/markdown.js`) |
 | Logo gen | Python 3 + Pillow (offline) |
 
 ## License
