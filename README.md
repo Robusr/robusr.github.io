@@ -58,7 +58,7 @@ Claude Code skill, keeping the voice consistent across surfaces.
 | `contact` | -- | Show email, GitHub, and WeChat |
 | `projects` | `project`, `portfolio` | List public GitHub repositories (live) |
 | `stats` | `status` | Show GitHub profile overview (live) |
-| `lang` | `zh`, `en` | Toggle between English and Chinese |
+| `lang` | `locale`, `zh`/`cn`, `en` | Toggle between English and Chinese |
 | `clear` | `cls` | Clear the terminal screen |
 
 Anything that does not match a command is sent to the LLM. You can chat
@@ -88,6 +88,7 @@ or just say hello.
 ├── scripts/
 │   └── ascii_gen.py          # Offline ASCII logo generator (Pillow)
 ├── .gitignore
+├── LICENSE
 ├── README.md
 └── README.zh-CN.md
 ```
@@ -125,8 +126,8 @@ To regenerate it after changing the text, run:
 python3 scripts/ascii_gen.py "YourName"
 ```
 
-Then copy the printed `LOGO_UP` / `LOGO_UP_SPLITS` / `LOGO_COLORS`
-blocks into [js/main.js](js/main.js).
+Then copy the printed `LOGO_UP` / `LOGO_UP_SPLITS` / `LOGO_COLORS` /
+`LOGO_UP_WIDTH` blocks into [js/main.js](js/main.js).
 
 Requirements: Python 3 with [Pillow](https://python-pillow.org/)
 (`pip install Pillow`).
