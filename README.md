@@ -53,6 +53,12 @@ Claude Code skill, keeping the voice consistent across surfaces.
   do?", or "Show me your projects" in either English or Chinese
 - **Responsive layout** -- adapts to mobile viewports with smaller
   fonts and tighter margins
+- **Copy-to-clipboard** -- code blocks include a "Copy" button
+- **OG / Twitter Card metadata** -- rich link previews on social media
+- **ARIA accessibility** -- semantic roles and labels for screen readers
+- **CSS custom properties** -- design tokens in `:root` for easy theming
+- **prefers-reduced-motion** -- skips animations when the OS setting is on
+- **Retry-on-failure** -- a Retry button appears if config files fail to load
 
 ## Commands
 
@@ -64,8 +70,8 @@ Claude Code skill, keeping the voice consistent across surfaces.
 | `contact` | -- | Show email, GitHub, and WeChat |
 | `projects` | `project`, `portfolio` | List public GitHub repositories (live) |
 | `stats` | `status` | Show GitHub profile overview (live) |
-| `lang` | `zh`, `en` | Toggle between English and Chinese |
-| `clear` | `cls` | Clear the terminal screen |
+| `lang` | `zh`, `en`, `cn`, `locale` | Toggle or set language (EN / Chinese) |
+| `clear` | `cls`, `Ctrl+L` / `Cmd+L` | Clear the terminal screen |
 
 Anything that does not match a command is sent to the LLM. You can chat
 naturally, ask about Robusr's background, discuss robotics or technology,
@@ -97,6 +103,10 @@ or just say hello.
 │       └── example.png       # README screenshot
 ├── scripts/
 │   └── ascii_gen.py          # Offline ASCII logo generator (Pillow)
+├── .github/
+│   └── workflows/
+│       └── deploy-pages.yml  # GitHub Pages deployment action
+├── LICENSE
 ├── .gitignore
 ├── README.md
 └── README.zh-CN.md
@@ -148,8 +158,10 @@ To regenerate it after changing the text, run:
 python3 scripts/ascii_gen.py "YourName"
 ```
 
-Then copy the printed `LOGO_UP` / `LOGO_UP_SPLITS` / `LOGO_COLORS`
-blocks into [js/main.js](js/main.js).
+Then copy the printed constants into [js/main.js](js/main.js).
+The script outputs `LOGO_UP`, `LOGO_UP_SPLITS`, `LOGO_COLORS`,
+`LOGO_UP_WIDTH`, `LOGO_SLANT`, `LOGO_DIR`, and `LOGO_ROWS` —
+all ready to paste.
 
 Requirements: Python 3 with [Pillow](https://python-pillow.org/)
 (`pip install Pillow`).
@@ -176,15 +188,18 @@ To deploy your own:
 
 The site also works as a static GitHub Pages deployment -- the LLM chat
 simply falls back to an error message when `/api/chat` is unavailable.
+A **GitHub Actions workflow** (`.github/workflows/deploy-pages.yml`)
+auto-deploys to GitHub Pages on every push to `main`.
 
 ## Tech Stack
 
 | Layer | Technology |
 |---|---|
 | Markup | HTML5 |
-| Styling | CSS3 (Flexbox, backdrop-filter, custom scrollbars) |
+| Styling | CSS3 (Flexbox, backdrop-filter, custom properties, custom scrollbars, prefers-reduced-motion) |
 | Logic | Vanilla JavaScript (ES2020+) |
 | Backend | Cloudflare Pages Functions (Node.js, zero dependencies) |
+| CI/CD | GitHub Actions (`deploy-pages.yml`) |
 | AI | DeepSeek API (`deepseek-chat`, streaming SSE) |
 | Font | Fira Code / Menlo / Consolas / SF Mono (system stack) |
 | Data | GitHub REST API (unauthenticated, public data) |
@@ -194,5 +209,5 @@ simply falls back to an error message when `/api/chat` is unavailable.
 
 ## License
 
-This project is for personal use.  Feel free to adapt it for your own
-homepage.
+This project is licensed under the [MIT License](LICENSE). You are
+free to use, modify, and distribute it for any purpose.

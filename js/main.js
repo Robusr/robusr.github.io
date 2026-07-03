@@ -74,12 +74,6 @@ let streamCancelled = false;  // true when user pressed Esc
 // ============================================================
 //  Helpers
 // ============================================================
-function escapeHTML(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
-
 function scrollToBottom() {
   terminalBody.scrollTop = terminalBody.scrollHeight;
 }
@@ -266,21 +260,32 @@ async function ghFetch(path) {
   return res.json();
 }
 
+let _ghProfilePromise = null;
+let _ghReposPromise   = null;
+
 async function fetchGitHubProfile() {
-  const user = personal?.githubUser ?? 'Robusr';
-  try { ghProfileCache = await ghFetch(`/users/${user}`); }
-  catch { ghProfileCache = null; }
+  if (_ghProfilePromise) return _ghProfilePromise;
+  _ghProfilePromise = (async () => {
+    const user = personal?.githubUser ?? 'Robusr';
+    try { ghProfileCache = await ghFetch(`/users/${user}`); }
+    catch { ghProfileCache = null; }
+  })();
+  return _ghProfilePromise;
 }
 
 async function fetchGitHubRepos() {
-  const user = personal?.githubUser ?? 'Robusr';
-  try {
-    const data = await ghFetch(`/users/${user}/repos?per_page=50&sort=updated`);
-    ghReposCache = {
-      originals: data.filter(r => !r.fork),
-      forks:     data.filter(r => r.fork),
-    };
-  } catch { ghReposCache = null; }
+  if (_ghReposPromise) return _ghReposPromise;
+  _ghReposPromise = (async () => {
+    const user = personal?.githubUser ?? 'Robusr';
+    try {
+      const data = await ghFetch(`/users/${user}/repos?per_page=50&sort=updated`);
+      ghReposCache = {
+        originals: data.filter(r => !r.fork),
+        forks:     data.filter(r => r.fork),
+      };
+    } catch { ghReposCache = null; }
+  })();
+  return _ghReposPromise;
 }
 
 // ============================================================
@@ -425,6 +430,26 @@ function respondContact(respDiv) {
   ].join('\n'));
 }
 
+async function respondProjects(respDiv) {
+  if (!ghReposCache) {
+    respDiv.innerHTML = `<span class="spinner"></span> ${escapeHTML(tStr('projectsLoading'))}`;
+    scrollToBottom();
+    await fetchGitHubRepos();
+  }
+  respDiv.innerHTML = '';
+  await typeHTML(respDiv, formatProjects(), 8);
+}
+
+async function respondStats(respDiv) {
+  if (!ghProfileCache) {
+    respDiv.innerHTML = `<span class="spinner"></span> ${escapeHTML(tStr('statsLoading'))}`;
+    scrollToBottom();
+    await fetchGitHubProfile();
+  }
+  respDiv.innerHTML = '';
+  await typeHTML(respDiv, formatStats(), 8);
+}
+
 // ============================================================
 //  Command Execution
 // ============================================================
@@ -443,49 +468,35 @@ async function executeCommand(raw) {
 
   const lower = cmd.toLowerCase();
 
-  // ---- Help ----
-  if (lower === 'help' || lower === 'h' || lower === '?') {
+  // ---- Exact-command alias map ----
+  const ALIASES = {
+    'help': 'help', 'h': 'help', '?': 'help',
+    'about': 'about', 'whoami': 'about',
+    'skills': 'skills', 'skill': 'skills',
+    'contact': 'contact',
+    'projects': 'projects', 'project': 'projects', 'portfolio': 'projects',
+    'stats': 'stats', 'status': 'stats',
+  };
+
+  const intent = ALIASES[lower] || matchNaturalLanguage(cmd);
+  respDiv.innerHTML = '';
+
+  // ---- Built-in commands (no fetch / LLM needed) ----
+  if (intent === 'help') {
     await typeHTML(respDiv, tStr('help'));
-  }
-
-  // ---- About ----
-  else if (lower === 'about' || lower === 'whoami') {
+  } else if (intent === 'about') {
     await respondAbout(respDiv);
-  }
-
-  // ---- Skills ----
-  else if (lower === 'skills' || lower === 'skill') {
+  } else if (intent === 'skills') {
     await respondSkills(respDiv);
-  }
-
-  // ---- Contact ----
-  else if (lower === 'contact') {
+  } else if (intent === 'contact') {
     await respondContact(respDiv);
+  } else if (intent === 'projects') {
+    await respondProjects(respDiv);
+  } else if (intent === 'stats') {
+    await respondStats(respDiv);
   }
 
-  // ---- Projects ----
-  else if (lower === 'projects' || lower === 'project' || lower === 'portfolio') {
-    if (!ghReposCache) {
-      respDiv.innerHTML = `<span class="spinner"></span> ${escapeHTML(tStr('projectsLoading'))}`;
-      scrollToBottom();
-      await fetchGitHubRepos();
-    }
-    respDiv.innerHTML = '';
-    await typeHTML(respDiv, formatProjects(), 8);
-  }
-
-  // ---- Stats ----
-  else if (lower === 'stats' || lower === 'status') {
-    if (!ghProfileCache) {
-      respDiv.innerHTML = `<span class="spinner"></span> ${escapeHTML(tStr('statsLoading'))}`;
-      scrollToBottom();
-      await fetchGitHubProfile();
-    }
-    respDiv.innerHTML = '';
-    await typeHTML(respDiv, formatStats(), 8);
-  }
-
-  // ---- Language ----
+  // ---- Language switch (needs DOM manipulation) ----
   else if (lower === 'lang' || lower === 'locale') {
     switchLanguage(locale === 'en' ? 'zh' : 'en');
     respDiv.remove();
@@ -497,89 +508,60 @@ async function executeCommand(raw) {
     respDiv.remove();
   }
 
-  // ---- Clear ----
+  // ---- Clear terminal ----
   else if (lower === 'clear' || lower === 'cls') {
     output.innerHTML = '';
     cmdInput.value = '';
     cmdInput.focus();
   }
 
-  // ---- Natural language / LLM Chat ----
+  // ---- LLM Chat fallback ----
   else {
-    const intent = matchNaturalLanguage(cmd);
-    respDiv.innerHTML = '';
+    // === DeepSeek LLM Chat (with Markdown rendering) ===
+    respDiv.innerHTML = '<span class="spinner"></span>';
+    streamAbort = new AbortController();
 
-    if (intent === 'help') {
-      await typeHTML(respDiv, tStr('help'));
-    } else if (intent === 'about') {
-      await respondAbout(respDiv);
-    } else if (intent === 'skills') {
-      await respondSkills(respDiv);
-    } else if (intent === 'contact') {
-      await respondContact(respDiv);
-    } else if (intent === 'projects') {
-      if (!ghReposCache) {
-        respDiv.innerHTML = `<span class="spinner"></span> ${escapeHTML(tStr('projectsLoading'))}`;
-        scrollToBottom();
-        await fetchGitHubRepos();
-      }
-      respDiv.innerHTML = '';
-      await typeHTML(respDiv, formatProjects(), 8);
-    } else if (intent === 'stats') {
-      if (!ghProfileCache) {
-        respDiv.innerHTML = `<span class="spinner"></span> ${escapeHTML(tStr('statsLoading'))}`;
-        scrollToBottom();
-        await fetchGitHubProfile();
-      }
-      respDiv.innerHTML = '';
-      await typeHTML(respDiv, formatStats(), 8);
-    } else {
-      // === DeepSeek LLM Chat (with Markdown rendering) ===
-      respDiv.innerHTML = '<span class="spinner"></span>';
-      streamAbort = new AbortController();
+    try {
+      const resp = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: cmd }),
+        signal: streamAbort.signal,
+      });
 
-      try {
-        const resp = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: cmd }),
-          signal: streamAbort.signal,
-        });
-
-        if (!resp.ok) {
-          if (resp.status === 429) {
-            respDiv.innerHTML =
-              `<span class="warn">${escapeHTML('[!] 太快啦，请等几秒再试 — Too fast, wait a moment.')}</span>`;
-          } else {
-            respDiv.innerHTML =
-              `<span class="err">${escapeHTML('[!] 出了点问题 — Something went wrong. Try again later.')}</span>`;
-          }
-        } else {
-          // Buffer the full response, then render Markdown
-          const reader = resp.body.getReader();
-          const fullText = await bufferStream(reader);
-
-          if (streamCancelled) {
-            respDiv.innerHTML = '<span class="dim">--- Cancelled ---</span>';
-          } else if (fullText) {
-            respDiv.innerHTML = '';
-            await typeHTML(respDiv, parseMarkdown(fullText));
-          } else {
-            respDiv.innerHTML =
-              `<span class="dim">${escapeHTML('[!] Empty response — try rephrasing.')}</span>`;
-          }
-        }
-      } catch (err) {
-        if (streamCancelled || err.name === 'AbortError') {
-          respDiv.innerHTML = '<span class="dim">--- Cancelled ---</span>';
+      if (!resp.ok) {
+        if (resp.status === 429) {
+          respDiv.innerHTML =
+            `<span class="warn">${escapeHTML('[!] 太快啦，请等几秒再试 — Too fast, wait a moment.')}</span>`;
         } else {
           respDiv.innerHTML =
-            `<span class="dim">${escapeHTML('[!] 网络连接失败 — Network error. Check your connection.')}</span>`;
+            `<span class="err">${escapeHTML('[!] 出了点问题 — Something went wrong. Try again later.')}</span>`;
         }
-      } finally {
-        streamAbort = null;
-        streamCancelled = false;
+      } else {
+        // Buffer the full response, then render Markdown
+        const reader = resp.body.getReader();
+        const fullText = await bufferStream(reader);
+
+        if (streamCancelled) {
+          respDiv.innerHTML = '<span class="dim">--- Cancelled ---</span>';
+        } else if (fullText) {
+          respDiv.innerHTML = '';
+          await typeHTML(respDiv, parseMarkdown(fullText));
+        } else {
+          respDiv.innerHTML =
+            `<span class="dim">${escapeHTML('[!] Empty response — try rephrasing.')}</span>`;
+        }
       }
+    } catch (err) {
+      if (streamCancelled || err.name === 'AbortError') {
+        respDiv.innerHTML = '<span class="dim">--- Cancelled ---</span>';
+      } else {
+        respDiv.innerHTML =
+          `<span class="dim">${escapeHTML('[!] 网络连接失败 — Network error. Check your connection.')}</span>`;
+      }
+    } finally {
+      streamAbort = null;
+      streamCancelled = false;
     }
   }
 }

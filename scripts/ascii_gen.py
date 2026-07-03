@@ -127,13 +127,16 @@ def main():
         print(f'//   {letter}: cols {start}-{end} ({end-start} wide)',
               file=sys.stderr)
 
-    print('const LOGO_LINES = [')
+    print('const LOGO_UP = [')
     for l in slanted:
         print(f"'{l}',")
     print('];')
-    print(f'const LOGO_SPLITS = {splits};')
+    print(f'const LOGO_UP_SPLITS = {splits};')
     print(f'const LOGO_COLORS = {COLORS};')
-    print(f'const LOGO_WIDTH = {total_w};')
+    print(f'const LOGO_UP_WIDTH = {total_w};')
+    print(f'const LOGO_SLANT = {SLANT};')
+    print(f"const LOGO_DIR = 'forward';")
+    print(f'const LOGO_ROWS = {len(slanted)};')
 
 
 if __name__ == '__main__':
