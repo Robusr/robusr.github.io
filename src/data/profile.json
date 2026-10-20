@@ -30,8 +30,8 @@
     "webpSmall": "/assets/profile/portrait-robusr-260.webp",
     "jpg": "/assets/profile/portrait-robusr-512.jpg",
     "width": 512,
-    "height": 512,
-    "alt": { "en": "Robusr Guo at the beach", "zh": "郭沫晗在海边", "fr": "Robusr Guo à la plage" }
+    "height": 644,
+    "alt": { "en": "Robusr Guo under a ginkgo tree in autumn", "zh": "郭沫晗在秋天的银杏树下", "fr": "Robusr Guo sous un ginkgo en automne" }
   },
   "about": {
     "en": [

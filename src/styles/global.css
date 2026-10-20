@@ -92,6 +92,21 @@ h1 { font-size: var(--step-3); line-height: 1.04; letter-spacing: -0.025em; }
 .portrait { margin: 4px 0 0; max-width: 200px; }
 .portrait img { width: 100%; height: auto; border-radius: var(--radius); }
 
+/* Personal IP watermark */
+body::before {
+  content: "";
+  position: fixed;
+  inset: auto 0 0 auto;
+  z-index: -1;
+  width: min(600px, 66vw);
+  aspect-ratio: 850 / 891;
+  background: url("/assets/brand/robusr-ip.webp") no-repeat right bottom / contain;
+  opacity: 0.16;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(120% 120% at 100% 100%, #000 40%, transparent 80%);
+  mask-image: radial-gradient(120% 120% at 100% 100%, #000 40%, transparent 80%);
+}
+
 /* Sections */
 .section { margin-top: clamp(64px, 10vw, 108px); }
 .section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
@@ -191,6 +206,7 @@ h1 { font-size: var(--step-3); line-height: 1.04; letter-spacing: -0.025em; }
   .site-nav { order: 3; width: 100%; margin: 0; padding-bottom: 12px; font-size: 13px; }
   .hero-grid { gap: 26px; }
   .portrait { margin-top: 2px; }
+  body::before { width: 92vw; opacity: 0.09; }
   .notfound h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
 }
 
@@ -202,4 +218,8 @@ h1 { font-size: var(--step-3); line-height: 1.04; letter-spacing: -0.025em; }
     scroll-behavior: auto !important;
   }
   .project-media:hover img { transform: none; }
+}
+
+@media print {
+  body::before { display: none; }
 }

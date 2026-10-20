@@ -21,7 +21,7 @@ Snapshot: 2026-10-20. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 - Intro: Robusr Guo studies in the Robotics Engineering Innovation Experimental Class at Huazhong University of Science and Technology. He started with Arduino in sixth grade in Guyuan, Ningxia, and has built a sounding rocket, a modular robotic arm, and a bat-inspired flapping-wing robot. He now builds AI tools for engineering: Vulcan turns natural language into editable SolidWorks features, and Sencillo aims to put PCB fabrication on a desk.
 - Status: Currently: Vulcan · Sencillo · HUST Robotics.
 - Links: GitHub · Email · Anteportal Labs
-- Portrait alt: Robusr Guo at the beach
+- Portrait alt: Robusr Guo under a ginkgo tree in autumn
 
 <!-- Sources: 01-identity-and-bio.md (short bio), 5.1 positioning sentence; data/profile.json. -->
 

@@ -27,6 +27,7 @@ All versions share one content model and the same section order. With JavaScript
 - **More Work:** six repositories, one line each.
 - **About:** two paragraphs on Guyuan's sandstorms and the move upstream into AI tools for CAD and fabrication.
 - **Contact:** email, GitHub, Anteportal Labs, location, language links, and the signature.
+- **Background:** a line-art personal IP illustration, used as a faint site-wide watermark.
 
 ## Stack
 
@@ -35,7 +36,7 @@ All versions share one content model and the same section order. With JavaScript
 | Framework | Astro 7, static output, no client framework |
 | Styling | native CSS custom properties, no utility framework |
 | Type | self-hosted Inter variable font, system CJK stack |
-| Images | project images at 480 and 960 px, portrait at 260 and 512 px, WebP with JPEG fallbacks |
+| Images | project images at 480 and 960 px, portrait at 260 and 512 px, 850 px transparent IP watermark; WebP, with a JPEG fallback for the portrait |
 | JavaScript | about 1 KB of progressive enhancement |
 | Privacy | no analytics, cookies, third-party fonts, or embeds |
 | Deployment | Cloudflare Pages, Git integration, Node 22 |
@@ -88,7 +89,7 @@ English is the source of truth. When editing:
 │   ├── pages/        index, zh/index, fr/index, 404, sitemap.xml, robots.txt
 │   ├── scripts/      progressive enhancement
 │   └── styles/       tokens.css, global.css
-├── public/           images, favicon, OG image, _headers, _redirects
+├── public/           images, IP watermark, favicon, OG image, _headers, _redirects
 ├── content/          copy manuscripts and glossary
 ├── scripts/          OG image generator and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
@@ -147,4 +148,4 @@ Production is Cloudflare Pages at <https://robusr.cn>. The project builds with `
 
 ## Credits
 
-Portrait provided by Robusr. Project images come from each project repository and the Anteportal Labs organization page. The site does not use TV stills, competition logos, or third-party paper figures.
+Portrait and the line-art personal IP illustration provided by Robusr. The illustration is used as a site-wide background watermark at low opacity. Project images come from each project repository and the Anteportal Labs organization page. The site does not use TV stills, competition logos, or third-party paper figures.

@@ -1,5 +1,5 @@
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "public/og/og-default.png"
@@ -40,7 +40,7 @@ img = Image.new("RGB", (1200, 630), BG)
 d = ImageDraw.Draw(img)
 
 # portrait
-p = Image.open(PORTRAIT).convert("RGB").resize((380, 380), Image.LANCZOS)
+p = ImageOps.fit(Image.open(PORTRAIT).convert("RGB"), (380, 380), Image.LANCZOS, centering=(0.5, 0.42))
 img.paste(p, (748, 125))
 
 # label with letterspacing

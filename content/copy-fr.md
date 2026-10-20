@@ -21,7 +21,7 @@ Instantané : 2026-10-20. Traduction de `content/copy-en.md`, qui reste la sourc
 - Présentation : Robusr Guo étudie dans la classe expérimentale d’innovation en génie robotique de l’Université des sciences et technologies de Huazhong (HUST). Il a commencé avec Arduino en sixième à Guyuan, dans le Ningxia, et construit depuis une fusée-sonde, un bras robotique modulaire et un robot à ailes battantes inspiré de la chauve-souris. Il conçoit aujourd’hui des outils d’IA pour l’ingénierie : Vulcan transforme le langage naturel en fonctions SolidWorks modifiables ; Sencillo vise à installer la fabrication de PCB sur un bureau.
 - Statut : Actuellement : Vulcan · Sencillo · HUST Robotics.
 - Liens : GitHub · E-mail · Anteportal Labs
-- Alt du portrait : Robusr Guo à la plage
+- Alt du portrait : Robusr Guo sous un ginkgo en automne
 
 ## Travaux sélectionnés
 

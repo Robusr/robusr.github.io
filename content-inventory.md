@@ -57,7 +57,8 @@ Audit date: 2026-10-20. Production domain updated 2026-10-21. Sources: the local
 
 | Asset | Original | Use on site |
 |---|---|---|
-| `portrait-robusr.jpg` | 1707×1280, ~200 KB | square crop 512, WebP 29 KB + JPEG 75 KB + 260 px WebP 8.8 KB |
+| `portrait.JPG` | 3072×4096, 13.4 MB | 4:5 crop 512×644: WebP 56 KB, JPEG 73 KB, 260 px WebP 21 KB |
+| `Robusr_A.jpg` | 1396×1080, 116 KB | trimmed 850×891, transparent WebP 56 KB, used as the site watermark |
 | `vulcan-card.png` | 1200×675 | 960/480 WebP (19/7.8 KB), 960 JPEG 66 KB |
 | `hsiwu-card.png` | 1200×675 | 960/480 WebP (33/12 KB), 960 JPEG 81 KB |
 | `dustarrow-card.png` | 1200×675 | 960/480 WebP (8.7/3.6 KB), 960 JPEG 38 KB |

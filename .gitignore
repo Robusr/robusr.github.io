@@ -3,3 +3,7 @@ dist/
 .astro/
 .DS_Store
 *.log
+
+# Source images processed into public/assets
+portrait.JPG
+Robusr_A.jpg

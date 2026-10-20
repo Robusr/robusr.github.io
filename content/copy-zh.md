@@ -21,7 +21,7 @@
 - 简介：郭沫晗，华中科技大学机器人工程科创实验班本科生。六年级在宁夏固原从 Arduino 起步，做过探空火箭、模块化机械臂和仿生蝙蝠机器人。现在做 AI × 工程工具：Vulcan 把自然语言变成可编辑的 SolidWorks 特征，Sencillo 尝试把 PCB 制造放回桌面。
 - 状态行：当前：Vulcan · Sencillo · HUST Robotics。
 - 链接：GitHub · 邮箱 · Anteportal Labs
-- 肖像 alt：郭沫晗在海边
+- 肖像 alt：郭沫晗在秋天的银杏树下
 
 <!-- 来源：01-identity-and-bio.md 短版中文；5.1 定位句。 -->
 
