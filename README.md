@@ -1,4 +1,4 @@
-# robusr.github.io
+# robusr.cn
 
 Personal homepage of **Robusr Guo (郭沫晗)**, built with Astro as a static site.
 
@@ -6,7 +6,7 @@ The page follows one narrative in three languages: real-world problems turned in
 
 ![Homepage preview](public/og/og-default.png)
 
-**Status:** built and verified locally. Deployment to <https://robusr.github.io> is prepared but not enabled.
+**Status:** live at <https://robusr.cn>, deployed on Cloudflare Pages from `main`.
 
 ## Pages
 
@@ -38,11 +38,11 @@ All versions share one content model and the same section order. With JavaScript
 | Images | project images at 480 and 960 px, portrait at 260 and 512 px, WebP with JPEG fallbacks |
 | JavaScript | about 1 KB of progressive enhancement |
 | Privacy | no analytics, cookies, third-party fonts, or embeds |
-| Deployment | GitHub Pages via GitHub Actions |
+| Deployment | Cloudflare Pages, Git integration, Node 22 |
 
 ## Local development
 
-Requirements: Node.js 22.22 or newer and npm 9.6 or newer.
+Requirements: Node.js 22.12 or newer and npm 9.6 or newer.
 
 ```bash
 npm ci
@@ -85,15 +85,15 @@ English is the source of truth. When editing:
 │   ├── data/         profile, projects, timeline, awards, more-work
 │   ├── i18n/         en, zh, fr
 │   ├── layouts/      Base.astro with head, hreflang, and JSON-LD
-│   ├── pages/        index, zh/index, fr/index, 404
+│   ├── pages/        index, zh/index, fr/index, 404, sitemap.xml, robots.txt
 │   ├── scripts/      progressive enhancement
 │   └── styles/       tokens.css, global.css
-├── public/           images, favicon, OG image, robots.txt, sitemap.xml
+├── public/           images, favicon, OG image, _headers, _redirects
 ├── content/          copy manuscripts and glossary
 ├── scripts/          OG image generator and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
 ├── screenshots/      full-page captures at 1440, 1024, 768, and 390 px
-└── .github/workflows/deploy.yml
+└── .nvmrc            Node version for local builds
 ```
 
 ## Verification
@@ -101,6 +101,7 @@ English is the source of truth. When editing:
 | Check | Result |
 |---|---|
 | Build | 4 pages, no errors |
+| Production | `/`, `/zh/`, `/fr/` return 200 at <https://robusr.cn>; HTTP redirects to HTTPS |
 | Lighthouse mobile, EN / ZH / FR | Performance, Accessibility, Best Practices, SEO: 100 each |
 | LCP / CLS | 1.4–1.7 s / 0.001 or lower |
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow |
@@ -113,13 +114,14 @@ The QA scripts use Playwright, installed separately with `npm install --no-save 
 
 ## Deployment
 
-The workflow at [.github/workflows/deploy.yml](.github/workflows/deploy.yml) builds the site and uploads `dist/` as a Pages artifact.
+Production is Cloudflare Pages at <https://robusr.cn>. The project builds with `npm run build` and publishes `dist/`. `astro.config.mjs` sets the canonical site; canonical URLs, hreflang, Open Graph, JSON-LD, `sitemap.xml`, and `robots.txt` derive from it.
 
-1. Push the branch and open a pull request.
-2. Merge to `main`.
-3. In repository settings, set the Pages source to **GitHub Actions**.
+1. Connect the repository to Cloudflare Pages.
+2. Set build command `npm run build`, output directory `dist`, and `NODE_VERSION=22`.
+3. Add `robusr.cn` as a custom domain and enable HTTPS.
+4. Push to `main`. Cloudflare Pages rebuilds automatically.
 
-The site is not deployed yet. `robusr.cn` did not resolve on 2026-10-20, so canonical URLs and the sitemap use `https://robusr.github.io`. DNS changes, a CNAME, and HTTPS enforcement are left to the owner; see [DEPLOY.md](DEPLOY.md).
+`public/_headers` adds security and cache headers. `public/_redirects` sends `www` to the apex once the `www` host is attached. GitHub Pages is retired; disable the Pages site in repository settings if it is still enabled. See [DEPLOY.md](DEPLOY.md).
 
 ## Content rules
 
@@ -134,8 +136,8 @@ The site is not deployed yet. `robusr.cn` did not resolve on 2026-10-20, so cano
 | Document | Purpose |
 |---|---|
 | [DELIVERY.md](DELIVERY.md) | Chinese delivery report |
-| [DEPLOY.md](DEPLOY.md) | GitHub Pages, domain, DNS, and HTTPS steps |
-| [QA.md](QA.md) | Consistency, accessibility, link, and Lighthouse evidence |
+| [DEPLOY.md](DEPLOY.md) | Cloudflare Pages, domain, DNS, HTTPS, and rollback |
+| [QA.md](QA.md) | Consistency, accessibility, link, Lighthouse, and production evidence |
 | [content-inventory.md](content-inventory.md) | Audited facts and link checks |
 | [CONTENT_GAPS.md](CONTENT_GAPS.md) | Unresolved content |
 | [CONTENT_CONFLICTS.md](CONTENT_CONFLICTS.md) | Conflicts and resolutions |

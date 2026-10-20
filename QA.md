@@ -2,12 +2,31 @@
 
 Date: 2026-10-20. Build: Astro 7.4.1, Node 25.4.0, static output. Tests run against `astro preview` at `http://127.0.0.1:4321`.
 
+Production host switched to <https://robusr.cn> on 2026-10-21. Production checks are recorded below.
+
 ## Build
 
 - `npm run build` completes with 4 pages: `/`, `/zh/`, `/fr/`, `/404.html`.
 - No errors or warnings during rendering; no runtime console errors or page errors in Chromium.
 - Output size: 1.4 MB total. HTML: EN 19,021 B, ZH 18,414 B, FR 19,941 B, 404 3,273 B.
-- CSS, fonts, and the enhancement script are bundled locally. No third-party script, font CDN, analytics, or iframe.
+- CSS, fonts, and the enhancement script are bundled locally. The build has no third-party script, font CDN, analytics, or iframe. Cloudflare injects an email-decode script at the edge; see Known limitations.
+
+## Production checks (2026-10-21)
+
+| Check | Result |
+|---|---|
+| `/`, `/zh/`, `/fr/` | 200 |
+| Unknown path | 404 with the custom page |
+| HTTP to HTTPS | 301 |
+| IPv6 | 200 |
+| TLS certificate | valid to 2027-01-18, covers `robusr.cn` |
+| `www.robusr.cn` | no DNS record; see `DEPLOY.md` |
+| Live HTML before the 2026-10-21 change | matched commit 9fe6351 except Cloudflare email obfuscation |
+| Canonical, hreflang, OG, JSON-LD in the local build | `https://robusr.cn`; deploy pending |
+
+The live site still serves the pre-change build until the next push to `main`.
+
+Cloudflare serves hashed assets with `cache-control: public, max-age=14400, must-revalidate`. `public/_headers` tightens this to one year immutable for hashed assets and adds HSTS, CSP, and framing headers.
 
 ## Three-language consistency
 
@@ -62,12 +81,12 @@ Screenshots:
 
 ## JavaScript disabled
 
-With JavaScript disabled at 390 px, all six sections and the hero, contact, and project copy remain readable. Navigation, language links, and email link are plain anchors. Verified text includes Vulcan, Sencillo, and the email address.
+With JavaScript disabled at 390 px, all six sections and the hero, contact, and project copy remain readable. Navigation and language links are plain anchors. This check ran on the local preview. On Cloudflare, Email Address Obfuscation replaces the email address with `[email protected]`; see Known limitations.
 
 ## Links and assets
 
 - All GitHub profile, repository, organization, and Kankanews links returned HTTP 200 on 2026-10-20.
-- `https://robusr.cn` returned 000 (no DNS response) and is not used anywhere.
+- `https://robusr.cn` resolves through Cloudflare and returns 200; it is the production host. `https://www.robusr.cn` still has no DNS record.
 - Local routes `/`, `/zh/`, `/fr/`, `/404.html`, `/sitemap.xml`, `/robots.txt`, `/og/og-default.png`, and `/favicon.svg` return 200 with correct content types.
 - No broken in-page anchors in any locale.
 
@@ -86,6 +105,7 @@ Lighthouse ran against a local preview with Chrome headless and simulated mobile
 ## SEO and metadata
 
 - Per-page title, description, canonical, OG and Twitter tags.
+- Canonical, hreflang, Open Graph, JSON-LD, `sitemap.xml`, and `robots.txt` derive from `site` in `astro.config.mjs`.
 - hreflang set with `x-default` pointing to `/`.
 - `robots.txt` allows all and references the sitemap.
 - `sitemap.xml` lists the three locales with lastmod 2026-10-20.
@@ -94,7 +114,8 @@ Lighthouse ran against a local preview with Chrome headless and simulated mobile
 
 ## Known limitations
 
-- `robusr.cn` is unverified, so canonical URLs use `https://robusr.github.io`.
+- Production is Cloudflare Pages at `https://robusr.cn`. Canonical, hreflang, Open Graph, JSON-LD, sitemap, and robots use that host. The Lighthouse numbers above were measured on a local preview and have not been re-run against production.
+- Cloudflare Email Address Obfuscation rewrites `mailto:` links and injects `/cdn-cgi/scripts/.../email-decode.min.js`. With JavaScript disabled, the footer shows `[email protected]` and the email link does not open a mail client.
 - Chinese and French copy need a native technical review before publishing.
 - The 37th CASTIC second prize is medium-confidence; see `CONTENT_CONFLICTS.md`.
 - The OG image is shared across locales and uses English copy, which the brief permits.

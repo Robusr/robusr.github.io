@@ -10,6 +10,6 @@
 | 6 | OnesArm reach: 354 mm link-length sum versus about 450 mm reach. | Both describe different quantities; the page uses "~450 mm reach" from the 10,000-sample workspace result and does not present 354 mm as reach. |
 | 7 | Brief status vocabulary lists Active / Complete / Archive / Pre-prototype, but OnesArm's data says "v2 current". | Added a fifth label: v2 current / v2 现行 / v2 actuelle. |
 | 8 | More Work could include ten secondary repos; the brief caps it at six. | Six items in the brief's order: Huginn, Robusr-skill, Brokkr, Tanngrisnir, Argo, Lynx. |
-| 9 | `robusr.cn` was suggested as the website but did not resolve. | Fallback `https://robusr.github.io` is canonical. No CNAME was added. |
+| 9 | `robusr.cn` was suggested as the website but did not resolve on 2026-10-20. | It now resolves through Cloudflare and is the configured canonical host. GitHub Pages is retired from the build configuration. No CNAME file is used. |
 | 10 | The brief's example tree nests the app under `site/`, while the repo is the user Pages site. | App lives at repo root; `base` is `/`. Documented in README and DEPLOY.md. |
 | 11 | Sencillo is described as "AI × manufacturing / startup" in the library, but the team is not a registered company. | Page category is "AI × manufacturing"; copy says "student-founded team" and never calls it a company. |

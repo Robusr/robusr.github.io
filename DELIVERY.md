@@ -1,5 +1,7 @@
 # 交付报告
 
+> 2026-10-21 更新：仓库配置已切换到 https://robusr.cn，canonical、hreflang、Open Graph、JSON-LD、sitemap 与 robots 均已更新，部署后生效；GitHub Actions 部署工作流已移除；GitHub Pages 站点设置仍需在仓库后台关闭。以下为 2026-10-20 的原始交付记录。
+
 日期：2026-10-20
 工作分支：`feat/homepage`
 状态：站点可构建、可本地预览；未推送、未合并、未部署。

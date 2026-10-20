@@ -58,7 +58,7 @@ d.text((72, 332), "then use AI to compress the distance from idea", font=body, f
 d.text((72, 372), "to part.", font=body, fill=MUTED)
 
 d.line((72, 500, 660, 500), fill=LINE, width=1)
-d.text((72, 522), "robusr.github.io", font=small, fill=ACCENT)
+d.text((72, 522), "robusr.cn", font=small, fill=ACCENT)
 d.text((72, 556), "Wuhan, China · October 2026", font=small, fill=MUTED)
 
 OUT.parent.mkdir(parents=True, exist_ok=True)

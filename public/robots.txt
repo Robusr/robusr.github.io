@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://robusr.github.io/sitemap.xml

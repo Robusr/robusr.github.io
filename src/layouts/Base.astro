@@ -17,7 +17,7 @@ const {
   title?: string;
 };
 
-const SITE = 'https://robusr.github.io';
+const SITE = (Astro.site ?? new URL('https://robusr.cn')).origin;
 const PATHS = { en: '/', zh: '/zh/', fr: '/fr/' } as const;
 const canonical = new URL(path ?? PATHS[locale], SITE).href;
 const ogImage = new URL('/og/og-default.png', SITE).href;

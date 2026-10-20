@@ -2,7 +2,7 @@
 
 Items marked `[待补充]` are not invented on the page. None of them blocks the build.
 
-1. **Custom domain unverified.** `robusr.cn` returned no DNS answer and `curl` status 000 on 2026-10-20. The site uses `https://robusr.github.io` everywhere (canonical, hreflang, sitemap, JSON-LD). `[待补充]` Confirm the domain before adding `CNAME`.
+1. **Custom domain resolved.** `robusr.cn` resolves through Cloudflare and is the production host. Canonical, hreflang, sitemap, robots, and JSON-LD are configured to use `https://robusr.cn`. `www.robusr.cn` still has no DNS record; see `DEPLOY.md`.
 2. **Portrait variety.** Only one user-provided photo exists (beach portrait). The hero uses a square crop. A more formal portrait would be useful for press or applications, but the current photo is acceptable for a personal homepage.
 3. **Native review of translations.** Chinese and French were written from the English source. A native technical reviewer should read `content/copy-zh.md` and `content/copy-fr.md` before publishing.
 4. **More Work descriptions.** The six one-line descriptions come from English GitHub repo descriptions; official Chinese and French descriptions were not in the library and were translated here.

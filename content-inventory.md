@@ -1,6 +1,6 @@
 # Content inventory
 
-Audit date: 2026-10-20. Sources: the local info library at `/Users/robusr/Desktop/Homepage information/Homepage-Info-Library/` (files 01–07, `sources.md`, `data/*.json`, `assets/`), plus live checks of every outbound link.
+Audit date: 2026-10-20. Production domain updated 2026-10-21. Sources: the local info library at `/Users/robusr/Desktop/Homepage information/Homepage-Info-Library/` (files 01–07, `sources.md`, `data/*.json`, `assets/`), plus live checks of every outbound link.
 
 ## Facts used directly
 
@@ -42,8 +42,8 @@ Audit date: 2026-10-20. Sources: the local info library at `/Users/robusr/Deskto
 
 | URL | HTTP status | Decision |
 |---|---|---|
-| https://robusr.github.io | 200 | use as canonical site |
-| https://robusr.cn | 000 (no DNS response) | do not use; fallback domain only |
+| https://robusr.github.io | 200 | old host; no longer canonical |
+| https://robusr.cn | 200 | configured canonical site |
 | https://github.com/Robusr | 200 | use |
 | https://github.com/Robusr/Vulcan | 200 | use |
 | https://github.com/Robusr/Hsiwu | 200 | use |
@@ -69,4 +69,4 @@ All source images remain untouched in the info library; only copies were convert
 
 ## Implementation note
 
-The brief's example tree places the app under `site/`. Because the repository is the GitHub Pages user site (`Robusr/robusr.github.io`), the Astro app is built at the repository root with `base: /`, which avoids a nested deployment path and keeps `dist/` publishable as-is. Content data still lives in `src/data/*.json` and is the single source for rendering.
+The brief's example tree places the app under `site/`. The repository is `Robusr/robusr.github.io`, and production moved to Cloudflare Pages. The Astro app stays at the repository root with `base: /`, which keeps `dist/` publishable as-is. Content data still lives in `src/data/*.json` and is the single source for rendering.
