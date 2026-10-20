@@ -102,11 +102,14 @@ English is the source of truth. When editing:
 |---|---|
 | Build | 4 pages, no errors |
 | Production | `/`, `/zh/`, `/fr/` return 200 at <https://robusr.cn>; HTTP redirects to HTTPS |
-| Lighthouse mobile, EN / ZH / FR | Performance, Accessibility, Best Practices, SEO: 100 each |
-| LCP / CLS | 1.4–1.7 s / 0.001 or lower |
+| Lighthouse mobile, local preview | Performance, Accessibility, Best Practices, SEO: 100 each |
+| Lighthouse mobile, production | Performance 96, Accessibility 100, Best Practices 92, SEO 100 |
+| LCP / CLS, production | 2.0–2.1 s / 0 |
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow |
 | JavaScript disabled | all content readable |
 | Outbound links | GitHub and media links return 200 |
+
+Production Best Practices is 92 because Cloudflare's Web Analytics beacon is injected and blocked by the CSP. Disabling RUM in the Cloudflare zone should restore 100. Production results are in `qa/lighthouse-live-summary.json`.
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 

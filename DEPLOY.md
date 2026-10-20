@@ -47,10 +47,48 @@ The current certificate covers `robusr.cn` only. Add `www` before relying on tha
 - `Content-Security-Policy` restricted to the site origin. `'unsafe-inline'` is required because Astro inlines the small enhancement script.
 - one-year immutable caching for `/_astro/*`, `/assets/*`, `/og/*`, and `/favicon.svg`
 
-Two Cloudflare zone features change the response after the build:
+Three Cloudflare zone features modify the response after the build. The site policy is to keep all three off:
 
-- **Email Address Obfuscation** rewrites `mailto:` links and injects `/cdn-cgi/scripts/.../email-decode.min.js`. With JavaScript disabled, the footer shows `[email protected]` and the email link does not open a mail client. Disable it under Scrape Shield if no-JavaScript email access matters.
-- **Managed robots.txt** prepends a policy that blocks GPTBot, ClaudeBot, Google-Extended, Baiduspider, and other crawlers. Review it under Security, Bots if that policy is not intended. The repository's `robots.txt` endpoint remains correct underneath.
+| Feature | Dashboard path | API |
+|---|---|---|
+| Email Address Obfuscation | Security → Settings → Scrape Shield → Email Address Obfuscation → Off | `PATCH /zones/{zone_id}/settings/email_obfuscation` with `{"value":"off"}` |
+| Managed robots.txt | AI Crawl Control → Directives → Managed robots.txt → Off, or Security → Bots on older accounts | `PUT /zones/{zone_id}/bot_management` with the current config and `is_robots_txt_managed: false` |
+| Web Analytics / RUM | Analytics & Logs → Web Analytics → Manage Site → Advanced Options → JS Snippet injection → Off | `PATCH /zones/{zone_id}/settings/rum` with `{"value":"off"}` |
+
+For the Bot Management call, read the current config first and send it back with only `is_robots_txt_managed` changed. If the API rejects read-only fields, remove them before the PUT.
+
+```bash
+TOKEN=...  # Zone:Read, Zone Settings:Edit, Bot Management:Edit
+ZONE_ID=$(curl -s -H "Authorization: Bearer $TOKEN" \
+  "https://api.cloudflare.com/client/v4/zones?name=robusr.cn" | jq -r '.result[0].id')
+
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/bot_management" \
+  > /tmp/bot-management.json
+jq '.result | .is_robots_txt_managed = false' /tmp/bot-management.json \
+  > /tmp/bot-management-update.json
+curl -s -X PUT -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+  --data @/tmp/bot-management-update.json \
+  "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/bot_management"
+
+curl -s -X PATCH -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+  --data '{"value":"off"}' \
+  "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/settings/email_obfuscation"
+curl -s -X PATCH -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+  --data '{"value":"off"}' \
+  "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/settings/rum"
+```
+
+Verify after the change:
+
+```bash
+curl -s https://robusr.cn/ | grep -E '__cf_email__|email-decode' || echo "email obfuscation off"
+curl -s https://robusr.cn/robots.txt | grep -c 'Cloudflare Managed'  # expect 0
+curl -s https://robusr.cn/ | grep -c 'cloudflareinsights'          # expect 0
+```
+
+The repository currently has no Cloudflare credentials. Until these settings are changed, the live site keeps the email placeholder without JavaScript, the managed robots block, and the CSP console error that lowers Best Practices to 92.
+
 
 ## 5. Retire GitHub Pages
 

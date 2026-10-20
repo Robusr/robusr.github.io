@@ -11,4 +11,4 @@ Items marked `[待补充]` are not invented on the page. None of them blocks the
 7. **Media beyond one link.** Only the Kankanews feature is linked. Sohu and other reports were not used because they are secondary aggregations.
 8. **Optional GitHub Profile README sync.** `05-profile-readme-draft.md` is a ready draft, but this repository does not modify `Robusr/Robusr`. The user must decide whether to sync.
 9. **OG images per language.** A single English OG image is shared by all three pages, which the brief allows.
-10. **No analytics.** Deliberately omitted; the brief forbids third-party tracking unless requested.
+10. **No analytics.** Deliberately omitted; the brief forbids third-party tracking. Cloudflare Web Analytics is currently injected by the zone but blocked by the CSP. Disable RUM so the policy and the Lighthouse score agree.

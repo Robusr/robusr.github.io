@@ -1,0 +1,49 @@
+{
+  "deployedCommit": "50eb6c9",
+  "date": "2026-10-21",
+  "notes": "Best Practices 92 comes from the CSP-blocked Cloudflare Web Analytics beacon. The beacon transferred 0 bytes. Performance 96 reflects Speed Index 4.3 to 4.4 s; CLS is 0 and TBT is 0 ms.",
+  "locales": [
+    {
+      "locale": "en",
+      "url": "https://robusr.cn/",
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 92,
+      "seo": 100,
+      "fcp": "1.6 s",
+      "lcp": "2.0 s",
+      "speed-index": "4.3 s",
+      "tbt": "0 ms",
+      "cls": "0",
+      "transfer": "183 KiB"
+    },
+    {
+      "locale": "zh",
+      "url": "https://robusr.cn/zh/",
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 92,
+      "seo": 100,
+      "fcp": "1.6 s",
+      "lcp": "2.1 s",
+      "speed-index": "4.4 s",
+      "tbt": "0 ms",
+      "cls": "0",
+      "transfer": "201 KiB"
+    },
+    {
+      "locale": "fr",
+      "url": "https://robusr.cn/fr/",
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 92,
+      "seo": 100,
+      "fcp": "1.6 s",
+      "lcp": "2.0 s",
+      "speed-index": "4.4 s",
+      "tbt": "0 ms",
+      "cls": "0",
+      "transfer": "183 KiB"
+    }
+  ]
+}
