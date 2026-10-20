@@ -4,7 +4,7 @@ Personal homepage of **Robusr Guo (郭沫晗)**, built with Astro as a static si
 
 The page follows one narrative in three languages: real-world problems turned into working hardware, then AI tools that shorten the distance from an idea to a part. It presents five selected projects, a six-entry timeline, awards and media, and a short essay on the move from building machines to building tools.
 
-![Homepage preview](public/og/og-default.png)
+![Homepage preview](public/og/og-default-v2.png)
 
 **Status:** live at <https://robusr.cn>, deployed on Cloudflare Pages from `main`.
 
@@ -129,6 +129,7 @@ Production is Cloudflare Pages at <https://robusr.cn>. The project builds with `
 
 ## Content rules
 
+- Assets under `/assets/` and `/og/` are cached for one year. When an image changes, write it to a new filename and update every reference.
 - Every number, award, link, and project status must trace back to the info library or a public source.
 - Sencillo figures are design targets and must stay labeled as such.
 - Star counts are snapshots dated October 2026 and carry that date in the UI.

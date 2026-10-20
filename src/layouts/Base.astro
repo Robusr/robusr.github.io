@@ -20,7 +20,7 @@ const {
 const SITE = (Astro.site ?? new URL('https://robusr.cn')).origin;
 const PATHS = { en: '/', zh: '/zh/', fr: '/fr/' } as const;
 const canonical = new URL(path ?? PATHS[locale], SITE).href;
-const ogImage = new URL('/og/og-default.png', SITE).href;
+const ogImage = new URL('/og/og-default-v2.png', SITE).href;
 const ogLocale = { en: 'en_US', zh: 'zh_CN', fr: 'fr_FR' }[locale];
 const pageTitle = title ?? t.meta.title;
 
@@ -30,7 +30,7 @@ const jsonLd = {
   name: 'Robusr Guo',
   alternateName: '郭沫晗',
   url: SITE + '/',
-  image: SITE + '/assets/profile/portrait-robusr-512.jpg',
+  image: SITE + '/assets/profile/portrait-robusr-512-v2.jpg',
   jobTitle: 'AI × Engineering builder',
   alumniOf: {
     '@type': 'CollegeOrUniversity',
@@ -63,9 +63,9 @@ const jsonLd = {
       <link
         rel="preload"
         as="image"
-        href="/assets/profile/portrait-robusr-512.webp"
+        href="/assets/profile/portrait-robusr-512-v2.webp"
         type="image/webp"
-        imagesrcset="/assets/profile/portrait-robusr-260.webp 260w, /assets/profile/portrait-robusr-512.webp 512w"
+        imagesrcset="/assets/profile/portrait-robusr-260-v2.webp 260w, /assets/profile/portrait-robusr-512-v2.webp 512w"
         imagesizes="(min-width: 1024px) 260px, 200px"
       />
     )}

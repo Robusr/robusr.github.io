@@ -2,8 +2,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "public/og/og-default.png"
-PORTRAIT = ROOT / "public/assets/profile/portrait-robusr-512.jpg"
+OUT = ROOT / "public/og/og-default-v2.png"
+PORTRAIT = ROOT / "public/assets/profile/portrait-robusr-512-v2.jpg"
 
 BG = (251, 251, 249)
 TEXT = (22, 22, 22)

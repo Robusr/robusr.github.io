@@ -26,9 +26,9 @@
   ],
   "location": { "en": "Wuhan, China", "zh": "中国，武汉", "fr": "Wuhan, Chine" },
   "portrait": {
-    "webp": "/assets/profile/portrait-robusr-512.webp",
-    "webpSmall": "/assets/profile/portrait-robusr-260.webp",
-    "jpg": "/assets/profile/portrait-robusr-512.jpg",
+    "webp": "/assets/profile/portrait-robusr-512-v2.webp",
+    "webpSmall": "/assets/profile/portrait-robusr-260-v2.webp",
+    "jpg": "/assets/profile/portrait-robusr-512-v2.jpg",
     "width": 512,
     "height": 644,
     "alt": { "en": "Robusr Guo under a ginkgo tree in autumn", "zh": "郭沫晗在秋天的银杏树下", "fr": "Robusr Guo sous un ginkgo en automne" }
