@@ -1,0 +1,162 @@
+[
+  {
+    "id": "vulcan",
+    "order": 1,
+    "name": "Vulcan",
+    "category": { "en": "AI × CAD", "zh": "AI × CAD", "fr": "IA × CAO" },
+    "tagline": {
+      "en": "Natural language in. Parametric SolidWorks geometry out.",
+      "zh": "一句话输入，可编辑的 SolidWorks 特征树输出。",
+      "fr": "Langage naturel en entrée. Géométrie paramétrique SolidWorks en sortie."
+    },
+    "summary": {
+      "en": "A SolidWorks add-in that turns a plain engineering request into native, editable features. The model returns a typed JSON feature tree, and a C# client executes it through the SolidWorks COM API. No exec(), no code-generation surface.",
+      "zh": "一款 SolidWorks AI 插件，把一句工程需求变成原生、可编辑的特征。模型返回受类型约束的 JSON 特征树，C# 客户端通过 SolidWorks COM API 执行。没有 exec()，没有代码生成面。",
+      "fr": "Un module complémentaire pour SolidWorks qui transforme une demande d’ingénierie en fonctions natives et modifiables. Le modèle renvoie un arbre de fonctions JSON typé, et un client C# l’exécute via l’API COM de SolidWorks. Pas d’exec(), pas de surface de génération de code."
+    },
+    "tech": ["C#", "WPF", ".NET 4.8", "Python", "Flask", "SolidWorks COM API", "LLM"],
+    "evidence": {
+      "en": "23 stars (Oct 2026) · GPL-3.0 · Typed JSON contract",
+      "zh": "23 stars（2026 年 10 月）· GPL-3.0 · 类型化 JSON 契约",
+      "fr": "23 étoiles (oct. 2026) · GPL-3.0 · contrat JSON typé"
+    },
+    "designTarget": false,
+    "statusKey": "Active",
+    "href": "https://github.com/Robusr/Vulcan",
+    "exitKey": "repository",
+    "image": "/assets/projects/vulcan-card",
+    "alt": {
+      "en": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
+      "zh": "Vulcan 横幅：自然语言输入，参数化 SolidWorks 几何输出",
+      "fr": "Bannière Vulcan : langage naturel en entrée, géométrie paramétrique SolidWorks en sortie"
+    }
+  },
+  {
+    "id": "hsiwu",
+    "order": 2,
+    "name": "Hsiwu",
+    "category": { "en": "Bio-inspired robotics", "zh": "仿生机器人", "fr": "Robotique bio-inspirée" },
+    "tagline": {
+      "en": "Six wing segments. Three motors. Zero lines of code.",
+      "zh": "六段翼、三台电机、零行代码。",
+      "fr": "Six segments d’aile. Trois moteurs. Zéro ligne de code."
+    },
+    "summary": {
+      "en": "A bat-inspired flapping-wing robot with six wing segments, three per side. Three NE555 oscillators, one 74HC04 inverter, and three L293D bridges form the entire control law. No MCU, no firmware.",
+      "zh": "仿生蝙蝠扑翼机器人，每侧三段、共六段翼面。3 片 NE555、1 片 74HC04 与 3 片 L293D 构成完整的控制逻辑。无 MCU、无固件。",
+      "fr": "Un robot à ailes battantes inspiré de la chauve-souris, avec six segments d’aile, trois par côté. Trois oscillateurs NE555, un inverseur 74HC04 et trois ponts L293D forment toute la loi de commande. Pas de MCU, pas de firmware."
+    },
+    "tech": ["SolidWorks", "Altium", "NE555", "74HC04", "L293D", "FDM"],
+    "evidence": {
+      "en": "8 stars (Oct 2026) · MIT · Gerber, BOM, and STEP included",
+      "zh": "8 stars（2026 年 10 月）· MIT · 含 Gerber、BOM 与 STEP",
+      "fr": "8 étoiles (oct. 2026) · MIT · Gerber, BOM et STEP inclus"
+    },
+    "designTarget": false,
+    "statusKey": "Complete",
+    "href": "https://github.com/Robusr/Hsiwu",
+    "exitKey": "repository",
+    "image": "/assets/projects/hsiwu-card",
+    "alt": {
+      "en": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
+      "zh": "Hsiwu 全彩渲染：一台拥有六段翼面的仿生机器人",
+      "fr": "Rendu couleur de Hsiwu : un robot bio-inspiré à six segments d’aile"
+    }
+  },
+  {
+    "id": "dustarrow",
+    "order": 3,
+    "name": "DustArrow X",
+    "category": { "en": "Aerospace / embedded", "zh": "航空航天 / 嵌入式", "fr": "Aérospatial / embarqué" },
+    "tagline": {
+      "en": "A sounding rocket for the sandstorms back home.",
+      "zh": "为家乡的沙尘天气，造一支探空火箭。",
+      "fr": "Une fusée-sonde pour les tempêtes de sable de chez moi."
+    },
+    "summary": {
+      "en": "A 40 mm modular meteorological sounding rocket with 10 bays and 9 PCB modules. An RP2040 sensing stack, a LoRa downlink, and a PyQt5 ground station measure the vertical structure of the atmosphere during dust events.",
+      "zh": "40 mm 模块化气象探空火箭，10 个功能舱段、9 块 PCB 模块。RP2040 传感栈、LoRa 下行与 PyQt5 地面站，用来测量沙尘天气中大气垂直结构。",
+      "fr": "Une fusée-sonde météorologique modulaire de 40 mm, avec 10 compartiments et 9 modules PCB. Une pile de capteurs RP2040, une liaison descendante LoRa et une station sol PyQt5 mesurent la structure verticale de l’atmosphère pendant les épisodes de poussière."
+    },
+    "tech": ["RP2040", "LoRa", "PyQt5", "SolidWorks", "EasyEDA", "CFD"],
+    "evidence": {
+      "en": "37th CASTIC second prize · 32 tests passed · Gobi flight, 2023",
+      "zh": "第 37 届全国青少年科技创新大赛二等奖 · 32 项测试通过 · 2023 年戈壁试飞",
+      "fr": "2e prix du 37e CASTIC · 32 tests réussis · vol dans le Gobi, 2023"
+    },
+    "designTarget": false,
+    "statusKey": "Archive",
+    "href": "https://github.com/Robusr/DustArrow",
+    "exitKey": "repository",
+    "image": "/assets/projects/dustarrow-card",
+    "alt": {
+      "en": "DustArrow X full assembly render: a 40 mm sounding rocket",
+      "zh": "DustArrow X 整机渲染：一枚 40 mm 探空火箭",
+      "fr": "Rendu de l’assemblage complet de DustArrow X : une fusée-sonde de 40 mm"
+    }
+  },
+  {
+    "id": "onesarm",
+    "order": 4,
+    "name": "OnesArm",
+    "category": { "en": "Modular robotics", "zh": "模块化机器人", "fr": "Robotique modulaire" },
+    "tagline": {
+      "en": "One arm. Twenty-four configurations.",
+      "zh": "一台机械臂，二十四种构型。",
+      "fr": "Un bras. Vingt-quatre configurations."
+    },
+    "summary": {
+      "en": "A modular serial robotic arm with a T/N mortise-and-tenon interface. Three interchangeable modules produce 3! × 2² = 24 layouts. The v2 platform uses stepper/CAN joints, 5 mm 5052 aluminium links, and carbon tubes.",
+      "zh": "模块化串联机械臂，采用 T/N 榫卯接口。三个可互换模块得到 3! × 2² = 24 种布局；v2 平台使用步进/CAN 关节、5 mm 5052 铝板与碳纤维管。",
+      "fr": "Un bras robotique série modulaire doté d’une interface à tenon et mortaise T/N. Trois modules interchangeables produisent 3! × 2² = 24 configurations. La plateforme v2 utilise des articulations pas-à-pas/CAN, des liens en aluminium 5052 de 5 mm et des tubes en carbone."
+    },
+    "tech": ["SolidWorks", "STM32", "CAN", "MATLAB", "FEA"],
+    "evidence": {
+      "en": "38th CASTIC first prize · 24 layouts modelled · ~450 mm reach",
+      "zh": "第 38 届全国青少年科技创新大赛一等奖 · 24 种布局已建模 · 工作空间约 450 mm",
+      "fr": "1er prix du 38e CASTIC · 24 configurations modélisées · portée d’environ 450 mm"
+    },
+    "designTarget": false,
+    "statusKey": "v2 current",
+    "href": "https://github.com/Robusr/OnesArm",
+    "exitKey": "repository",
+    "image": "/assets/projects/onesarm-card",
+    "alt": {
+      "en": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
+      "zh": "OnesArm v2 模块化机械臂，安装在 4040 铝型材平台上",
+      "fr": "Bras robotique modulaire OnesArm v2 sur une plateforme en aluminium 4040"
+    }
+  },
+  {
+    "id": "sencillo",
+    "order": 5,
+    "name": "Anteportal Labs · Sencillo",
+    "category": { "en": "AI × manufacturing", "zh": "AI × 制造", "fr": "IA × fabrication" },
+    "tagline": {
+      "en": "From vibe coding to vibe making.",
+      "zh": "从 vibe coding 到 vibe making。",
+      "fr": "Du vibe coding au vibe making."
+    },
+    "summary": {
+      "en": "A desktop PCB fabrication center from Anteportal Labs, a student-founded team. It combines dry isolation milling with in-machine copper-rivet vias. All performance figures are design targets; the project is pre-prototype as of October 2026.",
+      "zh": "Anteportal Labs 是一支学生创立的团队，正在开发 Sencillo 桌面 PCB 加工中心。它把干法隔离铣削与机内铜铆钉过孔结合在一起。所有性能数字都是设计目标；截至 2026 年 10 月处于原型前阶段。",
+      "fr": "Un centre de fabrication de PCB de bureau développé par Anteportal Labs, une équipe fondée par des étudiants. Il associe fraisage sec par isolation et vias à rivets de cuivre intégrés à la machine. Tous les chiffres de performance sont des objectifs de conception ; le projet est au stade de pré-prototype en octobre 2026."
+    },
+    "tech": ["CAM", "CNC isolation milling", "Copper rivet vias", "Constrained generation", "Offline"],
+    "evidence": {
+      "en": "8/8 mil traces · 0.8 mm copper-rivet vias · ≤30 min per board",
+      "zh": "8/8 mil 线宽线距 · 0.8 mm 铜铆钉过孔 · 单板 ≤30 分钟",
+      "fr": "pistes 8/8 mil · vias à rivets de cuivre de 0,8 mm · ≤ 30 min par carte"
+    },
+    "designTarget": true,
+    "statusKey": "Pre-prototype",
+    "href": "https://github.com/Anteportal",
+    "exitKey": "organization",
+    "image": "/assets/projects/anteportal-card",
+    "alt": {
+      "en": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
+      "zh": "Anteportal Labs 标志与 Sencillo 桌面 PCB 制造",
+      "fr": "Logo d’Anteportal Labs et fabrication de PCB de bureau Sencillo"
+    }
+  }
+]

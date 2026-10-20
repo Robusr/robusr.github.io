@@ -1,0 +1,94 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+const {
+  locale = 'en',
+  t,
+  noindex = false,
+  path,
+  title,
+} = Astro.props as {
+  locale?: 'en' | 'zh' | 'fr';
+  t: any;
+  noindex?: boolean;
+  path?: string;
+  title?: string;
+};
+
+const SITE = 'https://robusr.github.io';
+const PATHS = { en: '/', zh: '/zh/', fr: '/fr/' } as const;
+const canonical = new URL(path ?? PATHS[locale], SITE).href;
+const ogImage = new URL('/og/og-default.png', SITE).href;
+const ogLocale = { en: 'en_US', zh: 'zh_CN', fr: 'fr_FR' }[locale];
+const pageTitle = title ?? t.meta.title;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Robusr Guo',
+  alternateName: '郭沫晗',
+  url: SITE + '/',
+  image: SITE + '/assets/profile/portrait-robusr-512.jpg',
+  jobTitle: 'AI × Engineering builder',
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Huazhong University of Science and Technology',
+  },
+  sameAs: ['https://github.com/Robusr', 'https://github.com/Anteportal'],
+  email: 'mailto:Robusr@outlook.com',
+};
+---
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={t.meta.description} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+    <link rel="canonical" href={canonical} />
+    {!noindex && (
+      <>
+        <link rel="alternate" hreflang="en" href={SITE + '/'} />
+        <link rel="alternate" hreflang="zh-Hans" href={SITE + '/zh/'} />
+        <link rel="alternate" hreflang="fr" href={SITE + '/fr/'} />
+        <link rel="alternate" hreflang="x-default" href={SITE + '/'} />
+      </>
+    )}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#fbfbf9" />
+    {!noindex && (
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/profile/portrait-robusr-512.webp"
+        type="image/webp"
+        imagesrcset="/assets/profile/portrait-robusr-260.webp 260w, /assets/profile/portrait-robusr-512.webp 512w"
+        imagesizes="(min-width: 1024px) 260px, 200px"
+      />
+    )}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Robusr Guo" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={t.meta.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <script>
+      import '../scripts/site.js';
+    </script>
+    <a class="skip-link" href="#main">{t.skip}</a>
+    <slot />
+  </body>
+</html>

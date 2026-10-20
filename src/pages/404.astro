@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import t from '../i18n/en.json';
+---
+<Base locale="en" t={t} noindex path="/404.html" title="Page not found — Robusr Guo">
+  <main id="main" class="wrap notfound">
+    <p class="eyebrow">404</p>
+    <h1>Page not found.</h1>
+    <p>
+      The page you are looking for does not exist. Return to <a href="/">the homepage</a>,
+      or read it in <a href="/zh/">中文</a> or <a href="/fr/">Français</a>.
+    </p>
+  </main>
+</Base>

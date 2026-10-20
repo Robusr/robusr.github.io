@@ -1,0 +1,23 @@
+{
+  "htmlLang": "en",
+  "languageName": "English",
+  "meta": {
+    "title": "Robusr Guo — AI × Engineering Builder",
+    "description": "Robusr Guo is a robotics engineering student at HUST building AI tools for CAD and manufacturing, bio-inspired robots, sounding rockets, and modular robotic arms."
+  },
+  "navLabel": "Primary",
+  "nav": { "work": "Work", "journey": "Journey", "about": "About", "contact": "Contact" },
+  "skip": "Skip to content",
+  "sections": { "work": "Selected Work", "journey": "Journey", "awards": "Awards & Media", "moreWork": "More Work", "about": "About" },
+  "statusPrefix": "Currently:",
+  "status": { "Active": "Active", "Complete": "Complete", "Archive": "Archive", "v2 current": "v2 current", "Pre-prototype": "Pre-prototype" },
+  "exit": { "repository": "Repository →", "organization": "Organization →" },
+  "designTarget": "Design target, not measured",
+  "watch": "watch the feature",
+  "contactHeading": "Contact",
+  "languagesLabel": "Language",
+  "langHint": "Also available in",
+  "dismiss": "Dismiss",
+  "techLabel": "Technologies",
+  "projectLinkLabel": "on GitHub"
+}

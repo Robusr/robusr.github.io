@@ -1,0 +1,16 @@
+---
+import profile from '../data/profile.json';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+---
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-index" aria-hidden="true">05</span>
+      <h2 id="about-title">{t.sections.about}</h2>
+    </div>
+    <div class="about">
+      {profile.about[locale].map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import ProjectList from './ProjectList.astro';
+import Journey from './Journey.astro';
+import Awards from './Awards.astro';
+import MoreWork from './MoreWork.astro';
+import About from './About.astro';
+import Footer from './Footer.astro';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+---
+{locale === 'en' && (
+  <div class="lang-hint" data-lang-hint hidden>
+    <div class="wrap lang-hint-inner">
+      <span>{t.langHint}</span>
+      <a href="/zh/" data-anchor-link data-base="/zh/">中文</a>
+      <span aria-hidden="true">/</span>
+      <a href="/fr/" data-anchor-link data-base="/fr/">Français</a>
+      <button type="button" data-lang-hint-close>{t.dismiss}</button>
+    </div>
+  </div>
+)}
+<Header locale={locale} t={t} />
+<main id="main">
+  <Hero locale={locale} t={t} />
+  <ProjectList locale={locale} t={t} />
+  <Journey locale={locale} t={t} />
+  <Awards locale={locale} t={t} />
+  <MoreWork locale={locale} t={t} />
+  <About locale={locale} t={t} />
+</main>
+<Footer locale={locale} t={t} />

@@ -1,0 +1,55 @@
+---
+import projects from '../data/projects.json';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+const featured = [...projects].sort((a, b) => a.order - b.order);
+---
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-index" aria-hidden="true">01</span>
+      <h2 id="work-title">{t.sections.work}</h2>
+    </div>
+    <ol class="projects">
+      {featured.map((project, index) => (
+        <li class="project">
+          <a class="project-media" href={project.href} tabindex="-1" aria-label={`${project.name} ${t.projectLinkLabel}`}>
+            <picture>
+              <source
+                type="image/webp"
+                srcset={`${project.image}-480.webp 480w, ${project.image}-960.webp 960w`}
+                sizes="(min-width: 1024px) 320px, (min-width: 640px) 92vw, 100vw"
+              />
+              <img
+                src={`${project.image}-960.jpg`}
+                width="960"
+                height="540"
+                alt={project.alt[locale]}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </a>
+          <div class="project-body">
+            <div class="project-head">
+              <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <h3><a href={project.href}>{project.name}</a></h3>
+              <span class="status">{t.status[project.statusKey]}</span>
+            </div>
+            <p class="project-category">{project.category[locale]}</p>
+            <p class="project-tagline">{project.tagline[locale]}</p>
+            <p class="project-summary">{project.summary[locale]}</p>
+            <ul class="tech" aria-label={t.techLabel}>
+              {project.tech.map((item) => <li>{item}</li>)}
+            </ul>
+            <p class="evidence">
+              {project.designTarget && <span class="evidence-flag">{t.designTarget}</span>}
+              {project.evidence[locale]}
+            </p>
+            <a class="exit" href={project.href}>{t.exit[project.exitKey]}</a>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import profile from '../data/profile.json';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">{profile.label[locale]}</p>
+      <h1 id="hero-name">
+        {profile.name[locale]}
+        {locale === 'zh' && <span class="name-alt">{profile.nameLatin}</span>}
+      </h1>
+      <p class="positioning">{profile.positioning[locale]}</p>
+      <p class="intro">{profile.intro[locale]}</p>
+      <p class="status-line"><span class="status-key">{t.statusPrefix}</span> {profile.status[locale]}</p>
+      <ul class="hero-links">
+        {profile.links.map((link) => (
+          <li><a href={link.href}>{link.label[locale]}</a></li>
+        ))}
+      </ul>
+    </div>
+    <figure class="portrait">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="/assets/profile/portrait-robusr-260.webp 260w, /assets/profile/portrait-robusr-512.webp 512w"
+          sizes="(min-width: 1024px) 260px, 200px"
+        />
+        <img
+          src={profile.portrait.jpg}
+          width={profile.portrait.width}
+          height={profile.portrait.height}
+          alt={profile.portrait.alt[locale]}
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </figure>
+  </div>
+</section>

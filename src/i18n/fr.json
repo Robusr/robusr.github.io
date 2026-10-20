@@ -1,0 +1,23 @@
+{
+  "htmlLang": "fr",
+  "languageName": "Français",
+  "meta": {
+    "title": "Robusr Guo — Bâtisseur IA × ingénierie",
+    "description": "Robusr Guo est étudiant en génie robotique à HUST. Il conçoit des outils d’IA pour la CAO et la fabrication, des robots bio-inspirés, des fusées-sondes et des bras robotiques modulaires."
+  },
+  "navLabel": "Navigation principale",
+  "nav": { "work": "Travaux", "journey": "Parcours", "about": "À propos", "contact": "Contact" },
+  "skip": "Aller au contenu",
+  "sections": { "work": "Travaux sélectionnés", "journey": "Parcours", "awards": "Prix et presse", "moreWork": "Autres projets", "about": "À propos" },
+  "statusPrefix": "Actuellement :",
+  "status": { "Active": "Actif", "Complete": "Terminé", "Archive": "Archivé", "v2 current": "v2 actuelle", "Pre-prototype": "Pré-prototype" },
+  "exit": { "repository": "Dépôt →", "organization": "Organisation →" },
+  "designTarget": "Objectif de conception, non mesuré",
+  "watch": "regarder le reportage",
+  "contactHeading": "Contact",
+  "languagesLabel": "Langue",
+  "langHint": "Également disponible en",
+  "dismiss": "Fermer",
+  "techLabel": "Technologies",
+  "projectLinkLabel": "sur GitHub"
+}

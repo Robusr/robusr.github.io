@@ -1,0 +1,29 @@
+---
+import awards from '../data/awards.json';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+---
+<section class="section" id="awards" aria-labelledby="awards-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-index" aria-hidden="true">03</span>
+      <h2 id="awards-title">{t.sections.awards}</h2>
+    </div>
+    <ul class="awards">
+      {awards.map((award) => (
+        <li>
+          <span class="award-year">{award.year}</span>
+          <div>
+            <p class="award-title">{award.title[locale]}</p>
+            <p class="award-detail">
+              {award.detail[locale]}
+              {award.href && (
+                <> · <a href={award.href}>{award.linkLabel[locale] ?? t.watch}</a></>
+              )}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

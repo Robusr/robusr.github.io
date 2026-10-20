@@ -1,0 +1,35 @@
+[
+  {
+    "year": "2024",
+    "title": {
+      "en": "First Prize, 38th China Adolescents Science and Technology Innovation Contest (CASTIC)",
+      "zh": "第 38 届全国青少年科技创新大赛一等奖",
+      "fr": "Premier prix, 38e Concours national chinois d’innovation scientifique et technologique pour les adolescents (CASTIC)"
+    },
+    "detail": { "en": "OnesArm", "zh": "OnesArm", "fr": "OnesArm" },
+    "href": null,
+    "linkLabel": { "en": null, "zh": null, "fr": null }
+  },
+  {
+    "year": "2023",
+    "title": {
+      "en": "Second Prize, 37th CASTIC",
+      "zh": "第 37 届全国青少年科技创新大赛二等奖",
+      "fr": "Deuxième prix, 37e CASTIC"
+    },
+    "detail": { "en": "DustArrow X", "zh": "DustArrow X", "fr": "DustArrow X" },
+    "href": null,
+    "linkLabel": { "en": null, "zh": null, "fr": null }
+  },
+  {
+    "year": "2024",
+    "title": {
+      "en": "Shanghai TV, Young Edison",
+      "zh": "上海电视台《少年爱迪生》",
+      "fr": "Télévision de Shanghai, Young Edison"
+    },
+    "detail": { "en": "Season 8 (2024)", "zh": "第八季（2024）", "fr": "Saison 8 (2024)" },
+    "href": "https://www.kankanews.com/detail/LMwVGm9WB2z",
+    "linkLabel": { "en": "watch the feature", "zh": "观看节目", "fr": "regarder le reportage" }
+  }
+]
