@@ -1,0 +1,24 @@
+---
+import moreWork from '../data/more-work.json';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+---
+<section class="section" id="more" aria-labelledby="more-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-index" aria-hidden="true">04</span>
+      <h2 id="more-title">{t.sections.moreWork}</h2>
+    </div>
+    <ul class="more">
+      {moreWork.map((item) => (
+        <li>
+          <a href={item.href}>
+            <span class="more-name">{item.name}</span>
+            <span class="more-desc">{item.desc[locale]}</span>
+            <span class="more-meta">{item.meta[locale]}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

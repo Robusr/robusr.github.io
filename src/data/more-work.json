@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Huginn",
+    "href": "https://github.com/Robusr/Huginn",
+    "desc": {
+      "en": "AI agent for automated data statistics and analysis",
+      "zh": "自动化数据统计与分析的 AI agent",
+      "fr": "Agent IA pour l’analyse et la statistique automatisées de données"
+    },
+    "meta": { "en": "Python", "zh": "Python", "fr": "Python" }
+  },
+  {
+    "name": "Robusr-skill",
+    "href": "https://github.com/Robusr/Robusr-skill",
+    "desc": {
+      "en": "A digital twin skill distilled from personal memory and persona",
+      "zh": "从个人记忆与人格中提炼的数字分身技能",
+      "fr": "Compétence de jumeau numérique distillée de la mémoire et de la personnalité"
+    },
+    "meta": { "en": "Agent skills", "zh": "Agent skills", "fr": "Compétences d’agent" }
+  },
+  {
+    "name": "Brokkr",
+    "href": "https://github.com/Robusr/Brokkr",
+    "desc": {
+      "en": "Dexterous hand with real-time hand posture recognition and motion control",
+      "zh": "具备实时手部姿态识别与运动控制的灵巧手",
+      "fr": "Main dextre avec reconnaissance de posture et contrôle du mouvement en temps réel"
+    },
+    "meta": { "en": "Hardware / vision", "zh": "硬件 / 视觉", "fr": "Matériel / vision" }
+  },
+  {
+    "name": "Tanngrisnir",
+    "href": "https://github.com/Robusr/Tanngrisnir",
+    "desc": {
+      "en": "Two-wheeled self-balancing vehicle based on STM32F103C8T6",
+      "zh": "基于 STM32F103C8T6 的两轮自平衡车",
+      "fr": "Véhicule auto-équilibré à deux roues basé sur STM32F103C8T6"
+    },
+    "meta": { "en": "C / embedded", "zh": "C / 嵌入式", "fr": "C / embarqué" }
+  },
+  {
+    "name": "Argo",
+    "href": "https://github.com/Robusr/Argo",
+    "desc": {
+      "en": "Quantitative Engineering Design Methods course design",
+      "zh": "定量工程设计方法课程设计",
+      "fr": "Conception de méthodes quantitatives de conception en ingénierie"
+    },
+    "meta": { "en": "MATLAB", "zh": "MATLAB", "fr": "MATLAB" }
+  },
+  {
+    "name": "Lynx",
+    "href": "https://github.com/Robusr/Lynx",
+    "desc": {
+      "en": "Perception fusion SDK for low-speed autonomous vehicles",
+      "zh": "面向低速自动驾驶的感知融合 SDK",
+      "fr": "SDK de fusion perceptive pour véhicules autonomes à basse vitesse"
+    },
+    "meta": { "en": "Python", "zh": "Python", "fr": "Python" }
+  }
+]

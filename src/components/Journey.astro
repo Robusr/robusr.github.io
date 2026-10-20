@@ -1,0 +1,21 @@
+---
+import timeline from '../data/timeline.json';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+---
+<section class="section" id="journey" aria-labelledby="journey-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-index" aria-hidden="true">02</span>
+      <h2 id="journey-title">{t.sections.journey}</h2>
+    </div>
+    <ol class="timeline">
+      {timeline.map((row) => (
+        <li>
+          <span class="year">{row.year}</span>
+          <p>{row.event[locale]}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

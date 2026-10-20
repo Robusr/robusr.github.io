@@ -1,0 +1,56 @@
+{
+  "snapshotDate": "2026-10-20",
+  "site": "https://robusr.github.io",
+  "name": { "en": "Robusr Guo", "zh": "郭沫晗", "fr": "Robusr Guo" },
+  "nameLatin": "Robusr Guo",
+  "label": { "en": "Robotics Engineering · HUST", "zh": "华中科技大学 · 机器人工程", "fr": "Génie robotique · HUST" },
+  "positioning": {
+    "en": "AI × Engineering builder. I turn real-world problems into working hardware, then use AI to compress the distance from idea to part.",
+    "zh": "AI × 工程建造者。把真实问题做成能运行的硬件，再用 AI 压缩从想法到零件的距离。",
+    "fr": "Bâtisseur IA × ingénierie. Je transforme des problèmes réels en matériel fonctionnel, puis j’utilise l’IA pour réduire la distance entre une idée et une pièce."
+  },
+  "intro": {
+    "en": "Robusr Guo studies in the Robotics Engineering Innovation Experimental Class at Huazhong University of Science and Technology. He started with Arduino in sixth grade in Guyuan, Ningxia, and has built a sounding rocket, a modular robotic arm, and a bat-inspired flapping-wing robot. He now builds AI tools for engineering: Vulcan turns natural language into editable SolidWorks features, and Sencillo aims to put PCB fabrication on a desk.",
+    "zh": "郭沫晗，华中科技大学机器人工程科创实验班本科生。六年级在宁夏固原从 Arduino 起步，做过探空火箭、模块化机械臂和仿生蝙蝠机器人。现在做 AI × 工程工具：Vulcan 把自然语言变成可编辑的 SolidWorks 特征，Sencillo 尝试把 PCB 制造放回桌面。",
+    "fr": "Robusr Guo étudie dans la classe expérimentale d’innovation en génie robotique de l’Université des sciences et technologies de Huazhong (HUST). Il a commencé avec Arduino en sixième à Guyuan, dans le Ningxia, et construit depuis une fusée-sonde, un bras robotique modulaire et un robot à ailes battantes inspiré de la chauve-souris. Il conçoit aujourd’hui des outils d’IA pour l’ingénierie : Vulcan transforme le langage naturel en fonctions SolidWorks modifiables ; Sencillo vise à installer la fabrication de PCB sur un bureau."
+  },
+  "status": {
+    "en": "Vulcan · Sencillo · HUST Robotics.",
+    "zh": "Vulcan · Sencillo · HUST Robotics。",
+    "fr": "Vulcan · Sencillo · HUST Robotics."
+  },
+  "links": [
+    { "id": "github", "href": "https://github.com/Robusr", "label": { "en": "GitHub", "zh": "GitHub", "fr": "GitHub" } },
+    { "id": "email", "href": "mailto:Robusr@outlook.com", "label": { "en": "Email", "zh": "邮箱", "fr": "E-mail" } },
+    { "id": "org", "href": "https://github.com/Anteportal", "label": { "en": "Anteportal Labs", "zh": "Anteportal Labs", "fr": "Anteportal Labs" } }
+  ],
+  "location": { "en": "Wuhan, China", "zh": "中国，武汉", "fr": "Wuhan, Chine" },
+  "portrait": {
+    "webp": "/assets/profile/portrait-robusr-512.webp",
+    "webpSmall": "/assets/profile/portrait-robusr-260.webp",
+    "jpg": "/assets/profile/portrait-robusr-512.jpg",
+    "width": 512,
+    "height": 512,
+    "alt": { "en": "Robusr Guo at the beach", "zh": "郭沫晗在海边", "fr": "Robusr Guo à la plage" }
+  },
+  "about": {
+    "en": [
+      "I grew up in Guyuan, Ningxia, where sandstorms can drop visibility below 5 meters. That is why my first serious project was a sounding rocket rather than a web app: I wanted to measure the atmosphere I could not see through. DustArrow grew from a thrust logger into a modular rocket with 10 bays, 9 PCB modules, and a ground station. The question was always the same: what is actually happening up there?",
+      "At HUST I moved upstream. Vulcan turns a sentence into a feature tree a mechanical engineer can keep editing. Sencillo tries to put a PCB fabrication center on a desk. The through-line is the same: find a problem I have seen, build the machine, then build the tool that lets the next person build it faster. The tools are the projects I want to leave behind."
+    ],
+    "zh": [
+      "我成长在宁夏固原，沙尘暴来的时候，能见度会降到 5 米以下。所以我的第一个严肃项目是一支探空火箭，而不是一个网页：我想测量那片我看不透的大气。DustArrow 从一台推力采集器，长成了拥有 10 个舱段、9 块 PCB 模块和地面站的模块化火箭。问题始终是同一个：上面到底在发生什么？",
+      "到了华中科技大学，我开始往上游走。Vulcan 把一句话变成机械工程师可以继续修改的特征树；Sencillo 试着把 PCB 加工中心放到一张桌子上。线索没有变：找到一个我亲眼见过的问题，造出机器，再造就让下一个人做得更快的工具。工具，才是我希望留下的项目。"
+    ],
+    "fr": [
+      "J’ai grandi à Guyuan, dans le Ningxia, où les tempêtes de sable peuvent réduire la visibilité à moins de 5 mètres. C’est pourquoi mon premier projet sérieux a été une fusée-sonde plutôt qu’un site web : je voulais mesurer une atmosphère que je ne pouvais pas voir à travers. DustArrow est passé d’un enregistreur de poussée à une fusée modulaire de 10 compartiments, 9 modules PCB et une station sol. La question restait la même : que se passe-t-il réellement là-haut ?",
+      "À HUST, je suis remonté en amont. Vulcan transforme une phrase en un arbre de fonctions qu’un ingénieur mécanique peut continuer à modifier. Sencillo tente d’installer un centre de fabrication de PCB sur un bureau. Le fil conducteur ne change pas : repérer un problème que j’ai vu, construire la machine, puis construire l’outil qui permettra à la personne suivante d’aller plus vite. Les outils sont les projets que je veux laisser derrière moi."
+    ]
+  },
+  "signature": "Why not?",
+  "lastUpdated": {
+    "en": "Last updated: October 2026",
+    "zh": "最后更新：2026 年 10 月",
+    "fr": "Dernière mise à jour : octobre 2026"
+  }
+}

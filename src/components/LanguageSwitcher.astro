@@ -1,0 +1,20 @@
+---
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+const languages = [
+  { code: 'en', name: 'English', path: '/' },
+  { code: 'zh', name: '中文', path: '/zh/' },
+  { code: 'fr', name: 'Français', path: '/fr/' },
+];
+---
+<div class="langs" role="group" aria-label={t.languagesLabel}>
+  {languages.map((language, index) => (
+    <Fragment>
+      {index > 0 && <span class="lang-sep" aria-hidden="true">·</span>}
+      {language.code === locale ? (
+        <span class="lang-current" aria-current="true">{language.name}</span>
+      ) : (
+        <a href={language.path} data-anchor-link data-base={language.path}>{language.name}</a>
+      )}
+    </Fragment>
+  ))}
+</div>

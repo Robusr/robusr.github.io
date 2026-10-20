@@ -1,0 +1,18 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+const home = { en: '/', zh: '/zh/', fr: '/fr/' }[locale];
+---
+<header class="site-header" data-header>
+  <div class="wrap header-inner">
+    <a class="brand" href={home}>Robusr Guo</a>
+    <nav class="site-nav" aria-label={t.navLabel}>
+      <a href="#work">{t.nav.work}</a>
+      <a href="#journey">{t.nav.journey}</a>
+      <a href="#about">{t.nav.about}</a>
+      <a href="#contact">{t.nav.contact}</a>
+    </nav>
+    <LanguageSwitcher locale={locale} t={t} />
+  </div>
+</header>

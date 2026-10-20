@@ -1,0 +1,52 @@
+{
+  "metrics": {
+    "en": {
+      "23": true,
+      "8": true,
+      "40": true,
+      "10": true,
+      "9": true,
+      "32": true,
+      "24": true,
+      "450": true,
+      "5052": true,
+      "0.8": true,
+      "30": true,
+      "8/8": true,
+      "2\u00b2": true,
+      "3!": true
+    },
+    "zh": {
+      "23": true,
+      "8": true,
+      "40": true,
+      "10": true,
+      "9": true,
+      "32": true,
+      "24": true,
+      "450": true,
+      "5052": true,
+      "0.8": true,
+      "30": true,
+      "8/8": true,
+      "2\u00b2": true,
+      "3!": true
+    },
+    "fr": {
+      "23": true,
+      "8": true,
+      "40": true,
+      "10": true,
+      "9": true,
+      "32": true,
+      "24": true,
+      "450": true,
+      "5052": true,
+      "0.8": true,
+      "30": true,
+      "8/8": true,
+      "2\u00b2": true,
+      "3!": true
+    }
+  }
+}

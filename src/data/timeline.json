@@ -1,0 +1,50 @@
+[
+  {
+    "year": "2018",
+    "event": {
+      "en": "Started with Arduino in sixth grade; turned his bedroom into an electronics workshop.",
+      "zh": "六年级接触 Arduino，把卧室改成电子工作室。",
+      "fr": "A commencé avec Arduino en sixième ; il a transformé sa chambre en atelier d’électronique."
+    }
+  },
+  {
+    "year": "2019–2022",
+    "event": {
+      "en": "Built an ultrasonic rangefinder, a writing robot, an RFID cabinet lock, an indoor environment monitor, and a Raspberry Pi website.",
+      "zh": "做了超声波测距仪、写字机器人、RFID 柜锁、室内环境监测仪和树莓派个人网站。",
+      "fr": "A construit un télémètre à ultrasons, un robot écrivain, une serrure RFID, une station de mesure d’ambiance et un site hébergé sur Raspberry Pi."
+    }
+  },
+  {
+    "year": "2023",
+    "event": {
+      "en": "DustArrow: from a solid-rocket thrust logger to a full sounding rocket, avionics, telemetry, and a Gobi flight test.",
+      "zh": "DustArrow：从固体火箭推力采集器，到完整探空火箭、航电、遥测与戈壁试飞。",
+      "fr": "DustArrow : d’un enregistreur de poussée à une fusée-sonde complète, avec avionique, télémétrie et essai en vol dans le Gobi."
+    }
+  },
+  {
+    "year": "2023",
+    "event": {
+      "en": "37th China Adolescents Science and Technology Innovation Contest, Second Prize.",
+      "zh": "第 37 届全国青少年科技创新大赛二等奖。",
+      "fr": "2e prix du 37e Concours national chinois d’innovation scientifique et technologique pour les adolescents."
+    }
+  },
+  {
+    "year": "2024",
+    "event": {
+      "en": "38th CASTIC, First Prize for OnesArm; featured on Shanghai TV’s Young Edison.",
+      "zh": "第 38 届全国青少年科技创新大赛一等奖（OnesArm）；登上上海电视台《少年爱迪生》。",
+      "fr": "1er prix du 38e CASTIC pour OnesArm ; portrait dans l’émission Young Edison de la télévision de Shanghai."
+    }
+  },
+  {
+    "year": "2025–2026",
+    "event": {
+      "en": "Entered HUST’s Robotics Engineering Innovation Experimental Class; open-sourced Vulcan and Hsiwu; founded Anteportal Labs and started Sencillo.",
+      "zh": "进入华中科技大学机器人工程科创实验班；开源 Vulcan 与 Hsiwu；创立 Anteportal Labs，启动 Sencillo。",
+      "fr": "Entrée dans la classe expérimentale d’innovation en génie robotique de HUST ; publication en open source de Vulcan et Hsiwu ; fondation d’Anteportal Labs et lancement de Sencillo."
+    }
+  }
+]

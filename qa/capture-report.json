@@ -1,0 +1,494 @@
+{
+  "errors": [],
+  "shots": [
+    "en-1440.png",
+    "en-1024.png",
+    "en-768.png",
+    "en-390.png",
+    "zh-1440.png",
+    "zh-390.png",
+    "fr-1440.png",
+    "fr-390.png"
+  ],
+  "overflow": [
+    {
+      "label": "en-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "bad": []
+    },
+    {
+      "label": "en-1024",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "innerWidth": 1024,
+      "bad": []
+    },
+    {
+      "label": "en-768",
+      "width": 768,
+      "scrollWidth": 768,
+      "innerWidth": 768,
+      "bad": []
+    },
+    {
+      "label": "en-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "bad": []
+    },
+    {
+      "label": "zh-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "bad": []
+    },
+    {
+      "label": "zh-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "bad": []
+    },
+    {
+      "label": "fr-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "bad": []
+    },
+    {
+      "label": "fr-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "bad": []
+    }
+  ],
+  "images": [
+    {
+      "label": "en-1440",
+      "imgs": [
+        {
+          "src": "portrait-robusr-260.webp",
+          "ok": true,
+          "alt": "Robusr Guo at the beach",
+          "width": "512",
+          "height": "512"
+        },
+        {
+          "src": "vulcan-card-480.webp",
+          "ok": true,
+          "alt": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "hsiwu-card-480.webp",
+          "ok": true,
+          "alt": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "dustarrow-card-480.webp",
+          "ok": true,
+          "alt": "DustArrow X full assembly render: a 40 mm sounding rocket",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "onesarm-card-480.webp",
+          "ok": true,
+          "alt": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "anteportal-card-480.webp",
+          "ok": true,
+          "alt": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
+          "width": "960",
+          "height": "540"
+        }
+      ]
+    },
+    {
+      "label": "en-1024",
+      "imgs": [
+        {
+          "src": "portrait-robusr-260.webp",
+          "ok": true,
+          "alt": "Robusr Guo at the beach",
+          "width": "512",
+          "height": "512"
+        },
+        {
+          "src": "vulcan-card-480.webp",
+          "ok": true,
+          "alt": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "hsiwu-card-480.webp",
+          "ok": true,
+          "alt": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "dustarrow-card-480.webp",
+          "ok": true,
+          "alt": "DustArrow X full assembly render: a 40 mm sounding rocket",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "onesarm-card-480.webp",
+          "ok": true,
+          "alt": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "anteportal-card-480.webp",
+          "ok": true,
+          "alt": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
+          "width": "960",
+          "height": "540"
+        }
+      ]
+    },
+    {
+      "label": "en-768",
+      "imgs": [
+        {
+          "src": "portrait-robusr-260.webp",
+          "ok": true,
+          "alt": "Robusr Guo at the beach",
+          "width": "512",
+          "height": "512"
+        },
+        {
+          "src": "vulcan-card-960.webp",
+          "ok": true,
+          "alt": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "hsiwu-card-960.webp",
+          "ok": true,
+          "alt": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "dustarrow-card-960.webp",
+          "ok": true,
+          "alt": "DustArrow X full assembly render: a 40 mm sounding rocket",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "onesarm-card-960.webp",
+          "ok": true,
+          "alt": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "anteportal-card-960.webp",
+          "ok": true,
+          "alt": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
+          "width": "960",
+          "height": "540"
+        }
+      ]
+    },
+    {
+      "label": "en-390",
+      "imgs": [
+        {
+          "src": "portrait-robusr-260.webp",
+          "ok": true,
+          "alt": "Robusr Guo at the beach",
+          "width": "512",
+          "height": "512"
+        },
+        {
+          "src": "vulcan-card-480.webp",
+          "ok": true,
+          "alt": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "hsiwu-card-480.webp",
+          "ok": true,
+          "alt": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "dustarrow-card-480.webp",
+          "ok": true,
+          "alt": "DustArrow X full assembly render: a 40 mm sounding rocket",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "onesarm-card-480.webp",
+          "ok": true,
+          "alt": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "anteportal-card-480.webp",
+          "ok": true,
+          "alt": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
+          "width": "960",
+          "height": "540"
+        }
+      ]
+    },
+    {
+      "label": "zh-1440",
+      "imgs": [
+        {
+          "src": "portrait-robusr-260.webp",
+          "ok": true,
+          "alt": "郭沫晗在海边",
+          "width": "512",
+          "height": "512"
+        },
+        {
+          "src": "vulcan-card-480.webp",
+          "ok": true,
+          "alt": "Vulcan 横幅：自然语言输入，参数化 SolidWorks 几何输出",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "hsiwu-card-480.webp",
+          "ok": true,
+          "alt": "Hsiwu 全彩渲染：一台拥有六段翼面的仿生机器人",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "dustarrow-card-480.webp",
+          "ok": true,
+          "alt": "DustArrow X 整机渲染：一枚 40 mm 探空火箭",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "onesarm-card-480.webp",
+          "ok": true,
+          "alt": "OnesArm v2 模块化机械臂，安装在 4040 铝型材平台上",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "anteportal-card-480.webp",
+          "ok": true,
+          "alt": "Anteportal Labs 标志与 Sencillo 桌面 PCB 制造",
+          "width": "960",
+          "height": "540"
+        }
+      ]
+    },
+    {
+      "label": "zh-390",
+      "imgs": [
+        {
+          "src": "portrait-robusr-260.webp",
+          "ok": true,
+          "alt": "郭沫晗在海边",
+          "width": "512",
+          "height": "512"
+        },
+        {
+          "src": "vulcan-card-480.webp",
+          "ok": true,
+          "alt": "Vulcan 横幅：自然语言输入，参数化 SolidWorks 几何输出",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "hsiwu-card-480.webp",
+          "ok": true,
+          "alt": "Hsiwu 全彩渲染：一台拥有六段翼面的仿生机器人",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "dustarrow-card-480.webp",
+          "ok": true,
+          "alt": "DustArrow X 整机渲染：一枚 40 mm 探空火箭",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "onesarm-card-480.webp",
+          "ok": true,
+          "alt": "OnesArm v2 模块化机械臂，安装在 4040 铝型材平台上",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "anteportal-card-480.webp",
+          "ok": true,
+          "alt": "Anteportal Labs 标志与 Sencillo 桌面 PCB 制造",
+          "width": "960",
+          "height": "540"
+        }
+      ]
+    },
+    {
+      "label": "fr-1440",
+      "imgs": [
+        {
+          "src": "portrait-robusr-260.webp",
+          "ok": true,
+          "alt": "Robusr Guo à la plage",
+          "width": "512",
+          "height": "512"
+        },
+        {
+          "src": "vulcan-card-480.webp",
+          "ok": true,
+          "alt": "Bannière Vulcan : langage naturel en entrée, géométrie paramétrique SolidWorks en sortie",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "hsiwu-card-480.webp",
+          "ok": true,
+          "alt": "Rendu couleur de Hsiwu : un robot bio-inspiré à six segments d’aile",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "dustarrow-card-480.webp",
+          "ok": true,
+          "alt": "Rendu de l’assemblage complet de DustArrow X : une fusée-sonde de 40 mm",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "onesarm-card-480.webp",
+          "ok": true,
+          "alt": "Bras robotique modulaire OnesArm v2 sur une plateforme en aluminium 4040",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "anteportal-card-480.webp",
+          "ok": true,
+          "alt": "Logo d’Anteportal Labs et fabrication de PCB de bureau Sencillo",
+          "width": "960",
+          "height": "540"
+        }
+      ]
+    },
+    {
+      "label": "fr-390",
+      "imgs": [
+        {
+          "src": "portrait-robusr-260.webp",
+          "ok": true,
+          "alt": "Robusr Guo à la plage",
+          "width": "512",
+          "height": "512"
+        },
+        {
+          "src": "vulcan-card-480.webp",
+          "ok": true,
+          "alt": "Bannière Vulcan : langage naturel en entrée, géométrie paramétrique SolidWorks en sortie",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "hsiwu-card-480.webp",
+          "ok": true,
+          "alt": "Rendu couleur de Hsiwu : un robot bio-inspiré à six segments d’aile",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "dustarrow-card-480.webp",
+          "ok": true,
+          "alt": "Rendu de l’assemblage complet de DustArrow X : une fusée-sonde de 40 mm",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "onesarm-card-480.webp",
+          "ok": true,
+          "alt": "Bras robotique modulaire OnesArm v2 sur une plateforme en aluminium 4040",
+          "width": "960",
+          "height": "540"
+        },
+        {
+          "src": "anteportal-card-480.webp",
+          "ok": true,
+          "alt": "Logo d’Anteportal Labs et fabrication de PCB de bureau Sencillo",
+          "width": "960",
+          "height": "540"
+        }
+      ]
+    }
+  ],
+  "tapTargets": [
+    {
+      "label": "en-390",
+      "small": [
+        {
+          "text": "watch the feature",
+          "h": 16,
+          "w": 111
+        }
+      ]
+    },
+    {
+      "label": "zh-390",
+      "small": [
+        {
+          "text": "观看节目",
+          "h": 16,
+          "w": 54
+        }
+      ]
+    },
+    {
+      "label": "fr-390",
+      "small": [
+        {
+          "text": "regarder le reportage",
+          "h": 39,
+          "w": 185
+        }
+      ]
+    }
+  ],
+  "jsDisabled": {
+    "hasVulcan": true,
+    "hasSencillo": true,
+    "hasEmail": true,
+    "sections": 6
+  },
+  "anchors": [
+    {
+      "from": "/zh/#about",
+      "en": "/#about",
+      "fr": "/fr/#about"
+    }
+  ]
+}

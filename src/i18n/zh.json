@@ -1,0 +1,23 @@
+{
+  "htmlLang": "zh-Hans",
+  "languageName": "中文",
+  "meta": {
+    "title": "郭沫晗 Robusr Guo — AI × 工程建造者",
+    "description": "郭沫晗（Robusr Guo），华中科技大学机器人工程科创实验班本科生，做 AI × 工程：CAD 智能体、仿生机器人、探空火箭与桌面 PCB 制造。"
+  },
+  "navLabel": "主导航",
+  "nav": { "work": "项目", "journey": "经历", "about": "关于", "contact": "联系" },
+  "skip": "跳到正文",
+  "sections": { "work": "代表项目", "journey": "经历", "awards": "奖项与报道", "moreWork": "其他项目", "about": "关于" },
+  "statusPrefix": "当前：",
+  "status": { "Active": "活跃", "Complete": "完成", "Archive": "归档", "v2 current": "v2 现行", "Pre-prototype": "原型前" },
+  "exit": { "repository": "仓库 →", "organization": "组织主页 →" },
+  "designTarget": "设计目标，非实测",
+  "watch": "观看节目",
+  "contactHeading": "联系",
+  "languagesLabel": "语言",
+  "langHint": "也可用以下语言阅读：",
+  "dismiss": "关闭",
+  "techLabel": "技术",
+  "projectLinkLabel": "的 GitHub 页面"
+}

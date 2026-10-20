@@ -1,0 +1,26 @@
+---
+import profile from '../data/profile.json';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+---
+<footer class="site-footer" id="contact">
+  <div class="wrap footer-grid">
+    <div>
+      <h2 class="footer-heading">{t.contactHeading}</h2>
+      <ul class="contact-list">
+        <li><a href="mailto:Robusr@outlook.com">Robusr@outlook.com</a></li>
+        <li><a href="https://github.com/Robusr">github.com/Robusr</a></li>
+        <li><a href="https://github.com/Anteportal">github.com/Anteportal</a></li>
+      </ul>
+      <p class="location">{profile.location[locale]}</p>
+    </div>
+    <div class="footer-meta">
+      <p>{profile.lastUpdated[locale]}</p>
+      <LanguageSwitcher locale={locale} t={t} />
+    </div>
+  </div>
+  <div class="wrap signature-row">
+    <p class="signature">{profile.signature}</p>
+  </div>
+</footer>
