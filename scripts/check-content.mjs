@@ -46,7 +46,9 @@ for (const field of ['snapshotDate', 'contentDate']) {
 if (isIsoDate(profile.snapshotDate) && isIsoDate(profile.contentDate) && profile.contentDate < profile.snapshotDate) {
   errors.push('profile.contentDate must not precede snapshotDate');
 }
-if (!exists('public/assets/brand/robusr-ip.webp')) errors.push('watermark asset missing');
+for (const asset of ['robusr-ip-v2.webp', 'robusr-ip-480.webp', 'robusr-standing.webp']) {
+  if (!exists(`public/assets/brand/${asset}`)) errors.push(`background art missing: ${asset}`);
+}
 
 const projects = read('src/data/projects.json');
 if (projects.length !== 5) errors.push(`projects.json must contain five projects, found ${projects.length}`);

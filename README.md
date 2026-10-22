@@ -27,7 +27,7 @@ All versions share one content model and the same section order. With JavaScript
 - **More Work:** six repositories, one line each.
 - **About:** two paragraphs on Guyuan's sandstorms and the move upstream into AI tools for CAD and fabrication.
 - **Contact:** email, GitHub, Anteportal Labs, location, language links, and the signature.
-- **Background:** a line-art personal IP illustration, used as a faint site-wide watermark.
+- **Background:** two hand-drawn IP figures, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash.
 
 ## Stack
 
@@ -36,7 +36,7 @@ All versions share one content model and the same section order. With JavaScript
 | Framework | Astro 7, static output, no client framework |
 | Styling | native CSS custom properties, no utility framework |
 | Type | self-hosted Inter variable font, system CJK stack |
-| Images | project images at 480 and 960 px, portrait at 260 and 512 px, 850 px transparent IP watermark; WebP, with a JPEG fallback for the portrait |
+| Images | project images at 480 and 960 px, portrait at 260 and 512 px, two transparent line-art IP assets sized for their display slots; WebP, with a JPEG fallback for the portrait |
 | JavaScript | about 1 KB of progressive enhancement |
 | Privacy | no analytics, cookies, third-party fonts, or embeds |
 | Deployment | Cloudflare Pages, Git integration, Node 22 |
@@ -93,7 +93,7 @@ English is the source of truth. When editing:
 │   ├── pages/        index, zh/index, fr/index, 404, sitemap.xml, robots.txt
 │   ├── scripts/      progressive enhancement
 │   └── styles/       tokens.css, global.css
-├── public/           images, IP watermark, favicon, OG image, _headers, _redirects
+├── public/           images, hand-drawn IP art, favicon, OG image, _headers, _redirects
 ├── content/          copy manuscripts and glossary
 ├── scripts/          content check, OG image generator, and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
@@ -119,7 +119,7 @@ Production Best Practices is 92 because Cloudflare still injects the Web Analyti
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 
-The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image can be regenerated with `python3 scripts/make-og.py`; Pillow is required.
+The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image can be regenerated with `python3 scripts/make-og.py`; Pillow is required. The IP background assets are generated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`.
 
 ## Deployment
 
@@ -156,4 +156,4 @@ Production is Cloudflare Pages at <https://robusr.cn>. The project builds with `
 
 ## Credits
 
-Portrait and the line-art personal IP illustration provided by Robusr. The illustration is used as a site-wide background watermark at low opacity. Project images come from each project repository and the Anteportal Labs organization page. The site does not use TV stills, competition logos, or third-party paper figures.
+Portrait and the two line-art personal IP illustrations provided by Robusr. Both drawings are used as low-opacity background art. Project images come from each project repository and the Anteportal Labs organization page. The site does not use TV stills, competition logos, or third-party paper figures.

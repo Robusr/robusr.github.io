@@ -1,5 +1,8 @@
 :root {
   --bg: #fbfbf9;
+  --paper-top: #fdfdfb;
+  --paper-bottom: #f7f7f2;
+  --ink: #0a0d29;
   --surface: #ffffff;
   --text: #161616;
   --muted: #6b6b6b;

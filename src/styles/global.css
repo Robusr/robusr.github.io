@@ -5,7 +5,13 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1100px 620px at 82% -8%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 64%),
+    radial-gradient(900px 700px at 2% 24%, color-mix(in srgb, var(--ink) 5%, transparent), transparent 62%),
+    radial-gradient(1200px 900px at 88% 104%, color-mix(in srgb, var(--accent) 3.5%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--paper-top) 0%, var(--bg) 32%, var(--paper-bottom) 100%);
+  background-repeat: no-repeat;
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 17px;
@@ -60,10 +66,19 @@ section[id], footer[id] { scroll-margin-top: 84px; }
 .site-header {
   position: sticky; top: 0; z-index: 50;
   background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: saturate(1.08) blur(12px);
+  backdrop-filter: saturate(1.08) blur(12px);
   border-bottom: 1px solid transparent;
-  transition: border-color 150ms ease;
+  transition: border-color 150ms ease, background-color 150ms ease;
 }
-.site-header.is-scrolled { border-bottom-color: var(--line); }
+.site-header.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  border-bottom-color: var(--line);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header, .site-header.is-scrolled { background: var(--bg); }
+}
 .header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px; min-height: 64px; }
 .brand { color: var(--text); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
 .brand:hover { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
@@ -92,19 +107,45 @@ h1 { font-size: var(--step-3); line-height: 1.04; letter-spacing: -0.025em; }
 .portrait { margin: 4px 0 0; max-width: 200px; aspect-ratio: 512 / 644; }
 .portrait img { width: 100%; height: auto; border-radius: var(--radius); }
 
-/* Personal IP watermark */
-body::before {
+/* Hand-drawn IP backdrop: the collage figure and the standing figure frame the page. */
+body::before,
+body::after {
   content: "";
   position: fixed;
-  inset: auto 0 0 auto;
   z-index: -1;
-  width: min(600px, 66vw);
-  aspect-ratio: 850 / 891;
-  background: url("/assets/brand/robusr-ip.webp") no-repeat right bottom / contain;
-  opacity: 0.16;
   pointer-events: none;
-  -webkit-mask-image: radial-gradient(120% 120% at 100% 100%, #000 40%, transparent 80%);
-  mask-image: radial-gradient(120% 120% at 100% 100%, #000 40%, transparent 80%);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body::before {
+  inset: auto 0 0 auto;
+  width: min(660px, 52vw);
+  aspect-ratio: 921 / 963;
+  background-image: url("/assets/brand/robusr-ip-v2.webp");
+  background-position: right bottom;
+  opacity: 0.12;
+  -webkit-mask-image: radial-gradient(130% 118% at 100% 100%, #000 38%, transparent 78%);
+  mask-image: radial-gradient(130% 118% at 100% 100%, #000 38%, transparent 78%);
+}
+
+body::after {
+  inset: auto auto 0 -3vw;
+  width: min(380px, 28vw);
+  aspect-ratio: 920 / 1261;
+  background-image: url("/assets/brand/robusr-standing.webp");
+  background-position: left bottom;
+  opacity: 0.13;
+  -webkit-mask-image: radial-gradient(130% 115% at 0% 100%, #000 40%, transparent 82%);
+  mask-image: radial-gradient(130% 115% at 0% 100%, #000 40%, transparent 82%);
+}
+
+@media (max-width: 1359px) {
+  body::after { display: none; }
+}
+
+@media (max-width: 1023px) {
+  body::before { opacity: 0.1; }
 }
 
 /* Sections */
@@ -206,7 +247,11 @@ body::before {
   .site-nav { order: 3; width: 100%; margin: 0; padding-bottom: 12px; font-size: 13px; }
   .hero-grid { gap: 26px; }
   .portrait { margin-top: 2px; }
-  body::before { width: 92vw; opacity: 0.09; }
+  body::before {
+    width: 76vw;
+    opacity: 0.08;
+    background-image: url("/assets/brand/robusr-ip-480.webp");
+  }
   .notfound h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
 }
 
@@ -221,5 +266,5 @@ body::before {
 }
 
 @media print {
-  body::before { display: none; }
+  body::before, body::after { display: none; }
 }
