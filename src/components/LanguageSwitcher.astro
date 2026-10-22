@@ -1,5 +1,6 @@
 ---
-const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+import type { Locale, Messages } from '../i18n/types';
+const { locale, t } = Astro.props as { locale: Locale; t: Messages };
 const languages = [
   { code: 'en', name: 'English', path: '/' },
   { code: 'zh', name: '中文', path: '/zh/' },

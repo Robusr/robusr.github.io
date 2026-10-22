@@ -73,11 +73,11 @@
       "label": "en-1440",
       "imgs": [
         {
-          "src": "portrait-robusr-260.webp",
+          "src": "portrait-robusr-260-v2.webp",
           "ok": true,
-          "alt": "Robusr Guo at the beach",
+          "alt": "Robusr Guo under a ginkgo tree in autumn",
           "width": "512",
-          "height": "512"
+          "height": "644"
         },
         {
           "src": "vulcan-card-480.webp",
@@ -120,11 +120,11 @@
       "label": "en-1024",
       "imgs": [
         {
-          "src": "portrait-robusr-260.webp",
+          "src": "portrait-robusr-260-v2.webp",
           "ok": true,
-          "alt": "Robusr Guo at the beach",
+          "alt": "Robusr Guo under a ginkgo tree in autumn",
           "width": "512",
-          "height": "512"
+          "height": "644"
         },
         {
           "src": "vulcan-card-480.webp",
@@ -167,11 +167,11 @@
       "label": "en-768",
       "imgs": [
         {
-          "src": "portrait-robusr-260.webp",
+          "src": "portrait-robusr-260-v2.webp",
           "ok": true,
-          "alt": "Robusr Guo at the beach",
+          "alt": "Robusr Guo under a ginkgo tree in autumn",
           "width": "512",
-          "height": "512"
+          "height": "644"
         },
         {
           "src": "vulcan-card-960.webp",
@@ -214,11 +214,11 @@
       "label": "en-390",
       "imgs": [
         {
-          "src": "portrait-robusr-260.webp",
+          "src": "portrait-robusr-260-v2.webp",
           "ok": true,
-          "alt": "Robusr Guo at the beach",
+          "alt": "Robusr Guo under a ginkgo tree in autumn",
           "width": "512",
-          "height": "512"
+          "height": "644"
         },
         {
           "src": "vulcan-card-480.webp",
@@ -261,11 +261,11 @@
       "label": "zh-1440",
       "imgs": [
         {
-          "src": "portrait-robusr-260.webp",
+          "src": "portrait-robusr-260-v2.webp",
           "ok": true,
-          "alt": "郭沫晗在海边",
+          "alt": "郭沫晗在秋天的银杏树下",
           "width": "512",
-          "height": "512"
+          "height": "644"
         },
         {
           "src": "vulcan-card-480.webp",
@@ -308,11 +308,11 @@
       "label": "zh-390",
       "imgs": [
         {
-          "src": "portrait-robusr-260.webp",
+          "src": "portrait-robusr-260-v2.webp",
           "ok": true,
-          "alt": "郭沫晗在海边",
+          "alt": "郭沫晗在秋天的银杏树下",
           "width": "512",
-          "height": "512"
+          "height": "644"
         },
         {
           "src": "vulcan-card-480.webp",
@@ -355,11 +355,11 @@
       "label": "fr-1440",
       "imgs": [
         {
-          "src": "portrait-robusr-260.webp",
+          "src": "portrait-robusr-260-v2.webp",
           "ok": true,
-          "alt": "Robusr Guo à la plage",
+          "alt": "Robusr Guo sous un ginkgo en automne",
           "width": "512",
-          "height": "512"
+          "height": "644"
         },
         {
           "src": "vulcan-card-480.webp",
@@ -402,11 +402,11 @@
       "label": "fr-390",
       "imgs": [
         {
-          "src": "portrait-robusr-260.webp",
+          "src": "portrait-robusr-260-v2.webp",
           "ok": true,
-          "alt": "Robusr Guo à la plage",
+          "alt": "Robusr Guo sous un ginkgo en automne",
           "width": "512",
-          "height": "512"
+          "height": "644"
         },
         {
           "src": "vulcan-card-480.webp",

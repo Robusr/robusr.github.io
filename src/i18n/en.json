@@ -3,7 +3,8 @@
   "languageName": "English",
   "meta": {
     "title": "Robusr Guo — AI × Engineering Builder",
-    "description": "Robusr Guo is a robotics engineering student at HUST building AI tools for CAD and manufacturing, bio-inspired robots, sounding rockets, and modular robotic arms."
+    "description": "Robusr Guo is a robotics engineering student at HUST building AI tools for CAD and manufacturing, bio-inspired robots, sounding rockets, and modular robotic arms.",
+    "imageAlt": "Robusr Guo, a robotics engineering student at HUST, with the site tagline: AI × engineering builder."
   },
   "navLabel": "Primary",
   "nav": { "work": "Work", "journey": "Journey", "about": "About", "contact": "Contact" },
@@ -18,6 +19,5 @@
   "languagesLabel": "Language",
   "langHint": "Also available in",
   "dismiss": "Dismiss",
-  "techLabel": "Technologies",
-  "projectLinkLabel": "on GitHub"
+  "techLabel": "Technologies"
 }

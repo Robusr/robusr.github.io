@@ -1,7 +1,8 @@
 ---
+import type { Locale, Messages } from '../i18n/types';
 import awards from '../data/awards.json';
 
-const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+const { locale, t } = Astro.props as { locale: Locale; t: Messages };
 ---
 <section class="section" id="awards" aria-labelledby="awards-title">
   <div class="wrap">

@@ -1,6 +1,6 @@
 # Content inventory
 
-Audit date: 2026-10-20. Production domain updated 2026-10-21. Sources: the local info library at `/Users/robusr/Desktop/Homepage information/Homepage-Info-Library/` (files 01–07, `sources.md`, `data/*.json`, `assets/`), plus live checks of every outbound link.
+Audit date: 2026-10-20. Production domain updated 2026-10-21. Link checks re-verified 2026-10-22. Sources: the local info library at `/Users/robusr/Desktop/Homepage information/Homepage-Info-Library/` (files 01–07, `sources.md`, `data/*.json`, `assets/`), plus live checks of every outbound link.
 
 ## Facts used directly
 
@@ -42,8 +42,9 @@ Audit date: 2026-10-20. Production domain updated 2026-10-21. Sources: the local
 
 | URL | HTTP status | Decision |
 |---|---|---|
-| https://robusr.github.io | 200 | old host; no longer canonical |
+| https://robusr.github.io | 404 | retired; no longer canonical |
 | https://robusr.cn | 200 | configured canonical site |
+| https://www.robusr.cn | 200 | duplicate host; needs a 301 Redirect Rule |
 | https://github.com/Robusr | 200 | use |
 | https://github.com/Robusr/Vulcan | 200 | use |
 | https://github.com/Robusr/Hsiwu | 200 | use |
@@ -64,7 +65,7 @@ Audit date: 2026-10-20. Production domain updated 2026-10-21. Sources: the local
 | `dustarrow-card.png` | 1200×675 | 960/480 WebP (8.7/3.6 KB), 960 JPEG 38 KB |
 | `onesarm-card.jpg` | 1200×675 | 960/480 WebP (30/12 KB), 960 JPEG 91 KB |
 | `anteportal-card.png` | 1200×675 | 960/480 WebP (17/8 KB), 960 JPEG 54 KB |
-| OG image | generated | 1200×630 PNG, 245 KB |
+| OG image | generated | 1200×630 PNG, 305 KB |
 
 All source images remain untouched in the info library; only copies were converted.
 

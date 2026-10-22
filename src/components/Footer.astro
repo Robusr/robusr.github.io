@@ -1,8 +1,9 @@
 ---
+import type { Locale, Messages } from '../i18n/types';
 import profile from '../data/profile.json';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
-const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+const { locale, t } = Astro.props as { locale: Locale; t: Messages };
 ---
 <footer class="site-footer" id="contact">
   <div class="wrap footer-grid">

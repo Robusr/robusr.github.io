@@ -40,6 +40,7 @@ All versions share one content model and the same section order. With JavaScript
 | JavaScript | about 1 KB of progressive enhancement |
 | Privacy | no analytics, cookies, third-party fonts, or embeds |
 | Deployment | Cloudflare Pages, Git integration, Node 22 |
+| CI | GitHub Actions runs `npm run verify` on pushes and pull requests |
 
 ## Local development
 
@@ -50,9 +51,12 @@ npm ci
 npm run dev       # http://localhost:4321
 npm run build     # static output in dist/
 npm run preview   # preview dist/ at http://localhost:4321
+npm run check     # content, locale, and asset consistency
+npm run typecheck # astro check
+npm run verify    # check + typecheck + build
 ```
 
-`npm run build` produces four HTML pages. `dist/` is ignored by git and rebuilt in CI.
+`npm run verify` runs the content check, the type check, and the build; the build produces four HTML pages. `dist/` is ignored by git and rebuilt in CI.
 
 ## Content model
 
@@ -75,7 +79,7 @@ English is the source of truth. When editing:
 1. Change the English manuscript and `src/data` together.
 2. Update the Chinese and French fields in the same commit.
 3. Keep section counts, numbers, links, and image paths identical across locales.
-4. Run `npm run build` and check all three routes.
+4. Run `npm run verify` and check all three routes.
 
 ## Project structure
 
@@ -84,16 +88,17 @@ English is the source of truth. When editing:
 ├── src/
 │   ├── components/   Header, Hero, ProjectList, Journey, Awards, MoreWork, About, Footer, LanguageSwitcher
 │   ├── data/         profile, projects, timeline, awards, more-work
-│   ├── i18n/         en, zh, fr
+│   ├── i18n/         en, zh, fr, and shared types
 │   ├── layouts/      Base.astro with head, hreflang, and JSON-LD
 │   ├── pages/        index, zh/index, fr/index, 404, sitemap.xml, robots.txt
 │   ├── scripts/      progressive enhancement
 │   └── styles/       tokens.css, global.css
 ├── public/           images, IP watermark, favicon, OG image, _headers, _redirects
 ├── content/          copy manuscripts and glossary
-├── scripts/          OG image generator and QA helpers
+├── scripts/          content check, OG image generator, and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
 ├── screenshots/      full-page captures at 1440, 1024, 768, and 390 px
+├── .github/          verify workflow
 └── .nvmrc            Node version for local builds
 ```
 
@@ -101,16 +106,16 @@ English is the source of truth. When editing:
 
 | Check | Result |
 |---|---|
-| Build | 4 pages, no errors |
-| Production | `/`, `/zh/`, `/fr/` return 200 at <https://robusr.cn>; HTTP redirects to HTTPS |
-| Lighthouse mobile, local preview | Performance, Accessibility, Best Practices, SEO: 100 each |
-| Lighthouse mobile, production | Performance 96, Accessibility 100, Best Practices 92, SEO 100 |
-| LCP / CLS, production | 2.0–2.1 s / 0 |
+| Build and checks | `npm run verify` passes: content check, `astro check` with 0 errors, 4 pages built |
+| Production | `/`, `/zh/`, `/fr/` return 200; HTTP redirects to HTTPS; `www` returns 200 and still needs a 301 |
+| Lighthouse mobile, local preview (2026-10-22) | Performance 99, Accessibility 100, Best Practices 100, SEO 100 in all three locales |
+| Lighthouse mobile, production (2026-10-22) | EN 97/100/92/100, ZH 98/100/92/100, FR 99/100/92/100 |
+| LCP / CLS, production | LCP 1.8–2.2 s; CLS 0–0.069, measured before the portrait `aspect-ratio` fix |
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow |
 | JavaScript disabled | all content readable |
 | Outbound links | GitHub and media links return 200 |
 
-Production Best Practices is 92 because Cloudflare's Web Analytics beacon is injected and blocked by the CSP. Disabling RUM in the Cloudflare zone should restore 100. Production results are in `qa/lighthouse-live-summary.json`.
+Production Best Practices is 92 because Cloudflare still injects the Web Analytics beacon and the CSP blocks it. Email Address Obfuscation and Managed robots.txt are also still applied at the edge, so the live page differs from the local build. These are zone settings, not repository settings. Production results are in `qa/lighthouse-live-summary.json`.
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 
@@ -125,7 +130,7 @@ Production is Cloudflare Pages at <https://robusr.cn>. The project builds with `
 3. Add `robusr.cn` as a custom domain and enable HTTPS.
 4. Push to `main`. Cloudflare Pages rebuilds automatically.
 
-`public/_headers` adds security and cache headers. `public/_redirects` sends `www` to the apex once the `www` host is attached. GitHub Pages is retired; disable the Pages site in repository settings if it is still enabled. See [DEPLOY.md](DEPLOY.md).
+`public/_headers` adds security and cache headers. Cloudflare Pages cannot redirect by host from `_redirects`, so that file only documents the limitation. `www.robusr.cn` currently resolves and returns 200; configure a Redirect Rule to send it to the apex with a 301. GitHub Pages is retired; disable the Pages site in repository settings if it is still enabled. See [DEPLOY.md](DEPLOY.md).
 
 ## Content rules
 
@@ -133,6 +138,8 @@ Production is Cloudflare Pages at <https://robusr.cn>. The project builds with `
 - Every number, award, link, and project status must trace back to the info library or a public source.
 - Sencillo figures are design targets and must stay labeled as such.
 - Star counts are snapshots dated October 2026 and carry that date in the UI.
+- When visible content changes, update `contentDate` in `src/data/profile.json`; `sitemap.xml` uses it as `lastmod`.
+- Run `npm run verify` before pushing. The same command runs in GitHub Actions.
 - Do not add family details, addresses, birthdays, scores, rankings, or private relationships.
 - Do not use TV stills, competition logos, third-party paper figures, or unverified accounts.
 

@@ -1,7 +1,8 @@
 ---
+import type { Locale, Messages } from '../i18n/types';
 import projects from '../data/projects.json';
 
-const { locale, t } = Astro.props as { locale: 'en' | 'zh' | 'fr'; t: any };
+const { locale, t } = Astro.props as { locale: Locale; t: Messages };
 const featured = [...projects].sort((a, b) => a.order - b.order);
 ---
 <section class="section" id="work" aria-labelledby="work-title">
@@ -13,7 +14,7 @@ const featured = [...projects].sort((a, b) => a.order - b.order);
     <ol class="projects">
       {featured.map((project, index) => (
         <li class="project">
-          <a class="project-media" href={project.href} tabindex="-1" aria-label={`${project.name} ${t.projectLinkLabel}`}>
+          <a class="project-media" href={project.href} tabindex="-1" aria-hidden="true">
             <picture>
               <source
                 type="image/webp"
@@ -34,7 +35,7 @@ const featured = [...projects].sort((a, b) => a.order - b.order);
             <div class="project-head">
               <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <h3><a href={project.href}>{project.name}</a></h3>
-              <span class="status">{t.status[project.statusKey]}</span>
+              <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
             </div>
             <p class="project-category">{project.category[locale]}</p>
             <p class="project-tagline">{project.tagline[locale]}</p>
@@ -46,7 +47,7 @@ const featured = [...projects].sort((a, b) => a.order - b.order);
               {project.designTarget && <span class="evidence-flag">{t.designTarget}</span>}
               {project.evidence[locale]}
             </p>
-            <a class="exit" href={project.href}>{t.exit[project.exitKey]}</a>
+            <a class="exit" href={project.href}>{t.exit[project.exitKey as keyof Messages['exit']]}</a>
           </div>
         </li>
       ))}

@@ -89,7 +89,7 @@ h1 { font-size: var(--step-3); line-height: 1.04; letter-spacing: -0.025em; }
 .hero-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 22px; font-size: 14px; }
 .hero-links a { border-bottom: 1px solid color-mix(in srgb, var(--accent) 32%, transparent); padding-bottom: 1px; }
 .hero-links a:hover { color: var(--accent-strong); border-bottom-color: var(--accent-strong); }
-.portrait { margin: 4px 0 0; max-width: 200px; }
+.portrait { margin: 4px 0 0; max-width: 200px; aspect-ratio: 512 / 644; }
 .portrait img { width: 100%; height: auto; border-radius: var(--radius); }
 
 /* Personal IP watermark */

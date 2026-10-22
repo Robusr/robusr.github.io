@@ -1,19 +1,30 @@
 # QA
 
-Date: 2026-10-20. Build: Astro 7.4.1, Node 25.4.0, static output. Tests run against `astro preview` at `http://127.0.0.1:4321`.
+Date: 2026-10-20; follow-up audit: 2026-10-22. Build: Astro 7.4.1, Node 25.4.0, static output. Tests run against `astro preview` at `http://127.0.0.1:4321`.
 
 Production host switched to <https://robusr.cn> on 2026-10-21. Production checks are recorded below.
+
+## 2026-10-22 follow-up
+
+- `npm run verify` now gates content consistency, `astro check`, and the build; `.github/workflows/verify.yml` runs it on pushes to `main` and on pull requests.
+- Removed four unreferenced legacy assets: `og-default.png` and the first portrait WebP/JPEG set. `dist/` drops from 2.0 MB to 1.5 MB.
+- `public/_redirects` no longer contains a host rule, because Cloudflare Pages only redirects paths. `www` needs a zone Redirect Rule.
+- `sitemap.xml` uses `profile.contentDate` (2026-10-22) instead of the star-count snapshot date.
+- Added `og:image:alt` and `twitter:image:alt` in all three locales. The 404 page no longer emits Person JSON-LD.
+- The i18n payload is typed from `en.json`, and `scripts/check-content.mjs` checks locale key parity, required fields, project order, status keys, and asset files.
+- The portrait now reserves its 4:5 box with `aspect-ratio`, keeping local CLS at 0.001 or less.
 
 ## Build
 
 - `npm run build` completes with 4 pages: `/`, `/zh/`, `/fr/`, `/404.html`.
 - No errors or warnings during rendering; no runtime console errors or page errors in Chromium.
-- Output size: 1.4 MB total. HTML: EN 19,021 B, ZH 18,414 B, FR 19,941 B, 404 3,273 B.
+- Output size: 1.5 MB total. HTML: EN 19,199 B, ZH 18,534 B, FR 20,119 B, 404 3,042 B.
+- `npm run verify` passes: content check, 0 type errors, and the static build.
 - CSS, fonts, and the enhancement script are bundled locally. The build has no third-party script, font CDN, analytics, or iframe. Cloudflare injects an email-decode script at the edge; see Known limitations.
 
-## Production checks (2026-10-21)
+## Production checks (2026-10-22)
 
-Deployed commit: `50eb6c9`. The live HTML matches the local build except for the Cloudflare email-decode script and rewritten links.
+Deployed commit: `3bf258f`. The live HTML matches the local build except for the Cloudflare email-decode script and rewritten links.
 
 | Check | Result |
 |---|---|
@@ -23,14 +34,14 @@ Deployed commit: `50eb6c9`. The live HTML matches the local build except for the
 | Unknown path | 404 with the custom page |
 | HTTP to HTTPS | 301 |
 | IPv6 | 200 |
-| TLS certificate | valid to 2027-01-18, covers `robusr.cn` |
-| `www.robusr.cn` | no DNS record; see `DEPLOY.md` |
+| TLS certificate | `robusr.cn` and `www.robusr.cn` each serve a certificate for that host |
+| `www.robusr.cn` | resolves and returns 200 with the apex canonical; a 301 redirect is still missing; see `DEPLOY.md` |
 | Canonical, hreflang, OG, JSON-LD | `https://robusr.cn` in all three locales |
-| `sitemap.xml`, `robots.txt` | 200; sitemap lists only `robusr.cn` URLs |
+| `sitemap.xml`, `robots.txt` | 200; the live sitemap still has lastmod 2026-10-20; the next build uses 2026-10-22 from `contentDate` |
 | `_headers` | HSTS, CSP, X-Frame-Options, Permissions-Policy, and immutable asset caching present |
 | GitHub Pages | `https://robusr.github.io/` returns 404; the Pages setting is still enabled |
 
-Live Playwright, 390, 768, and 1440 px:
+Playwright on the live site (2026-10-21) and on the local preview after the changes (2026-10-22), at 390, 768, and 1440 px:
 
 - All three locales report the correct `lang`.
 - `scrollWidth === innerWidth` at every viewport.
@@ -45,11 +56,11 @@ Live Playwright, 390, 768, and 1440 px:
 
 | Locale | Performance | Accessibility | Best Practices | SEO | FCP | LCP | Speed Index | CLS | TBT | Transfer |
 |---|---|---|---|---|---|---|---|---|---|---|
-| EN | 96 | 100 | 92 | 100 | 1.6 s | 2.0 s | 4.3 s | 0 | 0 ms | 183 KiB |
-| ZH | 96 | 100 | 92 | 100 | 1.6 s | 2.1 s | 4.4 s | 0 | 0 ms | 201 KiB |
-| FR | 96 | 100 | 92 | 100 | 1.6 s | 2.0 s | 4.4 s | 0 | 0 ms | 183 KiB |
+| EN | 97 | 100 | 92 | 100 | 1.8 s | 1.8 s | 2.7 s | 0.069 | 0 ms | 266 KiB |
+| ZH | 98 | 100 | 92 | 100 | 1.6 s | 2.2 s | 3.0 s | 0 | 0 ms | 285 KiB |
+| FR | 99 | 100 | 92 | 100 | 1.6 s | 1.6 s | 2.0 s | 0.001 | 0 ms | 268 KiB |
 
-Best Practices is 92 because `errors-in-console` records the CSP-blocked Cloudflare Web Analytics beacon. The beacon transferred 0 bytes. Performance is 96 because Speed Index is 4.3 to 4.4 s; LCP is 2.0 to 2.1 s. Accessibility and SEO remain 100.
+Best Practices is 92 because `errors-in-console` still records the CSP-blocked Cloudflare Web Analytics beacon. The beacon is injected for browser user agents, so it does not appear in `curl` output. Performance is now 97 to 99 and Speed Index is 2.0 to 3.0 s. EN CLS was 0.069 in this run; the local build with the portrait `aspect-ratio` fix measures 0.001, so recheck after the next deploy. ZH LCP remains 2.2 s. Accessibility and SEO remain 100.
 
 ### Pending Cloudflare zone changes
 
@@ -59,9 +70,9 @@ Three edge features are still applied but are not in the repository:
 |---|---|---|
 | Email Address Obfuscation | Rewrites two `mailto:` links and injects `email-decode.min.js`; no-JS users see `[email protected]` | Off |
 | Managed robots.txt | Prepends 134 lines and a Content-Signal policy to `robots.txt` | Off |
-| Web Analytics / RUM | Injects `static.cloudflareinsights.com/beacon.min.js`, which the CSP blocks; this is the Best Practices 92 cause | Off |
+| Web Analytics / RUM | Still injects `static.cloudflareinsights.com/beacon.min.js` for browser user agents; the CSP blocks it; this is the Best Practices 92 cause | Off |
 
-The owner chose to disable all three. The audit machine has no Cloudflare credentials, so the changes are pending dashboard access or a scoped API token. Exact steps are in `DEPLOY.md`.
+All three were still active on 2026-10-22. The owner chose to disable them. The audit machine has no Cloudflare credentials, so the changes are pending dashboard access or a scoped API token. Exact steps are in `DEPLOY.md`.
 
 `public/_headers` sets one year immutable caching for hashed assets and adds HSTS, CSP, and framing headers. The live CSS response confirms `max-age=31536000, immutable`.
 
@@ -124,49 +135,49 @@ With JavaScript disabled at 390 px, all six sections and the hero, contact, and 
 ## Links and assets
 
 - All GitHub profile, repository, organization, and Kankanews links returned HTTP 200 on 2026-10-20.
-- `https://robusr.cn` resolves through Cloudflare and returns 200; it is the production host. `https://www.robusr.cn` still has no DNS record.
-- Local routes `/`, `/zh/`, `/fr/`, `/404.html`, `/sitemap.xml`, `/robots.txt`, `/og/og-default.png`, and `/favicon.svg` return 200 with correct content types.
+- `https://robusr.cn` resolves through Cloudflare and returns 200; it is the production host. `https://www.robusr.cn` also resolves and returns 200, with a canonical tag pointing to the apex; a 301 is still missing.
+- Local routes `/`, `/zh/`, `/fr/`, `/404.html`, `/sitemap.xml`, `/robots.txt`, `/og/og-default-v2.png`, and `/favicon.svg` return 200 with correct content types.
 - No broken in-page anchors in any locale.
 
 ## Lighthouse (mobile, simulated throttling)
 
 | Locale | Performance | Accessibility | Best Practices | SEO | LCP | CLS | Transfer |
 |---|---|---|---|---|---|---|---|
-| EN | 100 | 100 | 100 | 100 | 1.6 s | 0.001 | 179 KiB |
-| ZH | 100 | 100 | 100 | 100 | 1.7 s | 0 | 197 KiB |
-| FR | 100 | 100 | 100 | 100 | 1.4 s | 0.001 | 179 KiB |
+| EN | 99 | 100 | 100 | 100 | 2.0 s | 0.001 | 262 KiB |
+| ZH | 99 | 100 | 100 | 100 | 2.0 s | 0 | 280 KiB |
+| FR | 99 | 100 | 100 | 100 | 2.0 s | 0.001 | 263 KiB |
 
-Targets from the brief: all four categories ≥ 95, LCP < 2.0 s, CLS < 0.05. All met. Raw reports: `qa/lighthouse-en-mobile.json`, `qa/lighthouse-zh-mobile.json`, `qa/lighthouse-fr-mobile.json`; summary: `qa/lighthouse-summary.json`.
+Targets from the brief: all four categories ≥ 95, LCP < 2.0 s, CLS < 0.05. Categories and CLS are met. LCP displays as 2.0 s in all three locales, at the target boundary. Raw reports were refreshed on 2026-10-22: `qa/lighthouse-en-mobile.json`, `qa/lighthouse-zh-mobile.json`, `qa/lighthouse-fr-mobile.json`; summary: `qa/lighthouse-summary.json`.
 
 Lighthouse ran against a local preview with Chrome headless and simulated mobile throttling; scores on Pages/CDN may differ slightly.
 
 ## SEO and metadata
 
-- Per-page title, description, canonical, OG and Twitter tags.
+- Per-page title, description, canonical, OG and Twitter tags, including localized `og:image:alt` and `twitter:image:alt`.
 - Canonical, hreflang, Open Graph, JSON-LD, `sitemap.xml`, and `robots.txt` derive from `site` in `astro.config.mjs`.
 - hreflang set with `x-default` pointing to `/`.
 - `robots.txt` allows all and references the sitemap.
-- `sitemap.xml` lists the three locales with lastmod 2026-10-20.
+- `sitemap.xml` lists the three locales with lastmod 2026-10-22 from `profile.contentDate`.
 - JSON-LD `Person` includes name, alternateName, url, image, jobTitle, alumniOf, sameAs, email.
-- 404 page is `noindex, follow` and links to all three languages.
+- 404 page is `noindex, follow`, links to all three languages, and omits Person JSON-LD.
 
 ## Known limitations
 
 - Production is Cloudflare Pages at `https://robusr.cn`. Canonical, hreflang, Open Graph, JSON-LD, sitemap, and robots use that host.
 - Cloudflare Email Address Obfuscation rewrites `mailto:` links and injects `/cdn-cgi/scripts/.../email-decode.min.js`. With JavaScript disabled, the footer shows `[email protected]` and the email link does not open a mail client. This feature is pending removal.
-- Cloudflare Managed robots.txt and Web Analytics are also pending removal. The beacon is blocked by the CSP, so it transfers no data, but it lowers Best Practices to 92 and logs a console error.
-- ZH LCP is 2.1 s, slightly above the 2.0 s target. EN and FR are at 2.0 s.
+- Cloudflare Managed robots.txt and Web Analytics are also pending removal. The beacon is blocked by the CSP, so it transfers no data, but it lowers Best Practices to 92 and logs a console error. The local preview scores 100 because the edge features are absent.
+- ZH LCP is 2.2 s in production, above the 2.0 s target. EN and FR measure 1.8 s and 1.6 s.
 - Chinese and French copy need a native technical review before publishing.
 - The 37th CASTIC second prize is medium-confidence; see `CONTENT_CONFLICTS.md`.
 - The OG image is shared across locales and uses English copy, which the brief permits.
-- Local Lighthouse reports are in `qa/lighthouse-*.json`; live results are in `qa/lighthouse-live-summary.json`.
+- Local Lighthouse reports are in `qa/lighthouse-*-mobile.json`; live results are in `qa/lighthouse-live-summary.json`.
 
 
 ## Reproduce
 
 ```bash
 npm ci
-npm run build
+npm run verify
 npm run preview -- --host 127.0.0.1 --port 4321
 npm install --no-save playwright@1.64.1   # QA tooling only, not a site dependency
 node scripts/qa-capture.mjs

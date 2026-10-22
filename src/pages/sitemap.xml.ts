@@ -13,7 +13,7 @@ export const GET: APIRoute = ({ site }) => {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${PATHS.map(({ path, priority }) => `  <url>
     <loc>${base}${path}</loc>
-    <lastmod>${profile.snapshotDate}</lastmod>
+    <lastmod>${profile.contentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${priority}</priority>
   </url>`).join('\n')}

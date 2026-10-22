@@ -1,1 +1,3 @@
-https://www.robusr.cn/* https://robusr.cn/:splat 301
+# Cloudflare Pages _redirects only handles path redirects. Host-level redirects
+# such as www.robusr.cn to robusr.cn must be configured as a Cloudflare
+# Redirect Rule on the zone. See DEPLOY.md section 3.
