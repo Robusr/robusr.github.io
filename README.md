@@ -1,12 +1,23 @@
 # robusr.cn
 
-Personal homepage of **Robusr Guo (郭沫晗)**, built with Astro as a static site.
+**Personal homepage of Robusr Guo (郭沫晗)**: a robotics engineering student at HUST who turns real-world problems into working hardware, then builds AI tools that shorten the distance from an idea to a part.
 
-The page follows one narrative in three languages: real-world problems turned into working hardware, then AI tools that shorten the distance from an idea to a part. It presents five selected projects, a six-entry timeline, awards and media, and a short essay on the move from building machines to building tools.
+**English** · [简体中文](README.zh.md) · [Français](README.fr.md)
+
+> Five selected projects, a six-row journey, awards and media, and a short essay on moving from building machines to building tools.
 
 ![Homepage preview](public/og/og-default-v2.png)
 
-**Status:** live at <https://robusr.cn>, deployed on Cloudflare Pages from `main`.
+| | |
+|---|---|
+| **Live site** | <https://robusr.cn> |
+| **Hosting** | Cloudflare Pages, deployed from `main` |
+| **Stack** | Astro 7, static output, no client framework |
+| **Locales** | English `/`, 简体中文 `/zh/`, Français `/fr/` |
+| **Design** | single-column editorial layout, 880 px max width, one deep-teal accent |
+| **Quality gates** | `npm run verify`, Playwright, Lighthouse |
+
+---
 
 ## Pages
 
@@ -27,7 +38,7 @@ All versions share one content model and the same section order. With JavaScript
 - **More Work:** six repositories, one line each.
 - **About:** two paragraphs on Guyuan's sandstorms and the move upstream into AI tools for CAD and fabrication.
 - **Contact:** email, GitHub, Anteportal Labs, location, language links, and the signature.
-- **Background:** two hand-drawn IP figures, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash.
+- **Background:** two hand-drawn personal IP illustrations, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash. The standing figure is hidden below 1360 px; mobile uses a 480 px version of the portrait.
 
 ## Stack
 
@@ -95,9 +106,10 @@ English is the source of truth. When editing:
 │   └── styles/       tokens.css, global.css
 ├── public/           images, hand-drawn IP art, favicon, OG image, _headers, _redirects
 ├── content/          copy manuscripts and glossary
-├── scripts/          content check, OG image generator, and QA helpers
+├── scripts/          content check, OG and IP asset generators, and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
 ├── screenshots/      full-page captures at 1440, 1024, 768, and 390 px
+├── Robusr IP/        source scans for the background artwork
 ├── .github/          verify workflow
 └── .nvmrc            Node version for local builds
 ```
@@ -119,7 +131,7 @@ Production Best Practices is 92 because Cloudflare still injects the Web Analyti
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 
-The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image can be regenerated with `python3 scripts/make-og.py`; Pillow is required. The IP background assets are generated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`.
+The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`. Both generators require Pillow.
 
 ## Deployment
 
