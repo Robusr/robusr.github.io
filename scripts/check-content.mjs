@@ -46,7 +46,7 @@ for (const field of ['snapshotDate', 'contentDate']) {
 if (isIsoDate(profile.snapshotDate) && isIsoDate(profile.contentDate) && profile.contentDate < profile.snapshotDate) {
   errors.push('profile.contentDate must not precede snapshotDate');
 }
-for (const asset of ['robusr-ip-v2.webp', 'robusr-ip-480.webp', 'robusr-standing.webp']) {
+for (const asset of ['robusr-ip-v2.webp', 'robusr-ip-480.webp', 'robusr-standing.webp', 'robusr-standing-640.webp']) {
   if (!exists(`public/assets/brand/${asset}`)) errors.push(`background art missing: ${asset}`);
 }
 

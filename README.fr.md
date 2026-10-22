@@ -38,7 +38,7 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 - **Autres projets :** six dépôts, une ligne chacun.
 - **À propos :** deux paragraphes sur les tempêtes de sable de Guyuan et le passage en amont vers des outils d'IA pour la CAO et la fabrication.
 - **Contact :** e-mail, GitHub, Anteportal Labs, localisation, liens de langue et signature.
-- **Arrière-plan :** deux illustrations au trait de l'IP personnelle, un portrait collage en bas à droite et une silhouette debout en bas à gauche, sur un fond papier chaud. La silhouette est masquée sous 1360 px ; le mobile utilise une version 480 px du portrait.
+- **Arrière-plan :** deux illustrations au trait de l'IP personnelle, un portrait collage en bas à droite et une silhouette debout en bas à gauche, sur un fond papier chaud avec une fine trame de points dans les marges. La silhouette apparaît à partir de 1200 px ; le mobile utilise une version 480 px du portrait.
 
 ## Pile technique
 

@@ -38,7 +38,7 @@ All versions share one content model and the same section order. With JavaScript
 - **More Work:** six repositories, one line each.
 - **About:** two paragraphs on Guyuan's sandstorms and the move upstream into AI tools for CAD and fabrication.
 - **Contact:** email, GitHub, Anteportal Labs, location, language links, and the signature.
-- **Background:** two hand-drawn personal IP illustrations, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash. The standing figure is hidden below 1360 px; mobile uses a 480 px version of the portrait.
+- **Background:** two hand-drawn personal IP illustrations, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash with a faint drafting dot grid in the margins. The standing figure appears from 1200 px up; mobile uses a 480 px version of the portrait.
 
 ## Stack
 

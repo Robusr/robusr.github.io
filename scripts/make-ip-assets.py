@@ -59,4 +59,5 @@ def build(src: Path, dest: Path, max_width: int, floor: int, gain: float, margin
 
 build(SRC / "A.jpg", OUT / "robusr-ip-v2.webp", max_width=1100, floor=16, gain=1.35, margin=48)
 build(SRC / "A.jpg", OUT / "robusr-ip-480.webp", max_width=480, floor=16, gain=1.35, margin=48, quality=78)
-build(SRC / "B.PNG", OUT / "robusr-standing.webp", max_width=760, floor=8, gain=1.5, margin=56)
+build(SRC / "B.PNG", OUT / "robusr-standing.webp", max_width=1040, floor=8, gain=1.5, margin=56)
+build(SRC / "B.PNG", OUT / "robusr-standing-640.webp", max_width=640, floor=8, gain=1.5, margin=56)
