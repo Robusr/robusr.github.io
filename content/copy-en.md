@@ -25,6 +25,15 @@ Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 
 <!-- Sources: 01-identity-and-bio.md (short bio), 5.1 positioning sentence; data/profile.json. -->
 
+## Mini Lab
+
+- Title: Mini Lab
+- Caption: The bedroom workbench: whiteboard derivations, a modular arm, an electronics bench, and the laptop where the models ran.
+- Alt: A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.
+- Image: `/assets/lab/minilab-1440.jpg`; 480/960/1440 WebP and a 1440 JPEG fallback.
+
+<!-- Source: photo supplied by Robusr (minilab.jpeg); EXIF removed in the published assets. -->
+
 ## Selected Work
 
 <!-- GitHub stars, forks, last push, and the latest release are rendered from src/data/github.json and refreshed from /api/github. Star counts are not fixed in this manuscript. -->
@@ -114,15 +123,6 @@ Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 The winter I was 17, classmates who were into high-energy propellant motors asked me to build a simple thrust-data acquisition test stand and a remote ignition system for them. The moment I pressed the button and the sugar propellant ignited and burst out, it was just like Homer in October Sky breaking with the traditions and stability of Coalwood: in that town so small it was little more than a name, I decided to start building rockets. My father is an art teacher; the floor lamp he used for painting long landscape scrolls was moved into my bedroom. From the quantitative calculation of the von Kármán curve in MATLAB and the qualitative CFD analysis of an ideal model, to the assembly topology of modular rocket-body PCBs and the packet-loss testing of LoRa data frames, every stiffener and op-amp in systems engineering is a concrete point where abstract theory becomes engineering. From intention to form, it is like the burnt, dense, heavy, pale, and clear tones of ink under my father’s brush: a landscape painted in one breath, giving meaning to my exploration.
 
 <!-- Sources: supplied by Robusr in Chinese on 2026-11-26; the Chinese text is the source for this paragraph, and English and French are translations. -->
-
-## Mini Lab
-
-- Title: Mini Lab
-- Caption: The bedroom workbench: whiteboard derivations, a modular arm, an electronics bench, and the laptop where the models ran.
-- Alt: A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.
-- Image: `/assets/lab/minilab-1440.jpg`; 480/960/1440 WebP and a 1440 JPEG fallback.
-
-<!-- Source: photo supplied by Robusr (minilab.jpeg); EXIF removed in the published assets. -->
 
 ## Footer
 

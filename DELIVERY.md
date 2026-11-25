@@ -2,7 +2,7 @@
 
 > 2026-10-21 更新：仓库配置已切换到 https://robusr.cn，canonical、hreflang、Open Graph、JSON-LD、sitemap 与 robots 均已更新，部署后生效；GitHub Actions 部署工作流已移除；GitHub Pages 站点设置仍需在仓库后台关闭。以下为 2026-10-20 的原始交付记录。
 >
-> 2026-11-26 更新：More Work 调整为 4 条（Huginn、Robusr-skill、Lynx、Gungnir）；About 之后新增迷你实验室章节（全宽卧室工作台照片，三语说明，发布资源去除 EXIF）；项目卡片改为构建时 GitHub 快照加 `/api/github` 实时刷新；Vulcan 最新 Release 为 v1.3.0；`snapshotDate` 与 `contentDate` 更新为 2026-11-26。下文原始记录中的星标数字与 6 条 More Work 为当时状态。
+> 2026-11-26 更新：More Work 调整为 4 条（Huginn、Robusr-skill、Lynx、Gungnir）；Hero 之后新增编号 00 的迷你实验室章节（全宽卧室工作台照片，三语说明，发布资源去除 EXIF）；项目卡片改为构建时 GitHub 快照加 `/api/github` 实时刷新；Vulcan 最新 Release 为 v1.3.0；`snapshotDate` 与 `contentDate` 更新为 2026-11-26。下文原始记录中的星标数字与 6 条 More Work 为当时状态。
 
 日期：2026-10-20
 工作分支：`feat/homepage`

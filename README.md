@@ -32,12 +32,12 @@ All versions share one content model and the same section order. With JavaScript
 
 ## What the page contains
 
+- **Mini Lab (00):** a full-width photo of the bedroom workbench directly after the Hero, before Selected Work, with a one-line caption in each language.
 - **Selected Work:** Vulcan, Hsiwu, DustArrow X, OnesArm, and Anteportal Labs · Sencillo, in that fixed order. Repository cards show live GitHub stars, forks, last push, and the latest release tag, falling back to a build-time snapshot without JavaScript.
 - **Journey:** six rows from a bedroom workshop in 2018 to HUST in 2026.
 - **Awards & Media:** 38th CASTIC first prize, 37th CASTIC second prize, and the Shanghai TV *Young Edison* feature.
 - **More Work:** four repositories, one line each.
 - **About:** one paragraph on October Sky, the sugar-propellant ignition that started it all, the floor lamp borrowed from his art-teacher father, the von Kármán curve, modular rocket PCB assembly, LoRa packet-loss tests, and the ink tones that connect engineering to meaning.
-- **Mini Lab:** a full-width photo of the bedroom workbench after the About essay, with a one-line caption in each language.
 - **Contact:** email, GitHub, Anteportal Labs, location, language links, and the signature.
 - **Background:** two hand-drawn personal IP illustrations, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash with a faint drafting dot grid in the margins. The standing figure appears from 1200 px up; mobile uses a 480 px version of the portrait.
 
@@ -105,7 +105,7 @@ English is the source of truth. When editing:
 ```text
 .
 ├── src/
-│   ├── components/   Header, Hero, ProjectList, Journey, Awards, MoreWork, About, MiniLab, Footer, LanguageSwitcher
+│   ├── components/   Header, Hero, MiniLab, ProjectList, Journey, Awards, MoreWork, About, Footer, LanguageSwitcher
 │   ├── data/         profile, projects, timeline, awards, more-work, mini-lab, generated GitHub snapshot
 │   ├── i18n/         en, zh, fr, and shared types
 │   ├── layouts/      Base.astro with head, hreflang, and JSON-LD

@@ -253,6 +253,7 @@ body::after {
 .about p + p { margin-top: 18px; }
 
 /* Mini Lab */
+.lab { margin-top: clamp(36px, 5vw, 56px); }
 .lab-figure { margin: 0; }
 .lab-figure picture { display: block; overflow: hidden; border-radius: var(--radius); background: var(--accent-soft); }
 .lab-figure img { width: 100%; height: auto; }

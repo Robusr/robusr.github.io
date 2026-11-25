@@ -32,12 +32,12 @@
 
 ## 页面内容
 
+- **迷你实验室（00）：** Hero 之后、代表项目之前的全宽卧室工作台照片，三种语言各配一句说明。
 - **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。仓库卡片展示实时的 GitHub stars、forks、最近推送时间与最新 Release 版本；无 JavaScript 时回退到构建快照。
 - **经历：** 6 行，从 2018 年的卧室工作室到 2026 年的华中科技大学。
 - **奖项与报道：** 第 38 届全国青少年科技创新大赛一等奖、第 37 届二等奖，以及上海电视台《少年爱迪生》。
 - **其他项目：** 4 个仓库，每个一行。
 - **关于：** 一段文字，从《十月的天空》和硝糖燃料点火讲起，到美术老师父亲的落地台灯、冯卡门曲线、箭体 PCB 装配、LoRa 丢包测试与水墨五色。
-- **迷你实验室：** About 之后的全宽卧室工作台照片，三种语言各配一句说明。
 - **联系：** 邮箱、GitHub、Anteportal Labs、所在地、语言链接与签名。
 - **背景：** 两幅手绘个人 IP 线稿，右下角拼贴肖像、左下角站立人物，叠在带有极淡制图点阵的暖色纸感底色上。站立人物从 1200 px 起显示；移动端使用 480 px 版本的肖像。
 
@@ -105,7 +105,7 @@ npm run verify    # check + typecheck + build
 ```text
 .
 ├── src/
-│   ├── components/   Header、Hero、ProjectList、Journey、Awards、MoreWork、About、MiniLab、Footer、LanguageSwitcher
+│   ├── components/   Header、Hero、MiniLab、ProjectList、Journey、Awards、MoreWork、About、Footer、LanguageSwitcher
 │   ├── data/         profile、projects、timeline、awards、more-work、mini-lab、生成的 GitHub 快照
 │   ├── i18n/         en、zh、fr 与共享类型
 │   ├── layouts/      Base.astro，负责 head、hreflang 与 JSON-LD

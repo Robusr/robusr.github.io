@@ -26,11 +26,11 @@ const { locale, t } = Astro.props as { locale: Locale; t: Messages };
 <Header locale={locale} t={t} />
 <main id="main">
   <Hero locale={locale} t={t} />
+  <MiniLab locale={locale} />
   <ProjectList locale={locale} t={t} />
   <Journey locale={locale} t={t} />
   <Awards locale={locale} t={t} />
   <MoreWork locale={locale} t={t} />
   <About locale={locale} t={t} />
-  <MiniLab locale={locale} />
 </main>
 <Footer locale={locale} t={t} />

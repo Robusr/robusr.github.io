@@ -32,12 +32,12 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 
 ## Contenu de la page
 
+- **Mini Lab (00) :** une photo pleine largeur de l'établi de la chambre juste après le Hero, avant les travaux sélectionnés, avec une légende d'une ligne dans chaque langue.
 - **Travaux sélectionnés :** Vulcan, Hsiwu, DustArrow X, OnesArm et Anteportal Labs · Sencillo, dans cet ordre fixe. Les cartes de dépôt affichent en direct les étoiles, les forks, le dernier push et la dernière version publiée sur GitHub, avec un instantané de build en secours sans JavaScript.
 - **Parcours :** six lignes, d'un atelier de chambre en 2018 à HUST en 2026.
 - **Prix et presse :** premier prix du 38e CASTIC, deuxième prix du 37e CASTIC et le reportage *Young Edison* de la télévision de Shanghai.
 - **Autres projets :** quatre dépôts, une ligne chacun.
 - **À propos :** un paragraphe sur October Sky, l'allumage du propergol au sucre, la lampe du père professeur d'art, la courbe de von Kármán, l'assemblage des PCB de fusée, les tests de perte LoRa et les tons d'encre qui relient l'ingénierie au sens.
-- **Mini Lab :** une photo pleine largeur de l'établi de la chambre après le texte À propos, avec une légende d'une ligne dans chaque langue.
 - **Contact :** e-mail, GitHub, Anteportal Labs, localisation, liens de langue et signature.
 - **Arrière-plan :** deux illustrations au trait de l'IP personnelle, un portrait collage en bas à droite et une silhouette debout en bas à gauche, sur un fond papier chaud avec une fine trame de points dans les marges. La silhouette apparaît à partir de 1200 px ; le mobile utilise une version 480 px du portrait.
 
@@ -105,7 +105,7 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 ```text
 .
 ├── src/
-│   ├── components/   Header, Hero, ProjectList, Journey, Awards, MoreWork, About, MiniLab, Footer, LanguageSwitcher
+│   ├── components/   Header, Hero, MiniLab, ProjectList, Journey, Awards, MoreWork, About, Footer, LanguageSwitcher
 │   ├── data/         profile, projects, timeline, awards, more-work, mini-lab, instantané GitHub
 │   ├── i18n/         en, zh, fr et types partagés
 │   ├── layouts/      Base.astro : head, hreflang et JSON-LD
