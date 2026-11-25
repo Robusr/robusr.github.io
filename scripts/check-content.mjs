@@ -52,7 +52,7 @@ for (const asset of ['robusr-ip-v2.webp', 'robusr-ip-480.webp', 'robusr-standing
 }
 
 const miniLab = read('src/data/mini-lab.json');
-for (const field of ['title', 'caption', 'alt']) {
+for (const field of ['title', 'figLabel', 'caption', 'alt']) {
   if (!isLocalized(miniLab[field])) errors.push(`mini-lab.${field} must have en, zh, and fr strings`);
 }
 if (!/^\/assets\/lab\/[A-Za-z0-9-]+$/.test(miniLab.image?.base ?? '')) {

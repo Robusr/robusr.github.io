@@ -4,6 +4,11 @@
     "zh": "迷你实验室",
     "fr": "Mini Lab"
   },
+  "figLabel": {
+    "en": "Fig. 00",
+    "zh": "图 00",
+    "fr": "Fig. 00"
+  },
   "caption": {
     "en": "The bedroom workbench: whiteboard derivations, a modular arm, an electronics bench, and the laptop where the models ran.",
     "zh": "卧室工作台：白板上的推导、模块化机械臂、电子工作台，以及跑模型的笔记本电脑。",

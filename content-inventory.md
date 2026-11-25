@@ -20,7 +20,8 @@ Audit date: 2026-10-20. Production domain updated 2026-10-21. Link checks re-ver
 | Sencillo | desktop PCB fabrication, 8/8 mil, 0.8 mm copper rivets, ≤30 min, 50 × 50 mm, all design targets, pre-prototype | 02 |
 | Awards | 38th CASTIC first prize 2024 (OnesArm); 37th CASTIC second prize 2023 (DustArrow); Shanghai TV Young Edison S8 2024 | 04 |
 | More Work | Huginn, Robusr-skill, Lynx, Gungnir | 02, projects.json, GitHub profile 2026-11-26 |
-| Mini Lab | Bedroom workbench photo, full-width section 00 after the Hero and before Selected Work; 480/960/1440 WebP and 1440 JPEG fallback; EXIF stripped | minilab.jpeg, supplied 2026-11-26 |
+| Mini Lab | Bedroom workbench photo, full-width section 00 after the Hero and before Selected Work; paper mat with `Fig. 00`; 480/960/1440 WebP and 1440 JPEG fallback; EXIF stripped and warm graded | minilab.jpeg, supplied 2026-11-26 |
+| OG card | 1200×630 `og-default-v3.png` with the Mini Lab plate and the site tagline | scripts/make-og.py, 2026-11-26 |
 | Contact | GitHub, email, Anteportal org only | 01, 06 |
 
 ## Rewritten for the page

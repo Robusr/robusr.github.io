@@ -27,7 +27,10 @@ const { locale } = Astro.props as { locale: Locale };
           fetchpriority="low"
         />
       </picture>
-      <figcaption>{lab.caption[locale]}</figcaption>
+      <figcaption>
+        <span class="fig-index">{lab.figLabel[locale]}</span>
+        <span>{lab.caption[locale]}</span>
+      </figcaption>
     </figure>
   </div>
 </section>

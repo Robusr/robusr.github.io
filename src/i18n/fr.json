@@ -4,7 +4,7 @@
   "meta": {
     "title": "Robusr Guo — Bâtisseur IA × ingénierie",
     "description": "Robusr Guo est étudiant en génie robotique à HUST. Il conçoit des outils d’IA pour la CAO et la fabrication, des robots bio-inspirés, des fusées-sondes et des bras robotiques modulaires.",
-    "imageAlt": "Robusr Guo, étudiant en génie robotique à HUST, avec la devise du site : bâtisseur IA × ingénierie."
+    "imageAlt": "Le Mini Lab de chambre : bras robotique, équations au tableau, ordinateur portable ouvert et la devise du site : bâtisseur IA × ingénierie."
   },
   "navLabel": "Navigation principale",
   "nav": { "work": "Travaux", "journey": "Parcours", "about": "À propos", "contact": "Contact" },
@@ -25,5 +25,6 @@
     "stars": "étoiles",
     "forks": "forks",
     "updated": "Mis à jour le"
-  }
+  },
+  "colophon": "Composé en Inter · papier · Wuhan · 2026"
 }

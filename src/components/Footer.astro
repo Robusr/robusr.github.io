@@ -21,7 +21,8 @@ const { locale, t } = Astro.props as { locale: Locale; t: Messages };
       <LanguageSwitcher locale={locale} t={t} />
     </div>
   </div>
-  <div class="wrap signature-row">
+  <div class="wrap footer-base">
+    <p class="colophon">{t.colophon}</p>
     <p class="signature">{profile.signature}</p>
   </div>
 </footer>

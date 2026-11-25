@@ -52,12 +52,14 @@ const formatDate = (value?: string | null) => {
               <div class="project-head">
                 <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 <h3><a href={project.href}>{project.name}</a></h3>
-                {release ? (
-                  <a class="release" href={release.url} data-release-repo={project.repo}>{release.tag}</a>
-                ) : project.repo ? (
-                  <a class="release" href={`https://github.com/Robusr/${project.repo}/releases`} data-release-repo={project.repo} hidden></a>
-                ) : null}
-                <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
+                <div class="project-flags">
+                  {release ? (
+                    <a class="release" href={release.url} data-release-repo={project.repo}>{release.tag}</a>
+                  ) : project.repo ? (
+                    <a class="release" href={`https://github.com/Robusr/${project.repo}/releases`} data-release-repo={project.repo} hidden></a>
+                  ) : null}
+                  <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
+                </div>
               </div>
               <p class="project-category">{project.category[locale]}</p>
               <p class="project-tagline">{project.tagline[locale]}</p>

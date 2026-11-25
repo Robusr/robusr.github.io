@@ -28,6 +28,7 @@ Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 ## Mini Lab
 
 - Title: Mini Lab
+- Figure label: Fig. 00
 - Caption: The bedroom workbench: whiteboard derivations, a modular arm, an electronics bench, and the laptop where the models ran.
 - Alt: A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.
 - Image: `/assets/lab/minilab-1440.jpg`; 480/960/1440 WebP and a 1440 JPEG fallback.

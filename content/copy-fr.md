@@ -26,6 +26,7 @@ Instantané : 2026-11-26. Traduction de `content/copy-en.md`, qui reste la sourc
 ## Mini Lab
 
 - Titre : Mini Lab
+- Libellé de figure : Fig. 00
 - Légende : L’établi de la chambre : démonstrations au tableau, bras modulaire, banc électronique et l’ordinateur où tournaient les modèles.
 - Alt : Un établi de chambre encombré : tableau blanc couvert d’équations, bras robotique, ordinateur portable ouvert, cartes de circuit, outils et étagères de livres.
 - Image : `/assets/lab/minilab-1440.jpg` ; WebP 480/960/1440, fallback JPEG 1440.

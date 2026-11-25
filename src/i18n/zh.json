@@ -4,7 +4,7 @@
   "meta": {
     "title": "郭沫晗 Robusr Guo — AI × 工程建造者",
     "description": "郭沫晗（Robusr Guo），华中科技大学机器人工程科创实验班本科生，做 AI × 工程：CAD 智能体、仿生机器人、探空火箭与桌面 PCB 制造。",
-    "imageAlt": "郭沫晗，华中科技大学机器人工程学生，页面标语：AI × 工程建造者。"
+    "imageAlt": "郭沫晗的卧室迷你实验室：机械臂、写满公式的白板、打开的笔记本电脑，以及页面标语：AI × 工程建造者。"
   },
   "navLabel": "主导航",
   "nav": { "work": "项目", "journey": "经历", "about": "关于", "contact": "联系" },
@@ -25,5 +25,6 @@
     "stars": "stars",
     "forks": "forks",
     "updated": "更新于"
-  }
+  },
+  "colophon": "Inter 字体 · 纸感 · 武汉 · 2026"
 }

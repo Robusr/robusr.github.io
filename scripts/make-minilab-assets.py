@@ -10,12 +10,13 @@ Requires Pillow. The saved files carry no EXIF metadata.
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageEnhance, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else ROOT / "minilab.jpeg"
 OUT = ROOT / "public/assets/lab"
 WIDTHS = (480, 960, 1440)
+WARM = (252, 245, 235)
 
 
 def resize(image: Image.Image, width: int) -> Image.Image:
@@ -25,6 +26,9 @@ def resize(image: Image.Image, width: int) -> Image.Image:
 
 def main() -> None:
     image = ImageOps.exif_transpose(Image.open(SRC)).convert("RGB")
+    # A gentle warm, slightly desaturated grade so the photo sits with the paper palette.
+    image = ImageEnhance.Color(image).enhance(0.94)
+    image = Image.blend(image, Image.new("RGB", image.size, WARM), 0.035)
     OUT.mkdir(parents=True, exist_ok=True)
 
     for width in WIDTHS:

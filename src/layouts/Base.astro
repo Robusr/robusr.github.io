@@ -21,7 +21,7 @@ const {
 const SITE = (Astro.site ?? new URL('https://robusr.cn')).origin;
 const PATHS = { en: '/', zh: '/zh/', fr: '/fr/' } as const;
 const canonical = new URL(path ?? PATHS[locale], SITE).href;
-const ogImage = new URL('/og/og-default-v2.png', SITE).href;
+const ogImage = new URL('/og/og-default-v3.png', SITE).href;
 const ogLocale = { en: 'en_US', zh: 'zh_CN', fr: 'fr_FR' }[locale];
 const pageTitle = title ?? t.meta.title;
 
@@ -93,6 +93,12 @@ const jsonLd = {
     <script>
       import '../scripts/site.js';
     </script>
+    <div class="sheet-marks" aria-hidden="true">
+      <span class="crop crop-tl"></span>
+      <span class="crop crop-tr"></span>
+      <span class="crop crop-bl"></span>
+      <span class="crop crop-br"></span>
+    </div>
     <a class="skip-link" href="#main">{t.skip}</a>
     <slot />
   </body>

@@ -6,7 +6,7 @@
 
 > Cinq projets sélectionnés, un parcours en six lignes, des prix et de la presse, et un court texte sur le passage de la fabrication de machines à celle d'outils.
 
-![Homepage preview](public/og/og-default-v2.png)
+![Homepage preview](public/og/og-default-v3.png)
 
 | | |
 |---|---|
@@ -32,7 +32,7 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 
 ## Contenu de la page
 
-- **Mini Lab (00) :** une photo pleine largeur de l'établi de la chambre juste après le Hero, avant les travaux sélectionnés, avec une légende d'une ligne dans chaque langue.
+- **Mini Lab (00) :** une photo pleine largeur de l'établi de la chambre juste après le Hero, avant les travaux sélectionnés, posée sur un passe-partout papier avec une légende « Fig. 00 » dans chaque langue.
 - **Travaux sélectionnés :** Vulcan, Hsiwu, DustArrow X, OnesArm et Anteportal Labs · Sencillo, dans cet ordre fixe. Les cartes de dépôt affichent en direct les étoiles, les forks, le dernier push et la dernière version publiée sur GitHub, avec un instantané de build en secours sans JavaScript.
 - **Parcours :** six lignes, d'un atelier de chambre en 2018 à HUST en 2026.
 - **Prix et presse :** premier prix du 38e CASTIC, deuxième prix du 37e CASTIC et le reportage *Young Edison* de la télévision de Shanghai.
@@ -52,6 +52,8 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 | JavaScript | environ 2,3 Ko d'amélioration progressive |
 | Données GitHub | instantané produit au build depuis l'API GitHub ; rafraîchissement `/api/github` mis en cache en périphérie par une Cloudflare Pages Function |
 | Confidentialité | aucune analyse, cookie, police tierce ou intégration ; les requêtes GitHub partent de Cloudflare, pas du navigateur du visiteur |
+| Impression | feuille de style A4 : masque navigation, fonds et métadonnées live ; conserve les planches, dates et URL externes |
+| Partage social | carte OG 1200×630 avec la planche Mini Lab et la devise du site |
 | Déploiement | Cloudflare Pages et Pages Functions, intégration Git, Node 22 |
 | CI | GitHub Actions exécute `npm run verify` sur les push et les pull requests |
 
@@ -83,7 +85,7 @@ Tous les textes visibles sont pilotés par les données.
 | `src/data/timeline.json` | six lignes de parcours |
 | `src/data/awards.json` | trois prix et mentions presse |
 | `src/data/more-work.json` | quatre projets secondaires |
-| `src/data/mini-lab.json` | titre, légende, texte alt et dimensions de l'image Mini Lab |
+| `src/data/mini-lab.json` | titre, libellé de figure, légende, texte alt et dimensions de l'image Mini Lab |
 | `src/data/github.json` | instantané généré : étoiles, forks, dernier push et dernière version de chaque dépôt suivi |
 | `src/i18n/en.json`, `zh.json`, `fr.json` | libellés d'interface, titres meta et descriptions |
 | `content/copy-en.md` | manuscrit source en anglais |
@@ -136,13 +138,14 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 | Largeurs de mise en page | 1440, 1024, 768 et 390 px, sans débordement horizontal |
 | JavaScript désactivé | tout le contenu reste lisible ; les cartes GitHub utilisent l'instantané |
 | Ressources Mini Lab | WebP 480/960/1440 et fallback JPEG 1440 ; EXIF supprimé ; légende et alt dans les trois langues |
+| OG et impression | carte OG v3 1200×630 avec la planche Mini Lab ; la feuille A4 conserve planches, dates et URL externes et masque navigation et métadonnées live |
 | Liens externes | GitHub et les liens presse renvoient 200 |
 
 Les chiffres Lighthouse précèdent le module GitHub en direct et doivent être remesurés pour ce build. Best Practices vaut 92 en production parce que Cloudflare injecte encore le beacon Web Analytics et que la CSP le bloque. Email Address Obfuscation et Managed robots.txt restent aussi appliqués en périphérie : la page en ligne diffère donc du build local. Ces réglages appartiennent à la zone, pas au dépôt. Résultats en ligne dans `qa/lighthouse-live-summary.json`.
 
 Preuves complètes : [QA.md](QA.md). Captures : [screenshots/](screenshots/). Rapports Lighthouse bruts : [qa/](qa/).
 
-Les scripts QA utilisent Playwright, à installer séparément avec `npm install --no-save playwright@1.64.1`. L'image OG se régénère avec `python3 scripts/make-og.py` ; les illustrations de fond se régénèrent depuis `Robusr IP/` avec `python3 scripts/make-ip-assets.py` ; la photo Mini Lab se régénère avec `python3 scripts/make-minilab-assets.py /chemin/vers/minilab.jpeg`. Les générateurs nécessitent Pillow, et le script Mini Lab supprime les métadonnées EXIF.
+Les scripts QA utilisent Playwright, à installer séparément avec `npm install --no-save playwright@1.64.1`. L'image OG se régénère avec `python3 scripts/make-og.py` ; les illustrations de fond se régénèrent depuis `Robusr IP/` avec `python3 scripts/make-ip-assets.py` ; la photo Mini Lab se régénère avec `python3 scripts/make-minilab-assets.py /chemin/vers/minilab.jpeg`. Les générateurs nécessitent Pillow, et le script Mini Lab supprime les métadonnées EXIF et applique une légère dominante chaude.
 
 ## Déploiement
 

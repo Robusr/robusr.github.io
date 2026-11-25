@@ -9,7 +9,9 @@ Production host switched to <https://robusr.cn> on 2026-10-21. Production checks
 - Added `scripts/sync-github.mjs` and `src/data/github.json`: 8 tracked repositories, refreshed before every build; Vulcan resolves to release v1.3.0.
 - Added `functions/api/github.js`, a Cloudflare Pages Function serving edge-cached public repository stats for the live card refresh. The handler returned 24 public repositories and the Vulcan release in a local test. A Playwright check with a mocked `/api/github` response updated the Vulcan card to 99 stars, 7 forks, a new date, `is-live`, and release v9.9.9 with no console errors.
 - Focused More Work on four items selected by the owner: Huginn, Robusr-skill, Lynx, and Gungnir; updated snapshot and content dates to 2026-11-26.
-- Added a Mini Lab section after the Hero, numbered 00 and placed before Selected Work: a full-width bedroom workbench photo at 480/960/1440 WebP plus a 1440 JPEG fallback, with trilingual caption and alt text. EXIF metadata is stripped from the published assets.
+- Added a Mini Lab section after the Hero, numbered 00 and placed before Selected Work: a full-width bedroom workbench photo at 480/960/1440 WebP plus a 1440 JPEG fallback, set on a paper mat with a `Fig. 00` caption in three languages. EXIF metadata is stripped and the published images carry a subtle warm grade.
+- Visual pass: a hairline rule leads into section 00; Journey now has a vertical timeline and accent nodes while Awards uses a ledger rule and accent ticks; project status/release chips share a right-aligned flag group; all small metadata uses a 12 px mono token; wide screens show faint sheet rules and crop marks; About has a top rule, a 62ch measure, and a larger first line; the footer adds a colophon.
+- Added an A4 print stylesheet that hides navigation, backgrounds, live metadata, and repeated URLs while keeping plates, dates, and outbound links; regenerated the OG card as `og-default-v3.png` with the Mini Lab plate.
 - `npm run verify` passes: content check, 0 type errors, 4 pages built.
 - The Lighthouse and production browser figures below predate this change and need a fresh run.
 

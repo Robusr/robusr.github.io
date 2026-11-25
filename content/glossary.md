@@ -43,7 +43,9 @@ Shared across all three language versions. Project names, repository names, part
 | floor lamp | 落地台灯 | lampe sur pied |
 | von Kármán curve | 冯卡门曲线 | courbe de von Kármán |
 | ink tones | 墨色焦、浓、重、淡、清 | tons d’encre |
-| Mini Lab | 迷你实验室 | Mini Lab |
+| mini lab | 迷你实验室 | Mini Lab |
+| figure plate | 图版 | planche |
+| colophon | 版本说明 | colophon |
 | whiteboard | 白板 | tableau blanc |
 | workbench | 工作台 | établi |
 | electronics bench | 电子工作台 | banc électronique |
