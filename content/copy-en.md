@@ -18,7 +18,7 @@ Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 - Label: Robotics Engineering · HUST
 - Name: Robusr Guo
 - Positioning: AI × Engineering builder. I turn real-world problems into working hardware, then use AI to compress the distance from idea to part.
-- Intro: Robusr Guo studies in the Robotics Engineering Innovation Experimental Class at Huazhong University of Science and Technology. He started with Arduino in sixth grade in Guyuan, Ningxia, and has built a sounding rocket, a modular robotic arm, and a bat-inspired flapping-wing robot. He now builds AI tools for engineering: Vulcan turns natural language into editable SolidWorks features, and Sencillo aims to put PCB fabrication on a desk.
+- Intro: Robusr Guo, a bedroom geek for ten years, is an undergraduate in the Robotics Engineering Innovation Experimental Class at Huazhong University of Science and Technology. At 13, he turned his bedroom into a mechatronics workshop.
 - Status: Currently: Vulcan · Sencillo · HUST Robotics.
 - Links: GitHub · Email · Anteportal Labs
 - Portrait alt: Robusr Guo under a ginkgo tree in autumn
@@ -83,12 +83,12 @@ Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 
 ## Journey
 
-- 2018 — Started with Arduino in sixth grade; turned his bedroom into an electronics workshop.
+- 2018 — At 13, turned his bedroom into a mechatronics workshop.
 - 2019–2022 — Built an ultrasonic rangefinder, a writing robot, an RFID cabinet lock, an indoor environment monitor, and a Raspberry Pi website.
 - 2023 — DustArrow: from a solid-rocket thrust logger to a full sounding rocket, avionics, telemetry, and a Gobi flight test.
 - 2023 — 37th China Adolescents Science and Technology Innovation Contest, Second Prize.
 - 2024 — 38th CASTIC, First Prize for OnesArm; featured on Shanghai TV’s Young Edison.
-- 2025–2026 — Entered HUST’s Robotics Engineering Innovation Experimental Class; open-sourced Vulcan and Hsiwu; founded Anteportal Labs and started Sencillo.
+- 2026 — Entered HUST’s Robotics Engineering Innovation Experimental Class.
 
 <!-- Sources: 03-timeline.md one-page version; 04-awards-and-media.md. -->
 
@@ -104,28 +104,22 @@ Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 
 - Huginn — AI agent for automated data statistics and analysis — Python — `https://github.com/Robusr/Huginn`
 - Robusr-skill — A digital twin skill distilled from personal memory and persona — Agent skills — `https://github.com/Robusr/Robusr-skill`
-- Brokkr — Dexterous hand with real-time hand posture recognition and motion control — Hardware / vision — `https://github.com/Robusr/Brokkr`
-- Tanngrisnir — Two-wheeled self-balancing vehicle based on STM32F103C8T6 — C / embedded — `https://github.com/Robusr/Tanngrisnir`
-- Argo — Quantitative Engineering Design Methods course design — MATLAB — `https://github.com/Robusr/Argo`
 - Lynx — Perception fusion SDK for low-speed autonomous vehicles — Python — `https://github.com/Robusr/Lynx`
 - Gungnir — AI copilot for business-war simulation: deterministic cash-flow engine plus an LLM strategy layer — Python · LLM — `https://github.com/Robusr/Gungnir`
-- RobotHub-WebSite — Official website of the Guyuan No.1 Middle School Robot Innovation Studio — Python · Flask — `https://github.com/Robusr/RobotHub-WebSite`
 
-<!-- Sources: 02-project-cards.md "More work"; projects.json secondary; GitHub profile on 2026-11-26. Eight items. -->
+<!-- Sources: 02-project-cards.md "More work"; projects.json secondary; GitHub profile on 2026-11-26. Four items, selected by the owner. -->
 
 ## About
 
-I grew up in Guyuan, Ningxia, where sandstorms can drop visibility below 5 meters. That is why my first serious project was a sounding rocket rather than a web app: I wanted to measure the atmosphere I could not see through. DustArrow grew from a thrust logger into a modular rocket with 10 bays, 9 PCB modules, and a ground station. The question was always the same: what is actually happening up there?
+The winter I was 17, classmates who were into high-energy propellant motors asked me to build a simple thrust-data acquisition test stand and a remote ignition system for them. The moment I pressed the button and the sugar propellant ignited and burst out, it was just like Homer in October Sky breaking with the traditions and stability of Coalwood: in that town so small it was little more than a name, I decided to start building rockets. My father is an art teacher; the floor lamp he used for painting long landscape scrolls was moved into my bedroom. From the quantitative calculation of the von Kármán curve in MATLAB and the qualitative CFD analysis of an ideal model, to the assembly topology of modular rocket-body PCBs and the packet-loss testing of LoRa data frames, every stiffener and op-amp in systems engineering is a concrete point where abstract theory becomes engineering. From intention to form, it is like the burnt, dense, heavy, pale, and clear tones of ink under my father’s brush: a landscape painted in one breath, giving meaning to my exploration.
 
-At HUST I moved upstream. Vulcan turns a sentence into a feature tree a mechanical engineer can keep editing. Sencillo tries to put a PCB fabrication center on a desk. The through-line is the same: find a problem I have seen, build the machine, then build the tool that lets the next person build it faster. The tools are the projects I want to leave behind.
-
-<!-- Sources: 01-identity-and-bio.md long bio; appendix A seed copy, revised to remove repetition with the hero. -->
+<!-- Sources: supplied by Robusr in Chinese on 2026-11-26; the Chinese text is the source for this paragraph, and English and French are translations. -->
 
 ## Footer
 
 - Contact: Robusr@outlook.com · github.com/Robusr · github.com/Anteportal
 - Location: Wuhan, China
-- Last updated: October 2026
+- Last updated: November 2026
 - Language: English (current) · 中文 · Français
 - Signature: Why not?
 

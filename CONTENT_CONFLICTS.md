@@ -9,7 +9,8 @@
 | 5 | Star counts are live data; the brief fixed 23 (Vulcan) and 8 (Hsiwu) as of 2026-10-20. | Resolved: the page renders stars, forks, last push, and the latest release from `github.json`, then refreshes them from `/api/github`. No count is hard-coded in the copy. |
 | 6 | OnesArm reach: 354 mm link-length sum versus about 450 mm reach. | Both describe different quantities; the page uses "~450 mm reach" from the 10,000-sample workspace result and does not present 354 mm as reach. |
 | 7 | Brief status vocabulary lists Active / Complete / Archive / Pre-prototype, but OnesArm's data says "v2 current". | Added a fifth label: v2 current / v2 现行 / v2 actuelle. |
-| 8 | More Work could include ten secondary repos; the brief capped it at six. | Expanded to eight on 2026-11-26: the original six keep their order, then Gungnir and RobotHub-WebSite from the GitHub profile. |
+| 8 | More Work could include ten secondary repos; the brief capped it at six. | Reduced to four on 2026-11-26 at the owner's request: Huginn, Robusr-skill, Lynx, Gungnir. |
 | 9 | `robusr.cn` was suggested as the website but did not resolve on 2026-10-20. | It now resolves through Cloudflare and is the configured canonical host. GitHub Pages is retired from the build configuration. No CNAME file is used. |
 | 10 | The brief's example tree nests the app under `site/`, while the repo is the user Pages site. | App lives at repo root; `base` is `/`. Documented in README and DEPLOY.md. |
 | 11 | Sencillo is described as "AI × manufacturing / startup" in the library, but the team is not a registered company. | Page category is "AI × manufacturing"; copy says "student-founded team" and never calls it a company. |
+| 12 | The earlier brief excluded family details, but the owner supplied an About paragraph naming his father, an art teacher. | The paragraph is included at the owner's request; the README content rule now records this single exception. |

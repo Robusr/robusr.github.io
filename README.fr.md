@@ -33,10 +33,10 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 ## Contenu de la page
 
 - **Travaux sélectionnés :** Vulcan, Hsiwu, DustArrow X, OnesArm et Anteportal Labs · Sencillo, dans cet ordre fixe. Les cartes de dépôt affichent en direct les étoiles, les forks, le dernier push et la dernière version publiée sur GitHub, avec un instantané de build en secours sans JavaScript.
-- **Parcours :** six lignes, d'Arduino en 2018 à HUST et Anteportal Labs en 2026.
+- **Parcours :** six lignes, d'un atelier de chambre en 2018 à HUST en 2026.
 - **Prix et presse :** premier prix du 38e CASTIC, deuxième prix du 37e CASTIC et le reportage *Young Edison* de la télévision de Shanghai.
-- **Autres projets :** huit dépôts, une ligne chacun.
-- **À propos :** deux paragraphes sur les tempêtes de sable de Guyuan et le passage en amont vers des outils d'IA pour la CAO et la fabrication.
+- **Autres projets :** quatre dépôts, une ligne chacun.
+- **À propos :** un paragraphe sur October Sky, l'allumage du propergol au sucre, la lampe du père professeur d'art, la courbe de von Kármán, l'assemblage des PCB de fusée, les tests de perte LoRa et les tons d'encre qui relient l'ingénierie au sens.
 - **Contact :** e-mail, GitHub, Anteportal Labs, localisation, liens de langue et signature.
 - **Arrière-plan :** deux illustrations au trait de l'IP personnelle, un portrait collage en bas à droite et une silhouette debout en bas à gauche, sur un fond papier chaud avec une fine trame de points dans les marges. La silhouette apparaît à partir de 1200 px ; le mobile utilise une version 480 px du portrait.
 
@@ -77,11 +77,11 @@ Tous les textes visibles sont pilotés par les données.
 
 | Chemin | Rôle |
 |---|---|
-| `src/data/profile.json` | nom, positionnement, introduction, statut, liens, portrait, paragraphes À propos |
+| `src/data/profile.json` | nom, positionnement, introduction, statut, liens, portrait, paragraphe À propos |
 | `src/data/projects.json` | cinq projets phares avec textes par langue, technologies, preuves et statut |
 | `src/data/timeline.json` | six lignes de parcours |
 | `src/data/awards.json` | trois prix et mentions presse |
-| `src/data/more-work.json` | huit projets secondaires |
+| `src/data/more-work.json` | quatre projets secondaires |
 | `src/data/github.json` | instantané généré : étoiles, forks, dernier push et dernière version de chaque dépôt suivi |
 | `src/i18n/en.json`, `zh.json`, `fr.json` | libellés d'interface, titres meta et descriptions |
 | `content/copy-en.md` | manuscrit source en anglais |
@@ -126,7 +126,7 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 | Contrôle | Résultat |
 |---|---|
 | Build et contrôles | `npm run verify` passe : contenu, `astro check` sans erreur, 4 pages |
-| Synchronisation GitHub | l'instantané couvre 12 dépôts ; Vulcan résout v1.3.0 ; le test local du gestionnaire `/api/github` a renvoyé 24 dépôts publics et la version Vulcan ; un point d'accès simulé a mis la carte à 99 étoiles et v9.9.9 dans un contrôle Playwright le 2026-11-26 |
+| Synchronisation GitHub | l'instantané couvre 8 dépôts ; Vulcan résout v1.3.0 ; le test local du gestionnaire `/api/github` a renvoyé 24 dépôts publics et la version Vulcan ; un point d'accès simulé a mis la carte à 99 étoiles et v9.9.9 dans un contrôle Playwright le 2026-11-26 |
 | Production | `/`, `/zh/`, `/fr/` renvoient 200 ; HTTP redirige vers HTTPS ; `www` renvoie 200 et attend encore un 301 |
 | Lighthouse mobile, aperçu local (2026-10-22) | Performance 99, Accessibilité 100, Best Practices 100, SEO 100 dans les trois langues |
 | Lighthouse mobile, production (2026-10-22) | EN 97/100/92/100, ZH 98/100/92/100, FR 99/100/92/100 |
@@ -162,7 +162,7 @@ Cloudflare Pages déploie le dossier `functions/` avec `dist/`, donc `/api/githu
 - Les étoiles et les forks se rafraîchissent au build et via `/api/github` ; l'instantané de `src/data/github.json` sert de secours sans JavaScript. Ne pas le modifier à la main ; lancer `npm run sync:github`.
 - Quand le contenu visible change, mettre à jour `contentDate` dans `src/data/profile.json` ; `sitemap.xml` l'utilise comme `lastmod`.
 - Lancer `npm run verify` avant de pousser. GitHub Actions exécute la même commande.
-- Ne pas ajouter de détails familiaux, d'adresse, de date de naissance, de notes, de classement ou de relations privées.
+- Ne pas ajouter de détails familiaux, d'adresse, de date de naissance, de notes, de classement ou de relations privées ; la phrase sur le professeur d'art dans À propos est l'exception demandée par l'auteur.
 - Ne pas utiliser d'images de télévision, de logos de concours, de figures d'articles tiers ou de comptes non vérifiés.
 
 ## Documentation du projet

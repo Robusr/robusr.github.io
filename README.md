@@ -33,10 +33,10 @@ All versions share one content model and the same section order. With JavaScript
 ## What the page contains
 
 - **Selected Work:** Vulcan, Hsiwu, DustArrow X, OnesArm, and Anteportal Labs · Sencillo, in that fixed order. Repository cards show live GitHub stars, forks, last push, and the latest release tag, falling back to a build-time snapshot without JavaScript.
-- **Journey:** six rows from Arduino in 2018 to HUST and Anteportal Labs in 2026.
+- **Journey:** six rows from a bedroom workshop in 2018 to HUST in 2026.
 - **Awards & Media:** 38th CASTIC first prize, 37th CASTIC second prize, and the Shanghai TV *Young Edison* feature.
-- **More Work:** eight repositories, one line each.
-- **About:** two paragraphs on Guyuan's sandstorms and the move upstream into AI tools for CAD and fabrication.
+- **More Work:** four repositories, one line each.
+- **About:** one paragraph on October Sky, the sugar-propellant ignition that started it all, the floor lamp borrowed from his art-teacher father, the von Kármán curve, modular rocket PCB assembly, LoRa packet-loss tests, and the ink tones that connect engineering to meaning.
 - **Contact:** email, GitHub, Anteportal Labs, location, language links, and the signature.
 - **Background:** two hand-drawn personal IP illustrations, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash with a faint drafting dot grid in the margins. The standing figure appears from 1200 px up; mobile uses a 480 px version of the portrait.
 
@@ -77,11 +77,11 @@ All visible copy is data-driven.
 
 | Path | Purpose |
 |---|---|
-| `src/data/profile.json` | Name, positioning, intro, status, links, portrait, About paragraphs |
+| `src/data/profile.json` | Name, positioning, intro, status, links, portrait, About paragraph |
 | `src/data/projects.json` | Five featured projects with per-locale copy, tech, evidence, and status |
 | `src/data/timeline.json` | Six Journey rows |
 | `src/data/awards.json` | Three award and media rows |
-| `src/data/more-work.json` | Eight secondary projects |
+| `src/data/more-work.json` | Four secondary projects |
 | `src/data/github.json` | Generated snapshot: stars, forks, last push, and latest release for each tracked repository |
 | `src/i18n/en.json`, `zh.json`, `fr.json` | UI labels, meta titles, and descriptions |
 | `content/copy-en.md` | English source manuscript |
@@ -126,7 +126,7 @@ English is the source of truth. When editing:
 | Check | Result |
 |---|---|
 | Build and checks | `npm run verify` passes: content check, `astro check` with 0 errors, 4 pages built |
-| GitHub sync | Snapshot covers 12 repositories; Vulcan resolves to v1.3.0; `/api/github` returned 24 public repositories and the Vulcan release in a local handler test; a mocked endpoint updated the card to 99 stars and v9.9.9 in a Playwright check on 2026-11-26 |
+| GitHub sync | Snapshot covers 8 repositories; Vulcan resolves to v1.3.0; `/api/github` returned 24 public repositories and the Vulcan release in a local handler test; a mocked endpoint updated the card to 99 stars and v9.9.9 in a Playwright check on 2026-11-26 |
 | Production | `/`, `/zh/`, `/fr/` return 200; HTTP redirects to HTTPS; `www` returns 200 and still needs a 301 |
 | Lighthouse mobile, local preview (2026-10-22) | Performance 99, Accessibility 100, Best Practices 100, SEO 100 in all three locales |
 | Lighthouse mobile, production (2026-10-22) | EN 97/100/92/100, ZH 98/100/92/100, FR 99/100/92/100 |
@@ -162,7 +162,7 @@ Cloudflare Pages deploys the `functions/` directory alongside `dist/`, so `/api/
 - Star and fork counts refresh at build time and from `/api/github`; the static snapshot in `src/data/github.json` is the no-JavaScript fallback. Never hand-edit it; run `npm run sync:github`.
 - When visible content changes, update `contentDate` in `src/data/profile.json`; `sitemap.xml` uses it as `lastmod`.
 - Run `npm run verify` before pushing. The same command runs in GitHub Actions.
-- Do not add family details, addresses, birthdays, scores, rankings, or private relationships.
+- Do not add family details, addresses, birthdays, scores, rankings, or private relationships; the art-teacher sentence in About is the owner-requested exception.
 - Do not use TV stills, competition logos, third-party paper figures, or unverified accounts.
 
 ## Documentation

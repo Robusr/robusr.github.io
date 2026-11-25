@@ -18,7 +18,7 @@
 - 小标签：华中科技大学 · 机器人工程
 - 姓名：郭沫晗（旁注 Robusr Guo）
 - 定位句：AI × 工程建造者。把真实问题做成能运行的硬件，再用 AI 压缩从想法到零件的距离。
-- 简介：郭沫晗，华中科技大学机器人工程科创实验班本科生。六年级在宁夏固原从 Arduino 起步，做过探空火箭、模块化机械臂和仿生蝙蝠机器人。现在做 AI × 工程工具：Vulcan 把自然语言变成可编辑的 SolidWorks 特征，Sencillo 尝试把 PCB 制造放回桌面。
+- 简介：郭沫晗，十年卧室极客，华中科技大学机器人工程科创实验班本科生。13岁把卧室改造成机械电子工作室。
 - 状态行：当前：Vulcan · Sencillo · HUST Robotics。
 - 链接：GitHub · 邮箱 · Anteportal Labs
 - 肖像 alt：郭沫晗在秋天的银杏树下
@@ -75,12 +75,12 @@
 
 ## 经历
 
-- 2018 — 六年级接触 Arduino，把卧室改成电子工作室。
+- 2018 — 13岁把卧室改造成机械电子工作室。
 - 2019–2022 — 做了超声波测距仪、写字机器人、RFID 柜锁、室内环境监测仪和树莓派个人网站。
 - 2023 — DustArrow：从固体火箭推力采集器，到完整探空火箭、航电、遥测与戈壁试飞。
 - 2023 — 第 37 届全国青少年科技创新大赛二等奖。
 - 2024 — 第 38 届全国青少年科技创新大赛一等奖（OnesArm）；登上上海电视台《少年爱迪生》。
-- 2025–2026 — 进入华中科技大学机器人工程科创实验班；开源 Vulcan 与 Hsiwu；创立 Anteportal Labs，启动 Sencillo。
+- 2026 — 进入华中科技大学机器人工程科创实验班。
 
 <!-- 来源：03-timeline.md 一页版；04-awards-and-media.md。 -->
 
@@ -96,20 +96,16 @@
 
 - Huginn — 自动化数据统计与分析的 AI agent — Python — `https://github.com/Robusr/Huginn`
 - Robusr-skill — 从个人记忆与人格中提炼的数字分身技能 — Agent skills — `https://github.com/Robusr/Robusr-skill`
-- Brokkr — 具备实时手部姿态识别与运动控制的灵巧手 — 硬件 / 视觉 — `https://github.com/Robusr/Brokkr`
-- Tanngrisnir — 基于 STM32F103C8T6 的两轮自平衡车 — C / 嵌入式 — `https://github.com/Robusr/Tanngrisnir`
-- Argo — 定量工程设计方法课程设计 — MATLAB — `https://github.com/Robusr/Argo`
 - Lynx — 面向低速自动驾驶的感知融合 SDK — Python — `https://github.com/Robusr/Lynx`
 - Gungnir — 商业模拟对抗的 AI copilot：确定性现金流引擎加 LLM 策略层 — Python · LLM — `https://github.com/Robusr/Gungnir`
-- RobotHub-WebSite — 固原一中机器人创新工作室官网 — Python · Flask — `https://github.com/Robusr/RobotHub-WebSite`
 
-<!-- 来源：02-project-cards.md「More work」；projects.json secondary；2026-11-26 的 GitHub 主页。共 8 项。 -->
+<!-- 来源：02-project-cards.md「More work」；projects.json secondary；2026-11-26 的 GitHub 主页。由作者选定 4 项。 -->
 
 ## 关于
 
-我成长在宁夏固原，沙尘暴来的时候，能见度会降到 5 米以下。所以我的第一个严肃项目是一支探空火箭，而不是一个网页：我想测量那片我看不透的大气。DustArrow 从一台推力采集器，长成了拥有 10 个舱段、9 块 PCB 模块和地面站的模块化火箭。问题始终是同一个：上面到底在发生什么？
+17 岁的那个冬天，喜欢高能燃料发动机的同学委托我，帮他们搭建简易的推力采集测试台和远程点火装置。按下按钮，硝糖燃料被点燃喷出的一瞬间，像极了《十月的天空》打破煤林镇传统与安稳的霍默，在那座小得只剩下名字的城市里，我决定开始造火箭。父亲是美术老师，他用来画山水长卷的落地台灯被我搬进了卧室，从 Matlab 中冯卡门曲线的定量计算和理想模型的 CFD 定性分析，到模块化箭体 PCB 的装配拓扑和 LoRa 数据帧的丢包测试，系统工程中每一处加强筋和运放器，都是抽象理论工程化落地的具体节点，由意到形，就像父亲笔下墨色的焦、浓、重、淡、清，山水写意一气呵成，为我的探索赋予意义。
 
-到了华中科技大学，我开始往上游走。Vulcan 把一句话变成机械工程师可以继续修改的特征树；Sencillo 试着把 PCB 加工中心放到一张桌子上。线索没有变：找到一个我亲眼见过的问题，造出机器，再造就让下一个人做得更快的工具。工具，才是我希望留下的项目。
+<!-- 来源：作者于 2026-11-26 提供的中文原文；英文与法文为译本。 -->
 
 <!-- 来源：01-identity-and-bio.md 长版；未重复 Hero 句子。 -->
 
@@ -117,6 +113,6 @@
 
 - 联系：Robusr@outlook.com · github.com/Robusr · github.com/Anteportal
 - 地点：中国，武汉
-- 最后更新：2026 年 10 月
+- 最后更新：2026 年 11 月
 - 语言：English · 中文（当前）· Français
 - 签名：Why not?

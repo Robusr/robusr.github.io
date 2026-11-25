@@ -33,10 +33,10 @@
 ## 页面内容
 
 - **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。仓库卡片展示实时的 GitHub stars、forks、最近推送时间与最新 Release 版本；无 JavaScript 时回退到构建快照。
-- **经历：** 6 行，从 2018 年的 Arduino 到 2026 年的华中科技大学与 Anteportal Labs。
+- **经历：** 6 行，从 2018 年的卧室工作室到 2026 年的华中科技大学。
 - **奖项与报道：** 第 38 届全国青少年科技创新大赛一等奖、第 37 届二等奖，以及上海电视台《少年爱迪生》。
-- **其他项目：** 8 个仓库，每个一行。
-- **关于：** 两段文字，讲固原的沙尘暴，以及转向 CAD 与制造 AI 工具的过程。
+- **其他项目：** 4 个仓库，每个一行。
+- **关于：** 一段文字，从《十月的天空》和硝糖燃料点火讲起，到美术老师父亲的落地台灯、冯卡门曲线、箭体 PCB 装配、LoRa 丢包测试与水墨五色。
 - **联系：** 邮箱、GitHub、Anteportal Labs、所在地、语言链接与签名。
 - **背景：** 两幅手绘个人 IP 线稿，右下角拼贴肖像、左下角站立人物，叠在带有极淡制图点阵的暖色纸感底色上。站立人物从 1200 px 起显示；移动端使用 480 px 版本的肖像。
 
@@ -81,7 +81,7 @@ npm run verify    # check + typecheck + build
 | `src/data/projects.json` | 5 个代表项目，含三语文案、技术、证据与状态 |
 | `src/data/timeline.json` | 6 行经历 |
 | `src/data/awards.json` | 3 条奖项与报道 |
-| `src/data/more-work.json` | 8 个其他项目 |
+| `src/data/more-work.json` | 4 个其他项目 |
 | `src/data/github.json` | 生成的快照：每个追踪仓库的 stars、forks、最近推送与最新 Release |
 | `src/i18n/en.json`, `zh.json`, `fr.json` | 界面文案、meta 标题与描述 |
 | `content/copy-en.md` | 英文源稿 |
@@ -126,7 +126,7 @@ npm run verify    # check + typecheck + build
 | 检查 | 结果 |
 |---|---|
 | 构建与检查 | `npm run verify` 通过：内容检查、`astro check` 0 错误、构建 4 个页面 |
-| GitHub 同步 | 快照覆盖 12 个仓库；Vulcan 解析为 v1.3.0；本地处理器测试中 `/api/github` 返回 24 个公开仓库与 Vulcan Release；2026-11-26 的 Playwright 测试用 mock 接口把卡片更新为 99 stars 与 v9.9.9 |
+| GitHub 同步 | 快照覆盖 8 个仓库；Vulcan 解析为 v1.3.0；本地处理器测试中 `/api/github` 返回 24 个公开仓库与 Vulcan Release；2026-11-26 的 Playwright 测试用 mock 接口把卡片更新为 99 stars 与 v9.9.9 |
 | 线上 | `/`、`/zh/`、`/fr/` 返回 200；HTTP 跳转 HTTPS；`www` 返回 200，仍需 301 |
 | 本地 Lighthouse，移动端（2026-10-22） | 三种语言的 Performance 99、Accessibility 100、Best Practices 100、SEO 100 |
 | 线上 Lighthouse，移动端（2026-10-22） | EN 97/100/92/100，ZH 98/100/92/100，FR 99/100/92/100 |
@@ -162,7 +162,7 @@ Cloudflare Pages 会把 `functions/` 与 `dist/` 一起部署，因此 `/api/git
 - 星标与 fork 数在构建时和 `/api/github` 刷新；`src/data/github.json` 的静态快照是无 JavaScript 时的回退。不要手工编辑该文件，运行 `npm run sync:github`。
 - 可见内容变化时，更新 `src/data/profile.json` 中的 `contentDate`；`sitemap.xml` 用它作为 `lastmod`。
 - 推送前运行 `npm run verify`。GitHub Actions 会运行同一命令。
-- 不加入家庭信息、住址、生日、分数、排名或私人关系。
+- 不加入家庭信息、住址、生日、分数、排名或私人关系；关于部分中应作者要求加入的美术老师一句是唯一例外。
 - 不使用电视画面、比赛标志、第三方论文插图或未经验证的账号。
 
 ## 文档

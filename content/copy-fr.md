@@ -18,7 +18,7 @@ Instantané : 2026-11-26. Traduction de `content/copy-en.md`, qui reste la sourc
 - Sur-titre : Génie robotique · HUST
 - Nom : Robusr Guo
 - Accroche : Bâtisseur IA × ingénierie. Je transforme des problèmes réels en matériel fonctionnel, puis j’utilise l’IA pour réduire la distance entre une idée et une pièce.
-- Présentation : Robusr Guo étudie dans la classe expérimentale d’innovation en génie robotique de l’Université des sciences et technologies de Huazhong (HUST). Il a commencé avec Arduino en sixième à Guyuan, dans le Ningxia, et construit depuis une fusée-sonde, un bras robotique modulaire et un robot à ailes battantes inspiré de la chauve-souris. Il conçoit aujourd’hui des outils d’IA pour l’ingénierie : Vulcan transforme le langage naturel en fonctions SolidWorks modifiables ; Sencillo vise à installer la fabrication de PCB sur un bureau.
+- Présentation : Robusr Guo, geek de chambre depuis dix ans, est étudiant dans la classe expérimentale d’innovation en génie robotique de l’Université des sciences et technologies de Huazhong (HUST). À 13 ans, il a transformé sa chambre en atelier de mécatronique.
 - Statut : Actuellement : Vulcan · Sencillo · HUST Robotics.
 - Liens : GitHub · E-mail · Anteportal Labs
 - Alt du portrait : Robusr Guo sous un ginkgo en automne
@@ -71,12 +71,12 @@ Instantané : 2026-11-26. Traduction de `content/copy-en.md`, qui reste la sourc
 
 ## Parcours
 
-- 2018 — A commencé avec Arduino en sixième ; il a transformé sa chambre en atelier d’électronique.
+- 2018 — À 13 ans, il a transformé sa chambre en atelier de mécatronique.
 - 2019–2022 — A construit un télémètre à ultrasons, un robot écrivain, une serrure RFID, une station de mesure d’ambiance et un site hébergé sur Raspberry Pi.
 - 2023 — DustArrow : d’un enregistreur de poussée à une fusée-sonde complète, avec avionique, télémétrie et essai en vol dans le Gobi.
 - 2023 — 2e prix du 37e Concours national chinois d’innovation scientifique et technologique pour les adolescents.
 - 2024 — 1er prix du 38e CASTIC pour OnesArm ; portrait dans l’émission Young Edison de la télévision de Shanghai.
-- 2025–2026 — Entrée dans la classe expérimentale d’innovation en génie robotique de HUST ; publication en open source de Vulcan et Hsiwu ; fondation d’Anteportal Labs et lancement de Sencillo.
+- 2026 — Entrée dans la classe expérimentale d’innovation en génie robotique de HUST.
 
 ## Prix et presse
 
@@ -88,25 +88,21 @@ Instantané : 2026-11-26. Traduction de `content/copy-en.md`, qui reste la sourc
 
 - Huginn — Agent IA pour l’analyse et la statistique automatisées de données — Python — `https://github.com/Robusr/Huginn`
 - Robusr-skill — Compétence de jumeau numérique distillée de la mémoire et de la personnalité — Compétences d’agent — `https://github.com/Robusr/Robusr-skill`
-- Brokkr — Main dextre avec reconnaissance de posture et contrôle du mouvement en temps réel — Matériel / vision — `https://github.com/Robusr/Brokkr`
-- Tanngrisnir — Véhicule auto-équilibré à deux roues basé sur STM32F103C8T6 — C / embarqué — `https://github.com/Robusr/Tanngrisnir`
-- Argo — Conception de méthodes quantitatives de conception en ingénierie — MATLAB — `https://github.com/Robusr/Argo`
 - Lynx — SDK de fusion perceptive pour véhicules autonomes à basse vitesse — Python — `https://github.com/Robusr/Lynx`
 - Gungnir — Copilote IA pour la simulation de guerre commerciale : moteur déterministe de trésorerie et couche de stratégie LLM — Python · LLM — `https://github.com/Robusr/Gungnir`
-- RobotHub-WebSite — Site officiel de l’atelier d’innovation robotique du lycée n°1 de Guyuan — Python · Flask — `https://github.com/Robusr/RobotHub-WebSite`
 
-<!-- Sources : 02-project-cards.md « More work » ; projects.json secondary ; profil GitHub au 2026-11-26. Huit éléments. -->
+<!-- Sources : 02-project-cards.md « More work » ; projects.json secondary ; profil GitHub au 2026-11-26. Quatre éléments choisis par l’auteur. -->
 
 ## À propos
 
-J’ai grandi à Guyuan, dans le Ningxia, où les tempêtes de sable peuvent réduire la visibilité à moins de 5 mètres. C’est pourquoi mon premier projet sérieux a été une fusée-sonde plutôt qu’un site web : je voulais mesurer une atmosphère que je ne pouvais pas voir à travers. DustArrow est passé d’un enregistreur de poussée à une fusée modulaire de 10 compartiments, 9 modules PCB et une station sol. La question restait la même : que se passe-t-il réellement là-haut ?
+L’hiver de mes 17 ans, des camarades passionnés de moteurs à propergol haute énergie m’ont demandé de leur construire un banc d’essai simple pour acquérir la poussée et un système d’allumage à distance. Au moment où j’ai appuyé sur le bouton et où le propergol au sucre s’est enflammé en jaillissant, j’ai eu l’impression d’être Homer dans October Sky, rompant avec les traditions et la stabilité de Coalwood : dans cette ville si petite qu’il n’en restait que le nom, j’ai décidé de construire des fusées. Mon père est professeur d’art ; la lampe sur pied dont il se servait pour peindre de longs rouleaux de paysage a été installée dans ma chambre. Du calcul quantitatif de la courbe de von Kármán sous MATLAB et de l’analyse qualitative CFD d’un modèle idéal, à la topologie d’assemblage des PCB du corps de fusée modulaire et aux tests de perte de trames LoRa, chaque raidisseur et chaque amplificateur opérationnel en ingénierie système est un point concret où la théorie abstraite devient ingénierie. De l’intention à la forme, c’est comme les tons d’encre brûlée, dense, lourde, pâle et claire sous le pinceau de mon père : un paysage d’un seul geste, qui donne un sens à mon exploration.
 
-À HUST, je suis remonté en amont. Vulcan transforme une phrase en un arbre de fonctions qu’un ingénieur mécanique peut continuer à modifier. Sencillo tente d’installer un centre de fabrication de PCB sur un bureau. Le fil conducteur ne change pas : repérer un problème que j’ai vu, construire la machine, puis construire l’outil qui permettra à la personne suivante d’aller plus vite. Les outils sont les projets que je veux laisser derrière moi.
+<!-- Sources : texte chinois fourni par Robusr le 2026-11-26 ; l’anglais et le français sont des traductions. -->
 
 ## Pied de page
 
 - Contact : Robusr@outlook.com · github.com/Robusr · github.com/Anteportal
 - Lieu : Wuhan, Chine
-- Dernière mise à jour : octobre 2026
+- Dernière mise à jour : novembre 2026
 - Langue : English · 中文 · Français (actuelle)
 - Signature : Why not?

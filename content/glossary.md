@@ -34,6 +34,15 @@ Shared across all three language versions. Project names, repository names, part
 | forks | forks（保留英文） | forks |
 | Updated | 更新于 | Mis à jour le |
 | latest release | 最新版本 | dernière version |
+| October Sky | 《十月的天空》 | October Sky |
+| Coalwood | 煤林镇 | Coalwood |
+| mechatronics | 机械电子 | mécatronique |
+| sugar propellant | 硝糖燃料 | propergol au sucre |
+| thrust test stand | 推力采集测试台 | banc d’essai de poussée |
+| remote ignition | 远程点火装置 | allumage à distance |
+| floor lamp | 落地台灯 | lampe sur pied |
+| von Kármán curve | 冯卡门曲线 | courbe de von Kármán |
+| ink tones | 墨色焦、浓、重、淡、清 | tons d’encre |
 | China Adolescents Science and Technology Innovation Contest (CASTIC) | 全国青少年科技创新大赛 | Concours national chinois d’innovation scientifique et technologique pour les adolescents |
 | Young Edison | 《少年爱迪生》 | Young Edison |
 | mortise and tenon | 榫卯 | tenon et mortaise |

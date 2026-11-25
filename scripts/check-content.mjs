@@ -33,8 +33,8 @@ for (const field of ['name', 'label', 'positioning', 'intro', 'status', 'locatio
   if (!isLocalized(profile[field])) errors.push(`profile.${field} must have en, zh, and fr strings`);
 }
 for (const locale of locales) {
-  if (!Array.isArray(profile.about?.[locale]) || profile.about[locale].length !== 2) {
-    errors.push(`profile.about.${locale} must contain two paragraphs`);
+  if (!Array.isArray(profile.about?.[locale]) || profile.about[locale].length < 1 || profile.about[locale].length > 3) {
+    errors.push(`profile.about.${locale} must contain one to three paragraphs`);
   }
   if (!profile.portrait?.alt?.[locale]) errors.push(`profile.portrait.alt.${locale} is missing`);
 }
@@ -107,7 +107,7 @@ for (const award of awards) {
 }
 
 const moreWork = read('src/data/more-work.json');
-if (moreWork.length !== 8) errors.push(`more-work.json must contain eight items, found ${moreWork.length}`);
+if (moreWork.length !== 4) errors.push(`more-work.json must contain four items, found ${moreWork.length}`);
 for (const item of moreWork) {
   if (!isLocalized(item.desc)) errors.push(`${item.name} desc must have en, zh, and fr strings`);
   if (!isLocalized(item.meta)) errors.push(`${item.name} meta must have en, zh, and fr strings`);

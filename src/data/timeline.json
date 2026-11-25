@@ -2,9 +2,9 @@
   {
     "year": "2018",
     "event": {
-      "en": "Started with Arduino in sixth grade; turned his bedroom into an electronics workshop.",
-      "zh": "六年级接触 Arduino，把卧室改成电子工作室。",
-      "fr": "A commencé avec Arduino en sixième ; il a transformé sa chambre en atelier d’électronique."
+      "en": "At 13, turned his bedroom into a mechatronics workshop.",
+      "zh": "13岁把卧室改造成机械电子工作室。",
+      "fr": "À 13 ans, il a transformé sa chambre en atelier de mécatronique."
     }
   },
   {
@@ -40,11 +40,11 @@
     }
   },
   {
-    "year": "2025–2026",
+    "year": "2026",
     "event": {
-      "en": "Entered HUST’s Robotics Engineering Innovation Experimental Class; open-sourced Vulcan and Hsiwu; founded Anteportal Labs and started Sencillo.",
-      "zh": "进入华中科技大学机器人工程科创实验班；开源 Vulcan 与 Hsiwu；创立 Anteportal Labs，启动 Sencillo。",
-      "fr": "Entrée dans la classe expérimentale d’innovation en génie robotique de HUST ; publication en open source de Vulcan et Hsiwu ; fondation d’Anteportal Labs et lancement de Sencillo."
+      "en": "Entered HUST’s Robotics Engineering Innovation Experimental Class.",
+      "zh": "进入华中科技大学机器人工程科创实验班。",
+      "fr": "Entrée dans la classe expérimentale d’innovation en génie robotique de HUST."
     }
   }
 ]
