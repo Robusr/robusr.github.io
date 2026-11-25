@@ -1,10 +1,10 @@
 # Deploying to Cloudflare Pages
 
 Production: <https://robusr.cn>
-Hosting: Cloudflare Pages, static output
+Hosting: Cloudflare Pages, static output plus Pages Functions
 Source: `main`
 
-The site is fully static. `npm run build` writes four HTML pages plus assets to `dist/`. `astro.config.mjs` sets `site: 'https://robusr.cn'`; canonical URLs, hreflang, Open Graph, JSON-LD, `sitemap.xml`, and `robots.txt` derive from it.
+The site renders static HTML. `npm run build` writes four HTML pages plus assets to `dist/`. `astro.config.mjs` sets `site: 'https://robusr.cn'`; canonical URLs, hreflang, Open Graph, JSON-LD, `sitemap.xml`, and `robots.txt` derive from it. A single Pages Function at `functions/api/github.js` serves live repository stats at `/api/github`.
 
 ## 1. Build settings
 
@@ -13,9 +13,17 @@ The site is fully static. `npm run build` writes four HTML pages plus assets to 
 | Framework preset | Astro |
 | Build command | `npm run build` |
 | Build output directory | `dist` |
+| Functions directory | `functions` (auto-detected; do not set it to `dist`) |
 | Node version | `NODE_VERSION=22` in the Pages project; `.nvmrc` covers local tools |
 
 `package.json` declares `node >= 22.12.0`. Astro 7 supports Node 20.19 and newer or 22.12 and newer.
+
+## 1a. GitHub data
+
+- `npm run build` runs `prebuild`, which calls `scripts/sync-github.mjs` and refreshes `src/data/github.json` before rendering. If GitHub is unreachable, the build keeps the checked-in snapshot.
+- The Pages build can reach the GitHub API unauthenticated. Add an optional `GITHUB_TOKEN` environment variable to the Pages project to raise the rate limit for both the build sync and `/api/github`.
+- Cloudflare Pages deploys `functions/` with `dist/`. The function caches GitHub responses at the edge for 10 minutes and returns public star, fork, and last-push data plus the latest featured release. If the function is missing or fails, the page keeps the build-time snapshot.
+- `npm run preview` and `astro preview` do not serve `functions/`; test the live endpoint with `npx wrangler pages dev dist` or on a preview deployment.
 
 ## 2. Custom domain
 

@@ -1,6 +1,6 @@
 # Texte français
 
-Instantané : 2026-10-20. Traduction de `content/copy-en.md`, qui reste la source de vérité. Sources : `01-identity-and-bio.md`, `02-project-cards.md`, `03-timeline.md`, `04-awards-and-media.md`, `data/profile.json`, `data/projects.json`.
+Instantané : 2026-11-26. Traduction de `content/copy-en.md`, qui reste la source de vérité. Sources : `01-identity-and-bio.md`, `02-project-cards.md`, `03-timeline.md`, `04-awards-and-media.md`, `data/profile.json`, `data/projects.json`.
 
 ## Meta
 
@@ -25,12 +25,15 @@ Instantané : 2026-10-20. Traduction de `content/copy-en.md`, qui reste la sourc
 
 ## Travaux sélectionnés
 
+<!-- Les étoiles, forks, dernier push et dernière version GitHub sont rendus depuis src/data/github.json et rafraîchis par /api/github ; le manuscrit ne fixe pas les compteurs. -->
+
 ### 01 · Vulcan — IA × CAO — Actif
 
 - Accroche : Langage naturel en entrée. Géométrie paramétrique SolidWorks en sortie.
 - Résumé : Un module complémentaire pour SolidWorks qui transforme une demande d’ingénierie en fonctions natives et modifiables. Le modèle renvoie un arbre de fonctions JSON typé, et un client C# l’exécute via l’API COM de SolidWorks. Pas d’exec(), pas de surface de génération de code.
 - Technologies : C# · WPF · .NET 4.8 · Python · Flask · SolidWorks COM API · LLM
-- Preuve : 23 étoiles (oct. 2026) · GPL-3.0 · contrat JSON typé
+- Preuve : GPL-3.0 · contrat JSON typé
+- Version : v1.3.0
 - Sortie : Dépôt → `https://github.com/Robusr/Vulcan`
 
 ### 02 · Hsiwu — Robotique bio-inspirée — Terminé
@@ -38,7 +41,7 @@ Instantané : 2026-10-20. Traduction de `content/copy-en.md`, qui reste la sourc
 - Accroche : Six segments d’aile. Trois moteurs. Zéro ligne de code.
 - Résumé : Un robot à ailes battantes inspiré de la chauve-souris, avec six segments d’aile, trois par côté. Trois oscillateurs NE555, un inverseur 74HC04 et trois ponts L293D forment toute la loi de commande. Pas de MCU, pas de firmware.
 - Technologies : SolidWorks · Altium · NE555 · 74HC04 · L293D · FDM
-- Preuve : 8 étoiles (oct. 2026) · MIT · Gerber, BOM et STEP inclus
+- Preuve : MIT · Gerber, BOM et STEP inclus
 - Sortie : Dépôt → `https://github.com/Robusr/Hsiwu`
 
 ### 03 · DustArrow X — Aérospatial / embarqué — Archivé
@@ -89,6 +92,10 @@ Instantané : 2026-10-20. Traduction de `content/copy-en.md`, qui reste la sourc
 - Tanngrisnir — Véhicule auto-équilibré à deux roues basé sur STM32F103C8T6 — C / embarqué — `https://github.com/Robusr/Tanngrisnir`
 - Argo — Conception de méthodes quantitatives de conception en ingénierie — MATLAB — `https://github.com/Robusr/Argo`
 - Lynx — SDK de fusion perceptive pour véhicules autonomes à basse vitesse — Python — `https://github.com/Robusr/Lynx`
+- Gungnir — Copilote IA pour la simulation de guerre commerciale : moteur déterministe de trésorerie et couche de stratégie LLM — Python · LLM — `https://github.com/Robusr/Gungnir`
+- RobotHub-WebSite — Site officiel de l’atelier d’innovation robotique du lycée n°1 de Guyuan — Python · Flask — `https://github.com/Robusr/RobotHub-WebSite`
+
+<!-- Sources : 02-project-cards.md « More work » ; projects.json secondary ; profil GitHub au 2026-11-26. Huit éléments. -->
 
 ## À propos
 

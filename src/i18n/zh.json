@@ -19,5 +19,11 @@
   "languagesLabel": "语言",
   "langHint": "也可用以下语言阅读：",
   "dismiss": "关闭",
-  "techLabel": "技术"
+  "techLabel": "技术",
+  "live": {
+    "github": "GitHub",
+    "stars": "stars",
+    "forks": "forks",
+    "updated": "更新于"
+  }
 }

@@ -1,6 +1,6 @@
 # Content inventory
 
-Audit date: 2026-10-20. Production domain updated 2026-10-21. Link checks re-verified 2026-10-22. Sources: the local info library at `/Users/robusr/Desktop/Homepage information/Homepage-Info-Library/` (files 01–07, `sources.md`, `data/*.json`, `assets/`), plus live checks of every outbound link.
+Audit date: 2026-10-20. Production domain updated 2026-10-21. Link checks re-verified 2026-10-22. GitHub snapshot refreshed 2026-11-26. Sources: the local info library at `/Users/robusr/Desktop/Homepage information/Homepage-Info-Library/` (files 01–07, `sources.md`, `data/*.json`, `assets/`), plus live checks of every outbound link and the public GitHub API.
 
 ## Facts used directly
 
@@ -13,13 +13,13 @@ Audit date: 2026-10-20. Production domain updated 2026-10-21. Link checks re-ver
 | Starting point | Arduino in sixth grade, 2018 | 01, 03 |
 | Direction | AI × Engineering; AI for CAD / CAM / manufacturing | 01 |
 | Team | Anteportal Labs, student-founded, not a registered company | 01, 02, profile.json |
-| Vulcan | typed JSON feature tree, SolidWorks COM API, no exec(), GPL-3.0, 23 stars / 2 forks (2026-10-20) | 02, projects.json |
-| Hsiwu | six wing segments, three motors, 3× NE555, 1× 74HC04, 3× L293D, no MCU, MIT, 8 stars (2026-10-20) | 02, projects.json |
+| Vulcan | typed JSON feature tree, SolidWorks COM API, no exec(), GPL-3.0, 26 stars / 3 forks (2026-11-26), release v1.3.0 | 02, projects.json, github.json |
+| Hsiwu | six wing segments, three motors, 3× NE555, 1× 74HC04, 3× L293D, no MCU, MIT, 9 stars / 2 forks (2026-11-26) | 02, projects.json, github.json |
 | DustArrow X | 40 mm, ten bays, nine PCB modules, RP2040, LoRa, PyQt5, 32 tests, Gobi flight 2023, national second prize | 02, 04 |
 | OnesArm | T/N interface, 3! × 2² = 24 layouts, STM32F103/F407, CAN, ~450 mm reach, national first prize 2024 | 02, 04 |
 | Sencillo | desktop PCB fabrication, 8/8 mil, 0.8 mm copper rivets, ≤30 min, 50 × 50 mm, all design targets, pre-prototype | 02 |
 | Awards | 38th CASTIC first prize 2024 (OnesArm); 37th CASTIC second prize 2023 (DustArrow); Shanghai TV Young Edison S8 2024 | 04 |
-| More Work | Huginn, Robusr-skill, Brokkr, Tanngrisnir, Argo, Lynx | 02, projects.json |
+| More Work | Huginn, Robusr-skill, Brokkr, Tanngrisnir, Argo, Lynx, Gungnir, RobotHub-WebSite | 02, projects.json, GitHub profile 2026-11-26 |
 | Contact | GitHub, email, Anteportal org only | 01, 06 |
 
 ## Rewritten for the page

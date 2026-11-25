@@ -4,6 +4,14 @@ Date: 2026-10-20; follow-up audit: 2026-10-22. Build: Astro 7.4.1, Node 25.4.0, 
 
 Production host switched to <https://robusr.cn> on 2026-10-21. Production checks are recorded below.
 
+## 2026-11-26 update
+
+- Added `scripts/sync-github.mjs` and `src/data/github.json`: 12 tracked repositories, refreshed before every build; Vulcan resolves to release v1.3.0.
+- Added `functions/api/github.js`, a Cloudflare Pages Function serving edge-cached public repository stats for the live card refresh. The handler returned 24 public repositories and the Vulcan release in a local test. A Playwright check with a mocked `/api/github` response updated the Vulcan card to 99 stars, 7 forks, a new date, `is-live`, and release v9.9.9 with no console errors.
+- Expanded More Work to eight items with Gungnir and RobotHub-WebSite; updated snapshot and content dates to 2026-11-26.
+- `npm run verify` passes: content check, 0 type errors, 4 pages built.
+- The Lighthouse and production browser figures below predate this change and need a fresh run.
+
 ## 2026-10-22 follow-up
 
 - `npm run verify` now gates content consistency, `astro check`, and the build; `.github/workflows/verify.yml` runs it on pushes to `main` and on pull requests.
@@ -94,6 +102,8 @@ All three were still active on 2026-10-22. The owner chose to disable them. The 
 | Canonical | Self-referencing per locale |
 | French typography | 17 non-breaking spaces before `:` and in numeric formatting; decimal comma preserved (`0,8 mm`) |
 | Chinese typography | Half-width spaces between Chinese and Latin text |
+
+2026-11-26 note: this table records the 2026-10-22 audit. More Work now has eight rows, and star counts are no longer fixed in the copy; they render from the GitHub snapshot and refresh live. See the update note at the top.
 
 Detailed machine output: `qa/consistency.json`, `qa/capture-report.json`.
 

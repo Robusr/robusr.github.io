@@ -29,8 +29,11 @@ Shared across all three language versions. Project names, repository names, part
 | Repository → | 仓库 → | Dépôt → |
 | Organization → | 组织主页 → | Organisation → |
 | Design target, not measured | 设计目标，非实测 | Objectif de conception, non mesuré |
-| Last updated: October 2026 | 最后更新：2026 年 10 月 | Dernière mise à jour : octobre 2026 |
+| Last updated: November 2026 | 最后更新：2026 年 11 月 | Dernière mise à jour : novembre 2026 |
 | stars | stars（保留英文） | étoiles |
+| forks | forks（保留英文） | forks |
+| Updated | 更新于 | Mis à jour le |
+| latest release | 最新版本 | dernière version |
 | China Adolescents Science and Technology Innovation Contest (CASTIC) | 全国青少年科技创新大赛 | Concours national chinois d’innovation scientifique et technologique pour les adolescents |
 | Young Edison | 《少年爱迪生》 | Young Edison |
 | mortise and tenon | 榫卯 | tenon et mortaise |

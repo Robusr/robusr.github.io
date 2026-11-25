@@ -1,6 +1,6 @@
 # 中文文案
 
-快照：2026-10-20。以 `content/copy-en.md` 为唯一事实源翻译。来源：`01-identity-and-bio.md`、`02-project-cards.md`、`03-timeline.md`、`04-awards-and-media.md`、`data/profile.json`、`data/projects.json`。
+快照：2026-11-26。以 `content/copy-en.md` 为唯一事实源翻译。来源：`01-identity-and-bio.md`、`02-project-cards.md`、`03-timeline.md`、`04-awards-and-media.md`、`data/profile.json`、`data/projects.json`。
 
 ## Meta
 
@@ -27,12 +27,15 @@
 
 ## 代表项目
 
+<!-- GitHub stars、forks、最近推送与最新 Release 由 src/data/github.json 渲染，并通过 /api/github 刷新；本稿不固定 stars 数。 -->
+
 ### 01 · Vulcan — AI × CAD — 活跃
 
 - 一句话：一句话输入，可编辑的 SolidWorks 特征树输出。
 - 正文：一款 SolidWorks AI 插件，把一句工程需求变成原生、可编辑的特征。模型返回受类型约束的 JSON 特征树，C# 客户端通过 SolidWorks COM API 执行。没有 exec()，没有代码生成面。
 - 技术：C# · WPF · .NET 4.8 · Python · Flask · SolidWorks COM API · LLM
-- 证据：23 stars（2026 年 10 月）· GPL-3.0 · 类型化 JSON 契约
+- 证据：GPL-3.0 · 类型化 JSON 契约
+- 版本：v1.3.0
 - 出口：仓库 → `https://github.com/Robusr/Vulcan`
 
 ### 02 · Hsiwu — 仿生机器人 — 完成
@@ -40,7 +43,7 @@
 - 一句话：六段翼、三台电机、零行代码。
 - 正文：仿生蝙蝠扑翼机器人，每侧三段、共六段翼面。3 片 NE555、1 片 74HC04 与 3 片 L293D 构成完整的控制逻辑。无 MCU、无固件。
 - 技术：SolidWorks · Altium · NE555 · 74HC04 · L293D · FDM
-- 证据：8 stars（2026 年 10 月）· MIT · 含 Gerber、BOM 与 STEP
+- 证据：MIT · 含 Gerber、BOM 与 STEP
 - 出口：仓库 → `https://github.com/Robusr/Hsiwu`
 
 ### 03 · DustArrow X — 航空航天 / 嵌入式 — 归档
@@ -97,6 +100,10 @@
 - Tanngrisnir — 基于 STM32F103C8T6 的两轮自平衡车 — C / 嵌入式 — `https://github.com/Robusr/Tanngrisnir`
 - Argo — 定量工程设计方法课程设计 — MATLAB — `https://github.com/Robusr/Argo`
 - Lynx — 面向低速自动驾驶的感知融合 SDK — Python — `https://github.com/Robusr/Lynx`
+- Gungnir — 商业模拟对抗的 AI copilot：确定性现金流引擎加 LLM 策略层 — Python · LLM — `https://github.com/Robusr/Gungnir`
+- RobotHub-WebSite — 固原一中机器人创新工作室官网 — Python · Flask — `https://github.com/Robusr/RobotHub-WebSite`
+
+<!-- 来源：02-project-cards.md「More work」；projects.json secondary；2026-11-26 的 GitHub 主页。共 8 项。 -->
 
 ## 关于
 

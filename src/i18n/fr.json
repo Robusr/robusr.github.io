@@ -19,5 +19,11 @@
   "languagesLabel": "Langue",
   "langHint": "Également disponible en",
   "dismiss": "Fermer",
-  "techLabel": "Technologies"
+  "techLabel": "Technologies",
+  "live": {
+    "github": "GitHub",
+    "stars": "étoiles",
+    "forks": "forks",
+    "updated": "Mis à jour le"
+  }
 }

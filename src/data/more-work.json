@@ -58,5 +58,25 @@
       "fr": "SDK de fusion perceptive pour véhicules autonomes à basse vitesse"
     },
     "meta": { "en": "Python", "zh": "Python", "fr": "Python" }
+  },
+  {
+    "name": "Gungnir",
+    "href": "https://github.com/Robusr/Gungnir",
+    "desc": {
+      "en": "AI copilot for business-war simulation: deterministic cash-flow engine plus an LLM strategy layer",
+      "zh": "商业模拟对抗的 AI copilot：确定性现金流引擎加 LLM 策略层",
+      "fr": "Copilote IA pour la simulation de guerre commerciale : moteur déterministe de trésorerie et couche de stratégie LLM"
+    },
+    "meta": { "en": "Python · LLM", "zh": "Python · LLM", "fr": "Python · LLM" }
+  },
+  {
+    "name": "RobotHub-WebSite",
+    "href": "https://github.com/Robusr/RobotHub-WebSite",
+    "desc": {
+      "en": "Official website of the Guyuan No.1 Middle School Robot Innovation Studio",
+      "zh": "固原一中机器人创新工作室官网",
+      "fr": "Site officiel de l’atelier d’innovation robotique du lycée n°1 de Guyuan"
+    },
+    "meta": { "en": "Python · Flask", "zh": "Python · Flask", "fr": "Python · Flask" }
   }
 ]

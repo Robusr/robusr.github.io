@@ -15,7 +15,7 @@
 | **技术栈** | Astro 7，静态输出，无客户端框架 |
 | **语言** | English `/`、简体中文 `/zh/`、Français `/fr/` |
 | **设计** | 单栏编辑式布局，最大宽度 880 px，只有一个深青强调色 |
-| **质量检查** | `npm run verify`、Playwright、Lighthouse |
+| **质量检查** | `npm run verify`、构建时 GitHub 同步、Playwright、Lighthouse |
 
 ---
 
@@ -32,10 +32,10 @@
 
 ## 页面内容
 
-- **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。
+- **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。仓库卡片展示实时的 GitHub stars、forks、最近推送时间与最新 Release 版本；无 JavaScript 时回退到构建快照。
 - **经历：** 6 行，从 2018 年的 Arduino 到 2026 年的华中科技大学与 Anteportal Labs。
 - **奖项与报道：** 第 38 届全国青少年科技创新大赛一等奖、第 37 届二等奖，以及上海电视台《少年爱迪生》。
-- **其他项目：** 6 个仓库，每个一行。
+- **其他项目：** 8 个仓库，每个一行。
 - **关于：** 两段文字，讲固原的沙尘暴，以及转向 CAD 与制造 AI 工具的过程。
 - **联系：** 邮箱、GitHub、Anteportal Labs、所在地、语言链接与签名。
 - **背景：** 两幅手绘个人 IP 线稿，右下角拼贴肖像、左下角站立人物，叠在带有极淡制图点阵的暖色纸感底色上。站立人物从 1200 px 起显示；移动端使用 480 px 版本的肖像。
@@ -48,9 +48,10 @@
 | 样式 | 原生 CSS 自定义属性，无工具类框架 |
 | 字体 | 自托管 Inter 可变字体，中文使用系统字体栈 |
 | 图片 | 项目图 480/960 px，肖像 260/512 px，两套透明线稿 IP 素材按展示位置裁切；WebP，肖像提供 JPEG 回退 |
-| JavaScript | 约 1 KB 渐进增强 |
-| 隐私 | 无统计、Cookie、第三方字体或嵌入 |
-| 部署 | Cloudflare Pages，Git 集成，Node 22 |
+| JavaScript | 约 2.3 KB 渐进增强 |
+| GitHub 数据 | 构建时从 GitHub API 生成快照；Cloudflare Pages Function 提供 `/api/github` 边缘缓存刷新 |
+| 隐私 | 无统计、Cookie、第三方字体或嵌入；GitHub 请求由 Cloudflare 发出，不暴露访客浏览器 |
+| 部署 | Cloudflare Pages 与 Pages Functions，Git 集成，Node 22 |
 | CI | GitHub Actions 在推送和 PR 时运行 `npm run verify` |
 
 ## 本地开发
@@ -60,14 +61,15 @@
 ```bash
 npm ci
 npm run dev       # http://localhost:4321
-npm run build     # 静态输出到 dist/
+npm run build     # 先同步 GitHub 数据，再静态输出到 dist/
 npm run preview   # 预览 dist/
-npm run check     # 内容、语言与资源一致性检查
+npm run check     # 内容、语言、资源与 GitHub 快照一致性检查
+npm run sync:github # 刷新仓库内的 GitHub 快照
 npm run typecheck # astro check
 npm run verify    # check + typecheck + build
 ```
 
-`npm run verify` 会依次运行内容检查、类型检查和构建；构建生成 4 个 HTML 页面。`dist/` 不进入 Git，由 CI 重建。
+`npm run verify` 会先同步 GitHub 快照，再依次运行内容检查、类型检查和构建；构建时会再刷新一次快照，最终生成 4 个 HTML 页面。`dist/` 不进入 Git，由 CI 重建。GitHub 不可达时，`npm run sync:github` 与 `npm run build` 保留现有快照；设置 `GITHUB_TOKEN` 可提高 API 限额。`/api/github` 由 Cloudflare Pages Functions 提供，`astro preview` 中不存在；此时页面使用构建快照。
 
 ## 内容模型
 
@@ -79,7 +81,8 @@ npm run verify    # check + typecheck + build
 | `src/data/projects.json` | 5 个代表项目，含三语文案、技术、证据与状态 |
 | `src/data/timeline.json` | 6 行经历 |
 | `src/data/awards.json` | 3 条奖项与报道 |
-| `src/data/more-work.json` | 6 个其他项目 |
+| `src/data/more-work.json` | 8 个其他项目 |
+| `src/data/github.json` | 生成的快照：每个追踪仓库的 stars、forks、最近推送与最新 Release |
 | `src/i18n/en.json`, `zh.json`, `fr.json` | 界面文案、meta 标题与描述 |
 | `content/copy-en.md` | 英文源稿 |
 | `content/copy-zh.md`, `copy-fr.md` | 中文与法文译稿 |
@@ -90,7 +93,10 @@ npm run verify    # check + typecheck + build
 1. 同步修改英文源稿与 `src/data`。
 2. 同一次提交内更新中文与法文字段。
 3. 保持三语的区块数量、数字、链接与图片路径一致。
-4. 运行 `npm run verify`，并检查三个路由。
+4. 增加、重命名或删除追踪仓库后，运行 `npm run sync:github`。
+5. 运行 `npm run verify`，并检查三个路由。
+
+`src/data/github.json` 是生成文件，不要手工编辑。`npm run sync:github` 从代表项目与其他项目的仓库链接读取数据，记录 stars、forks、最近推送与最新 Release；`prebuild` 会在每次构建前刷新，GitHub 不可达时保留旧文件。
 
 ## 项目结构
 
@@ -98,15 +104,16 @@ npm run verify    # check + typecheck + build
 .
 ├── src/
 │   ├── components/   Header、Hero、ProjectList、Journey、Awards、MoreWork、About、Footer、LanguageSwitcher
-│   ├── data/         profile、projects、timeline、awards、more-work
+│   ├── data/         profile、projects、timeline、awards、more-work、生成的 GitHub 快照
 │   ├── i18n/         en、zh、fr 与共享类型
 │   ├── layouts/      Base.astro，负责 head、hreflang 与 JSON-LD
 │   ├── pages/        index、zh/index、fr/index、404、sitemap.xml、robots.txt
-│   ├── scripts/      渐进增强脚本
+│   ├── scripts/      渐进增强与 GitHub 实时刷新
 │   └── styles/       tokens.css、global.css
+├── functions/        Cloudflare Pages Function，提供 /api/github
 ├── public/           图片、手绘 IP 素材、favicon、OG 图片、_headers、_redirects
 ├── content/          三语文稿与术语表
-├── scripts/          内容检查、OG 与 IP 素材生成、QA 脚本
+├── scripts/          内容检查、GitHub 同步、OG 与 IP 素材生成、QA 脚本
 ├── qa/               Lighthouse、一致性与布局报告
 ├── screenshots/      1440、1024、768、390 px 全页截图
 ├── Robusr IP/        背景线稿的原始扫描
@@ -119,15 +126,16 @@ npm run verify    # check + typecheck + build
 | 检查 | 结果 |
 |---|---|
 | 构建与检查 | `npm run verify` 通过：内容检查、`astro check` 0 错误、构建 4 个页面 |
+| GitHub 同步 | 快照覆盖 12 个仓库；Vulcan 解析为 v1.3.0；本地处理器测试中 `/api/github` 返回 24 个公开仓库与 Vulcan Release；2026-11-26 的 Playwright 测试用 mock 接口把卡片更新为 99 stars 与 v9.9.9 |
 | 线上 | `/`、`/zh/`、`/fr/` 返回 200；HTTP 跳转 HTTPS；`www` 返回 200，仍需 301 |
 | 本地 Lighthouse，移动端（2026-10-22） | 三种语言的 Performance 99、Accessibility 100、Best Practices 100、SEO 100 |
 | 线上 Lighthouse，移动端（2026-10-22） | EN 97/100/92/100，ZH 98/100/92/100，FR 99/100/92/100 |
 | 线上 LCP / CLS | LCP 1.8–2.2 s；CLS 0–0.069，测量于肖像 `aspect-ratio` 修复之前 |
 | 布局宽度 | 1440、1024、768、390 px 均无横向溢出 |
-| 关闭 JavaScript | 正文完整可读 |
+| 关闭 JavaScript | 正文完整可读；GitHub 卡片使用构建快照 |
 | 站外链接 | GitHub 与媒体链接返回 200 |
 
-线上 Best Practices 为 92，因为 Cloudflare 仍注入 Web Analytics beacon，并被 CSP 拦截；Email Address Obfuscation 与 Managed robots.txt 也仍在边缘生效，因此线上页面与本地构建不同。这些是 zone 设置，不在仓库内。线上数据见 `qa/lighthouse-live-summary.json`。
+Lighthouse 数据早于本次 GitHub 实时模块，引用前应重新测量。线上 Best Practices 为 92，因为 Cloudflare 仍注入 Web Analytics beacon，并被 CSP 拦截；Email Address Obfuscation 与 Managed robots.txt 也仍在边缘生效，因此线上页面与本地构建不同。这些是 zone 设置，不在仓库内。线上数据见 `qa/lighthouse-live-summary.json`。
 
 完整证据见 [QA.md](QA.md)；截图见 [screenshots/](screenshots/)；Lighthouse 原始报告见 [qa/](qa/)。
 
@@ -142,6 +150,8 @@ QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright
 3. 添加 `robusr.cn` 自定义域名并启用 HTTPS。
 4. 推送到 `main`，Cloudflare Pages 自动重建。
 
+Cloudflare Pages 会把 `functions/` 与 `dist/` 一起部署，因此 `/api/github` 无需单独 Worker。该函数读取公开仓库信息，边缘缓存 10 分钟；可设置可选的 `GITHUB_TOKEN` 环境变量提高 GitHub 限额。Functions 不可用或接口失败时，页面保留构建快照。
+
 `public/_headers` 添加安全与缓存响应头。Cloudflare Pages 无法通过 `_redirects` 做域名级跳转，因此该文件只记录这一限制。`www.robusr.cn` 当前可访问并返回 200；需要在 Cloudflare 创建 Redirect Rule，将其 301 到主域名。GitHub Pages 已停用；如果仓库后台仍启用 Pages，请关闭。详见 [DEPLOY.md](DEPLOY.md)。
 
 ## 内容规则
@@ -149,7 +159,7 @@ QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright
 - `/assets/` 与 `/og/` 下的资源缓存一年。图片变更时写入新文件名，并更新所有引用。
 - 每个数字、奖项、链接与项目状态都必须能追溯到信息库或公开来源。
 - Sencillo 的数字是设计目标，必须保持这一标注。
-- 星标数是 2026 年 10 月的快照，界面中同时显示该日期。
+- 星标与 fork 数在构建时和 `/api/github` 刷新；`src/data/github.json` 的静态快照是无 JavaScript 时的回退。不要手工编辑该文件，运行 `npm run sync:github`。
 - 可见内容变化时，更新 `src/data/profile.json` 中的 `contentDate`；`sitemap.xml` 用它作为 `lastmod`。
 - 推送前运行 `npm run verify`。GitHub Actions 会运行同一命令。
 - 不加入家庭信息、住址、生日、分数、排名或私人关系。
@@ -168,4 +178,4 @@ QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright
 
 ## 鸣谢
 
-肖像与两幅手绘个人 IP 线稿由 Robusr 提供，两幅画作都用作低透明度背景。项目图片来自各项目仓库与 Anteportal Labs 组织主页。站点不使用电视画面、比赛标志或第三方论文插图。
+肖像与两幅手绘个人 IP 线稿由 Robusr 提供，两幅画作都用作低透明度背景。项目图片来自各项目仓库与 Anteportal Labs 组织主页。站点不使用电视画面、比赛标志或第三方论文插图。GitHub stars、forks、最近推送与 Release 标签来自公开 GitHub API，并在边缘缓存。

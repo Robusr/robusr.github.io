@@ -10,6 +10,7 @@ const exists = (file) => fs.existsSync(path.join(root, file));
 const isLocalized = (value) =>
   value && locales.every((locale) => typeof value[locale] === 'string' && value[locale].trim().length > 0);
 const isIsoDate = (value) => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value));
+const isIsoTimestamp = (value) => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value) && !Number.isNaN(Date.parse(value));
 
 function keyPaths(value, prefix = '') {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) return [prefix];
@@ -51,6 +52,8 @@ for (const asset of ['robusr-ip-v2.webp', 'robusr-ip-480.webp', 'robusr-standing
 }
 
 const projects = read('src/data/projects.json');
+const github = read('src/data/github.json');
+if (!isIsoTimestamp(github.fetchedAt)) errors.push('github.fetchedAt must be an ISO timestamp');
 if (projects.length !== 5) errors.push(`projects.json must contain five projects, found ${projects.length}`);
 const orders = projects.map((project) => project.order).sort((a, b) => a - b).join(',');
 if (orders !== '1,2,3,4,5') errors.push(`project order must be 1..5, found ${orders}`);
@@ -62,6 +65,27 @@ for (const project of projects) {
   if (!i18n.en.status?.[project.statusKey]) errors.push(`${id} uses unknown statusKey: ${project.statusKey}`);
   if (!i18n.en.exit?.[project.exitKey]) errors.push(`${id} uses unknown exitKey: ${project.exitKey}`);
   if (!/^https:\/\//.test(project.href ?? '')) errors.push(`${id}.href must be an absolute https URL`);
+  if (project.repo !== null && !/^[A-Za-z0-9_.-]+$/.test(project.repo ?? '')) {
+    errors.push(`${id}.repo must be null or a GitHub repository name`);
+  }
+  if (project.repo) {
+    const stats = github.repos?.[project.repo];
+    if (!stats) {
+      errors.push(`github.json missing featured repository: ${project.repo}`);
+    } else {
+      if (!Number.isInteger(stats.stars) || stats.stars < 0) errors.push(`github ${project.repo}.stars must be a non-negative integer`);
+      if (!Number.isInteger(stats.forks) || stats.forks < 0) errors.push(`github ${project.repo}.forks must be a non-negative integer`);
+      if (!isIsoTimestamp(stats.pushedAt)) errors.push(`github ${project.repo}.pushedAt must be an ISO timestamp`);
+      if (stats.release) {
+        if (typeof stats.release.tag !== 'string' || !stats.release.tag.trim()) {
+          errors.push(`github ${project.repo}.release.tag is required`);
+        }
+        if (!/^https:\/\//.test(stats.release.url ?? '')) {
+          errors.push(`github ${project.repo}.release.url must be an absolute https URL`);
+        }
+      }
+    }
+  }
   for (const suffix of ['-480.webp', '-960.webp', '-960.jpg']) {
     if (!exists(`public${project.image}${suffix}`)) errors.push(`${id} image missing: ${project.image}${suffix}`);
   }
@@ -83,11 +107,13 @@ for (const award of awards) {
 }
 
 const moreWork = read('src/data/more-work.json');
-if (moreWork.length !== 6) errors.push(`more-work.json must contain six items, found ${moreWork.length}`);
+if (moreWork.length !== 8) errors.push(`more-work.json must contain eight items, found ${moreWork.length}`);
 for (const item of moreWork) {
   if (!isLocalized(item.desc)) errors.push(`${item.name} desc must have en, zh, and fr strings`);
   if (!isLocalized(item.meta)) errors.push(`${item.name} meta must have en, zh, and fr strings`);
   if (!/^https:\/\//.test(item.href ?? '')) errors.push(`${item.name}.href must be an absolute https URL`);
+  const repo = /^https:\/\/github\.com\/Robusr\/([^/?#]+)\/?$/.exec(item.href ?? '')?.[1];
+  if (repo && !github.repos?.[repo]) errors.push(`github.json missing repository for more-work item ${item.name}: ${repo}`);
 }
 
 if (errors.length) {
@@ -96,4 +122,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Content check passed: 3 locales, ${projects.length} projects, ${timeline.length} timeline rows, ${awards.length} awards, ${moreWork.length} more-work items.`);
+console.log(`Content check passed: 3 locales, ${projects.length} projects, ${timeline.length} timeline rows, ${awards.length} awards, ${moreWork.length} more-work items, ${Object.keys(github.repos ?? {}).length} GitHub repositories.`);

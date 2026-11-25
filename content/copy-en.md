@@ -1,6 +1,6 @@
 # English copy — source of truth
 
-Snapshot: 2026-10-20. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, `03-timeline.md`, `04-awards-and-media.md`, `data/profile.json`, `data/projects.json`, `sources.md`. English is the source language; Chinese and French are translations of this file.
+Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, `03-timeline.md`, `04-awards-and-media.md`, `data/profile.json`, `data/projects.json`, `sources.md`. English is the source language; Chinese and French are translations of this file.
 
 ## Meta
 
@@ -27,22 +27,25 @@ Snapshot: 2026-10-20. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 
 ## Selected Work
 
+<!-- GitHub stars, forks, last push, and the latest release are rendered from src/data/github.json and refreshed from /api/github. Star counts are not fixed in this manuscript. -->
+
 ### 01 · Vulcan — AI × CAD — Active
 
 - Tagline: Natural language in. Parametric SolidWorks geometry out.
 - Summary: A SolidWorks add-in that turns a plain engineering request into native, editable features. The model returns a typed JSON feature tree, and a C# client executes it through the SolidWorks COM API. No exec(), no code-generation surface.
 - Tech: C# · WPF · .NET 4.8 · Python · Flask · SolidWorks COM API · LLM
-- Evidence: 23 stars (Oct 2026) · GPL-3.0 · Typed JSON contract
+- Evidence: GPL-3.0 · Typed JSON contract
+- Release: v1.3.0
 - Exit: Repository → `https://github.com/Robusr/Vulcan`
 
-<!-- Sources: 02-project-cards.md card 1; projects.json. Star snapshot 2026-10-20. -->
+<!-- Sources: 02-project-cards.md card 1; projects.json. Release v1.3.0 published 2026-11-16. -->
 
 ### 02 · Hsiwu — Bio-inspired robotics — Complete
 
 - Tagline: Six wing segments. Three motors. Zero lines of code.
 - Summary: A bat-inspired flapping-wing robot with six wing segments, three per side. Three NE555 oscillators, one 74HC04 inverter, and three L293D bridges form the entire control law. No MCU, no firmware.
 - Tech: SolidWorks · Altium · NE555 · 74HC04 · L293D · FDM
-- Evidence: 8 stars (Oct 2026) · MIT · Gerber, BOM, and STEP included
+- Evidence: MIT · Gerber, BOM, and STEP included
 - Exit: Repository → `https://github.com/Robusr/Hsiwu`
 
 <!-- Sources: 02-project-cards.md card 2; Hsiwu README. "Six independently driven wing segments" in projects.json conflicts with three motors; this copy avoids the independence claim. See CONTENT_CONFLICTS.md. -->
@@ -105,8 +108,10 @@ Snapshot: 2026-10-20. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 - Tanngrisnir — Two-wheeled self-balancing vehicle based on STM32F103C8T6 — C / embedded — `https://github.com/Robusr/Tanngrisnir`
 - Argo — Quantitative Engineering Design Methods course design — MATLAB — `https://github.com/Robusr/Argo`
 - Lynx — Perception fusion SDK for low-speed autonomous vehicles — Python — `https://github.com/Robusr/Lynx`
+- Gungnir — AI copilot for business-war simulation: deterministic cash-flow engine plus an LLM strategy layer — Python · LLM — `https://github.com/Robusr/Gungnir`
+- RobotHub-WebSite — Official website of the Guyuan No.1 Middle School Robot Innovation Studio — Python · Flask — `https://github.com/Robusr/RobotHub-WebSite`
 
-<!-- Sources: 02-project-cards.md "More work"; projects.json secondary. Six items, as specified in the brief. -->
+<!-- Sources: 02-project-cards.md "More work"; projects.json secondary; GitHub profile on 2026-11-26. Eight items. -->
 
 ## About
 

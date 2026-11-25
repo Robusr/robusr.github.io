@@ -1,6 +1,7 @@
 [
   {
     "id": "vulcan",
+    "repo": "Vulcan",
     "order": 1,
     "name": "Vulcan",
     "category": { "en": "AI × CAD", "zh": "AI × CAD", "fr": "IA × CAO" },
@@ -16,9 +17,9 @@
     },
     "tech": ["C#", "WPF", ".NET 4.8", "Python", "Flask", "SolidWorks COM API", "LLM"],
     "evidence": {
-      "en": "23 stars (Oct 2026) · GPL-3.0 · Typed JSON contract",
-      "zh": "23 stars（2026 年 10 月）· GPL-3.0 · 类型化 JSON 契约",
-      "fr": "23 étoiles (oct. 2026) · GPL-3.0 · contrat JSON typé"
+      "en": "GPL-3.0 · Typed JSON contract",
+      "zh": "GPL-3.0 · 类型化 JSON 契约",
+      "fr": "GPL-3.0 · contrat JSON typé"
     },
     "designTarget": false,
     "statusKey": "Active",
@@ -33,6 +34,7 @@
   },
   {
     "id": "hsiwu",
+    "repo": "Hsiwu",
     "order": 2,
     "name": "Hsiwu",
     "category": { "en": "Bio-inspired robotics", "zh": "仿生机器人", "fr": "Robotique bio-inspirée" },
@@ -48,9 +50,9 @@
     },
     "tech": ["SolidWorks", "Altium", "NE555", "74HC04", "L293D", "FDM"],
     "evidence": {
-      "en": "8 stars (Oct 2026) · MIT · Gerber, BOM, and STEP included",
-      "zh": "8 stars（2026 年 10 月）· MIT · 含 Gerber、BOM 与 STEP",
-      "fr": "8 étoiles (oct. 2026) · MIT · Gerber, BOM et STEP inclus"
+      "en": "MIT · Gerber, BOM, and STEP included",
+      "zh": "MIT · 含 Gerber、BOM 与 STEP",
+      "fr": "MIT · Gerber, BOM et STEP inclus"
     },
     "designTarget": false,
     "statusKey": "Complete",
@@ -65,6 +67,7 @@
   },
   {
     "id": "dustarrow",
+    "repo": "DustArrow",
     "order": 3,
     "name": "DustArrow X",
     "category": { "en": "Aerospace / embedded", "zh": "航空航天 / 嵌入式", "fr": "Aérospatial / embarqué" },
@@ -97,6 +100,7 @@
   },
   {
     "id": "onesarm",
+    "repo": "OnesArm",
     "order": 4,
     "name": "OnesArm",
     "category": { "en": "Modular robotics", "zh": "模块化机器人", "fr": "Robotique modulaire" },
@@ -129,6 +133,7 @@
   },
   {
     "id": "sencillo",
+    "repo": null,
     "order": 5,
     "name": "Anteportal Labs · Sencillo",
     "category": { "en": "AI × manufacturing", "zh": "AI × 制造", "fr": "IA × fabrication" },

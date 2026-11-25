@@ -1,9 +1,21 @@
 ---
 import type { Locale, Messages } from '../i18n/types';
 import projects from '../data/projects.json';
+import github from '../data/github.json';
 
 const { locale, t } = Astro.props as { locale: Locale; t: Messages };
 const featured = [...projects].sort((a, b) => a.order - b.order);
+
+const dateFormats: Record<Locale, Intl.DateTimeFormat> = {
+  en: new Intl.DateTimeFormat('en', { dateStyle: 'medium', timeZone: 'UTC' }),
+  zh: new Intl.DateTimeFormat('zh-Hans', { dateStyle: 'medium', timeZone: 'UTC' }),
+  fr: new Intl.DateTimeFormat('fr', { dateStyle: 'medium', timeZone: 'UTC' }),
+};
+const formatDate = (value?: string | null) => {
+  if (!value) return '';
+  const date = new Date(value);
+  return Number.isNaN(date.valueOf()) ? '' : dateFormats[locale].format(date);
+};
 ---
 <section class="section" id="work" aria-labelledby="work-title">
   <div class="wrap">
@@ -12,45 +24,69 @@ const featured = [...projects].sort((a, b) => a.order - b.order);
       <h2 id="work-title">{t.sections.work}</h2>
     </div>
     <ol class="projects">
-      {featured.map((project, index) => (
-        <li class="project">
-          <a class="project-media" href={project.href} tabindex="-1" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcset={`${project.image}-480.webp 480w, ${project.image}-960.webp 960w`}
-                sizes="(min-width: 1024px) 320px, (min-width: 640px) 92vw, 100vw"
-              />
-              <img
-                src={`${project.image}-960.jpg`}
-                width="960"
-                height="540"
-                alt={project.alt[locale]}
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-          </a>
-          <div class="project-body">
-            <div class="project-head">
-              <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <h3><a href={project.href}>{project.name}</a></h3>
-              <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
+      {featured.map((project, index) => {
+        const stats = project.repo
+          ? (github.repos as Record<string, { stars: number; forks: number; pushedAt: string; release?: { tag: string; url: string } }>)[project.repo]
+          : undefined;
+        const release = stats?.release;
+        return (
+          <li class="project">
+            <a class="project-media" href={project.href} tabindex="-1" aria-hidden="true">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset={`${project.image}-480.webp 480w, ${project.image}-960.webp 960w`}
+                  sizes="(min-width: 1024px) 320px, (min-width: 640px) 92vw, 100vw"
+                />
+                <img
+                  src={`${project.image}-960.jpg`}
+                  width="960"
+                  height="540"
+                  alt={project.alt[locale]}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </a>
+            <div class="project-body">
+              <div class="project-head">
+                <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <h3><a href={project.href}>{project.name}</a></h3>
+                {release ? (
+                  <a class="release" href={release.url} data-release-repo={project.repo}>{release.tag}</a>
+                ) : project.repo ? (
+                  <a class="release" href={`https://github.com/Robusr/${project.repo}/releases`} data-release-repo={project.repo} hidden></a>
+                ) : null}
+                <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
+              </div>
+              <p class="project-category">{project.category[locale]}</p>
+              <p class="project-tagline">{project.tagline[locale]}</p>
+              <p class="project-summary">{project.summary[locale]}</p>
+              <ul class="tech" aria-label={t.techLabel}>
+                {project.tech.map((item) => <li>{item}</li>)}
+              </ul>
+              <p class="evidence">
+                {project.designTarget && <span class="evidence-flag">{t.designTarget}</span>}
+                {project.evidence[locale]}
+              </p>
+              {stats && (
+                <p class="project-live" data-live-repo={project.repo}>
+                  <span class="live-label">{t.live.github}</span>
+                  <span><span data-live="stars">{stats.stars}</span> {t.live.stars}</span>
+                  <span aria-hidden="true">·</span>
+                  <span><span data-live="forks">{stats.forks}</span> {t.live.forks}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>
+                    {t.live.updated}{' '}
+                    <time datetime={stats.pushedAt} data-live="pushed">{formatDate(stats.pushedAt)}</time>
+                  </span>
+                </p>
+              )}
+              <a class="exit" href={project.href}>{t.exit[project.exitKey as keyof Messages['exit']]}</a>
             </div>
-            <p class="project-category">{project.category[locale]}</p>
-            <p class="project-tagline">{project.tagline[locale]}</p>
-            <p class="project-summary">{project.summary[locale]}</p>
-            <ul class="tech" aria-label={t.techLabel}>
-              {project.tech.map((item) => <li>{item}</li>)}
-            </ul>
-            <p class="evidence">
-              {project.designTarget && <span class="evidence-flag">{t.designTarget}</span>}
-              {project.evidence[locale]}
-            </p>
-            <a class="exit" href={project.href}>{t.exit[project.exitKey as keyof Messages['exit']]}</a>
-          </div>
-        </li>
-      ))}
+          </li>
+        );
+      })}
     </ol>
   </div>
 </section>

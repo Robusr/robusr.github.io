@@ -14,10 +14,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "prebuild": "node scripts/sync-github.mjs",
     "preview": "astro preview",
     "check": "node scripts/check-content.mjs",
+    "sync:github": "node scripts/sync-github.mjs",
     "typecheck": "astro check",
-    "verify": "npm run check && npm run typecheck && npm run build"
+    "verify": "npm run sync:github && npm run check && npm run typecheck && npm run build"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
