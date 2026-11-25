@@ -45,6 +45,9 @@ Shared across all three language versions. Project names, repository names, part
 | ink tones | 墨色焦、浓、重、淡、清 | tons d’encre |
 | mini lab | 迷你实验室 | Mini Lab |
 | figure plate | 图版 | planche |
+| portrait | 肖像 | portrait |
+| spec table | 规格表 | tableau de spécifications |
+| missing sheet | 缺失图纸 | feuille manquante |
 | colophon | 版本说明 | colophon |
 | whiteboard | 白板 | tableau blanc |
 | workbench | 工作台 | établi |

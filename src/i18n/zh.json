@@ -16,15 +16,20 @@
   "designTarget": "设计目标，非实测",
   "watch": "观看节目",
   "contactHeading": "联系",
+  "contactLabels": { "email": "邮箱", "github": "GitHub", "org": "组织" },
   "languagesLabel": "语言",
   "langHint": "也可用以下语言阅读：",
   "dismiss": "关闭",
   "techLabel": "技术",
   "live": {
-    "github": "GitHub",
     "stars": "stars",
     "forks": "forks",
     "updated": "更新于"
+  },
+  "spec": {
+    "tech": "技术",
+    "evidence": "证据",
+    "github": "GitHub"
   },
   "colophon": "Inter 字体 · 纸感 · 武汉 · 2026"
 }

@@ -10,9 +10,9 @@ const { locale, t } = Astro.props as { locale: Locale; t: Messages };
     <div>
       <h2 class="footer-heading">{t.contactHeading}</h2>
       <ul class="contact-list">
-        <li><a href="mailto:Robusr@outlook.com">Robusr@outlook.com</a></li>
-        <li><a href="https://github.com/Robusr">github.com/Robusr</a></li>
-        <li><a href="https://github.com/Anteportal">github.com/Anteportal</a></li>
+        <li><span class="contact-label">{t.contactLabels.email}</span><a href="mailto:Robusr@outlook.com">Robusr@outlook.com</a></li>
+        <li><span class="contact-label">{t.contactLabels.github}</span><a href="https://github.com/Robusr">github.com/Robusr</a></li>
+        <li><span class="contact-label">{t.contactLabels.org}</span><a href="https://github.com/Anteportal">github.com/Anteportal</a></li>
       </ul>
       <p class="location">{profile.location[locale]}</p>
     </div>

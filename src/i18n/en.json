@@ -16,15 +16,20 @@
   "designTarget": "Design target, not measured",
   "watch": "watch the feature",
   "contactHeading": "Contact",
+  "contactLabels": { "email": "Email", "github": "GitHub", "org": "Org" },
   "languagesLabel": "Language",
   "langHint": "Also available in",
   "dismiss": "Dismiss",
   "techLabel": "Technologies",
   "live": {
-    "github": "GitHub",
     "stars": "stars",
     "forks": "forks",
     "updated": "Updated"
+  },
+  "spec": {
+    "tech": "Tech",
+    "evidence": "Evidence",
+    "github": "GitHub"
   },
   "colophon": "Set in Inter · paper · Wuhan · 2026"
 }

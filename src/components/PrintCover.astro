@@ -1,0 +1,20 @@
+---
+import type { Locale, Messages } from '../i18n/types';
+import profile from '../data/profile.json';
+import lab from '../data/mini-lab.json';
+
+const { locale, t } = Astro.props as { locale: Locale; t: Messages };
+---
+<section class="print-cover" aria-hidden="true">
+  <p class="print-cover-eyebrow">{profile.label[locale]}</p>
+  <h1 class="print-cover-name">{profile.name[locale]}</h1>
+  <p class="print-cover-role">{profile.positioning[locale]}</p>
+  <figure class="print-cover-plate">
+    <img src={`${lab.image.base}-960.webp`} width="960" height="720" alt="" />
+    <figcaption>{lab.figLabel[locale]} — {lab.title[locale]}</figcaption>
+  </figure>
+  <div class="print-cover-foot">
+    <span>{t.sections.work} · 2026</span>
+    <span>robusr.cn</span>
+  </div>
+</section>

@@ -8,6 +8,7 @@ import Awards from './Awards.astro';
 import MoreWork from './MoreWork.astro';
 import About from './About.astro';
 import MiniLab from './MiniLab.astro';
+import PrintCover from './PrintCover.astro';
 import Footer from './Footer.astro';
 
 const { locale, t } = Astro.props as { locale: Locale; t: Messages };
@@ -23,6 +24,7 @@ const { locale, t } = Astro.props as { locale: Locale; t: Messages };
     </div>
   </div>
 )}
+<PrintCover locale={locale} t={t} />
 <Header locale={locale} t={t} />
 <main id="main">
   <Hero locale={locale} t={t} />

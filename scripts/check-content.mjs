@@ -37,6 +37,7 @@ for (const locale of locales) {
     errors.push(`profile.about.${locale} must contain one to three paragraphs`);
   }
   if (!profile.portrait?.alt?.[locale]) errors.push(`profile.portrait.alt.${locale} is missing`);
+  if (!profile.portrait?.caption?.[locale]) errors.push(`profile.portrait.caption.${locale} is missing`);
 }
 for (const key of ['webp', 'webpSmall', 'jpg']) {
   if (!exists(`public${profile.portrait[key]}`)) errors.push(`portrait file missing: ${profile.portrait[key]}`);

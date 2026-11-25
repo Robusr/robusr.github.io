@@ -16,15 +16,20 @@
   "designTarget": "Objectif de conception, non mesuré",
   "watch": "regarder le reportage",
   "contactHeading": "Contact",
+  "contactLabels": { "email": "E-mail", "github": "GitHub", "org": "Org" },
   "languagesLabel": "Langue",
   "langHint": "Également disponible en",
   "dismiss": "Fermer",
   "techLabel": "Technologies",
   "live": {
-    "github": "GitHub",
     "stars": "étoiles",
     "forks": "forks",
     "updated": "Mis à jour le"
+  },
+  "spec": {
+    "tech": "Tech",
+    "evidence": "Preuves",
+    "github": "GitHub"
   },
   "colophon": "Composé en Inter · papier · Wuhan · 2026"
 }

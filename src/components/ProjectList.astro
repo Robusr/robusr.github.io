@@ -64,26 +64,42 @@ const formatDate = (value?: string | null) => {
               <p class="project-category">{project.category[locale]}</p>
               <p class="project-tagline">{project.tagline[locale]}</p>
               <p class="project-summary">{project.summary[locale]}</p>
-              <ul class="tech" aria-label={t.techLabel}>
-                {project.tech.map((item) => <li>{item}</li>)}
-              </ul>
-              <p class="evidence">
-                {project.designTarget && <span class="evidence-flag">{t.designTarget}</span>}
-                {project.evidence[locale]}
-              </p>
-              {stats && (
-                <p class="project-live" data-live-repo={project.repo}>
-                  <span class="live-label">{t.live.github}</span>
-                  <span><span data-live="stars">{stats.stars}</span> {t.live.stars}</span>
-                  <span aria-hidden="true">·</span>
-                  <span><span data-live="forks">{stats.forks}</span> {t.live.forks}</span>
-                  <span aria-hidden="true">·</span>
-                  <span>
-                    {t.live.updated}{' '}
-                    <time datetime={stats.pushedAt} data-live="pushed">{formatDate(stats.pushedAt)}</time>
-                  </span>
-                </p>
-              )}
+              <dl class="spec">
+                <div class="spec-row">
+                  <dt>{t.spec.tech}</dt>
+                  <dd>
+                    <ul class="tech" aria-label={t.techLabel}>
+                      {project.tech.map((item) => <li>{item}</li>)}
+                    </ul>
+                  </dd>
+                </div>
+                <div class="spec-row">
+                  <dt>{t.spec.evidence}</dt>
+                  <dd>
+                    <p class="evidence">
+                      {project.designTarget && <span class="evidence-flag">{t.designTarget}</span>}
+                      {project.evidence[locale]}
+                    </p>
+                  </dd>
+                </div>
+                {stats && (
+                  <div class="spec-row spec-github">
+                    <dt>{t.spec.github}</dt>
+                    <dd>
+                      <p class="project-live" data-live-repo={project.repo}>
+                        <span><span data-live="stars">{stats.stars}</span> {t.live.stars}</span>
+                        <span aria-hidden="true">·</span>
+                        <span><span data-live="forks">{stats.forks}</span> {t.live.forks}</span>
+                        <span aria-hidden="true">·</span>
+                        <span>
+                          {t.live.updated}{' '}
+                          <time datetime={stats.pushedAt} data-live="pushed">{formatDate(stats.pushedAt)}</time>
+                        </span>
+                      </p>
+                    </dd>
+                  </div>
+                )}
+              </dl>
               <a class="exit" href={project.href}>{t.exit[project.exitKey as keyof Messages['exit']]}</a>
             </div>
           </li>

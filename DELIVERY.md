@@ -2,7 +2,7 @@
 
 > 2026-10-21 更新：仓库配置已切换到 https://robusr.cn，canonical、hreflang、Open Graph、JSON-LD、sitemap 与 robots 均已更新，部署后生效；GitHub Actions 部署工作流已移除；GitHub Pages 站点设置仍需在仓库后台关闭。以下为 2026-10-20 的原始交付记录。
 >
-> 2026-11-26 更新：More Work 调整为 4 条（Huginn、Robusr-skill、Lynx、Gungnir）；Hero 之后新增编号 00 的迷你实验室章节（纸白图版、Fig. 00 图注、轻微暖调、发布资源去除 EXIF）；视觉层补充时间线/档案账簿区分、统一元信息字号、宽屏图纸边角、About 首行 lead-in、页脚 colophon、A4 打印样式与新的 OG 卡片；项目卡片改为构建时 GitHub 快照加 `/api/github` 实时刷新；Vulcan 最新 Release 为 v1.3.0；`snapshotDate` 与 `contentDate` 更新为 2026-11-26。下文原始记录中的星标数字与 6 条 More Work 为当时状态。
+> 2026-11-26 更新：More Work 调整为 4 条（Huginn、Robusr-skill、Lynx、Gungnir）；Hero 之后新增编号 00 的迷你实验室章节（纸白图版、Fig. 00 图注、轻微暖调、发布资源去除 EXIF）；视觉层补充肖像 v3 暖调与细框、项目规格表、章节页边刻度、缺失图纸 404、三语 OG、print-only 封面与 7 页 A4 打印样式，以及外链箭头、联系标签、当前章节导航、选中色与新 favicon；项目卡片改为构建时 GitHub 快照加 `/api/github` 实时刷新；Vulcan 最新 Release 为 v1.3.0；`snapshotDate` 与 `contentDate` 更新为 2026-11-26。下文原始记录中的星标数字与 6 条 More Work 为当时状态。
 
 日期：2026-10-20
 工作分支：`feat/homepage`

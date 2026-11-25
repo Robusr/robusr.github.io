@@ -22,6 +22,7 @@
 - 状态行：当前：Vulcan · Sencillo · HUST Robotics。
 - 链接：GitHub · 邮箱 · Anteportal Labs
 - 肖像 alt：郭沫晗在秋天的银杏树下
+- 肖像图注：肖像
 
 <!-- 来源：01-identity-and-bio.md 短版中文；5.1 定位句。 -->
 

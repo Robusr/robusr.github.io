@@ -5,6 +5,46 @@ if (header) {
   window.addEventListener('scroll', update, { passive: true });
 }
 
+const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+if (navLinks.length && 'IntersectionObserver' in window) {
+  const navTargets = navLinks
+    .map((link) => {
+      const href = link.getAttribute('href');
+      return href ? document.querySelector(href) : null;
+    })
+    .filter(Boolean);
+
+  if (navTargets.length) {
+    const setActive = (id) => {
+      navLinks.forEach((link) => {
+        const active = link.getAttribute('href') === `#${id}`;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.25, 0.5, 1] });
+
+    navTargets.forEach((target) => observer.observe(target));
+
+    const contactLink = navLinks.find((link) => link.getAttribute('href') === '#contact');
+    const updateBottom = () => {
+      if (!contactLink) return;
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
+        setActive('contact');
+      }
+    };
+    window.addEventListener('scroll', updateBottom, { passive: true });
+    updateBottom();
+  }
+}
+
 const anchorLinks = document.querySelectorAll('a[data-anchor-link]');
 if (anchorLinks.length) {
   const syncAnchors = () => {

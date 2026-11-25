@@ -22,6 +22,7 @@ Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 - Status: Currently: Vulcan · Sencillo · HUST Robotics.
 - Links: GitHub · Email · Anteportal Labs
 - Portrait alt: Robusr Guo under a ginkgo tree in autumn
+- Portrait caption: Portrait
 
 <!-- Sources: 01-identity-and-bio.md (short bio), 5.1 positioning sentence; data/profile.json. -->
 
@@ -134,3 +135,14 @@ The winter I was 17, classmates who were into high-energy propellant motors aske
 - Signature: Why not?
 
 <!-- Sources: 04-awards-and-media.md; data/profile.json. No private information. -->
+
+## 404
+
+- Title: Sheet missing — Robusr Guo
+- Eyebrow: SHEET 404 · MISSING
+- Heading: This sheet is missing.
+- Body: The page you are looking for is not in this set. Return to the homepage, or read it in 中文 or Français.
+- Meta: ROBUSR.CN · 2026
+- Note: English-only system page; links to all three locales.
+
+<!-- The missing-sheet layout is documented in QA. -->

@@ -26,14 +26,14 @@
 | `/` | English | 默认入口，`x-default` |
 | `/zh/` | 简体中文 | `lang="zh-Hans"` |
 | `/fr/` | Français | `lang="fr"` |
-| `/404.html` | English | `noindex`，链接到三种语言 |
+| `/404.html` | English | `noindex`，缺失图纸版式，链接到三种语言 |
 
 所有版本共享同一套内容模型和相同的区块顺序。启用 JavaScript 时，切换语言会保留当前锚点；不会根据浏览器语言自动跳转。
 
 ## 页面内容
 
 - **迷你实验室（00）：** Hero 之后、代表项目之前的全宽卧室工作台照片，带纸白图版边框与三语「图 00」图注。
-- **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。仓库卡片展示实时的 GitHub stars、forks、最近推送时间与最新 Release 版本；无 JavaScript 时回退到构建快照。
+- **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。仓库卡片展示实时的 GitHub stars、forks、最近推送时间与最新 Release 版本；无 JavaScript 时回退到构建快照。每张卡片底部使用「技术 / 证据 / GitHub」规格表。
 - **经历：** 6 行，从 2018 年的卧室工作室到 2026 年的华中科技大学。
 - **奖项与报道：** 第 38 届全国青少年科技创新大赛一等奖、第 37 届二等奖，以及上海电视台《少年爱迪生》。
 - **其他项目：** 4 个仓库，每个一行。
@@ -52,8 +52,8 @@
 | JavaScript | 约 2.3 KB 渐进增强 |
 | GitHub 数据 | 构建时从 GitHub API 生成快照；Cloudflare Pages Function 提供 `/api/github` 边缘缓存刷新 |
 | 隐私 | 无统计、Cookie、第三方字体或嵌入；GitHub 请求由 Cloudflare 发出，不暴露访客浏览器 |
-| 打印 | A4 打印样式：隐藏导航、背景与实时元信息，保留图版、日期与站外 URL |
-| 社交分享 | 1200×630 OG 卡片，使用迷你实验室图版与页面标语 |
+| 打印 | A4 打印样式并附带 print-only 封面：隐藏导航、背景与实时元信息，保留图版、日期与站外 URL |
+| 社交分享 | 每种语言一张 1200×630 OG 卡片，使用迷你实验室图版与本地化标语 |
 | 部署 | Cloudflare Pages 与 Pages Functions，Git 集成，Node 22 |
 | CI | GitHub Actions 在推送和 PR 时运行 `npm run verify` |
 
@@ -80,7 +80,7 @@ npm run verify    # check + typecheck + build
 
 | 路径 | 用途 |
 |---|---|
-| `src/data/profile.json` | 姓名、定位、简介、状态、链接、肖像、关于段落 |
+| `src/data/profile.json` | 姓名、定位、简介、状态、链接、肖像、肖像图注、关于段落 |
 | `src/data/projects.json` | 5 个代表项目，含三语文案、技术、证据与状态 |
 | `src/data/timeline.json` | 6 行经历 |
 | `src/data/awards.json` | 3 条奖项与报道 |
@@ -107,7 +107,7 @@ npm run verify    # check + typecheck + build
 ```text
 .
 ├── src/
-│   ├── components/   Header、Hero、MiniLab、ProjectList、Journey、Awards、MoreWork、About、Footer、LanguageSwitcher
+│   ├── components/   Header、Hero、MiniLab、PrintCover、ProjectList、Journey、Awards、MoreWork、About、Footer、LanguageSwitcher
 │   ├── data/         profile、projects、timeline、awards、more-work、mini-lab、生成的 GitHub 快照
 │   ├── i18n/         en、zh、fr 与共享类型
 │   ├── layouts/      Base.astro，负责 head、hreflang 与 JSON-LD
@@ -115,9 +115,9 @@ npm run verify    # check + typecheck + build
 │   ├── scripts/      渐进增强与 GitHub 实时刷新
 │   └── styles/       tokens.css、global.css
 ├── functions/        Cloudflare Pages Function，提供 /api/github
-├── public/           图片、手绘 IP 素材、迷你实验室照片、favicon、OG 图片、_headers、_redirects
+├── public/           图片、手绘 IP 素材、迷你实验室照片、favicon、OG 卡片、_headers、_redirects
 ├── content/          三语文稿与术语表
-├── scripts/          内容检查、GitHub 同步、OG/IP/迷你实验室素材生成、QA 脚本
+├── scripts/          内容检查、GitHub 同步、OG/IP/迷你实验室/肖像生成、QA 脚本
 ├── qa/               Lighthouse、一致性与布局报告
 ├── screenshots/      1440、1024、768、390 px 全页截图
 ├── Robusr IP/        背景线稿的原始扫描
@@ -138,14 +138,15 @@ npm run verify    # check + typecheck + build
 | 布局宽度 | 1440、1024、768、390 px 均无横向溢出 |
 | 关闭 JavaScript | 正文完整可读；GitHub 卡片使用构建快照 |
 | 迷你实验室素材 | 480/960/1440 WebP 与 1440 JPEG 回退；已去除 EXIF；三语说明与 alt |
-| OG 与打印 | 新版 1200×630 OG 卡片使用迷你实验室图版；A4 打印样式保留图版、日期与站外 URL，隐藏导航与实时元信息 |
+| OG 与打印 | 中英法三张 1200×630 OG 卡片使用迷你实验室图版；A4 打印样式带 print-only 封面（7 页），保留图版、日期与站外 URL，隐藏导航与实时元信息 |
+| 视觉系统 | 肖像与项目图细框、规格表、章节页边刻度、本地化 OG、打印封面与缺失图纸 404 |
 | 站外链接 | GitHub 与媒体链接返回 200 |
 
 Lighthouse 数据早于本次 GitHub 实时模块，引用前应重新测量。线上 Best Practices 为 92，因为 Cloudflare 仍注入 Web Analytics beacon，并被 CSP 拦截；Email Address Obfuscation 与 Managed robots.txt 也仍在边缘生效，因此线上页面与本地构建不同。这些是 zone 设置，不在仓库内。线上数据见 `qa/lighthouse-live-summary.json`。
 
 完整证据见 [QA.md](QA.md)；截图见 [screenshots/](screenshots/)；Lighthouse 原始报告见 [qa/](qa/)。
 
-QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright@1.64.1`。OG 图片可用 `python3 scripts/make-og.py` 重新生成；背景素材可用 `python3 scripts/make-ip-assets.py` 从 `Robusr IP/` 重新生成；迷你实验室图片可用 `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg` 重新生成。生成脚本都需要 Pillow，迷你实验室脚本会去除 EXIF 元数据并做轻微暖调。
+QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright@1.64.1`。OG 图片可用 `python3 scripts/make-og.py` 重新生成；背景素材可用 `python3 scripts/make-ip-assets.py` 从 `Robusr IP/` 重新生成；迷你实验室图片可用 `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg` 重新生成；肖像可用 `python3 scripts/make-portrait-assets.py` 重新调色。生成脚本都需要 Pillow，迷你实验室与肖像脚本会去除 EXIF；肖像脚本读取 v2 的 512 px 文件并写出 v3 资源。
 
 ## 部署
 

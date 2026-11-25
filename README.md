@@ -26,14 +26,14 @@
 | `/` | English | Default entry, `x-default` |
 | `/zh/` | 简体中文 | `lang="zh-Hans"` |
 | `/fr/` | Français | `lang="fr"` |
-| `/404.html` | English | `noindex`, links to all three languages |
+| `/404.html` | English | `noindex`, missing-sheet layout, links to all three languages |
 
 All versions share one content model and the same section order. With JavaScript enabled, switching language preserves the current anchor. There is no automatic redirect from browser language.
 
 ## What the page contains
 
 - **Mini Lab (00):** a full-width photo of the bedroom workbench directly after the Hero, before Selected Work, set on a paper mat with a `Fig. 00` caption in each language.
-- **Selected Work:** Vulcan, Hsiwu, DustArrow X, OnesArm, and Anteportal Labs · Sencillo, in that fixed order. Repository cards show live GitHub stars, forks, last push, and the latest release tag, falling back to a build-time snapshot without JavaScript.
+- **Selected Work:** Vulcan, Hsiwu, DustArrow X, OnesArm, and Anteportal Labs · Sencillo, in that fixed order. Repository cards show live GitHub stars, forks, last push, and the latest release tag, falling back to a build-time snapshot without JavaScript. Each card ends with a spec table for tech, evidence, and GitHub state.
 - **Journey:** six rows from a bedroom workshop in 2018 to HUST in 2026.
 - **Awards & Media:** 38th CASTIC first prize, 37th CASTIC second prize, and the Shanghai TV *Young Edison* feature.
 - **More Work:** four repositories, one line each.
@@ -52,8 +52,8 @@ All versions share one content model and the same section order. With JavaScript
 | JavaScript | about 2.3 KB of progressive enhancement |
 | GitHub data | build-time snapshot from the GitHub API; edge-cached `/api/github` refresh through a Cloudflare Pages Function |
 | Privacy | no analytics, cookies, third-party fonts, or embeds; GitHub requests leave from Cloudflare, not the visitor's browser |
-| Print | A4 print stylesheet: hides navigation, backgrounds, and live metadata; keeps plates, dates, and outbound URLs |
-| Social | 1200×630 OG card with the Mini Lab plate and the site tagline |
+| Print | A4 print stylesheet with a print-only cover: hides navigation, backgrounds, and live metadata; keeps plates, dates, and outbound URLs |
+| Social | 1200×630 OG cards per locale, built around the Mini Lab plate and localized taglines |
 | Deployment | Cloudflare Pages and Pages Functions, Git integration, Node 22 |
 | CI | GitHub Actions runs `npm run verify` on pushes and pull requests |
 
@@ -80,7 +80,7 @@ All visible copy is data-driven.
 
 | Path | Purpose |
 |---|---|
-| `src/data/profile.json` | Name, positioning, intro, status, links, portrait, About paragraph |
+| `src/data/profile.json` | Name, positioning, intro, status, links, portrait, portrait caption, About paragraph |
 | `src/data/projects.json` | Five featured projects with per-locale copy, tech, evidence, and status |
 | `src/data/timeline.json` | Six Journey rows |
 | `src/data/awards.json` | Three award and media rows |
@@ -107,7 +107,7 @@ English is the source of truth. When editing:
 ```text
 .
 ├── src/
-│   ├── components/   Header, Hero, MiniLab, ProjectList, Journey, Awards, MoreWork, About, Footer, LanguageSwitcher
+│   ├── components/   Header, Hero, MiniLab, PrintCover, ProjectList, Journey, Awards, MoreWork, About, Footer, LanguageSwitcher
 │   ├── data/         profile, projects, timeline, awards, more-work, mini-lab, generated GitHub snapshot
 │   ├── i18n/         en, zh, fr, and shared types
 │   ├── layouts/      Base.astro with head, hreflang, and JSON-LD
@@ -115,9 +115,9 @@ English is the source of truth. When editing:
 │   ├── scripts/      progressive enhancement and live GitHub refresh
 │   └── styles/       tokens.css, global.css
 ├── functions/        Cloudflare Pages Function for /api/github
-├── public/           images, hand-drawn IP art, mini lab photo, favicon, OG image, _headers, _redirects
+├── public/           images, hand-drawn IP art, mini lab photo, favicon, OG cards, _headers, _redirects
 ├── content/          copy manuscripts and glossary
-├── scripts/          content check, GitHub sync, OG/IP/mini lab generators, and QA helpers
+├── scripts/          content check, GitHub sync, OG/IP/Mini Lab/portrait generators, and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
 ├── screenshots/      full-page captures at 1440, 1024, 768, and 390 px
 ├── Robusr IP/        source scans for the background artwork
@@ -138,14 +138,15 @@ English is the source of truth. When editing:
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow |
 | JavaScript disabled | all content readable; GitHub cards use the build-time snapshot |
 | Mini Lab assets | 480/960/1440 WebP and a 1440 JPEG fallback; EXIF stripped; caption and alt text in three languages |
-| OG and print | v3 1200×630 OG card with the Mini Lab plate; A4 print CSS keeps plates, dates, and outbound URLs while hiding navigation and live metadata |
+| OG and print | v3 1200×630 OG cards for EN/ZH/FR with the Mini Lab plate; A4 print CSS with a print-only cover (7 pages) keeps plates, dates, and outbound URLs while hiding navigation and live metadata |
+| Visual system | Portrait and project frames, spec tables, section ticks, localized OG cards, print cover, and a missing-sheet 404 page |
 | Outbound links | GitHub and media links return 200 |
 
 The Lighthouse figures predate the live GitHub module and should be re-run for the current build. Production Best Practices is 92 because Cloudflare still injects the Web Analytics beacon and the CSP blocks it. Email Address Obfuscation and Managed robots.txt are also still applied at the edge, so the live page differs from the local build. These are zone settings, not repository settings. Production results are in `qa/lighthouse-live-summary.json`.
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 
-The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`; the Mini Lab photo is regenerated with `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg`. The generators require Pillow, and the Mini Lab script strips EXIF metadata and applies a subtle warm grade.
+The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`; the Mini Lab photo is regenerated with `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg`; the portrait is regraded with `python3 scripts/make-portrait-assets.py`. The generators require Pillow, and the Mini Lab and portrait scripts strip EXIF metadata; the portrait script reads the v2 512 px file and writes v3 assets.
 
 ## Deployment
 

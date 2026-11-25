@@ -22,6 +22,7 @@ Instantané : 2026-11-26. Traduction de `content/copy-en.md`, qui reste la sourc
 - Statut : Actuellement : Vulcan · Sencillo · HUST Robotics.
 - Liens : GitHub · E-mail · Anteportal Labs
 - Alt du portrait : Robusr Guo sous un ginkgo en automne
+- Légende du portrait : Portrait
 
 ## Mini Lab
 
