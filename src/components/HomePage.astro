@@ -7,6 +7,7 @@ import Journey from './Journey.astro';
 import Awards from './Awards.astro';
 import MoreWork from './MoreWork.astro';
 import About from './About.astro';
+import MiniLab from './MiniLab.astro';
 import Footer from './Footer.astro';
 
 const { locale, t } = Astro.props as { locale: Locale; t: Messages };
@@ -30,5 +31,6 @@ const { locale, t } = Astro.props as { locale: Locale; t: Messages };
   <Awards locale={locale} t={t} />
   <MoreWork locale={locale} t={t} />
   <About locale={locale} t={t} />
+  <MiniLab locale={locale} />
 </main>
 <Footer locale={locale} t={t} />

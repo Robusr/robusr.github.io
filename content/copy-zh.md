@@ -109,6 +109,15 @@
 
 <!-- 来源：01-identity-and-bio.md 长版；未重复 Hero 句子。 -->
 
+## 迷你实验室
+
+- 标题：迷你实验室
+- 说明：卧室工作台：白板上的推导、模块化机械臂、电子工作台，以及跑模型的笔记本电脑。
+- alt：摆满设备的卧室工作台：写满公式的白板、机械臂、打开的笔记本电脑、电路板、工具和书架。
+- 图片：`/assets/lab/minilab-1440.jpg`；480/960/1440 WebP，1440 JPEG 回退。
+
+<!-- 来源：Robusr 提供的 minilab.jpeg；发布资源已去除 EXIF。 -->
+
 ## Footer
 
 - 联系：Robusr@outlook.com · github.com/Robusr · github.com/Anteportal

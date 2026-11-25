@@ -37,6 +37,7 @@ All versions share one content model and the same section order. With JavaScript
 - **Awards & Media:** 38th CASTIC first prize, 37th CASTIC second prize, and the Shanghai TV *Young Edison* feature.
 - **More Work:** four repositories, one line each.
 - **About:** one paragraph on October Sky, the sugar-propellant ignition that started it all, the floor lamp borrowed from his art-teacher father, the von Kármán curve, modular rocket PCB assembly, LoRa packet-loss tests, and the ink tones that connect engineering to meaning.
+- **Mini Lab:** a full-width photo of the bedroom workbench after the About essay, with a one-line caption in each language.
 - **Contact:** email, GitHub, Anteportal Labs, location, language links, and the signature.
 - **Background:** two hand-drawn personal IP illustrations, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash with a faint drafting dot grid in the margins. The standing figure appears from 1200 px up; mobile uses a 480 px version of the portrait.
 
@@ -47,7 +48,7 @@ All versions share one content model and the same section order. With JavaScript
 | Framework | Astro 7, static output, no client framework |
 | Styling | native CSS custom properties, no utility framework |
 | Type | self-hosted Inter variable font, system CJK stack |
-| Images | project images at 480 and 960 px, portrait at 260 and 512 px, two transparent line-art IP assets sized for their display slots; WebP, with a JPEG fallback for the portrait |
+| Images | project images at 480 and 960 px, portrait at 260 and 512 px, Mini Lab at 480/960/1440 px with a 1440 px JPEG fallback, two transparent line-art IP assets sized for their display slots; WebP, with JPEG fallbacks |
 | JavaScript | about 2.3 KB of progressive enhancement |
 | GitHub data | build-time snapshot from the GitHub API; edge-cached `/api/github` refresh through a Cloudflare Pages Function |
 | Privacy | no analytics, cookies, third-party fonts, or embeds; GitHub requests leave from Cloudflare, not the visitor's browser |
@@ -82,6 +83,7 @@ All visible copy is data-driven.
 | `src/data/timeline.json` | Six Journey rows |
 | `src/data/awards.json` | Three award and media rows |
 | `src/data/more-work.json` | Four secondary projects |
+| `src/data/mini-lab.json` | Mini Lab title, caption, alt text, and image dimensions |
 | `src/data/github.json` | Generated snapshot: stars, forks, last push, and latest release for each tracked repository |
 | `src/i18n/en.json`, `zh.json`, `fr.json` | UI labels, meta titles, and descriptions |
 | `content/copy-en.md` | English source manuscript |
@@ -103,17 +105,17 @@ English is the source of truth. When editing:
 ```text
 .
 ├── src/
-│   ├── components/   Header, Hero, ProjectList, Journey, Awards, MoreWork, About, Footer, LanguageSwitcher
-│   ├── data/         profile, projects, timeline, awards, more-work, generated GitHub snapshot
+│   ├── components/   Header, Hero, ProjectList, Journey, Awards, MoreWork, About, MiniLab, Footer, LanguageSwitcher
+│   ├── data/         profile, projects, timeline, awards, more-work, mini-lab, generated GitHub snapshot
 │   ├── i18n/         en, zh, fr, and shared types
 │   ├── layouts/      Base.astro with head, hreflang, and JSON-LD
 │   ├── pages/        index, zh/index, fr/index, 404, sitemap.xml, robots.txt
 │   ├── scripts/      progressive enhancement and live GitHub refresh
 │   └── styles/       tokens.css, global.css
 ├── functions/        Cloudflare Pages Function for /api/github
-├── public/           images, hand-drawn IP art, favicon, OG image, _headers, _redirects
+├── public/           images, hand-drawn IP art, mini lab photo, favicon, OG image, _headers, _redirects
 ├── content/          copy manuscripts and glossary
-├── scripts/          content check, GitHub sync, OG and IP asset generators, and QA helpers
+├── scripts/          content check, GitHub sync, OG/IP/mini lab generators, and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
 ├── screenshots/      full-page captures at 1440, 1024, 768, and 390 px
 ├── Robusr IP/        source scans for the background artwork
@@ -133,13 +135,14 @@ English is the source of truth. When editing:
 | LCP / CLS, production | LCP 1.8–2.2 s; CLS 0–0.069, measured before the portrait `aspect-ratio` fix |
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow |
 | JavaScript disabled | all content readable; GitHub cards use the build-time snapshot |
+| Mini Lab assets | 480/960/1440 WebP and a 1440 JPEG fallback; EXIF stripped; caption and alt text in three languages |
 | Outbound links | GitHub and media links return 200 |
 
 The Lighthouse figures predate the live GitHub module and should be re-run for the current build. Production Best Practices is 92 because Cloudflare still injects the Web Analytics beacon and the CSP blocks it. Email Address Obfuscation and Managed robots.txt are also still applied at the edge, so the live page differs from the local build. These are zone settings, not repository settings. Production results are in `qa/lighthouse-live-summary.json`.
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 
-The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`. Both generators require Pillow.
+The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`; the Mini Lab photo is regenerated with `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg`. The generators require Pillow, and the Mini Lab script strips EXIF metadata.
 
 ## Deployment
 
@@ -178,4 +181,4 @@ Cloudflare Pages deploys the `functions/` directory alongside `dist/`, so `/api/
 
 ## Credits
 
-Portrait and the two line-art personal IP illustrations provided by Robusr. Both drawings are used as low-opacity background art. Project images come from each project repository and the Anteportal Labs organization page. The site does not use TV stills, competition logos, or third-party paper figures. GitHub stars, forks, last-push dates, and release tags come from the public GitHub API and are cached at the edge.
+Portrait and the two line-art personal IP illustrations provided by Robusr. Both drawings are used as low-opacity background art. Project images come from each project repository and the Anteportal Labs organization page. The Mini Lab photograph is provided by Robusr; the published copies have EXIF metadata removed. The site does not use TV stills, competition logos, or third-party paper figures. GitHub stars, forks, last-push dates, and release tags come from the public GitHub API and are cached at the edge.

@@ -115,6 +115,15 @@ The winter I was 17, classmates who were into high-energy propellant motors aske
 
 <!-- Sources: supplied by Robusr in Chinese on 2026-11-26; the Chinese text is the source for this paragraph, and English and French are translations. -->
 
+## Mini Lab
+
+- Title: Mini Lab
+- Caption: The bedroom workbench: whiteboard derivations, a modular arm, an electronics bench, and the laptop where the models ran.
+- Alt: A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.
+- Image: `/assets/lab/minilab-1440.jpg`; 480/960/1440 WebP and a 1440 JPEG fallback.
+
+<!-- Source: photo supplied by Robusr (minilab.jpeg); EXIF removed in the published assets. -->
+
 ## Footer
 
 - Contact: Robusr@outlook.com · github.com/Robusr · github.com/Anteportal

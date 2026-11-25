@@ -99,6 +99,15 @@ L’hiver de mes 17 ans, des camarades passionnés de moteurs à propergol haute
 
 <!-- Sources : texte chinois fourni par Robusr le 2026-11-26 ; l’anglais et le français sont des traductions. -->
 
+## Mini Lab
+
+- Titre : Mini Lab
+- Légende : L’établi de la chambre : démonstrations au tableau, bras modulaire, banc électronique et l’ordinateur où tournaient les modèles.
+- Alt : Un établi de chambre encombré : tableau blanc couvert d’équations, bras robotique, ordinateur portable ouvert, cartes de circuit, outils et étagères de livres.
+- Image : `/assets/lab/minilab-1440.jpg` ; WebP 480/960/1440, fallback JPEG 1440.
+
+<!-- Source : photo fournie par Robusr (minilab.jpeg) ; EXIF supprimé dans les ressources publiées. -->
+
 ## Pied de page
 
 - Contact : Robusr@outlook.com · github.com/Robusr · github.com/Anteportal

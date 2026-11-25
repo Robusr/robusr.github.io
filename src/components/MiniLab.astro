@@ -1,0 +1,32 @@
+---
+import type { Locale } from '../i18n/types';
+import lab from '../data/mini-lab.json';
+
+const { locale } = Astro.props as { locale: Locale };
+---
+<section class="section" id="lab" aria-labelledby="lab-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-index" aria-hidden="true">06</span>
+      <h2 id="lab-title">{lab.title[locale]}</h2>
+    </div>
+    <figure class="lab-figure">
+      <picture>
+        <source
+          type="image/webp"
+          srcset={`${lab.image.base}-480.webp 480w, ${lab.image.base}-960.webp 960w, ${lab.image.base}-1440.webp 1440w`}
+          sizes="(min-width: 1024px) 880px, 92vw"
+        />
+        <img
+          src={`${lab.image.base}-1440.jpg`}
+          width={lab.image.width}
+          height={lab.image.height}
+          alt={lab.alt[locale]}
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <figcaption>{lab.caption[locale]}</figcaption>
+    </figure>
+  </div>
+</section>

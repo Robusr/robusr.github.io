@@ -51,6 +51,20 @@ for (const asset of ['robusr-ip-v2.webp', 'robusr-ip-480.webp', 'robusr-standing
   if (!exists(`public/assets/brand/${asset}`)) errors.push(`background art missing: ${asset}`);
 }
 
+const miniLab = read('src/data/mini-lab.json');
+for (const field of ['title', 'caption', 'alt']) {
+  if (!isLocalized(miniLab[field])) errors.push(`mini-lab.${field} must have en, zh, and fr strings`);
+}
+if (!/^\/assets\/lab\/[A-Za-z0-9-]+$/.test(miniLab.image?.base ?? '')) {
+  errors.push('mini-lab.image.base must point into /assets/lab/');
+}
+for (const suffix of ['-480.webp', '-960.webp', '-1440.webp', '-1440.jpg']) {
+  if (!exists(`public${miniLab.image?.base}${suffix}`)) errors.push(`mini lab image missing: ${miniLab.image?.base}${suffix}`);
+}
+if (!Number.isInteger(miniLab.image?.width) || !Number.isInteger(miniLab.image?.height)) {
+  errors.push('mini-lab.image.width and height must be integers');
+}
+
 const projects = read('src/data/projects.json');
 const github = read('src/data/github.json');
 if (!isIsoTimestamp(github.fetchedAt)) errors.push('github.fetchedAt must be an ISO timestamp');

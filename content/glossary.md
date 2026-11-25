@@ -43,6 +43,11 @@ Shared across all three language versions. Project names, repository names, part
 | floor lamp | 落地台灯 | lampe sur pied |
 | von Kármán curve | 冯卡门曲线 | courbe de von Kármán |
 | ink tones | 墨色焦、浓、重、淡、清 | tons d’encre |
+| Mini Lab | 迷你实验室 | Mini Lab |
+| whiteboard | 白板 | tableau blanc |
+| workbench | 工作台 | établi |
+| electronics bench | 电子工作台 | banc électronique |
+| modular arm | 模块化机械臂 | bras modulaire |
 | China Adolescents Science and Technology Innovation Contest (CASTIC) | 全国青少年科技创新大赛 | Concours national chinois d’innovation scientifique et technologique pour les adolescents |
 | Young Edison | 《少年爱迪生》 | Young Edison |
 | mortise and tenon | 榫卯 | tenon et mortaise |

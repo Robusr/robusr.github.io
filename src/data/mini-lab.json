@@ -1,0 +1,22 @@
+{
+  "title": {
+    "en": "Mini Lab",
+    "zh": "迷你实验室",
+    "fr": "Mini Lab"
+  },
+  "caption": {
+    "en": "The bedroom workbench: whiteboard derivations, a modular arm, an electronics bench, and the laptop where the models ran.",
+    "zh": "卧室工作台：白板上的推导、模块化机械臂、电子工作台，以及跑模型的笔记本电脑。",
+    "fr": "L’établi de la chambre : démonstrations au tableau, bras modulaire, banc électronique et l’ordinateur où tournaient les modèles."
+  },
+  "alt": {
+    "en": "A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.",
+    "zh": "摆满设备的卧室工作台：写满公式的白板、机械臂、打开的笔记本电脑、电路板、工具和书架。",
+    "fr": "Un établi de chambre encombré : tableau blanc couvert d’équations, bras robotique, ordinateur portable ouvert, cartes de circuit, outils et étagères de livres."
+  },
+  "image": {
+    "base": "/assets/lab/minilab",
+    "width": 1440,
+    "height": 1080
+  }
+}

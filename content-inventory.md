@@ -20,6 +20,7 @@ Audit date: 2026-10-20. Production domain updated 2026-10-21. Link checks re-ver
 | Sencillo | desktop PCB fabrication, 8/8 mil, 0.8 mm copper rivets, ≤30 min, 50 × 50 mm, all design targets, pre-prototype | 02 |
 | Awards | 38th CASTIC first prize 2024 (OnesArm); 37th CASTIC second prize 2023 (DustArrow); Shanghai TV Young Edison S8 2024 | 04 |
 | More Work | Huginn, Robusr-skill, Lynx, Gungnir | 02, projects.json, GitHub profile 2026-11-26 |
+| Mini Lab | Bedroom workbench photo, full-width section after About; 480/960/1440 WebP and 1440 JPEG fallback; EXIF stripped | minilab.jpeg, supplied 2026-11-26 |
 | Contact | GitHub, email, Anteportal org only | 01, 06 |
 
 ## Rewritten for the page
@@ -28,6 +29,7 @@ Audit date: 2026-10-20. Production domain updated 2026-10-21. Link checks re-ver
 - Project summaries follow problem → method → evidence → next step, 2–3 sentences, no more than six tech tags.
 - About uses one first-person paragraph supplied by Robusr on 2026-11-26, with English and French translations; the Chinese text is the source for that paragraph.
 - Journey compressed to exactly six rows, as specified in the brief.
+- Mini Lab is a photo-only section after About with a one-line caption and localized alt text; the published files have no EXIF metadata.
 - French and Chinese copy is translated from the English source, except the About paragraph, which was supplied in Chinese and translated into English and French.
 
 ## Deliberately excluded

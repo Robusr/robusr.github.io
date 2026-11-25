@@ -37,6 +37,7 @@
 - **奖项与报道：** 第 38 届全国青少年科技创新大赛一等奖、第 37 届二等奖，以及上海电视台《少年爱迪生》。
 - **其他项目：** 4 个仓库，每个一行。
 - **关于：** 一段文字，从《十月的天空》和硝糖燃料点火讲起，到美术老师父亲的落地台灯、冯卡门曲线、箭体 PCB 装配、LoRa 丢包测试与水墨五色。
+- **迷你实验室：** About 之后的全宽卧室工作台照片，三种语言各配一句说明。
 - **联系：** 邮箱、GitHub、Anteportal Labs、所在地、语言链接与签名。
 - **背景：** 两幅手绘个人 IP 线稿，右下角拼贴肖像、左下角站立人物，叠在带有极淡制图点阵的暖色纸感底色上。站立人物从 1200 px 起显示；移动端使用 480 px 版本的肖像。
 
@@ -47,7 +48,7 @@
 | 框架 | Astro 7，静态输出，无客户端框架 |
 | 样式 | 原生 CSS 自定义属性，无工具类框架 |
 | 字体 | 自托管 Inter 可变字体，中文使用系统字体栈 |
-| 图片 | 项目图 480/960 px，肖像 260/512 px，两套透明线稿 IP 素材按展示位置裁切；WebP，肖像提供 JPEG 回退 |
+| 图片 | 项目图 480/960 px，肖像 260/512 px，迷你实验室 480/960/1440 px 并提供 1440 px JPEG 回退，两套透明线稿 IP 素材按展示位置裁切；WebP 与 JPEG 回退 |
 | JavaScript | 约 2.3 KB 渐进增强 |
 | GitHub 数据 | 构建时从 GitHub API 生成快照；Cloudflare Pages Function 提供 `/api/github` 边缘缓存刷新 |
 | 隐私 | 无统计、Cookie、第三方字体或嵌入；GitHub 请求由 Cloudflare 发出，不暴露访客浏览器 |
@@ -82,6 +83,7 @@ npm run verify    # check + typecheck + build
 | `src/data/timeline.json` | 6 行经历 |
 | `src/data/awards.json` | 3 条奖项与报道 |
 | `src/data/more-work.json` | 4 个其他项目 |
+| `src/data/mini-lab.json` | 迷你实验室标题、说明、alt 与图片尺寸 |
 | `src/data/github.json` | 生成的快照：每个追踪仓库的 stars、forks、最近推送与最新 Release |
 | `src/i18n/en.json`, `zh.json`, `fr.json` | 界面文案、meta 标题与描述 |
 | `content/copy-en.md` | 英文源稿 |
@@ -103,17 +105,17 @@ npm run verify    # check + typecheck + build
 ```text
 .
 ├── src/
-│   ├── components/   Header、Hero、ProjectList、Journey、Awards、MoreWork、About、Footer、LanguageSwitcher
-│   ├── data/         profile、projects、timeline、awards、more-work、生成的 GitHub 快照
+│   ├── components/   Header、Hero、ProjectList、Journey、Awards、MoreWork、About、MiniLab、Footer、LanguageSwitcher
+│   ├── data/         profile、projects、timeline、awards、more-work、mini-lab、生成的 GitHub 快照
 │   ├── i18n/         en、zh、fr 与共享类型
 │   ├── layouts/      Base.astro，负责 head、hreflang 与 JSON-LD
 │   ├── pages/        index、zh/index、fr/index、404、sitemap.xml、robots.txt
 │   ├── scripts/      渐进增强与 GitHub 实时刷新
 │   └── styles/       tokens.css、global.css
 ├── functions/        Cloudflare Pages Function，提供 /api/github
-├── public/           图片、手绘 IP 素材、favicon、OG 图片、_headers、_redirects
+├── public/           图片、手绘 IP 素材、迷你实验室照片、favicon、OG 图片、_headers、_redirects
 ├── content/          三语文稿与术语表
-├── scripts/          内容检查、GitHub 同步、OG 与 IP 素材生成、QA 脚本
+├── scripts/          内容检查、GitHub 同步、OG/IP/迷你实验室素材生成、QA 脚本
 ├── qa/               Lighthouse、一致性与布局报告
 ├── screenshots/      1440、1024、768、390 px 全页截图
 ├── Robusr IP/        背景线稿的原始扫描
@@ -133,13 +135,14 @@ npm run verify    # check + typecheck + build
 | 线上 LCP / CLS | LCP 1.8–2.2 s；CLS 0–0.069，测量于肖像 `aspect-ratio` 修复之前 |
 | 布局宽度 | 1440、1024、768、390 px 均无横向溢出 |
 | 关闭 JavaScript | 正文完整可读；GitHub 卡片使用构建快照 |
+| 迷你实验室素材 | 480/960/1440 WebP 与 1440 JPEG 回退；已去除 EXIF；三语说明与 alt |
 | 站外链接 | GitHub 与媒体链接返回 200 |
 
 Lighthouse 数据早于本次 GitHub 实时模块，引用前应重新测量。线上 Best Practices 为 92，因为 Cloudflare 仍注入 Web Analytics beacon，并被 CSP 拦截；Email Address Obfuscation 与 Managed robots.txt 也仍在边缘生效，因此线上页面与本地构建不同。这些是 zone 设置，不在仓库内。线上数据见 `qa/lighthouse-live-summary.json`。
 
 完整证据见 [QA.md](QA.md)；截图见 [screenshots/](screenshots/)；Lighthouse 原始报告见 [qa/](qa/)。
 
-QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright@1.64.1`。OG 图片可用 `python3 scripts/make-og.py` 重新生成；背景素材可用 `python3 scripts/make-ip-assets.py` 从 `Robusr IP/` 重新生成。两个生成脚本都需要 Pillow。
+QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright@1.64.1`。OG 图片可用 `python3 scripts/make-og.py` 重新生成；背景素材可用 `python3 scripts/make-ip-assets.py` 从 `Robusr IP/` 重新生成；迷你实验室图片可用 `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg` 重新生成。生成脚本都需要 Pillow，迷你实验室脚本会去除 EXIF 元数据。
 
 ## 部署
 
@@ -178,4 +181,4 @@ Cloudflare Pages 会把 `functions/` 与 `dist/` 一起部署，因此 `/api/git
 
 ## 鸣谢
 
-肖像与两幅手绘个人 IP 线稿由 Robusr 提供，两幅画作都用作低透明度背景。项目图片来自各项目仓库与 Anteportal Labs 组织主页。站点不使用电视画面、比赛标志或第三方论文插图。GitHub stars、forks、最近推送与 Release 标签来自公开 GitHub API，并在边缘缓存。
+肖像与两幅手绘个人 IP 线稿由 Robusr 提供，两幅画作都用作低透明度背景。项目图片来自各项目仓库与 Anteportal Labs 组织主页。迷你实验室照片由 Robusr 提供，发布版本已去除 EXIF 元数据。站点不使用电视画面、比赛标志或第三方论文插图。GitHub stars、forks、最近推送与 Release 标签来自公开 GitHub API，并在边缘缓存。

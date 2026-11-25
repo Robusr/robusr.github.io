@@ -252,6 +252,15 @@ body::after {
 .about p { max-width: 66ch; font-size: 17px; line-height: 1.75; text-wrap: pretty; }
 .about p + p { margin-top: 18px; }
 
+/* Mini Lab */
+.lab-figure { margin: 0; }
+.lab-figure picture { display: block; overflow: hidden; border-radius: var(--radius); background: var(--accent-soft); }
+.lab-figure img { width: 100%; height: auto; }
+.lab-figure figcaption {
+  margin-top: 12px; max-width: 66ch; color: var(--muted);
+  font-size: 13.5px; line-height: 1.6; text-wrap: pretty;
+}
+
 /* Footer */
 .site-footer {
   margin-top: clamp(72px, 12vw, 120px);

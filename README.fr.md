@@ -37,6 +37,7 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 - **Prix et presse :** premier prix du 38e CASTIC, deuxième prix du 37e CASTIC et le reportage *Young Edison* de la télévision de Shanghai.
 - **Autres projets :** quatre dépôts, une ligne chacun.
 - **À propos :** un paragraphe sur October Sky, l'allumage du propergol au sucre, la lampe du père professeur d'art, la courbe de von Kármán, l'assemblage des PCB de fusée, les tests de perte LoRa et les tons d'encre qui relient l'ingénierie au sens.
+- **Mini Lab :** une photo pleine largeur de l'établi de la chambre après le texte À propos, avec une légende d'une ligne dans chaque langue.
 - **Contact :** e-mail, GitHub, Anteportal Labs, localisation, liens de langue et signature.
 - **Arrière-plan :** deux illustrations au trait de l'IP personnelle, un portrait collage en bas à droite et une silhouette debout en bas à gauche, sur un fond papier chaud avec une fine trame de points dans les marges. La silhouette apparaît à partir de 1200 px ; le mobile utilise une version 480 px du portrait.
 
@@ -47,7 +48,7 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 | Framework | Astro 7, sortie statique, sans framework client |
 | Styles | propriétés CSS natives, sans framework utilitaire |
 | Typographie | Inter variable auto-hébergée, pile système pour le chinois |
-| Images | projets en 480 et 960 px, portrait en 260 et 512 px, deux illustrations IP transparentes dimensionnées pour leur emplacement ; WebP, avec un fallback JPEG pour le portrait |
+| Images | projets en 480 et 960 px, portrait en 260 et 512 px, Mini Lab en 480/960/1440 px avec un fallback JPEG 1440 px, deux illustrations IP transparentes dimensionnées pour leur emplacement ; WebP et fallbacks JPEG |
 | JavaScript | environ 2,3 Ko d'amélioration progressive |
 | Données GitHub | instantané produit au build depuis l'API GitHub ; rafraîchissement `/api/github` mis en cache en périphérie par une Cloudflare Pages Function |
 | Confidentialité | aucune analyse, cookie, police tierce ou intégration ; les requêtes GitHub partent de Cloudflare, pas du navigateur du visiteur |
@@ -82,6 +83,7 @@ Tous les textes visibles sont pilotés par les données.
 | `src/data/timeline.json` | six lignes de parcours |
 | `src/data/awards.json` | trois prix et mentions presse |
 | `src/data/more-work.json` | quatre projets secondaires |
+| `src/data/mini-lab.json` | titre, légende, texte alt et dimensions de l'image Mini Lab |
 | `src/data/github.json` | instantané généré : étoiles, forks, dernier push et dernière version de chaque dépôt suivi |
 | `src/i18n/en.json`, `zh.json`, `fr.json` | libellés d'interface, titres meta et descriptions |
 | `content/copy-en.md` | manuscrit source en anglais |
@@ -103,17 +105,17 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 ```text
 .
 ├── src/
-│   ├── components/   Header, Hero, ProjectList, Journey, Awards, MoreWork, About, Footer, LanguageSwitcher
-│   ├── data/         profile, projects, timeline, awards, more-work, instantané GitHub
+│   ├── components/   Header, Hero, ProjectList, Journey, Awards, MoreWork, About, MiniLab, Footer, LanguageSwitcher
+│   ├── data/         profile, projects, timeline, awards, more-work, mini-lab, instantané GitHub
 │   ├── i18n/         en, zh, fr et types partagés
 │   ├── layouts/      Base.astro : head, hreflang et JSON-LD
 │   ├── pages/        index, zh/index, fr/index, 404, sitemap.xml, robots.txt
 │   ├── scripts/      amélioration progressive et rafraîchissement GitHub
 │   └── styles/       tokens.css, global.css
 ├── functions/        Cloudflare Pages Function pour /api/github
-├── public/           images, illustrations IP, favicon, image OG, _headers, _redirects
+├── public/           images, illustrations IP, photo Mini Lab, favicon, image OG, _headers, _redirects
 ├── content/          manuscrits et glossaire
-├── scripts/          contrôle du contenu, synchronisation GitHub, générateurs OG et IP, scripts QA
+├── scripts/          contrôle du contenu, synchronisation GitHub, générateurs OG/IP/Mini Lab, scripts QA
 ├── qa/               rapports Lighthouse, cohérence et mise en page
 ├── screenshots/      captures pleine page à 1440, 1024, 768 et 390 px
 ├── Robusr IP/        scans sources des illustrations de fond
@@ -133,13 +135,14 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 | LCP / CLS, production | LCP 1,8–2,2 s ; CLS 0–0,069, mesuré avant le correctif `aspect-ratio` du portrait |
 | Largeurs de mise en page | 1440, 1024, 768 et 390 px, sans débordement horizontal |
 | JavaScript désactivé | tout le contenu reste lisible ; les cartes GitHub utilisent l'instantané |
+| Ressources Mini Lab | WebP 480/960/1440 et fallback JPEG 1440 ; EXIF supprimé ; légende et alt dans les trois langues |
 | Liens externes | GitHub et les liens presse renvoient 200 |
 
 Les chiffres Lighthouse précèdent le module GitHub en direct et doivent être remesurés pour ce build. Best Practices vaut 92 en production parce que Cloudflare injecte encore le beacon Web Analytics et que la CSP le bloque. Email Address Obfuscation et Managed robots.txt restent aussi appliqués en périphérie : la page en ligne diffère donc du build local. Ces réglages appartiennent à la zone, pas au dépôt. Résultats en ligne dans `qa/lighthouse-live-summary.json`.
 
 Preuves complètes : [QA.md](QA.md). Captures : [screenshots/](screenshots/). Rapports Lighthouse bruts : [qa/](qa/).
 
-Les scripts QA utilisent Playwright, à installer séparément avec `npm install --no-save playwright@1.64.1`. L'image OG se régénère avec `python3 scripts/make-og.py` ; les illustrations de fond se régénèrent depuis `Robusr IP/` avec `python3 scripts/make-ip-assets.py`. Les deux générateurs nécessitent Pillow.
+Les scripts QA utilisent Playwright, à installer séparément avec `npm install --no-save playwright@1.64.1`. L'image OG se régénère avec `python3 scripts/make-og.py` ; les illustrations de fond se régénèrent depuis `Robusr IP/` avec `python3 scripts/make-ip-assets.py` ; la photo Mini Lab se régénère avec `python3 scripts/make-minilab-assets.py /chemin/vers/minilab.jpeg`. Les générateurs nécessitent Pillow, et le script Mini Lab supprime les métadonnées EXIF.
 
 ## Déploiement
 
@@ -178,4 +181,4 @@ Cloudflare Pages déploie le dossier `functions/` avec `dist/`, donc `/api/githu
 
 ## Crédits
 
-Le portrait et les deux illustrations au trait de l'IP personnelle sont fournis par Robusr. Les deux dessins servent d'arrière-plan à faible opacité. Les images de projets viennent des dépôts de chaque projet et de la page de l'organisation Anteportal Labs. Le site n'utilise pas d'images de télévision, de logos de concours ni de figures d'articles tiers. Les étoiles, forks, dates de dernier push et versions GitHub proviennent de l'API publique GitHub et sont mis en cache en périphérie.
+Le portrait et les deux illustrations au trait de l'IP personnelle sont fournis par Robusr. Les deux dessins servent d'arrière-plan à faible opacité. Les images de projets viennent des dépôts de chaque projet et de la page de l'organisation Anteportal Labs. La photo Mini Lab est fournie par Robusr ; les copies publiées ont leurs métadonnées EXIF supprimées. Le site n'utilise pas d'images de télévision, de logos de concours ni de figures d'articles tiers. Les étoiles, forks, dates de dernier push et versions GitHub proviennent de l'API publique GitHub et sont mis en cache en périphérie.
