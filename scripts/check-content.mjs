@@ -68,13 +68,14 @@ if (!Number.isInteger(miniLab.image?.width) || !Number.isInteger(miniLab.image?.
 
 const projects = read('src/data/projects.json');
 const github = read('src/data/github.json');
+const projectFigures = read('src/data/project-figures.json');
 if (!isIsoTimestamp(github.fetchedAt)) errors.push('github.fetchedAt must be an ISO timestamp');
 if (projects.length !== 5) errors.push(`projects.json must contain five projects, found ${projects.length}`);
 const orders = projects.map((project) => project.order).sort((a, b) => a - b).join(',');
 if (orders !== '1,2,3,4,5') errors.push(`project order must be 1..5, found ${orders}`);
 for (const project of projects) {
   const id = project.id ?? project.name;
-  for (const field of ['category', 'tagline', 'summary', 'evidence', 'alt']) {
+  for (const field of ['category', 'tagline', 'summary', 'evidence']) {
     if (!isLocalized(project[field])) errors.push(`${id}.${field} must have en, zh, and fr strings`);
   }
   if (!i18n.en.status?.[project.statusKey]) errors.push(`${id} uses unknown statusKey: ${project.statusKey}`);
@@ -101,8 +102,34 @@ for (const project of projects) {
       }
     }
   }
-  for (const suffix of ['-480.webp', '-960.webp', '-960.jpg']) {
-    if (!exists(`public${project.image}${suffix}`)) errors.push(`${id} image missing: ${project.image}${suffix}`);
+  const figure = projectFigures[project.id];
+  if (!figure) {
+    errors.push(`project-figures.json missing plate for ${id}`);
+  } else {
+    if (!isLocalized(figure.title)) errors.push(`figure ${id}.title must have en, zh, and fr strings`);
+    if (!isLocalized(figure.source)) errors.push(`figure ${id}.source must have en, zh, and fr strings`);
+    if (!Array.isArray(figure.panels) || figure.panels.length !== 4) {
+      errors.push(`figure ${id} must contain four panels`);
+    } else {
+      const labels = figure.panels.map((panel) => panel.label).join('');
+      if (labels !== 'ABCD') errors.push(`figure ${id} panel labels must be A, B, C, D`);
+      for (const panel of figure.panels) {
+        if (!['gif', 'image'].includes(panel.type)) errors.push(`figure ${id} ${panel.label} has invalid type`);
+        if (!isLocalized(panel.caption)) errors.push(`figure ${id} ${panel.label} caption must have en, zh, and fr strings`);
+        if (!/^\/assets\/projects\/figures\/[A-Za-z0-9-]+\.(gif|webp)$/.test(panel.src ?? '')) {
+          errors.push(`figure ${id} ${panel.label} has an invalid source path`);
+        } else if (!exists(`public${panel.src}`)) {
+          errors.push(`figure ${id} ${panel.label} file missing: ${panel.src}`);
+        }
+        if (panel.type === 'gif') {
+          if (!/^\/assets\/projects\/figures\/[A-Za-z0-9-]+\.webp$/.test(panel.fallback ?? '')) {
+            errors.push(`figure ${id} ${panel.label} GIF needs a WebP fallback`);
+          } else if (!exists(`public${panel.fallback}`)) {
+            errors.push(`figure ${id} ${panel.label} fallback missing: ${panel.fallback}`);
+          }
+        }
+      }
+    }
   }
 }
 

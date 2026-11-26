@@ -2,7 +2,7 @@
 
 > 2026-10-21 更新：仓库配置已切换到 https://robusr.cn，canonical、hreflang、Open Graph、JSON-LD、sitemap 与 robots 均已更新，部署后生效；GitHub Actions 部署工作流已移除；GitHub Pages 站点设置仍需在仓库后台关闭。以下为 2026-10-20 的原始交付记录。
 >
-> 2026-11-26 更新：More Work 调整为 4 条（Huginn、Robusr-skill、Lynx、Gungnir）；Hero 之后新增编号 00 的迷你实验室章节（纸白图版、Fig. 00 图注、轻微暖调、发布资源去除 EXIF）；视觉层补充肖像 v3 暖调与细框、项目规格表、章节页边刻度、缺失图纸 404、三语 OG、print-only 封面与 7 页 A4 打印样式，以及外链箭头、联系标签、当前章节导航、选中色与新的机械臂 favicon 套件（SVG + 16/32/180 PNG + manifest）；项目卡片改为构建时 GitHub 快照加 `/api/github` 实时刷新；Vulcan 最新 Release 为 v1.3.0；`snapshotDate` 与 `contentDate` 更新为 2026-11-26。下文原始记录中的星标数字与 6 条 More Work 为当时状态。
+> 2026-11-26 更新：More Work 调整为 4 条（Huginn、Robusr-skill、Lynx、Gungnir）；Hero 之后新增编号 00 的迷你实验室章节（纸白图版、Fig. 00 图注、轻微暖调、发布资源去除 EXIF）；视觉层补充肖像 v3 暖调与细框、项目规格表、章节页边刻度、缺失图纸 404、三语 OG、print-only 封面与 8 页 A4 打印样式，以及外链箭头、联系标签、当前章节导航、选中色与新的机械臂 favicon 套件（SVG + 16/32/180 PNG + manifest）；代表项目改为全宽 A/B/C/D 学术图版（一张短 GIF + 三张架构/渲染/分析静态图，带面板图注与来源）；Vulcan 自动化流程/架构/请求生命周期/输出，Hsiwu 连杆/模电架构/整机/线稿，DustArrow 展开/CFD/授权 TV 发射画面/遥测架构，OnesArm 仅 v2 渲染/FCF/24 布局推导/FEA，Sencillo 力流/布局/误差预算/AI 约束；减少动态时回退静态 WebP；项目卡片改为构建时 GitHub 快照加 `/api/github` 实时刷新；Vulcan 最新 Release 为 v1.3.0；`snapshotDate` 与 `contentDate` 更新为 2026-11-26。下文原始记录中的星标数字与 6 条 More Work 为当时状态。
 
 日期：2026-10-20
 工作分支：`feat/homepage`

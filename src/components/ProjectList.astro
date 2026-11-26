@@ -1,10 +1,24 @@
 ---
 import type { Locale, Messages } from '../i18n/types';
 import projects from '../data/projects.json';
+import figures from '../data/project-figures.json';
 import github from '../data/github.json';
 
 const { locale, t } = Astro.props as { locale: Locale; t: Messages };
 const featured = [...projects].sort((a, b) => a.order - b.order);
+
+type Panel = {
+  label: string;
+  type: 'gif' | 'image';
+  src: string;
+  fallback?: string;
+  caption: Record<Locale, string>;
+};
+type Plate = {
+  title: Record<Locale, string>;
+  source: Record<Locale, string>;
+  panels: Panel[];
+};
 
 const dateFormats: Record<Locale, Intl.DateTimeFormat> = {
   en: new Intl.DateTimeFormat('en', { dateStyle: 'medium', timeZone: 'UTC' }),
@@ -29,41 +43,76 @@ const formatDate = (value?: string | null) => {
           ? (github.repos as Record<string, { stars: number; forks: number; pushedAt: string; release?: { tag: string; url: string } }>)[project.repo]
           : undefined;
         const release = stats?.release;
+        const plate = (figures as Record<string, Plate>)[project.id];
         return (
           <li class="project">
-            <a class="project-media" href={project.href} tabindex="-1" aria-hidden="true">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset={`${project.image}-480.webp 480w, ${project.image}-960.webp 960w`}
-                  sizes="(min-width: 1024px) 320px, (min-width: 640px) 92vw, 100vw"
-                />
-                <img
-                  src={`${project.image}-960.jpg`}
-                  width="960"
-                  height="540"
-                  alt={project.alt[locale]}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
-            </a>
-            <div class="project-body">
-              <div class="project-head">
-                <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                <h3><a href={project.href}>{project.name}</a></h3>
-                <div class="project-flags">
-                  {release ? (
-                    <a class="release" href={release.url} data-release-repo={project.repo}>{release.tag}</a>
-                  ) : project.repo ? (
-                    <a class="release" href={`https://github.com/Robusr/${project.repo}/releases`} data-release-repo={project.repo} hidden></a>
-                  ) : null}
-                  <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
-                </div>
+            <figure class="project-plate" aria-labelledby={`fig-${project.id}`}>
+              <div class="plate-panels">
+                {plate.panels.map((panel) => (
+                  <figure class="plate-panel">
+                    {panel.type === 'gif' ? (
+                      <picture>
+                        <source media="print" srcset={panel.fallback} type="image/webp" />
+                        <source media="(prefers-reduced-motion: reduce)" srcset={panel.fallback} type="image/webp" />
+                        <img
+                          src={panel.src}
+                          width="800"
+                          height="450"
+                          alt={panel.caption[locale]}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
+                      <img
+                        class="plate-print-still"
+                        src={panel.fallback}
+                        width="800"
+                        height="450"
+                        alt={panel.caption[locale]}
+                        decoding="async"
+                      />
+                    ) : (
+                      <img
+                        src={panel.src}
+                        width="800"
+                        height="450"
+                        alt={panel.caption[locale]}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                    <figcaption>
+                      <span class="panel-label">{panel.label}</span>
+                      {panel.caption[locale]}
+                    </figcaption>
+                  </figure>
+                ))}
               </div>
-              <p class="project-category">{project.category[locale]}</p>
-              <p class="project-tagline">{project.tagline[locale]}</p>
-              <p class="project-summary">{project.summary[locale]}</p>
+              <figcaption class="plate-caption">
+                <span class="plate-fig">Fig. {String(project.order).padStart(2, '0')}</span>
+                <span id={`fig-${project.id}`}>{plate.title[locale]}</span>
+                <span class="plate-source">{plate.source[locale]}</span>
+              </figcaption>
+            </figure>
+            <div class="project-body">
+              <div class="project-main">
+                <div class="project-head">
+                  <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <h3><a href={project.href}>{project.name}</a></h3>
+                  <div class="project-flags">
+                    {release ? (
+                      <a class="release" href={release.url} data-release-repo={project.repo}>{release.tag}</a>
+                    ) : project.repo ? (
+                      <a class="release" href={`https://github.com/Robusr/${project.repo}/releases`} data-release-repo={project.repo} hidden></a>
+                    ) : null}
+                    <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
+                  </div>
+                </div>
+                <p class="project-category">{project.category[locale]}</p>
+                <p class="project-tagline">{project.tagline[locale]}</p>
+                <p class="project-summary">{project.summary[locale]}</p>
+                <a class="exit" href={project.href}>{t.exit[project.exitKey as keyof Messages['exit']]}</a>
+              </div>
               <dl class="spec">
                 <div class="spec-row">
                   <dt>{t.spec.tech}</dt>
@@ -100,7 +149,6 @@ const formatDate = (value?: string | null) => {
                   </div>
                 )}
               </dl>
-              <a class="exit" href={project.href}>{t.exit[project.exitKey as keyof Messages['exit']]}</a>
             </div>
           </li>
         );

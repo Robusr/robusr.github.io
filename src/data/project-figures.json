@@ -1,0 +1,277 @@
+{
+  "vulcan": {
+    "title": {
+      "en": "Vulcan: automation pipeline and system architecture",
+      "zh": "Vulcan：自动化流程与运行架构",
+      "fr": "Vulcan : pipeline d’automatisation et architecture"
+    },
+    "source": {
+      "en": "Source: Vulcan repository README, v1.3.0.",
+      "zh": "来源：Vulcan 仓库 README，v1.3.0。",
+      "fr": "Source : README du dépôt Vulcan, v1.3.0."
+    },
+    "panels": [
+      {
+        "label": "A",
+        "type": "gif",
+        "src": "/assets/projects/figures/vulcan-a.gif",
+        "fallback": "/assets/projects/figures/vulcan-a.webp",
+        "caption": {
+          "en": "End-to-end automation: prompt, JSON feature tree, native features",
+          "zh": "端到端自动化：提示词 → JSON 特征树 → 原生特征",
+          "fr": "Automatisation de bout en bout : invite → arbre JSON → fonctions natives"
+        }
+      },
+      {
+        "label": "B",
+        "type": "image",
+        "src": "/assets/projects/figures/vulcan-b.webp",
+        "caption": {
+          "en": "Client/server and SolidWorks COM architecture",
+          "zh": "客户端/服务端与 SolidWorks COM 架构",
+          "fr": "Architecture client/serveur et COM SolidWorks"
+        }
+      },
+      {
+        "label": "C",
+        "type": "image",
+        "src": "/assets/projects/figures/vulcan-c.webp",
+        "caption": {
+          "en": "Request lifecycle and typed contract",
+          "zh": "请求生命周期与类型化契约",
+          "fr": "Cycle de requête et contrat typé"
+        }
+      },
+      {
+        "label": "D",
+        "type": "image",
+        "src": "/assets/projects/figures/vulcan-d.webp",
+        "caption": {
+          "en": "Native SolidWorks output",
+          "zh": "SolidWorks 原生输出",
+          "fr": "Sortie native SolidWorks"
+        }
+      }
+    ]
+  },
+  "hsiwu": {
+    "title": {
+      "en": "Hsiwu: segmented wing morphing and analog control",
+      "zh": "Hsiwu：分段翼形变与模拟控制",
+      "fr": "Hsiwu : déformation d’aile segmentée et commande analogique"
+    },
+    "source": {
+      "en": "Source: Hsiwu repository README.",
+      "zh": "来源：Hsiwu 仓库 README。",
+      "fr": "Source : README du dépôt Hsiwu."
+    },
+    "panels": [
+      {
+        "label": "A",
+        "type": "gif",
+        "src": "/assets/projects/figures/hsiwu-a.gif",
+        "fallback": "/assets/projects/figures/hsiwu-a.webp",
+        "caption": {
+          "en": "Segmented wing morphing linkage",
+          "zh": "分段翼形变连杆",
+          "fr": "Mécanisme de déformation d’aile segmentée"
+        }
+      },
+      {
+        "label": "B",
+        "type": "image",
+        "src": "/assets/projects/figures/hsiwu-b.webp",
+        "caption": {
+          "en": "Analog control chain: 3× NE555 → 74HC04 → 3× L293D",
+          "zh": "模拟控制链：3× NE555 → 74HC04 → 3× L293D",
+          "fr": "Chaîne analogique : 3× NE555 → 74HC04 → 3× L293D"
+        }
+      },
+      {
+        "label": "C",
+        "type": "image",
+        "src": "/assets/projects/figures/hsiwu-c.webp",
+        "caption": {
+          "en": "Complete six-segment assembly",
+          "zh": "六段翼整机装配",
+          "fr": "Assemblage complet à six segments"
+        }
+      },
+      {
+        "label": "D",
+        "type": "image",
+        "src": "/assets/projects/figures/hsiwu-d.webp",
+        "caption": {
+          "en": "Structural line drawing",
+          "zh": "结构线稿",
+          "fr": "Dessin structurel"
+        }
+      }
+    ]
+  },
+  "dustarrow": {
+    "title": {
+      "en": "DustArrow X: deployment, CFD, launch, and telemetry",
+      "zh": "DustArrow X：展开、CFD、发射与遥测",
+      "fr": "DustArrow X : déploiement, CFD, lancement et télémétrie"
+    },
+    "source": {
+      "en": "Source: DustArrow repository README; launch still from Shanghai TV, Young Edison S8.",
+      "zh": "来源：DustArrow 仓库 README；发射画面来自上海电视台《少年爱迪生》第八季。",
+      "fr": "Source : README du dépôt DustArrow ; image de lancement : Shanghai TV, Young Edison S8."
+    },
+    "panels": [
+      {
+        "label": "A",
+        "type": "gif",
+        "src": "/assets/projects/figures/dustarrow-a.gif",
+        "fallback": "/assets/projects/figures/dustarrow-a.webp",
+        "caption": {
+          "en": "Nose-cone and canard deployment sequence",
+          "zh": "头锥与舵面展开序列",
+          "fr": "Séquence de déploiement du nez et des ailerons"
+        }
+      },
+      {
+        "label": "B",
+        "type": "image",
+        "src": "/assets/projects/figures/dustarrow-b.webp",
+        "caption": {
+          "en": "CFD flow field",
+          "zh": "CFD 流场",
+          "fr": "Champ d’écoulement CFD"
+        }
+      },
+      {
+        "label": "C",
+        "type": "image",
+        "src": "/assets/projects/figures/dustarrow-c.webp",
+        "caption": {
+          "en": "Launch, Gobi 2023",
+          "zh": "2023 年戈壁发射",
+          "fr": "Lancement, Gobi 2023"
+        }
+      },
+      {
+        "label": "D",
+        "type": "image",
+        "src": "/assets/projects/figures/dustarrow-d.webp",
+        "caption": {
+          "en": "Modular telemetry architecture; attitude via atan2 + complementary filter",
+          "zh": "模块化遥测架构；姿态由 atan2 与互补滤波推导",
+          "fr": "Architecture de télémétrie ; attitude par atan2 et filtre complémentaire"
+        }
+      }
+    ]
+  },
+  "onesarm": {
+    "title": {
+      "en": "OnesArm v2: platform, FCF structure, and layout/FEA derivation",
+      "zh": "OnesArm v2：平台、FCF 结构与布局/有限元推导",
+      "fr": "OnesArm v2 : plateforme, structure FCF et dérivation layout/FEA"
+    },
+    "source": {
+      "en": "Source: OnesArm repository README, v2 material only.",
+      "zh": "来源：OnesArm 仓库 README，仅使用 v2 资料。",
+      "fr": "Source : README du dépôt OnesArm, matériel v2 uniquement."
+    },
+    "panels": [
+      {
+        "label": "A",
+        "type": "image",
+        "src": "/assets/projects/figures/onesarm-a.webp",
+        "caption": {
+          "en": "V2 platform render",
+          "zh": "v2 平台渲染",
+          "fr": "Rendu de la plateforme v2"
+        }
+      },
+      {
+        "label": "B",
+        "type": "image",
+        "src": "/assets/projects/figures/onesarm-b.webp",
+        "caption": {
+          "en": "FCF interface: face → channel → face; 3! × 2² = 24 layouts",
+          "zh": "FCF 接口：面 → 通道 → 面；3! × 2² = 24 种布局",
+          "fr": "Interface FCF : face → canal → face ; 3! × 2² = 24 configurations"
+        }
+      },
+      {
+        "label": "C",
+        "type": "image",
+        "src": "/assets/projects/figures/onesarm-c.webp",
+        "caption": {
+          "en": "FCF derivation: 3! × 2² = 24 layouts",
+          "zh": "FCF 推导：3! × 2² = 24 种布局",
+          "fr": "Dérivation FCF : 3! × 2² = 24 configurations"
+        }
+      },
+      {
+        "label": "D",
+        "type": "gif",
+        "src": "/assets/projects/figures/onesarm-d.gif",
+        "fallback": "/assets/projects/figures/onesarm-d.webp",
+        "caption": {
+          "en": "V2 FEA displacement field",
+          "zh": "v2 有限元位移场",
+          "fr": "Champ de déplacement FEA v2"
+        }
+      }
+    ]
+  },
+  "sencillo": {
+    "title": {
+      "en": "Sencillo: force-flow decoupling, layout, error budget, and constraint compilation",
+      "zh": "Sencillo：力流解耦、整机布局、误差预算与约束编译",
+      "fr": "Sencillo : découplage des flux, agencement, budget d’erreur et compilation de contraintes"
+    },
+    "source": {
+      "en": "Design-target figures; not measured.",
+      "zh": "设计目标图示，非实测。",
+      "fr": "Figures d’objectif de conception ; non mesurées."
+    },
+    "panels": [
+      {
+        "label": "A",
+        "type": "gif",
+        "src": "/assets/projects/figures/sencillo-a.gif",
+        "fallback": "/assets/projects/figures/sencillo-a.webp",
+        "caption": {
+          "en": "Force-flow decoupling: two closed loops",
+          "zh": "力流解耦：两条闭环",
+          "fr": "Découplage des flux : deux boucles fermées"
+        }
+      },
+      {
+        "label": "B",
+        "type": "image",
+        "src": "/assets/projects/figures/sencillo-b.webp",
+        "caption": {
+          "en": "Machine layout: fixed gantry and independent C-frame",
+          "zh": "整机布局：固定龙门与独立 C 型架",
+          "fr": "Agencement : portique fixe et bâti en C indépendant"
+        }
+      },
+      {
+        "label": "C",
+        "type": "image",
+        "src": "/assets/projects/figures/sencillo-c.webp",
+        "caption": {
+          "en": "8/8 mil error budget (3σ)",
+          "zh": "8/8 mil 误差预算（3σ）",
+          "fr": "Budget d’erreur 8/8 mil (3σ)"
+        }
+      },
+      {
+        "label": "D",
+        "type": "image",
+        "src": "/assets/projects/figures/sencillo-d.webp",
+        "caption": {
+          "en": "AI constraint compilation and five validation gates",
+          "zh": "AI 约束编译与五道验证门",
+          "fr": "Compilation de contraintes IA et cinq portes de validation"
+        }
+      }
+    ]
+  }
+}

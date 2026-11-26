@@ -33,7 +33,7 @@
 ## 页面内容
 
 - **迷你实验室（00）：** Hero 之后、代表项目之前的全宽卧室工作台照片，带纸白图版边框与三语「图 00」图注。
-- **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。仓库卡片展示实时的 GitHub stars、forks、最近推送时间与最新 Release 版本；无 JavaScript 时回退到构建快照。每张卡片底部使用「技术 / 证据 / GitHub」规格表。
+- **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。每个项目以全宽 A/B/C/D 学术图版开头：一个短 GIF 面板 + 三个架构、渲染或分析面板，每个面板带图注。下方正文与「技术 / 证据 / GitHub」规格表组成双栏。仓库数据仍显示实时的 stars、forks、最近推送与 Release，无 JavaScript 时回退构建快照。
 - **经历：** 6 行，从 2018 年的卧室工作室到 2026 年的华中科技大学。
 - **奖项与报道：** 第 38 届全国青少年科技创新大赛一等奖、第 37 届二等奖，以及上海电视台《少年爱迪生》。
 - **其他项目：** 4 个仓库，每个一行。
@@ -48,7 +48,7 @@
 | 框架 | Astro 7，静态输出，无客户端框架 |
 | 样式 | 原生 CSS 自定义属性，无工具类框架 |
 | 字体 | 自托管 Inter 可变字体，中文使用系统字体栈 |
-| 图片 | 项目图 480/960 px，肖像 260/512 px，迷你实验室 480/960/1440 px 并提供 1440 px JPEG 回退，两套透明线稿 IP 素材按展示位置裁切；WebP 与 JPEG 回退 |
+| 图片 | 项目学术图版：20 个面板使用 800×450 WebP，每个项目一个 400–640 px 单次播放 GIF，减少动态时回退 960 px WebP/JPEG；肖像 260/512 px，迷你实验室 480/960/1440 px 并提供 1440 px JPEG 回退，两套透明线稿 IP 素材按展示位置裁切；WebP 与 JPEG 回退 |
 | 图标 | 纸白底 + 墨色机械臂线稿 + 空心关节 + C 形夹爪 + 深青底座点缀的 SVG favicon、16/32/180 px PNG 回退与 web manifest |
 | JavaScript | 约 2.3 KB 渐进增强 |
 | GitHub 数据 | 构建时从 GitHub API 生成快照；Cloudflare Pages Function 提供 `/api/github` 边缘缓存刷新 |
@@ -83,6 +83,7 @@ npm run verify    # check + typecheck + build
 |---|---|
 | `src/data/profile.json` | 姓名、定位、简介、状态、链接、肖像、肖像图注、关于段落 |
 | `src/data/projects.json` | 5 个代表项目，含三语文案、技术、证据与状态 |
+| `src/data/project-figures.json` | A/B/C/D 面板图注、标签、来源说明与 GIF/静态图路径 |
 | `src/data/timeline.json` | 6 行经历 |
 | `src/data/awards.json` | 3 条奖项与报道 |
 | `src/data/more-work.json` | 4 个其他项目 |
@@ -109,7 +110,7 @@ npm run verify    # check + typecheck + build
 .
 ├── src/
 │   ├── components/   Header、Hero、MiniLab、PrintCover、ProjectList、Journey、Awards、MoreWork、About、Footer、LanguageSwitcher
-│   ├── data/         profile、projects、timeline、awards、more-work、mini-lab、生成的 GitHub 快照
+│   ├── data/         profile、projects、project-figures、timeline、awards、more-work、mini-lab、生成的 GitHub 快照
 │   ├── i18n/         en、zh、fr 与共享类型
 │   ├── layouts/      Base.astro，负责 head、hreflang 与 JSON-LD
 │   ├── pages/        index、zh/index、fr/index、404、sitemap.xml、robots.txt
@@ -118,7 +119,7 @@ npm run verify    # check + typecheck + build
 ├── functions/        Cloudflare Pages Function，提供 /api/github
 ├── public/           图片、手绘 IP 素材、迷你实验室照片、favicon 套件、OG 卡片、manifest、_headers、_redirects
 ├── content/          三语文稿与术语表
-├── scripts/          内容检查、GitHub 同步、OG/IP/迷你实验室/肖像生成、QA 脚本
+├── scripts/          内容检查、GitHub 同步、OG/IP/迷你实验室/肖像/项目图版生成、QA 脚本
 ├── qa/               Lighthouse、一致性与布局报告
 ├── screenshots/      1440、1024、768、390 px 全页截图
 ├── Robusr IP/        背景线稿的原始扫描
@@ -139,7 +140,9 @@ npm run verify    # check + typecheck + build
 | 布局宽度 | 1440、1024、768、390 px 均无横向溢出 |
 | 关闭 JavaScript | 正文完整可读；GitHub 卡片使用构建快照 |
 | 迷你实验室素材 | 480/960/1440 WebP 与 1440 JPEG 回退；已去除 EXIF；三语说明与 alt |
-| OG 与打印 | 中英法三张 1200×630 OG 卡片使用迷你实验室图版；A4 打印样式带 print-only 封面（7 页），保留图版、日期与站外 URL，隐藏导航与实时元信息 |
+| 项目图版 | 5 张图版 × 4 个面板；四个来自仓库，Sencillo 为作者提供的设计目标图版；OnesArm 仅使用 v2 资料；DustArrow 发射画面已授权并标注来源 |
+| 项目 GIF | Vulcan 自动化、Hsiwu 连杆、DustArrow 展开、OnesArm FEA 扫描、Sencillo 力流；单次播放，减少动态时使用 WebP 静态图 |
+| OG 与打印 | 中英法三张 1200×630 OG 卡片使用迷你实验室图版；A4 打印样式带 print-only 封面（8 页），保留图版、日期与站外 URL，隐藏导航与实时元信息 |
 | 视觉系统 | 肖像与项目图细框、规格表、章节页边刻度、本地化 OG、打印封面与缺失图纸 404 |
 | 图标 | SVG favicon、16/32/180 px PNG 与 manifest；已在浅色/深色标签栏的 16/32/64/180 px 下检查 |
 | 站外链接 | GitHub 与媒体链接返回 200 |
@@ -148,7 +151,7 @@ Lighthouse 数据早于本次 GitHub 实时模块，引用前应重新测量。�
 
 完整证据见 [QA.md](QA.md)；截图见 [screenshots/](screenshots/)；Lighthouse 原始报告见 [qa/](qa/)。
 
-QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright@1.64.1`。OG 图片可用 `python3 scripts/make-og.py` 重新生成；背景素材可用 `python3 scripts/make-ip-assets.py` 从 `Robusr IP/` 重新生成；迷你实验室图片可用 `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg` 重新生成；肖像可用 `python3 scripts/make-portrait-assets.py` 重新调色。生成脚本都需要 Pillow，迷你实验室与肖像脚本会去除 EXIF；肖像脚本读取 v2 的 512 px 文件并写出 v3 资源。
+QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright@1.64.1`。OG 图片可用 `python3 scripts/make-og.py` 重新生成；背景素材可用 `python3 scripts/make-ip-assets.py` 从 `Robusr IP/` 重新生成；迷你实验室图片可用 `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg` 重新生成；肖像可用 `python3 scripts/make-portrait-assets.py` 重新调色；项目 A/B/C/D 图版可用 `python3 scripts/make-project-figures.py --assets /path/to/repo-assets --gifs /path/to/repo-gifs --pdf-pages /path/to/pdf-pages` 重建。生成脚本都需要 Pillow，迷你实验室与肖像脚本会去除 EXIF；肖像脚本读取 v2 的 512 px 文件并写出 v3 资源。源仓库素材与 Sencillo 图版渲染不进入本仓库。
 
 ## 部署
 
@@ -172,7 +175,7 @@ Cloudflare Pages 会把 `functions/` 与 `dist/` 一起部署，因此 `/api/git
 - 可见内容变化时，更新 `src/data/profile.json` 中的 `contentDate`；`sitemap.xml` 用它作为 `lastmod`。
 - 推送前运行 `npm run verify`。GitHub Actions 会运行同一命令。
 - 不加入家庭信息、住址、生日、分数、排名或私人关系；关于部分中应作者要求加入的美术老师一句是唯一例外。
-- 不使用电视画面、比赛标志、第三方论文插图或未经验证的账号。
+- 不使用电视画面、比赛标志、第三方论文插图或未经验证的账号；图 03C 的 DustArrow 发射画面是唯一例外，已授权并标注为上海电视台《少年爱迪生》第八季。Sencillo 图版为作者提供的设计目标资料。
 
 ## 文档
 
@@ -187,4 +190,4 @@ Cloudflare Pages 会把 `functions/` 与 `dist/` 一起部署，因此 `/api/git
 
 ## 鸣谢
 
-肖像与两幅手绘个人 IP 线稿由 Robusr 提供，两幅画作都用作低透明度背景。项目图片来自各项目仓库与 Anteportal Labs 组织主页。迷你实验室照片由 Robusr 提供，发布版本已去除 EXIF 元数据。站点不使用电视画面、比赛标志或第三方论文插图。GitHub stars、forks、最近推送与 Release 标签来自公开 GitHub API，并在边缘缓存。
+肖像与两幅手绘个人 IP 线稿由 Robusr 提供，两幅画作都用作低透明度背景。项目图版与 GIF 来自各项目仓库；OnesArm 仅使用 v2 资料；Sencillo 图版为作者提供的设计目标资料；DustArrow 发射画面已获授权并标注为上海电视台《少年爱迪生》第八季。迷你实验室照片由 Robusr 提供，发布版本已去除 EXIF 元数据。站点不使用其他电视画面、比赛标志或第三方论文插图。GitHub stars、forks、最近推送与 Release 标签来自公开 GitHub API，并在边缘缓存。

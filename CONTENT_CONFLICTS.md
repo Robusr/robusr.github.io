@@ -14,3 +14,5 @@
 | 10 | The brief's example tree nests the app under `site/`, while the repo is the user Pages site. | App lives at repo root; `base` is `/`. Documented in README and DEPLOY.md. |
 | 11 | Sencillo is described as "AI × manufacturing / startup" in the library, but the team is not a registered company. | Page category is "AI × manufacturing"; copy says "student-founded team" and never calls it a company. |
 | 12 | The earlier brief excluded family details, but the owner supplied an About paragraph naming his father, an art teacher. | The paragraph is included at the owner's request; the README content rule now records this single exception. |
+| 13 | The earlier content rule excluded TV stills, but the owner requested a DustArrow launch moment. | One authorized still from the repository's TV clip appears as Fig. 03C; its caption and README credits name Shanghai TV, Young Edison S8. |
+| 14 | Sencillo has no public repository; the owner supplied design-target figures and authorized their use without citation. | Fig. 05 uses owner-supplied design-target material; it is labeled "Design-target figures; not measured" and carries no document citation. |

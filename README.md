@@ -33,7 +33,7 @@ All versions share one content model and the same section order. With JavaScript
 ## What the page contains
 
 - **Mini Lab (00):** a full-width photo of the bedroom workbench directly after the Hero, before Selected Work, set on a paper mat with a `Fig. 00` caption in each language.
-- **Selected Work:** Vulcan, Hsiwu, DustArrow X, OnesArm, and Anteportal Labs · Sencillo, in that fixed order. Repository cards show live GitHub stars, forks, last push, and the latest release tag, falling back to a build-time snapshot without JavaScript. Each card ends with a spec table for tech, evidence, and GitHub state.
+- **Selected Work:** Vulcan, Hsiwu, DustArrow X, OnesArm, and Anteportal Labs · Sencillo, in that fixed order. Each project opens with a full-width A/B/C/D academic figure plate: one short one-shot GIF panel plus architecture, render, and analysis panels, each with a caption. The body below pairs the project narrative with a Tech / Evidence / GitHub spec table. Repository cards still show live GitHub stars, forks, last push, and the latest release tag, with a build-time snapshot fallback.
 - **Journey:** six rows from a bedroom workshop in 2018 to HUST in 2026.
 - **Awards & Media:** 38th CASTIC first prize, 37th CASTIC second prize, and the Shanghai TV *Young Edison* feature.
 - **More Work:** four repositories, one line each.
@@ -48,7 +48,7 @@ All versions share one content model and the same section order. With JavaScript
 | Framework | Astro 7, static output, no client framework |
 | Styling | native CSS custom properties, no utility framework |
 | Type | self-hosted Inter variable font, system CJK stack |
-| Images | project images at 480 and 960 px, portrait at 260 and 512 px, Mini Lab at 480/960/1440 px with a 1440 px JPEG fallback, two transparent line-art IP assets sized for their display slots; WebP, with JPEG fallbacks |
+| Images | project figure plates: 20 panels at 800×450 WebP, one 400–640 px one-shot GIF per project, and 960 px WebP/JPEG stills under reduced motion; portrait at 260 and 512 px, Mini Lab at 480/960/1440 px with a 1440 px JPEG fallback, two transparent line-art IP assets sized for their display slots; WebP, with JPEG fallbacks |
 | Icons | paper-field SVG favicon with an ink robotic-arm line drawing, hollow joints, a C gripper, and a teal base accent; 16/32/180 px PNG fallbacks and a web manifest |
 | JavaScript | about 2.3 KB of progressive enhancement |
 | GitHub data | build-time snapshot from the GitHub API; edge-cached `/api/github` refresh through a Cloudflare Pages Function |
@@ -83,6 +83,7 @@ All visible copy is data-driven.
 |---|---|
 | `src/data/profile.json` | Name, positioning, intro, status, links, portrait, portrait caption, About paragraph |
 | `src/data/projects.json` | Five featured projects with per-locale copy, tech, evidence, and status |
+| `src/data/project-figures.json` | A/B/C/D panel captions, labels, source notes, and GIF/static paths |
 | `src/data/timeline.json` | Six Journey rows |
 | `src/data/awards.json` | Three award and media rows |
 | `src/data/more-work.json` | Four secondary projects |
@@ -109,7 +110,7 @@ English is the source of truth. When editing:
 .
 ├── src/
 │   ├── components/   Header, Hero, MiniLab, PrintCover, ProjectList, Journey, Awards, MoreWork, About, Footer, LanguageSwitcher
-│   ├── data/         profile, projects, timeline, awards, more-work, mini-lab, generated GitHub snapshot
+│   ├── data/         profile, projects, project-figures, timeline, awards, more-work, mini-lab, generated GitHub snapshot
 │   ├── i18n/         en, zh, fr, and shared types
 │   ├── layouts/      Base.astro with head, hreflang, and JSON-LD
 │   ├── pages/        index, zh/index, fr/index, 404, sitemap.xml, robots.txt
@@ -118,7 +119,7 @@ English is the source of truth. When editing:
 ├── functions/        Cloudflare Pages Function for /api/github
 ├── public/           images, hand-drawn IP art, mini lab photo, favicon set, OG cards, manifest, _headers, _redirects
 ├── content/          copy manuscripts and glossary
-├── scripts/          content check, GitHub sync, OG/IP/Mini Lab/portrait generators, and QA helpers
+├── scripts/          content check, GitHub sync, OG/IP/Mini Lab/portrait/project figure generators, and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
 ├── screenshots/      full-page captures at 1440, 1024, 768, and 390 px
 ├── Robusr IP/        source scans for the background artwork
@@ -139,7 +140,9 @@ English is the source of truth. When editing:
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow |
 | JavaScript disabled | all content readable; GitHub cards use the build-time snapshot |
 | Mini Lab assets | 480/960/1440 WebP and a 1440 JPEG fallback; EXIF stripped; caption and alt text in three languages |
-| OG and print | v3 1200×630 OG cards for EN/ZH/FR with the Mini Lab plate; A4 print CSS with a print-only cover (7 pages) keeps plates, dates, and outbound URLs while hiding navigation and live metadata |
+| Project figures | Five plates × four panels; four repository-backed plates and one owner-supplied Sencillo design-target plate; OnesArm uses v2 material only; DustArrow launch still is authorized and credited |
+| Project GIFs | Vulcan automation, Hsiwu linkage, DustArrow deployment, OnesArm FEA scan, and Sencillo force-flow; one-shot, reduced-motion serves a WebP still |
+| OG and print | v3 1200×630 OG cards for EN/ZH/FR with the Mini Lab plate; A4 print CSS with a print-only cover (8 pages) keeps plates, dates, and outbound URLs while hiding navigation and live metadata |
 | Visual system | Portrait and project frames, spec tables, section ticks, localized OG cards, print cover, and a missing-sheet 404 page |
 | Icons | SVG favicon plus 16/32/180 px PNGs and a manifest; checked at 16/32/64/180 px on light and dark tab backgrounds |
 | Outbound links | GitHub and media links return 200 |
@@ -148,7 +151,7 @@ The Lighthouse figures predate the live GitHub module and should be re-run for t
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 
-The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`; the Mini Lab photo is regenerated with `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg`; the portrait is regraded with `python3 scripts/make-portrait-assets.py`. The generators require Pillow, and the Mini Lab and portrait scripts strip EXIF metadata; the portrait script reads the v2 512 px file and writes v3 assets.
+The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`; the Mini Lab photo is regenerated with `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg`; the portrait is regraded with `python3 scripts/make-portrait-assets.py`; the A/B/C/D project plates are rebuilt with `python3 scripts/make-project-figures.py --assets /path/to/repo-assets --gifs /path/to/repo-gifs --pdf-pages /path/to/pdf-pages`. The generators require Pillow, and the Mini Lab and portrait scripts strip EXIF metadata; the portrait script reads the v2 512 px file and writes v3 assets. Source repository assets and the Sencillo figure renders are not committed.
 
 ## Deployment
 
@@ -172,7 +175,7 @@ Cloudflare Pages deploys the `functions/` directory alongside `dist/`, so `/api/
 - When visible content changes, update `contentDate` in `src/data/profile.json`; `sitemap.xml` uses it as `lastmod`.
 - Run `npm run verify` before pushing. The same command runs in GitHub Actions.
 - Do not add family details, addresses, birthdays, scores, rankings, or private relationships; the art-teacher sentence in About is the owner-requested exception.
-- Do not use TV stills, competition logos, third-party paper figures, or unverified accounts.
+- Do not use TV stills, competition logos, third-party paper figures, or unverified accounts; the single authorized DustArrow launch still (Fig. 03C) is credited to Shanghai TV, Young Edison S8. Sencillo figures are owner-supplied design-target material.
 
 ## Documentation
 
@@ -187,4 +190,4 @@ Cloudflare Pages deploys the `functions/` directory alongside `dist/`, so `/api/
 
 ## Credits
 
-Portrait and the two line-art personal IP illustrations provided by Robusr. Both drawings are used as low-opacity background art. Project images come from each project repository and the Anteportal Labs organization page. The Mini Lab photograph is provided by Robusr; the published copies have EXIF metadata removed. The site does not use TV stills, competition logos, or third-party paper figures. GitHub stars, forks, last-push dates, and release tags come from the public GitHub API and are cached at the edge.
+Portrait and the two line-art personal IP illustrations provided by Robusr. Both drawings are used as low-opacity background art. Project figures and GIFs come from each project repository; OnesArm uses v2 material only. Sencillo figures are owner-supplied design-target illustrations. The DustArrow launch still is used with permission and credited to Shanghai TV, Young Edison S8. The Mini Lab photograph is provided by Robusr; the published copies have EXIF metadata removed. The site does not use other TV stills, competition logos, or third-party paper figures. GitHub stars, forks, last-push dates, and release tags come from the public GitHub API and are cached at the edge.
