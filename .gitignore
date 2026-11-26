@@ -13,3 +13,7 @@ minilab.jpeg
 figures/frames/
 figures/render/
 figures/video-src/
+
+# Python bytecode caches
+__pycache__/
+*.py[cod]
