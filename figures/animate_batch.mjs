@@ -57,8 +57,10 @@ function htmlFor(svg, timeline) {
   </script></body></html>`;
 }
 
+const only = process.argv.slice(2);
+const jobs = only.length ? JOBS.filter((job) => only.includes(job.name)) : JOBS;
 const browser = await chromium.launch({ executablePath: chrome, headless: true });
-for (const { name, tl } of JOBS) {
+for (const { name, tl } of jobs) {
   const svg = fs.readFileSync(path.join(root, 'figures/src', `${name}.svg`), 'utf8');
   fs.writeFileSync(path.join(renderDir, `${name}.html`), htmlFor(svg, tl));
   const frameDir = path.join(frameRoot, name);

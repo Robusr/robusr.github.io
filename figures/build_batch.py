@@ -617,7 +617,7 @@ def ones_a():
     card(s, 584, 196, 960, 560)
     label(s, 604, 222, "v2 platform")
     s.text(604, 250, "On a 4040 aluminium platform", 22, 600, INK)
-    s.image(B / "ones-render.webp", 604, 268, 700, 348)
+    s.image(B / "ones-banner.webp", 604, 258, 700, 392)
     cx = 1328
     facts = [("3", "joint modules", "45° + 90° + 90°"), ("4", "DOF analysed", "AyCxBy-D"), ("450", "mm reach", "10,000 samples"), ("24", "CAD layouts", "3! × 2²")]
     for i, (n, t1, t2) in enumerate(facts):
@@ -625,9 +625,9 @@ def ones_a():
         s.text(cx, y, n, 30, 600, ACCENT)
         s.text(cx + 64, y - 8, t1, 15.5, 600, INK)
         s.text(cx + 64, y + 12, t2, 13, 400, MUTED)
-    s.text(604, 646, "Bench-mounted serial arm · no measured payload or repeatability data", 13.5, 500, WARM)
-    s.text(604, 676, "24 CAD assemblies · 11 Python checks · CAN firmware is a skeleton", 13.5, 400, MUTED)
-    s.text(604, 704, "v2 material only; v1 is retained for comparison.", 13.5, 400, MUTED)
+    s.text(604, 672, "Bench-mounted serial arm · no measured payload or repeatability data", 13.5, 500, WARM)
+    s.text(604, 696, "24 CAD assemblies · 11 Python checks · CAN firmware is a skeleton", 13.5, 400, MUTED)
+    s.text(604, 720, "v2 material only; v1 is retained for comparison.", 13.5, 400, MUTED)
 
     for i, (x, y, w, h) in enumerate([(56, 196, 500, 560), (584, 196, 960, 560)], 1):
         s.rect(x, y, w, h, "none", ACCENT, 3, 5, opacity=0, extra=f'id="o-a-focus{i}"')
