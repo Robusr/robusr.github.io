@@ -49,6 +49,7 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 | Styles | propriétés CSS natives, sans framework utilitaire |
 | Typographie | Inter variable auto-hébergée, pile système pour le chinois |
 | Images | projets en 480 et 960 px, portrait en 260 et 512 px, Mini Lab en 480/960/1440 px avec un fallback JPEG 1440 px, deux illustrations IP transparentes dimensionnées pour leur emplacement ; WebP et fallbacks JPEG |
+| Icônes | favicon SVG sur fond papier : bras robotique à l’encre, articulations creuses, pince en C et base bleu-vert ; PNG 16/32/180 px et manifeste web |
 | JavaScript | environ 2,3 Ko d'amélioration progressive |
 | Données GitHub | instantané produit au build depuis l'API GitHub ; rafraîchissement `/api/github` mis en cache en périphérie par une Cloudflare Pages Function |
 | Confidentialité | aucune analyse, cookie, police tierce ou intégration ; les requêtes GitHub partent de Cloudflare, pas du navigateur du visiteur |
@@ -115,7 +116,7 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 │   ├── scripts/      amélioration progressive et rafraîchissement GitHub
 │   └── styles/       tokens.css, global.css
 ├── functions/        Cloudflare Pages Function pour /api/github
-├── public/           images, illustrations IP, photo Mini Lab, favicon, cartes OG, _headers, _redirects
+├── public/           images, illustrations IP, photo Mini Lab, jeu de favicons, cartes OG, manifeste, _headers, _redirects
 ├── content/          manuscrits et glossaire
 ├── scripts/          contrôle du contenu, synchronisation GitHub, générateurs OG/IP/Mini Lab/portrait, scripts QA
 ├── qa/               rapports Lighthouse, cohérence et mise en page
@@ -140,6 +141,7 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 | Ressources Mini Lab | WebP 480/960/1440 et fallback JPEG 1440 ; EXIF supprimé ; légende et alt dans les trois langues |
 | OG et impression | cartes OG v3 1200×630 pour EN/ZH/FR avec la planche Mini Lab ; la feuille A4 avec couverture print-only (7 pages) conserve planches, dates et URL externes et masque navigation et métadonnées live |
 | Système visuel | cadres du portrait et des projets, tableaux de spécifications, ticks de section, OG localisées, couverture imprimée et page 404 « feuille manquante » |
+| Icônes | favicon SVG, PNG 16/32/180 px et manifeste ; vérifiés en 16/32/64/180 px sur onglets clairs et sombres |
 | Liens externes | GitHub et les liens presse renvoient 200 |
 
 Les chiffres Lighthouse précèdent le module GitHub en direct et doivent être remesurés pour ce build. Best Practices vaut 92 en production parce que Cloudflare injecte encore le beacon Web Analytics et que la CSP le bloque. Email Address Obfuscation et Managed robots.txt restent aussi appliqués en périphérie : la page en ligne diffère donc du build local. Ces réglages appartiennent à la zone, pas au dépôt. Résultats en ligne dans `qa/lighthouse-live-summary.json`.

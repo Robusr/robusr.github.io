@@ -49,6 +49,7 @@ All versions share one content model and the same section order. With JavaScript
 | Styling | native CSS custom properties, no utility framework |
 | Type | self-hosted Inter variable font, system CJK stack |
 | Images | project images at 480 and 960 px, portrait at 260 and 512 px, Mini Lab at 480/960/1440 px with a 1440 px JPEG fallback, two transparent line-art IP assets sized for their display slots; WebP, with JPEG fallbacks |
+| Icons | paper-field SVG favicon with an ink robotic-arm line drawing, hollow joints, a C gripper, and a teal base accent; 16/32/180 px PNG fallbacks and a web manifest |
 | JavaScript | about 2.3 KB of progressive enhancement |
 | GitHub data | build-time snapshot from the GitHub API; edge-cached `/api/github` refresh through a Cloudflare Pages Function |
 | Privacy | no analytics, cookies, third-party fonts, or embeds; GitHub requests leave from Cloudflare, not the visitor's browser |
@@ -115,7 +116,7 @@ English is the source of truth. When editing:
 │   ├── scripts/      progressive enhancement and live GitHub refresh
 │   └── styles/       tokens.css, global.css
 ├── functions/        Cloudflare Pages Function for /api/github
-├── public/           images, hand-drawn IP art, mini lab photo, favicon, OG cards, _headers, _redirects
+├── public/           images, hand-drawn IP art, mini lab photo, favicon set, OG cards, manifest, _headers, _redirects
 ├── content/          copy manuscripts and glossary
 ├── scripts/          content check, GitHub sync, OG/IP/Mini Lab/portrait generators, and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
@@ -140,6 +141,7 @@ English is the source of truth. When editing:
 | Mini Lab assets | 480/960/1440 WebP and a 1440 JPEG fallback; EXIF stripped; caption and alt text in three languages |
 | OG and print | v3 1200×630 OG cards for EN/ZH/FR with the Mini Lab plate; A4 print CSS with a print-only cover (7 pages) keeps plates, dates, and outbound URLs while hiding navigation and live metadata |
 | Visual system | Portrait and project frames, spec tables, section ticks, localized OG cards, print cover, and a missing-sheet 404 page |
+| Icons | SVG favicon plus 16/32/180 px PNGs and a manifest; checked at 16/32/64/180 px on light and dark tab backgrounds |
 | Outbound links | GitHub and media links return 200 |
 
 The Lighthouse figures predate the live GitHub module and should be re-run for the current build. Production Best Practices is 92 because Cloudflare still injects the Web Analytics beacon and the CSP blocks it. Email Address Obfuscation and Managed robots.txt are also still applied at the edge, so the live page differs from the local build. These are zone settings, not repository settings. Production results are in `qa/lighthouse-live-summary.json`.

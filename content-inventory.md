@@ -23,7 +23,7 @@ Audit date: 2026-10-20. Production domain updated 2026-10-21. Link checks re-ver
 | Mini Lab | Bedroom workbench photo, full-width section 00 after the Hero and before Selected Work; paper mat with `Fig. 00`; 480/960/1440 WebP and 1440 JPEG fallback; EXIF stripped and warm graded | minilab.jpeg, supplied 2026-11-26 |
 | OG card | Three 1200×630 cards: `og-default-v3.png`, `og-default-v3-zh.png`, `og-default-v3-fr.png`, each with the Mini Lab plate and localized taglines | scripts/make-og.py, 2026-11-26 |
 | Portrait | v3 warm-graded 512 JPEG/WebP and 260 WebP; hairline frame and mono caption in the Hero | scripts/make-portrait-assets.py, 2026-11-26 |
-| Visual system | Portrait/project frames, Tech / Evidence / GitHub spec tables, section margin ticks, missing-sheet 404, print-only cover | 2026-11-26 |
+| Visual system | Portrait/project frames, Tech / Evidence / GitHub spec tables, section margin ticks, missing-sheet 404, print-only cover, robotic-arm favicon set + manifest | 2026-11-26 |
 | Contact | GitHub, email, Anteportal org only | 01, 06 |
 
 ## Rewritten for the page

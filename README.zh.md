@@ -49,6 +49,7 @@
 | 样式 | 原生 CSS 自定义属性，无工具类框架 |
 | 字体 | 自托管 Inter 可变字体，中文使用系统字体栈 |
 | 图片 | 项目图 480/960 px，肖像 260/512 px，迷你实验室 480/960/1440 px 并提供 1440 px JPEG 回退，两套透明线稿 IP 素材按展示位置裁切；WebP 与 JPEG 回退 |
+| 图标 | 纸白底 + 墨色机械臂线稿 + 空心关节 + C 形夹爪 + 深青底座点缀的 SVG favicon、16/32/180 px PNG 回退与 web manifest |
 | JavaScript | 约 2.3 KB 渐进增强 |
 | GitHub 数据 | 构建时从 GitHub API 生成快照；Cloudflare Pages Function 提供 `/api/github` 边缘缓存刷新 |
 | 隐私 | 无统计、Cookie、第三方字体或嵌入；GitHub 请求由 Cloudflare 发出，不暴露访客浏览器 |
@@ -115,7 +116,7 @@ npm run verify    # check + typecheck + build
 │   ├── scripts/      渐进增强与 GitHub 实时刷新
 │   └── styles/       tokens.css、global.css
 ├── functions/        Cloudflare Pages Function，提供 /api/github
-├── public/           图片、手绘 IP 素材、迷你实验室照片、favicon、OG 卡片、_headers、_redirects
+├── public/           图片、手绘 IP 素材、迷你实验室照片、favicon 套件、OG 卡片、manifest、_headers、_redirects
 ├── content/          三语文稿与术语表
 ├── scripts/          内容检查、GitHub 同步、OG/IP/迷你实验室/肖像生成、QA 脚本
 ├── qa/               Lighthouse、一致性与布局报告
@@ -140,6 +141,7 @@ npm run verify    # check + typecheck + build
 | 迷你实验室素材 | 480/960/1440 WebP 与 1440 JPEG 回退；已去除 EXIF；三语说明与 alt |
 | OG 与打印 | 中英法三张 1200×630 OG 卡片使用迷你实验室图版；A4 打印样式带 print-only 封面（7 页），保留图版、日期与站外 URL，隐藏导航与实时元信息 |
 | 视觉系统 | 肖像与项目图细框、规格表、章节页边刻度、本地化 OG、打印封面与缺失图纸 404 |
+| 图标 | SVG favicon、16/32/180 px PNG 与 manifest；已在浅色/深色标签栏的 16/32/64/180 px 下检查 |
 | 站外链接 | GitHub 与媒体链接返回 200 |
 
 Lighthouse 数据早于本次 GitHub 实时模块，引用前应重新测量。线上 Best Practices 为 92，因为 Cloudflare 仍注入 Web Analytics beacon，并被 CSP 拦截；Email Address Obfuscation 与 Managed robots.txt 也仍在边缘生效，因此线上页面与本地构建不同。这些是 zone 设置，不在仓库内。线上数据见 `qa/lighthouse-live-summary.json`。
