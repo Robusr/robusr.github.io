@@ -7,16 +7,42 @@
     "imageAlt": "郭沫晗的卧室迷你实验室：机械臂、写满公式的白板、打开的笔记本电脑，以及页面标语：AI × 工程建造者。"
   },
   "navLabel": "主导航",
-  "nav": { "work": "项目", "journey": "经历", "about": "关于", "contact": "联系" },
+  "nav": {
+    "lab": "实验室",
+    "work": "项目",
+    "journey": "经历",
+    "awards": "奖项",
+    "about": "关于",
+    "contact": "联系"
+  },
   "skip": "跳到正文",
-  "sections": { "work": "代表项目", "journey": "经历", "awards": "奖项与报道", "moreWork": "其他项目", "about": "关于" },
+  "sections": {
+    "work": "代表项目",
+    "journey": "经历",
+    "awards": "奖项与报道",
+    "moreWork": "其他项目",
+    "about": "关于"
+  },
   "statusPrefix": "当前：",
-  "status": { "Active": "活跃", "Complete": "完成", "Archive": "归档", "v2 current": "v2 现行", "Pre-prototype": "原型前" },
-  "exit": { "repository": "仓库 →", "organization": "组织主页 →" },
+  "status": {
+    "Active": "活跃",
+    "Complete": "完成",
+    "Archive": "归档",
+    "v2 current": "v2 现行",
+    "Pre-prototype": "原型前"
+  },
+  "exit": {
+    "repository": "仓库 →",
+    "organization": "组织主页 →"
+  },
   "designTarget": "设计目标，非实测",
   "watch": "观看节目",
   "contactHeading": "联系",
-  "contactLabels": { "email": "邮箱", "github": "GitHub", "org": "组织" },
+  "contactLabels": {
+    "email": "邮箱",
+    "github": "GitHub",
+    "org": "组织"
+  },
   "languagesLabel": "语言",
   "langHint": "也可用以下语言阅读：",
   "dismiss": "关闭",
@@ -31,5 +57,13 @@
     "evidence": "证据",
     "github": "GitHub"
   },
-  "colophon": "Inter 字体 · 纸感 · 武汉 · 2026"
+  "colophon": "Inter 字体 · 纸感 · 武汉 · 2026",
+  "plate": {
+    "panel": "图版",
+    "enlarge": "放大图版",
+    "close": "关闭",
+    "pause": "暂停动效",
+    "play": "播放动效",
+    "pager": "图版切换"
+  }
 }

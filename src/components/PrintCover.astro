@@ -10,7 +10,7 @@ const { locale, t } = Astro.props as { locale: Locale; t: Messages };
   <h1 class="print-cover-name">{profile.name[locale]}</h1>
   <p class="print-cover-role">{profile.positioning[locale]}</p>
   <figure class="print-cover-plate">
-    <img src={`${lab.image.base}-960.webp`} width="960" height="720" alt="" />
+    <img src={`${lab.image.base}-480.webp`} data-hires={`${lab.image.base}-960.webp`} width="960" height="720" alt="" fetchpriority="low" />
     <figcaption>{lab.figLabel[locale]} — {lab.title[locale]}</figcaption>
   </figure>
   <div class="print-cover-foot">

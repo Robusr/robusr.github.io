@@ -1,9 +1,9 @@
 {
   "vulcan": {
     "title": {
-      "en": "Vulcan: automation pipeline and system architecture",
-      "zh": "Vulcan：自动化流程与运行架构",
-      "fr": "Vulcan : pipeline d’automatisation et architecture"
+      "en": "Vulcan: system loop, deployment, operation, and contract.",
+      "zh": "Vulcan：系统闭环、部署、操作与契约。",
+      "fr": "Vulcan : boucle système, déploiement, opération et contrat."
     },
     "source": {
       "en": "Source: Vulcan repository README, v1.3.0.",
@@ -13,162 +13,197 @@
     "panels": [
       {
         "label": "A",
-        "type": "gif",
-        "src": "/assets/projects/figures/vulcan-a.gif",
-        "fallback": "/assets/projects/figures/vulcan-a.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/vulcan-a.mp4",
+        "webm": "/assets/projects/plates/v2/vulcan-a.webm",
+        "poster": "/assets/projects/plates/v2/vulcan-a-poster-800.webp",
+        "full": "/assets/projects/plates/v2/vulcan-a-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/vulcan-a-poster-1600.webp",
         "caption": {
-          "en": "End-to-end automation: prompt, JSON feature tree, native features",
-          "zh": "端到端自动化：提示词 → JSON 特征树 → 原生特征",
-          "fr": "Automatisation de bout en bout : invite → arbre JSON → fonctions natives"
+          "en": "System loop: a sentence becomes a validated, editable feature tree.",
+          "zh": "系统闭环：一句话变成可校验、可编辑的特征树。",
+          "fr": "Boucle système : une phrase devient un arbre de fonctions validé et modifiable."
         }
       },
       {
         "label": "B",
         "type": "image",
-        "src": "/assets/projects/figures/vulcan-b.webp",
+        "src": "/assets/projects/plates/v2/vulcan-b-1600.webp",
+        "small": "/assets/projects/plates/v2/vulcan-b-800.webp",
+        "full": "/assets/projects/plates/v2/vulcan-b-1600.webp",
         "caption": {
-          "en": "Client/server and SolidWorks COM architecture",
-          "zh": "客户端/服务端与 SolidWorks COM 架构",
-          "fr": "Architecture client/serveur et COM SolidWorks"
+          "en": "Deployed architecture: Windows client, Flask server, and a replaceable model provider.",
+          "zh": "部署架构：Windows 客户端、Flask 服务端与可替换的模型提供方。",
+          "fr": "Architecture déployée : client Windows, serveur Flask et fournisseur de modèle remplaçable."
         }
       },
       {
         "label": "C",
-        "type": "image",
-        "src": "/assets/projects/figures/vulcan-c.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/vulcan-c.mp4",
+        "webm": "/assets/projects/plates/v2/vulcan-c.webm",
+        "poster": "/assets/projects/plates/v2/vulcan-c-poster-800.webp",
+        "full": "/assets/projects/plates/v2/vulcan-c-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/vulcan-c-poster-1600.webp",
         "caption": {
-          "en": "Request lifecycle and typed contract",
-          "zh": "请求生命周期与类型化契约",
-          "fr": "Cycle de requête et contrat typé"
+          "en": "Operator workflow: describe, review, then execute native features.",
+          "zh": "操作流程：描述、复核，再执行原生特征。",
+          "fr": "Flux opérateur : décrire, vérifier, puis exécuter des fonctions natives."
         }
       },
       {
         "label": "D",
         "type": "image",
-        "src": "/assets/projects/figures/vulcan-d.webp",
+        "src": "/assets/projects/plates/v2/vulcan-d-1600.webp",
+        "small": "/assets/projects/plates/v2/vulcan-d-800.webp",
+        "full": "/assets/projects/plates/v2/vulcan-d-1600.webp",
         "caption": {
-          "en": "Native SolidWorks output",
-          "zh": "SolidWorks 原生输出",
-          "fr": "Sortie native SolidWorks"
+          "en": "Typed JSON contract and the seven-stage request lifecycle.",
+          "zh": "类型化 JSON 契约与七段请求生命周期。",
+          "fr": "Contrat JSON typé et cycle de requête en sept étapes."
         }
       }
     ]
   },
   "hsiwu": {
     "title": {
-      "en": "Hsiwu: segmented wing morphing and analog control",
-      "zh": "Hsiwu：分段翼形变与模拟控制",
-      "fr": "Hsiwu : déformation d’aile segmentée et commande analogique"
+      "en": "Hsiwu: system overview, analog control, wing drive, and bench evidence.",
+      "zh": "Hsiwu：系统总览、模拟控制、翼驱动与台架证据。",
+      "fr": "Hsiwu : vue d’ensemble, commande analogique, entraînement d’aile et preuves au banc."
     },
     "source": {
-      "en": "Source: Hsiwu repository README.",
-      "zh": "来源：Hsiwu 仓库 README。",
-      "fr": "Source : README du dépôt Hsiwu."
+      "en": "Source: Hsiwu repository README, rev 1.0; CAD animation from the repository.",
+      "zh": "来源：Hsiwu 仓库 README，rev 1.0；CAD 动画来自仓库。",
+      "fr": "Source : README du dépôt Hsiwu, rév. 1.0 ; animation CAO du dépôt."
     },
     "panels": [
       {
         "label": "A",
-        "type": "gif",
-        "src": "/assets/projects/figures/hsiwu-a.gif",
-        "fallback": "/assets/projects/figures/hsiwu-a.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/hsiwu-a.mp4",
+        "webm": "/assets/projects/plates/v2/hsiwu-a.webm",
+        "poster": "/assets/projects/plates/v2/hsiwu-a-poster-800.webp",
+        "full": "/assets/projects/plates/v2/hsiwu-a-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/hsiwu-a-poster-1600.webp",
         "caption": {
-          "en": "Segmented wing morphing linkage",
-          "zh": "分段翼形变连杆",
-          "fr": "Mécanisme de déformation d’aile segmentée"
+          "en": "System overview: three segments per wing, three analog channels.",
+          "zh": "系统总览：每侧三段翼、三路模拟通道。",
+          "fr": "Vue d’ensemble : trois segments par aile, trois canaux analogiques."
         }
       },
       {
         "label": "B",
         "type": "image",
-        "src": "/assets/projects/figures/hsiwu-b.webp",
+        "src": "/assets/projects/plates/v2/hsiwu-b-1600.webp",
+        "small": "/assets/projects/plates/v2/hsiwu-b-800.webp",
+        "full": "/assets/projects/plates/v2/hsiwu-b-1600.webp",
         "caption": {
-          "en": "Analog control chain: 3× NE555 → 74HC04 → 3× L293D",
-          "zh": "模拟控制链：3× NE555 → 74HC04 → 3× L293D",
-          "fr": "Chaîne analogique : 3× NE555 → 74HC04 → 3× L293D"
+          "en": "Analog control and power chain: 3.7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D.",
+          "zh": "模拟控制与供电链：3.7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D。",
+          "fr": "Chaîne d’alimentation et de commande analogique : 3,7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D."
         }
       },
       {
         "label": "C",
-        "type": "image",
-        "src": "/assets/projects/figures/hsiwu-c.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/hsiwu-c.mp4",
+        "webm": "/assets/projects/plates/v2/hsiwu-c.webm",
+        "poster": "/assets/projects/plates/v2/hsiwu-c-poster-800.webp",
+        "full": "/assets/projects/plates/v2/hsiwu-c-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/hsiwu-c-poster-1600.webp",
         "caption": {
-          "en": "Complete six-segment assembly",
-          "zh": "六段翼整机装配",
-          "fr": "Assemblage complet à six segments"
+          "en": "As-built wing drive: lead screw, traveling nut, and H-bridge reversal.",
+          "zh": "实机翼驱动：丝杠、行进螺母与 H 桥换向。",
+          "fr": "Entraînement d’aile réalisé : vis mère, écrou mobile et inversion en pont H."
         }
       },
       {
         "label": "D",
         "type": "image",
-        "src": "/assets/projects/figures/hsiwu-d.webp",
+        "src": "/assets/projects/plates/v2/hsiwu-d-1600.webp",
+        "small": "/assets/projects/plates/v2/hsiwu-d-800.webp",
+        "full": "/assets/projects/plates/v2/hsiwu-d-1600.webp",
         "caption": {
-          "en": "Structural line drawing",
-          "zh": "结构线稿",
-          "fr": "Dessin structurel"
+          "en": "Bench evidence: verified electronics; membrane and flight are not tested.",
+          "zh": "台架证据：电子部分已验证；翼膜与飞行未测试。",
+          "fr": "Preuves au banc : électronique validée ; membrane et vol non testés."
         }
       }
     ]
   },
   "dustarrow": {
     "title": {
-      "en": "DustArrow X: deployment, CFD, launch, and telemetry",
-      "zh": "DustArrow X：展开、CFD、发射与遥测",
-      "fr": "DustArrow X : déploiement, CFD, lancement et télémétrie"
+      "en": "DustArrow X: modular architecture, deployment, launch, and telemetry.",
+      "zh": "DustArrow X：模块化架构、展开、发射与遥测。",
+      "fr": "DustArrow X : architecture modulaire, déploiement, lancement et télémétrie."
     },
     "source": {
-      "en": "Source: DustArrow repository README; launch still from Shanghai TV, Young Edison S8.",
-      "zh": "来源：DustArrow 仓库 README；发射画面来自上海电视台《少年爱迪生》第八季。",
-      "fr": "Source : README du dépôt DustArrow ; image de lancement : Shanghai TV, Young Edison S8."
+      "en": "Source: DustArrow repository README; launch footage courtesy of Shanghai TV, Young Edison S8.",
+      "zh": "来源：DustArrow 仓库 README；发射画面由上海电视台《少年爱迪生》第八季提供。",
+      "fr": "Source : README du dépôt DustArrow ; images de lancement avec l’aimable autorisation de Shanghai TV, Young Edison S8."
     },
     "panels": [
       {
         "label": "A",
-        "type": "gif",
-        "src": "/assets/projects/figures/dustarrow-a.gif",
-        "fallback": "/assets/projects/figures/dustarrow-a.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/dustarrow-a.mp4",
+        "webm": "/assets/projects/plates/v2/dustarrow-a.webm",
+        "poster": "/assets/projects/plates/v2/dustarrow-a-poster-800.webp",
+        "full": "/assets/projects/plates/v2/dustarrow-a-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/dustarrow-a-poster-1600.webp",
         "caption": {
-          "en": "Nose-cone and canard deployment sequence",
-          "zh": "头锥与舵面展开序列",
-          "fr": "Séquence de déploiement du nez et des ailerons"
+          "en": "Modular architecture: nine modules, four sections, ten bays.",
+          "zh": "模块化架构：九个模块、四个功能段、十个舱位。",
+          "fr": "Architecture modulaire : neuf modules, quatre sections, dix baies."
         }
       },
       {
         "label": "B",
-        "type": "image",
-        "src": "/assets/projects/figures/dustarrow-b.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/dustarrow-b.mp4",
+        "webm": "/assets/projects/plates/v2/dustarrow-b.webm",
+        "poster": "/assets/projects/plates/v2/dustarrow-b-poster-800.webp",
+        "full": "/assets/projects/plates/v2/dustarrow-b-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/dustarrow-b-poster-1600.webp",
         "caption": {
-          "en": "CFD flow field",
-          "zh": "CFD 流场",
-          "fr": "Champ d’écoulement CFD"
+          "en": "Deployment: nose separation, canard deployment, and recovery.",
+          "zh": "展开：头锥分离、鸭翼展开与回收。",
+          "fr": "Déploiement : séparation du nez, déploiement des canards et récupération."
         }
       },
       {
         "label": "C",
-        "type": "image",
-        "src": "/assets/projects/figures/dustarrow-c.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/dustarrow-c.mp4",
+        "webm": "/assets/projects/plates/v2/dustarrow-c.webm",
+        "poster": "/assets/projects/plates/v2/dustarrow-c-poster-800.webp",
+        "full": "/assets/projects/plates/v2/dustarrow-c-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/dustarrow-c-poster-1600.webp",
         "caption": {
-          "en": "Launch, Gobi 2023",
-          "zh": "2023 年戈壁发射",
-          "fr": "Lancement, Gobi 2023"
+          "en": "Launch, Gobi 2023: actual footage from the TV feature.",
+          "zh": "2023 年戈壁发射：电视专题实拍画面。",
+          "fr": "Lancement, Gobi 2023 : images réelles du reportage télévisé."
         }
       },
       {
         "label": "D",
         "type": "image",
-        "src": "/assets/projects/figures/dustarrow-d.webp",
+        "src": "/assets/projects/plates/v2/dustarrow-d-1600.webp",
+        "small": "/assets/projects/plates/v2/dustarrow-d-800.webp",
+        "full": "/assets/projects/plates/v2/dustarrow-d-1600.webp",
         "caption": {
-          "en": "Modular telemetry architecture; attitude via atan2 + complementary filter",
-          "zh": "模块化遥测架构；姿态由 atan2 与互补滤波推导",
-          "fr": "Architecture de télémétrie ; attitude par atan2 et filtre complémentaire"
+          "en": "Telemetry: avionics, CRC-16 frame proposal, and ground station.",
+          "zh": "遥测：航电、CRC-16 帧建议与地面站。",
+          "fr": "Télémétrie : avionique, trame CRC-16 proposée et station sol."
         }
       }
     ]
   },
   "onesarm": {
     "title": {
-      "en": "OnesArm v2: platform, FCF structure, and layout/FEA derivation",
-      "zh": "OnesArm v2：平台、FCF 结构与布局/有限元推导",
-      "fr": "OnesArm v2 : plateforme, structure FCF et dérivation layout/FEA"
+      "en": "OnesArm v2: modular architecture, FCF grammar, layouts, and FEA.",
+      "zh": "OnesArm v2：模块化架构、FCF 语法、构型与有限元。",
+      "fr": "OnesArm v2 : architecture modulaire, grammaire FCF, agencements et FEA."
     },
     "source": {
       "en": "Source: OnesArm repository README, v2 material only.",
@@ -178,98 +213,118 @@
     "panels": [
       {
         "label": "A",
-        "type": "image",
-        "src": "/assets/projects/figures/onesarm-a.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/onesarm-a.mp4",
+        "webm": "/assets/projects/plates/v2/onesarm-a.webm",
+        "poster": "/assets/projects/plates/v2/onesarm-a-poster-800.webp",
+        "full": "/assets/projects/plates/v2/onesarm-a-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/onesarm-a-poster-1600.webp",
         "caption": {
-          "en": "V2 platform render",
-          "zh": "v2 平台渲染",
-          "fr": "Rendu de la plateforme v2"
+          "en": "Modular architecture: four layers, one T/N interface.",
+          "zh": "模块化架构：四层模块、一套 T/N 接口。",
+          "fr": "Architecture modulaire : quatre couches, une interface T/N."
         }
       },
       {
         "label": "B",
         "type": "image",
-        "src": "/assets/projects/figures/onesarm-b.webp",
+        "src": "/assets/projects/plates/v2/onesarm-b-1600.webp",
+        "small": "/assets/projects/plates/v2/onesarm-b-800.webp",
+        "full": "/assets/projects/plates/v2/onesarm-b-1600.webp",
         "caption": {
-          "en": "FCF interface: face → channel → face; 3! × 2² = 24 layouts",
-          "zh": "FCF 接口：面 → 通道 → 面；3! × 2² = 24 种布局",
-          "fr": "Interface FCF : face → canal → face ; 3! × 2² = 24 configurations"
+          "en": "FCF grammar: face–channel–face and the T/N mortise-and-tenon.",
+          "zh": "FCF 语法：面–通道–面与 T/N 榫卯接口。",
+          "fr": "Grammaire FCF : face–canal–face et assemblage T/N."
         }
       },
       {
         "label": "C",
-        "type": "image",
-        "src": "/assets/projects/figures/onesarm-c.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/onesarm-c.mp4",
+        "webm": "/assets/projects/plates/v2/onesarm-c.webm",
+        "poster": "/assets/projects/plates/v2/onesarm-c-poster-800.webp",
+        "full": "/assets/projects/plates/v2/onesarm-c-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/onesarm-c-poster-1600.webp",
         "caption": {
-          "en": "FCF derivation: 3! × 2² = 24 layouts",
-          "zh": "FCF 推导：3! × 2² = 24 种布局",
-          "fr": "Dérivation FCF : 3! × 2² = 24 configurations"
+          "en": "24 layouts and the MATLAB analysis of AyCxBy-D.",
+          "zh": "24 种构型与 AyCxBy-D 的 MATLAB 分析。",
+          "fr": "24 agencements et analyse MATLAB de AyCxBy-D."
         }
       },
       {
         "label": "D",
-        "type": "gif",
-        "src": "/assets/projects/figures/onesarm-d.gif",
-        "fallback": "/assets/projects/figures/onesarm-d.webp",
+        "type": "image",
+        "src": "/assets/projects/plates/v2/onesarm-d-1600.webp",
+        "small": "/assets/projects/plates/v2/onesarm-d-800.webp",
+        "full": "/assets/projects/plates/v2/onesarm-d-1600.webp",
         "caption": {
-          "en": "V2 FEA displacement field",
-          "zh": "v2 有限元位移场",
-          "fr": "Champ de déplacement FEA v2"
+          "en": "FEA of the v2 XY link and the CAN control chain.",
+          "zh": "v2 XY 长连杆有限元分析与 CAN 控制链。",
+          "fr": "FEA du lien XY v2 et chaîne de commande CAN."
         }
       }
     ]
   },
   "sencillo": {
     "title": {
-      "en": "Sencillo: force-flow decoupling, layout, error budget, and constraint compilation",
-      "zh": "Sencillo：力流解耦、整机布局、误差预算与约束编译",
-      "fr": "Sencillo : découplage des flux, agencement, budget d’erreur et compilation de contraintes"
+      "en": "Sencillo: force flow, machine layout, error budget, and constraint compiler.",
+      "zh": "Sencillo：力流、整机布局、误差预算与约束编译。",
+      "fr": "Sencillo : flux de forces, agencement, budget d’erreur et compilateur de contraintes."
     },
     "source": {
-      "en": "Design-target figures; not measured.",
-      "zh": "设计目标图示，非实测。",
-      "fr": "Figures d’objectif de conception ; non mesurées."
+      "en": "Design-target figures; not measured. Anteportal Labs.",
+      "zh": "设计目标图示，非实测。Anteportal Labs。",
+      "fr": "Figures d’objectif de conception ; non mesurées. Anteportal Labs."
     },
     "panels": [
       {
         "label": "A",
-        "type": "gif",
-        "src": "/assets/projects/figures/sencillo-a.gif",
-        "fallback": "/assets/projects/figures/sencillo-a.webp",
+        "type": "video",
+        "src": "/assets/projects/plates/v2/sencillo-a.mp4",
+        "webm": "/assets/projects/plates/v2/sencillo-a.webm",
+        "poster": "/assets/projects/plates/v2/sencillo-a-poster-800.webp",
+        "full": "/assets/projects/plates/v2/sencillo-a-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v2/sencillo-a-poster-1600.webp",
         "caption": {
-          "en": "Force-flow decoupling: two closed loops",
-          "zh": "力流解耦：两条闭环",
-          "fr": "Découplage des flux : deux boucles fermées"
+          "en": "Force-flow decoupling: two independent closed loops.",
+          "zh": "力流解耦：两条独立闭环。",
+          "fr": "Découplage des flux : deux boucles fermées indépendantes."
         }
       },
       {
         "label": "B",
         "type": "image",
-        "src": "/assets/projects/figures/sencillo-b.webp",
+        "src": "/assets/projects/plates/v2/sencillo-b-1600.webp",
+        "small": "/assets/projects/plates/v2/sencillo-b-800.webp",
+        "full": "/assets/projects/plates/v2/sencillo-b-1600.webp",
         "caption": {
-          "en": "Machine layout: fixed gantry and independent C-frame",
-          "zh": "整机布局：固定龙门与独立 C 型架",
-          "fr": "Agencement : portique fixe et bâti en C indépendant"
+          "en": "Machine layout: fixed gantry and independent C-frame.",
+          "zh": "整机布局：固定龙门与独立 C 型架。",
+          "fr": "Agencement : portique fixe et bâti en C indépendant."
         }
       },
       {
         "label": "C",
         "type": "image",
-        "src": "/assets/projects/figures/sencillo-c.webp",
+        "src": "/assets/projects/plates/v2/sencillo-c-1600.webp",
+        "small": "/assets/projects/plates/v2/sencillo-c-800.webp",
+        "full": "/assets/projects/plates/v2/sencillo-c-1600.webp",
         "caption": {
-          "en": "8/8 mil error budget (3σ)",
-          "zh": "8/8 mil 误差预算（3σ）",
-          "fr": "Budget d’erreur 8/8 mil (3σ)"
+          "en": "Error budget: RSS 27.5 µm against a 50 µm target.",
+          "zh": "误差预算：RSS 27.5 µm，目标 50 µm。",
+          "fr": "Budget d’erreur : RSS 27,5 µm pour une cible de 50 µm."
         }
       },
       {
         "label": "D",
         "type": "image",
-        "src": "/assets/projects/figures/sencillo-d.webp",
+        "src": "/assets/projects/plates/v2/sencillo-d-1600.webp",
+        "small": "/assets/projects/plates/v2/sencillo-d-800.webp",
+        "full": "/assets/projects/plates/v2/sencillo-d-1600.webp",
         "caption": {
-          "en": "AI constraint compilation and five validation gates",
-          "zh": "AI 约束编译与五道验证门",
-          "fr": "Compilation de contraintes IA et cinq portes de validation"
+          "en": "Constraint compilation and five validation gates.",
+          "zh": "约束编译与五道验证门。",
+          "fr": "Compilation de contraintes et cinq portes de validation."
         }
       }
     ]

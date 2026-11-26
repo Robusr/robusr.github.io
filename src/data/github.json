@@ -1,10 +1,10 @@
 {
-  "fetchedAt": "2026-11-25T19:17:05.628Z",
+  "fetchedAt": "2026-11-26T15:02:58.715Z",
   "repos": {
     "Vulcan": {
       "stars": 26,
       "forks": 3,
-      "pushedAt": "2026-11-20T06:15:08Z",
+      "pushedAt": "2026-11-26T14:50:16Z",
       "release": {
         "tag": "v1.3.0",
         "publishedAt": "2026-11-16T19:03:20Z",
@@ -14,17 +14,17 @@
     "Hsiwu": {
       "stars": 9,
       "forks": 2,
-      "pushedAt": "2026-06-22T02:44:04Z"
+      "pushedAt": "2026-11-26T14:49:45Z"
     },
     "DustArrow": {
       "stars": 2,
       "forks": 0,
-      "pushedAt": "2026-10-19T19:38:12Z"
+      "pushedAt": "2026-11-26T14:49:30Z"
     },
     "OnesArm": {
       "stars": 2,
       "forks": 0,
-      "pushedAt": "2026-10-19T20:13:38Z"
+      "pushedAt": "2026-11-26T14:50:05Z"
     },
     "Huginn": {
       "stars": 4,

@@ -13,7 +13,7 @@
   --max-width: 880px;
   --gutter: clamp(20px, 5vw, 48px);
   --radius: 3px;
-  --font-sans: "Inter Variable", "Inter", "PingFang SC", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Inter Variable", "Inter", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, monospace;
   --step-0: 1rem;
   --step-1: 1.0625rem;

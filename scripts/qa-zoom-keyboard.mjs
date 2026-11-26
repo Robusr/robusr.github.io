@@ -22,7 +22,7 @@ await zoom.close();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto('http://127.0.0.1:4321/', { waitUntil: 'networkidle' });
 const stops = [];
-for (let i = 0; i < 14; i++) {
+for (let i = 0; i < 34; i++) {
   await page.keyboard.press('Tab');
   stops.push(await page.evaluate(() => {
     const el = document.activeElement;

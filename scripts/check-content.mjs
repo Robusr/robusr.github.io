@@ -29,7 +29,7 @@ for (const locale of ['zh', 'fr']) {
 }
 
 const profile = read('src/data/profile.json');
-for (const field of ['name', 'label', 'positioning', 'intro', 'status', 'location', 'lastUpdated']) {
+for (const field of ['name', 'label', 'positioning', 'intro', 'status', 'location', 'lastUpdated', 'pullQuote']) {
   if (!isLocalized(profile[field])) errors.push(`profile.${field} must have en, zh, and fr strings`);
 }
 for (const locale of locales) {
@@ -113,20 +113,33 @@ for (const project of projects) {
     } else {
       const labels = figure.panels.map((panel) => panel.label).join('');
       if (labels !== 'ABCD') errors.push(`figure ${id} panel labels must be A, B, C, D`);
-      for (const panel of figure.panels) {
-        if (!['gif', 'image'].includes(panel.type)) errors.push(`figure ${id} ${panel.label} has invalid type`);
-        if (!isLocalized(panel.caption)) errors.push(`figure ${id} ${panel.label} caption must have en, zh, and fr strings`);
-        if (!/^\/assets\/projects\/figures\/[A-Za-z0-9-]+\.(gif|webp)$/.test(panel.src ?? '')) {
-          errors.push(`figure ${id} ${panel.label} has an invalid source path`);
-        } else if (!exists(`public${panel.src}`)) {
-          errors.push(`figure ${id} ${panel.label} file missing: ${panel.src}`);
+      const assetPath = /^\/assets\/projects\/(?:figures|plates)\/[A-Za-z0-9._/-]+\.(gif|webp|mp4|webm)$/;
+      const checkAsset = (file, label, kind) => {
+        if (!assetPath.test(file ?? '')) {
+          errors.push(`figure ${id} ${panel.label} ${label} has an invalid path`);
+        } else if (!exists(`public${file}`)) {
+          errors.push(`figure ${id} ${panel.label} ${label} missing: ${file}`);
         }
-        if (panel.type === 'gif') {
-          if (!/^\/assets\/projects\/figures\/[A-Za-z0-9-]+\.webp$/.test(panel.fallback ?? '')) {
-            errors.push(`figure ${id} ${panel.label} GIF needs a WebP fallback`);
-          } else if (!exists(`public${panel.fallback}`)) {
-            errors.push(`figure ${id} ${panel.label} fallback missing: ${panel.fallback}`);
+        if (kind && !new RegExp(`\\.${kind}$`).test(file ?? '')) {
+          errors.push(`figure ${id} ${panel.label} ${label} must be .${kind}`);
+        }
+      };
+      for (const panel of figure.panels) {
+        if (!['gif', 'image', 'video'].includes(panel.type)) errors.push(`figure ${id} ${panel.label} has invalid type`);
+        if (!isLocalized(panel.caption)) errors.push(`figure ${id} ${panel.label} caption must have en, zh, and fr strings`);
+        if (panel.type === 'video') {
+          checkAsset(panel.src, 'video source', 'mp4');
+          if (panel.webm) checkAsset(panel.webm, 'WebM source', 'webm');
+          checkAsset(panel.poster, 'poster', 'webp');
+          checkAsset(panel.full, 'full frame', 'webp');
+          if (panel.fallback) checkAsset(panel.fallback, 'print fallback', 'webp');
+        } else {
+          checkAsset(panel.src, 'source', panel.type === 'gif' ? 'gif' : 'webp');
+          if (panel.type === 'image') {
+            if (panel.small) checkAsset(panel.small, 'small image', 'webp');
+            if (panel.full) checkAsset(panel.full, 'full image', 'webp');
           }
+          if (panel.type === 'gif') checkAsset(panel.fallback, 'GIF fallback', 'webp');
         }
       }
     }

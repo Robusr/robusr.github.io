@@ -9,9 +9,13 @@ const featured = [...projects].sort((a, b) => a.order - b.order);
 
 type Panel = {
   label: string;
-  type: 'gif' | 'image';
+  type: 'gif' | 'image' | 'video';
   src: string;
+  small?: string;
+  full?: string;
+  poster?: string;
   fallback?: string;
+  webm?: string;
   caption: Record<Locale, string>;
 };
 type Plate = {
@@ -44,72 +48,156 @@ const formatDate = (value?: string | null) => {
           : undefined;
         const release = stats?.release;
         const plate = (figures as Record<string, Plate>)[project.id];
+        const hasVideo = plate.panels.some((panel) => panel.type === 'video');
         return (
           <li class="project">
-            <figure class="project-plate" aria-labelledby={`fig-${project.id}`}>
-              <div class="plate-panels">
-                {plate.panels.map((panel) => (
-                  <figure class="plate-panel">
-                    {panel.type === 'gif' ? (
-                      <picture>
-                        <source media="print" srcset={panel.fallback} type="image/webp" />
-                        <source media="(prefers-reduced-motion: reduce)" srcset={panel.fallback} type="image/webp" />
-                        <img
-                          src={panel.src}
-                          width="800"
-                          height="450"
-                          alt={panel.caption[locale]}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </picture>
-                      <img
-                        class="plate-print-still"
-                        src={panel.fallback}
-                        width="800"
-                        height="450"
-                        alt={panel.caption[locale]}
-                        decoding="async"
-                      />
-                    ) : (
-                      <img
-                        src={panel.src}
-                        width="800"
-                        height="450"
-                        alt={panel.caption[locale]}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
-                    <figcaption>
-                      <span class="panel-label">{panel.label}</span>
-                      {panel.caption[locale]}
-                    </figcaption>
-                  </figure>
-                ))}
+            <div class="project-intro">
+              <div class="project-head">
+                <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <h3><a href={project.href}>{project.name}</a></h3>
+                <div class="project-flags">
+                  {release ? (
+                    <a class="release" href={release.url} data-release-repo={project.repo}>{release.tag}</a>
+                  ) : project.repo ? (
+                    <a class="release" href={`https://github.com/Robusr/${project.repo}/releases`} data-release-repo={project.repo} hidden></a>
+                  ) : null}
+                  <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
+                </div>
               </div>
+              <p class="project-category">{project.category[locale]}</p>
+              <p class="project-tagline">{project.tagline[locale]}</p>
+            </div>
+
+            <figure class="project-plate" aria-labelledby={`fig-${project.id}`}>
+              <div class="plate-toolbar">
+                <div class="plate-pager" role="group" aria-label={t.plate.pager}>
+                  {plate.panels.map((panel, panelIndex) => (
+                    <a
+                      class={`plate-tab${panelIndex === 0 ? ' is-active' : ''}`}
+                      href={`#panel-${project.id}-${panel.label}`}
+                      data-plate-tab={String(panelIndex)}
+                      aria-current={panelIndex === 0 ? 'true' : undefined}
+                      aria-label={`${t.plate.panel} ${panel.label}`}
+                    >
+                      {panel.label}
+                    </a>
+                  ))}
+                </div>
+                {hasVideo && (
+                  <button
+                    class="plate-motion"
+                    type="button"
+                    data-plate-motion
+                    data-pause-label={t.plate.pause}
+                    data-play-label={t.plate.play}
+                    hidden
+                  >
+                    {t.plate.pause}
+                  </button>
+                )}
+              </div>
+
+              <div class="plate-panels" data-plate-carousel>
+                {plate.panels.map((panel) => {
+                  const caption = panel.caption[locale];
+                  const panelId = `panel-${project.id}-${panel.label}`;
+                  const mediaHref = panel.type === 'video'
+                    ? (panel.full ?? panel.poster ?? panel.src)
+                    : (panel.full ?? panel.src);
+                  const videoSrc = panel.type === 'video' ? panel.src : '';
+                  const webmSrc = panel.type === 'video' ? (panel.webm ?? '') : '';
+                  return (
+                    <figure class="plate-panel" id={panelId}>
+                      <a
+                        class="plate-media"
+                        href={mediaHref}
+                        data-plate-media
+                        data-video={videoSrc}
+                        data-webm={webmSrc}
+                        data-title={`${project.name} · ${panel.label}`}
+                        data-caption={caption}
+                        aria-label={`${t.plate.enlarge}: ${caption}`}
+                      >
+                        {panel.type === 'video' ? (
+                          <>
+                            <video
+                              width="1600"
+                              height="900"
+                              muted
+                              loop
+                              playsinline
+                              preload="none"
+                              poster={panel.poster}
+                              data-plate-video
+                            >
+                              <source src={panel.src} type="video/mp4" />
+                              {panel.webm && <source src={panel.webm} type="video/webm" />}
+                            </video>
+                            <img
+                              class="plate-print-still"
+                              src={panel.poster ?? panel.fallback ?? panel.full ?? panel.src}
+                              width="800"
+                              height="450"
+                              alt={caption}
+                              decoding="async"
+                              fetchpriority="low"
+                            />
+                          </>
+                        ) : panel.type === 'gif' ? (
+                          <>
+                            <picture>
+                              <source media="(prefers-reduced-motion: reduce)" srcset={panel.fallback} type="image/webp" />
+                              <img
+                                src={panel.src}
+                                width="1600"
+                                height="900"
+                                alt={caption}
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </picture>
+                            <img
+                              class="plate-print-still"
+                              src={panel.fallback}
+                              width="800"
+                              height="450"
+                              alt={caption}
+                              decoding="async"
+                              fetchpriority="low"
+                            />
+                          </>
+                        ) : (
+                          <img
+                            src={panel.small ?? panel.src}
+                            srcset={panel.small && panel.full ? `${panel.small} 800w, ${panel.full} 1600w` : undefined}
+                            sizes="(min-width: 900px) 880px, 92vw"
+                            width="1600"
+                            height="900"
+                            alt={caption}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        )}
+                        <span class="plate-zoom-hint" aria-hidden="true">{t.plate.enlarge} ↗</span>
+                      </a>
+                      <figcaption>
+                        <span class="panel-label">{panel.label}</span>
+                        {caption}
+                      </figcaption>
+                    </figure>
+                  );
+                })}
+              </div>
+
               <figcaption class="plate-caption">
                 <span class="plate-fig">Fig. {String(project.order).padStart(2, '0')}</span>
                 <span id={`fig-${project.id}`}>{plate.title[locale]}</span>
                 <span class="plate-source">{plate.source[locale]}</span>
               </figcaption>
             </figure>
+
             <div class="project-body">
               <div class="project-main">
-                <div class="project-head">
-                  <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                  <h3><a href={project.href}>{project.name}</a></h3>
-                  <div class="project-flags">
-                    {release ? (
-                      <a class="release" href={release.url} data-release-repo={project.repo}>{release.tag}</a>
-                    ) : project.repo ? (
-                      <a class="release" href={`https://github.com/Robusr/${project.repo}/releases`} data-release-repo={project.repo} hidden></a>
-                    ) : null}
-                    <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
-                  </div>
-                </div>
-                <p class="project-category">{project.category[locale]}</p>
-                <p class="project-tagline">{project.tagline[locale]}</p>
                 <p class="project-summary">{project.summary[locale]}</p>
                 <a class="exit" href={project.href}>{t.exit[project.exitKey as keyof Messages['exit']]}</a>
               </div>

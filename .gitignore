@@ -8,3 +8,8 @@ dist/
 portrait.JPG
 Robusr_A.jpg
 minilab.jpeg
+
+# Generated figure frames and render previews (sources live in figures/src)
+figures/frames/
+figures/render/
+figures/video-src/

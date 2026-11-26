@@ -154,3 +154,156 @@ if (liveRoots.length) {
   if (document.readyState === 'complete') schedule();
   else window.addEventListener('load', schedule, { once: true });
 }
+
+/* Plate carousel: one panel at a time, snap points, pager sync. */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const plateCarousels = [...document.querySelectorAll('[data-plate-carousel]')];
+plateCarousels.forEach((carousel) => {
+  const plate = carousel.closest('.project-plate');
+  if (!plate) return;
+  const panels = [...carousel.querySelectorAll('.plate-panel')];
+  const tabs = [...plate.querySelectorAll('[data-plate-tab]')];
+  if (!panels.length || !tabs.length) return;
+
+  const setActive = (index) => {
+    const active = Math.max(0, Math.min(panels.length - 1, index));
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('is-active', i === active);
+      if (i === active) tab.setAttribute('aria-current', 'true');
+      else tab.removeAttribute('aria-current');
+    });
+  };
+
+  carousel.addEventListener('scroll', () => {
+    const width = carousel.clientWidth;
+    if (!width) return;
+    setActive(Math.round(carousel.scrollLeft / width));
+  }, { passive: true });
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', (event) => {
+      event.preventDefault();
+      carousel.scrollTo({
+        left: index * carousel.clientWidth,
+        behavior: reduceMotion.matches ? 'auto' : 'smooth',
+      });
+    });
+  });
+});
+
+/* Silent, looping plate videos: play only in view, and only when motion is on. */
+const plateVideos = [...document.querySelectorAll('video[data-plate-video]')];
+const motionButtons = [...document.querySelectorAll('[data-plate-motion]')];
+if (plateVideos.length) {
+  let playing = !reduceMotion.matches;
+  const setVideo = (video, on) => {
+    if (on) {
+      const promise = video.play();
+      if (promise) promise.catch(() => {});
+    } else {
+      video.pause();
+    }
+  };
+  const visible = new Map();
+  const syncButtons = () => motionButtons.forEach((button) => {
+    button.hidden = false;
+    button.textContent = playing ? button.dataset.pauseLabel : button.dataset.playLabel;
+  });
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        visible.set(entry.target, entry.isIntersecting);
+        setVideo(entry.target, playing && entry.isIntersecting);
+      });
+    }, { threshold: 0.55 });
+    plateVideos.forEach((video) => observer.observe(video));
+  } else {
+    plateVideos.forEach((video) => setVideo(video, playing));
+  }
+
+  motionButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      playing = !playing;
+      plateVideos.forEach((video) => setVideo(video, playing && (visible.get(video) ?? true)));
+      syncButtons();
+    });
+  });
+
+  reduceMotion.addEventListener?.('change', () => {
+    if (reduceMotion.matches) {
+      playing = false;
+      plateVideos.forEach((video) => video.pause());
+      syncButtons();
+    }
+  });
+  syncButtons();
+}
+
+/* Plate lightbox: native <dialog>, with image/video and caption. */
+const plateDialog = document.querySelector('[data-plate-dialog]');
+if (plateDialog && typeof plateDialog.showModal === 'function') {
+  const dialogMedia = plateDialog.querySelector('[data-dialog-media]');
+  const dialogTitle = plateDialog.querySelector('[data-dialog-title]');
+  const dialogCaption = plateDialog.querySelector('[data-dialog-caption]');
+  const closeDialog = () => {
+    if (plateDialog.open) plateDialog.close();
+  };
+
+  plateDialog.querySelector('[data-dialog-close]')?.addEventListener('click', closeDialog);
+  plateDialog.addEventListener('click', (event) => {
+    if (event.target === plateDialog) closeDialog();
+  });
+  plateDialog.addEventListener('close', () => {
+    dialogMedia.replaceChildren();
+    document.body.classList.remove('has-dialog');
+  });
+
+  document.querySelectorAll('[data-plate-media]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
+      dialogMedia.replaceChildren();
+      const videoSrc = link.getAttribute('data-video');
+      if (videoSrc) {
+        const video = document.createElement('video');
+        video.controls = true;
+        video.autoplay = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.poster = link.getAttribute('href') || '';
+        const mp4 = document.createElement('source');
+        mp4.src = videoSrc;
+        mp4.type = 'video/mp4';
+        video.appendChild(mp4);
+        const webmSrc = link.getAttribute('data-webm');
+        if (webmSrc) {
+          const webm = document.createElement('source');
+          webm.src = webmSrc;
+          webm.type = 'video/webm';
+          video.appendChild(webm);
+        }
+        dialogMedia.appendChild(video);
+        video.play().catch(() => {});
+      } else {
+        const image = document.createElement('img');
+        image.src = link.getAttribute('href') || '';
+        image.alt = link.getAttribute('data-caption') || '';
+        dialogMedia.appendChild(image);
+      }
+      dialogTitle.textContent = link.getAttribute('data-title') || '';
+      dialogCaption.textContent = link.getAttribute('data-caption') || '';
+      plateDialog.showModal();
+      document.body.classList.add('has-dialog');
+    });
+  });
+}
+
+// Upgrade the print-only cover image to its high-resolution copy when printing.
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll('img[data-hires]').forEach((img) => {
+    const hires = img.getAttribute('data-hires');
+    if (hires && img.getAttribute('src') !== hires) img.setAttribute('src', hires);
+  });
+});

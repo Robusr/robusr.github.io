@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="220mm" height="123.75mm" viewBox="0 0 1600 900" role="img">
+<title>Sencillo C — error budget</title>
+<defs><marker id="sencillocerrorbudget-ink" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#0A0D29"/></marker><marker id="sencillocerrorbudget-accent" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#0F6B5F"/></marker><marker id="sencillocerrorbudget-warm" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#B26A3C"/></marker><marker id="sencillocerrorbudget-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#6B6B6B"/></marker></defs>
+<rect width="1600" height="900" fill="#FBFBF9"/>
+<rect x="56.0" y="42.0" width="34.0" height="34.0" rx="3" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<text x="73.0" y="66.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#FBFBF9" text-anchor="middle" letter-spacing="0" opacity="1" >C</text>
+<text x="106.0" y="58.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.4" opacity="1" >ERROR BUDGET</text>
+<text x="104.0" y="100.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="33" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >An error budget for 8/8 mil</text>
+<text x="104.0" y="132.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Eight contributors, RSS 27.5 µm against a 50 µm budget; 22.5 µm margin. Design targets, not measurements.</text>
+<line x1="56.0" y1="158.0" x2="1544.0" y2="158.0" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
+<text x="1544.0" y="58.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#6B6B6B" text-anchor="end" letter-spacing="0.6" opacity="1" >SENCILLO · design target</text>
+<rect x="56.0" y="196.0" width="900.0" height="560.0" rx="5" fill="#FFFFFF" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
+<text x="74.0" y="222.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >3Σ ERROR CONTRIBUTIONS</text>
+<text x="74.0" y="250.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >Eight allowances, root-sum-square</text>
+<text x="74.0" y="294.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#161616" text-anchor="start" letter-spacing="0" opacity="1" >Thermal drift</text>
+<text x="74.0" y="311.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >preheat 30 min · 20 ± 2 °C</text>
+<rect x="310.0" y="285.0" width="500.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="310.0" y="285.0" width="500.0" height="16.0" rx="2" fill="#B26A3C" stroke="none" stroke-width="0" opacity="1" />
+<text x="824.0" y="298.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >20 µm</text>
+<text x="74.0" y="336.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#161616" text-anchor="start" letter-spacing="0" opacity="1" >Lead-screw lead error</text>
+<text x="74.0" y="353.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >C5 ground · full closed loop</text>
+<rect x="310.0" y="327.0" width="500.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="310.0" y="327.0" width="300.0" height="16.0" rx="2" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<text x="824.0" y="340.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >12 µm</text>
+<text x="74.0" y="378.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#161616" text-anchor="start" letter-spacing="0" opacity="1" >Guide-rail straightness</text>
+<text x="74.0" y="395.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >MGN12H P · preload</text>
+<rect x="310.0" y="369.0" width="500.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="310.0" y="369.0" width="200.0" height="16.0" rx="2" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<text x="824.0" y="382.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >8 µm</text>
+<text x="74.0" y="420.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#161616" text-anchor="start" letter-spacing="0" opacity="1" >Fixture repeatability</text>
+<text x="74.0" y="437.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >taper pin · floating clamp</text>
+<rect x="310.0" y="411.0" width="500.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="310.0" y="411.0" width="200.0" height="16.0" rx="2" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<text x="824.0" y="424.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >8 µm</text>
+<text x="74.0" y="462.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#161616" text-anchor="start" letter-spacing="0" opacity="1" >Vibration / EMI</text>
+<text x="74.0" y="479.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >isolation · shielding · optocoupler</text>
+<rect x="310.0" y="453.0" width="500.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="310.0" y="453.0" width="150.0" height="16.0" rx="2" fill="#6B6B6B" stroke="none" stroke-width="0" opacity="1" />
+<text x="824.0" y="466.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >6 µm</text>
+<text x="74.0" y="504.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#161616" text-anchor="start" letter-spacing="0" opacity="1" >Closed-loop steady state</text>
+<text x="74.0" y="521.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >1 µm grating · PID + feedforward</text>
+<rect x="310.0" y="495.0" width="500.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="310.0" y="495.0" width="125.0" height="16.0" rx="2" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<text x="824.0" y="508.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >5 µm</text>
+<text x="74.0" y="546.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#161616" text-anchor="start" letter-spacing="0" opacity="1" >Bearing axial play</text>
+<text x="74.0" y="563.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >7602 preload</text>
+<rect x="310.0" y="537.0" width="500.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="310.0" y="537.0" width="100.0" height="16.0" rx="2" fill="#6B6B6B" stroke="none" stroke-width="0" opacity="1" />
+<text x="824.0" y="550.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >4 µm</text>
+<text x="74.0" y="588.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14.5" font-weight="500" fill="#161616" text-anchor="start" letter-spacing="0" opacity="1" >Spindle runout</text>
+<text x="74.0" y="605.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >MSIY-3060 · assembly calibration</text>
+<rect x="310.0" y="579.0" width="500.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="310.0" y="579.0" width="75.0" height="16.0" rx="2" fill="#6B6B6B" stroke="none" stroke-width="0" opacity="1" />
+<text x="824.0" y="592.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12.5" font-weight="600" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >3 µm</text>
+<text x="74.0" y="660.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >RSS = √(20² + 12² + 8² + 8² + 6² + 5² + 4² + 3²) = 27.5 µm</text>
+<text x="74.0" y="686.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >The budget is 50 µm; the design margin is 22.5 µm.</text>
+<text x="74.0" y="716.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="500" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >Each bar is a design allowance, not a measured error.</text>
+<rect x="984.0" y="196.0" width="560.0" height="560.0" rx="5" fill="#FFFFFF" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
+<text x="1002.0" y="222.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >BUDGET</text>
+<text x="1002.0" y="272.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >27.5 µm</text>
+<text x="1002.0" y="300.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >root-sum-square (3σ)</text>
+<line x1="1002.0" y1="326.0" x2="1526.0" y2="326.0" stroke="#E8E8E2" stroke-width="1" opacity="1" />
+<text x="1002.0" y="360.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >50 µm</text>
+<text x="1110.0" y="360.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >budget</text>
+<text x="1002.0" y="404.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >22.5 µm</text>
+<text x="1110.0" y="404.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >margin</text>
+<text x="1002.0" y="468.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#6B6B6B" text-anchor="start" letter-spacing="0.8" opacity="1" >RSS vs budget</text>
+<rect x="1002.0" y="486.0" width="500.0" height="28.0" rx="3" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="1002.0" y="486.0" width="275.0" height="28.0" rx="3" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<line x1="1502.0" y1="478.0" x2="1502.0" y2="522.0" stroke="#B26A3C" stroke-width="1.4" opacity="1" />
+<text x="1002.0" y="536.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >0</text>
+<text x="1502.0" y="536.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#B26A3C" text-anchor="end" letter-spacing="0" opacity="1" >50 µm</text>
+<text x="1002.0" y="570.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >The 50 µm budget is the machine allowance; 8/8 mil is the process target.</text>
+<text x="1002.0" y="598.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="500" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >No measured error budget exists for this pre-prototype.</text>
+<text x="1002.0" y="630.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Target: dry isolation milling + in-machine copper-rivet vias.</text>
+<text x="1002.0" y="656.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >≤ 30 min per board · 0.8 mm vias.</text>
+<text x="1002.0" y="700.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >Design target · October 2026.</text>
+<line x1="56.0" y1="858.0" x2="1544.0" y2="858.0" stroke="#E8E8E2" stroke-width="1" opacity="1" />
+<text x="56.0" y="880.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Source: Sencillo design-target figures, Anteportal Labs; all values are targets, not measurements.</text>
+<text x="1544.0" y="880.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15.5" font-weight="500" fill="#0F6B5F" text-anchor="end" letter-spacing="0.4" opacity="1" >C · error budget</text>
+</svg>

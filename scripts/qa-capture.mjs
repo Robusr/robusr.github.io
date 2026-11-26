@@ -3,7 +3,7 @@ import fs from 'node:fs';
 
 const BASE = 'http://127.0.0.1:4321';
 const OUT = 'screenshots';
-const results = { errors: [], shots: [], overflow: [], images: [], tapTargets: [], jsDisabled: null, anchors: [] };
+const results = { errors: [], shots: [], overflow: [], images: [], tapTargets: [], carousels: [], jsDisabled: null, anchors: [] };
 
 let browser;
 try {
@@ -38,6 +38,7 @@ async function audit(page, label, width) {
       const r = el.getBoundingClientRect();
       if (r.width > 0 && (r.right > window.innerWidth + 1 || r.left < -1)) {
         if (getComputedStyle(el).position === 'fixed') continue;
+        if (el.closest('[data-plate-carousel]')) continue;
         bad.push({ tag: el.tagName, cls: String(el.className).slice(0, 40), right: Math.round(r.right), left: Math.round(r.left) });
       }
     }
@@ -53,6 +54,21 @@ async function audit(page, label, width) {
     height: i.getAttribute('height'),
   })));
   results.images.push({ label, imgs });
+
+  const carousel = await page.evaluate(() => {
+    const projects = [...document.querySelectorAll('.project')];
+    return projects.map((project) => {
+      const track = project.querySelector('[data-plate-carousel]');
+      return {
+        name: project.querySelector('.project-head h3')?.textContent.trim() ?? '',
+        panels: project.querySelectorAll('.plate-panel').length,
+        tabs: project.querySelectorAll('[data-plate-tab]').length,
+        videos: project.querySelectorAll('video[data-plate-video]').length,
+        scrollable: track ? track.scrollWidth > track.clientWidth : false,
+      };
+    });
+  });
+  results.carousels.push({ label, projects: carousel });
 
   if (width <= 390) {
     const small = await page.evaluate(() => [...document.querySelectorAll('a, button')]
@@ -127,6 +143,7 @@ console.log(JSON.stringify({
   overflow: results.overflow.map((o) => ({ label: o.label, overflow: o.scrollWidth > o.innerWidth, bad: o.bad.length })),
   images: results.images.map((im) => ({ label: im.label, allLoaded: im.imgs.every((i) => i.ok) })),
   tapTargets: results.tapTargets,
+  carousels: results.carousels,
   jsDisabled: results.jsDisabled,
   anchors: results.anchors,
   shots: results.shots,

@@ -17,6 +17,25 @@ Production host switched to <https://robusr.cn> on 2026-10-21. Production checks
 - `npm run verify` passes: content check, 0 type errors, 4 pages built.
 - The Lighthouse and production browser figures below predate this change and need a fresh run.
 
+## 2026-11-27 — full plate pass and layout pass
+
+Scope: all five projects redrawn (20 panels, 10 silent loops), the plate carousel/lightbox mechanics, the accessibility/content fixes, and a fresh QA/Lighthouse run.
+
+- New editable SVG sources and the render pipeline live in `figures/` (`build_vulcan.py`, `build_batch.py`, `render.mjs`, `animate.mjs`, `animate_batch.mjs`); final assets are in `public/assets/projects/plates/v2/`.
+- Vulcan A/C, Hsiwu A, DustArrow A, OnesArm A, and Sencillo A are 6.4 s focus-scan loops over the complete plates. Hsiwu C (lead-screw CAD), DustArrow B (canard/parachute CAD), and OnesArm C (MATLAB) are source-video composites. DustArrow C is the actual Gobi launch footage from the owner-provided *Young Edison* episode, credited to Shanghai TV, Young Edison S8.
+- Ten loops in total: Vulcan 2, Hsiwu 2, DustArrow 3, OnesArm 2, Sencillo 1; every video has an 800/1600 WebP poster. The old GIF set is no longer referenced.
+- All 20 SVG sources pass `audit_svg_schematic.py` at the web figure scale (4.2 pt floor, 220 mm canvas; the canvas-width warning is intentional for the 880 px web plate). Sencillo C's 27.5 µm hero number is 20.27 pt, above the 20 pt ordinary ceiling by design.
+- Projects are a four-panel snap carousel at every width (880×495 desktop, 350×197 at 390 px), with A–D anchors, a motion pause/play control, and a native `<dialog>` lightbox. Media links open the full image/video panel with JavaScript disabled.
+- Mobile order is title → tagline → carousel → summary/spec; desktop keeps the plate first. The first project name on mobile is at 1,629 px (was 2,687 px). Page height: EN 9,568 px desktop / 10,595 px mobile; ZH 9,086 / 9,040; FR 9,710 / 11,029. Desktop is 7% taller than the old 432 px grid because the plate is now 880 px wide; mobile is 21% shorter.
+- The six-item nav adds Lab and Awards; mobile targets are 44 px for primary controls and the release/award links. About is split into three paragraphs with a pull quote. JSON-LD uses the v3 portrait; the CJK stack adds Microsoft YaHei / Source Han Sans; Chinese headings use zero negative tracking.
+- Inter is now self-hosted at `public/fonts/inter-latin-variable.woff2` and preloaded. The language hint is shown by an inline head-adjacent script for zh/fr browsers, eliminating the 0.069 CLS caused by unhiding it after paint (now 0–0.001).
+- Print: print-only images are eager 800 px stills; the cover uses a 480 px screen image and upgrades to 960 px on `beforeprint`. The current A4 test PDF is 10 pages and shows every project's four panels in 2×2.
+- `npm run check`, `npm run typecheck`, and `npm run build` pass (0 errors, 0 warnings, 0 hints; 4 pages).
+- `scripts/qa-capture.mjs`: 0 console/page errors, 0 horizontal overflow at 1440/1024/768/390, 0 missing images, 0 tap targets under 44 px, 4 panels / 4 tabs per project, 10 loops total, 8 screenshots.
+- Geometry: EN 9,568 px, ZH 9,086 px; h1 at 229/183 px and not covered. 200% zoom: 720 px viewport, no overflow; keyboard order includes the six nav links, four plate tabs, four media links, and the motion control.
+- Lighthouse mobile, local preview 2026-11-27: EN 98/100/100/100, ZH 97/100/100/100, FR 98/100/100/100; LCP 2.3–2.4 s; CLS 0–0.001; 864–905 KiB. Raw JSON is in `qa/lighthouse-*-mobile.json`.
+- Motion is opt-out: `prefers-reduced-motion` starts paused with the "Play motion" label; the control is hidden without JavaScript.
+
 ## 2026-10-22 follow-up
 
 - `npm run verify` now gates content consistency, `astro check`, and the build; `.github/workflows/verify.yml` runs it on pushes to `main` and on pull requests.

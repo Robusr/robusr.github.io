@@ -7,16 +7,42 @@
     "imageAlt": "The Mini Lab workbench: a robotic arm, whiteboard equations, an open laptop, and the site tagline: AI × engineering builder."
   },
   "navLabel": "Primary",
-  "nav": { "work": "Work", "journey": "Journey", "about": "About", "contact": "Contact" },
+  "nav": {
+    "lab": "Lab",
+    "work": "Work",
+    "journey": "Journey",
+    "awards": "Awards",
+    "about": "About",
+    "contact": "Contact"
+  },
   "skip": "Skip to content",
-  "sections": { "work": "Selected Work", "journey": "Journey", "awards": "Awards & Media", "moreWork": "More Work", "about": "About" },
+  "sections": {
+    "work": "Selected Work",
+    "journey": "Journey",
+    "awards": "Awards & Media",
+    "moreWork": "More Work",
+    "about": "About"
+  },
   "statusPrefix": "Currently:",
-  "status": { "Active": "Active", "Complete": "Complete", "Archive": "Archive", "v2 current": "v2 current", "Pre-prototype": "Pre-prototype" },
-  "exit": { "repository": "Repository →", "organization": "Organization →" },
+  "status": {
+    "Active": "Active",
+    "Complete": "Complete",
+    "Archive": "Archive",
+    "v2 current": "v2 current",
+    "Pre-prototype": "Pre-prototype"
+  },
+  "exit": {
+    "repository": "Repository →",
+    "organization": "Organization →"
+  },
   "designTarget": "Design target, not measured",
   "watch": "watch the feature",
   "contactHeading": "Contact",
-  "contactLabels": { "email": "Email", "github": "GitHub", "org": "Org" },
+  "contactLabels": {
+    "email": "Email",
+    "github": "GitHub",
+    "org": "Org"
+  },
   "languagesLabel": "Language",
   "langHint": "Also available in",
   "dismiss": "Dismiss",
@@ -31,5 +57,13 @@
     "evidence": "Evidence",
     "github": "GitHub"
   },
-  "colophon": "Set in Inter · paper · Wuhan · 2026"
+  "colophon": "Set in Inter · paper · Wuhan · 2026",
+  "plate": {
+    "panel": "Panel",
+    "enlarge": "Enlarge figure",
+    "close": "Close",
+    "pause": "Pause motion",
+    "play": "Play motion",
+    "pager": "Figure panels"
+  }
 }

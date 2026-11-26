@@ -33,11 +33,11 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 ## Contenu de la page
 
 - **Mini Lab (00) :** une photo pleine largeur de l'établi de la chambre juste après le Hero, avant les travaux sélectionnés, posée sur un passe-partout papier avec une légende « Fig. 00 » dans chaque langue.
-- **Travaux sélectionnés :** Vulcan, Hsiwu, DustArrow X, OnesArm et Anteportal Labs · Sencillo, dans cet ordre fixe. Chaque projet s'ouvre sur une planche académique A/B/C/D pleine largeur : un court GIF à lecture unique et trois panneaux d'architecture, de rendu ou d'analyse, avec une légende par panneau. Le corps associe le texte du projet et un tableau de spécifications Tech / Preuves / GitHub. Les cartes conservent les étoiles, forks, dernier push et dernière version GitHub en direct, avec un instantané de build en secours.
+- **Travaux sélectionnés :** Vulcan, Hsiwu, DustArrow X, OnesArm et Anteportal Labs · Sencillo, dans cet ordre fixe. Chaque projet s'ouvre sur un carrousel A–D (un panneau de 880 px à la fois ; défilement aimanté sur mobile) avec agrandissement au clic ; chaque panneau garde sa légende localisée. Les panneaux animés sont des boucles MP4/WebM silencieuses avec poster, mises en pause par `prefers-reduced-motion` ou le contrôle d'animation. Les cinq jeux sont redessinés : Vulcan (boucle système, déploiement, flux opérateur, contrat), Hsiwu (aile à trois segments, chaîne analogique, vis mère, preuves au banc), DustArrow (baies modulaires, déploiement, lancement réel au Gobi, télémétrie), OnesArm (couches modulaires, FCF, 24 agencements + MATLAB, FEA) et Sencillo (flux de forces, agencement, budget d’erreur, compilateur de contraintes). Le panneau de lancement DustArrow utilise les images *Young Edison* fournies par l’auteur, créditées à Shanghai TV. Le corps associe le texte du projet et un tableau de spécifications Tech / Preuves / GitHub. Les cartes conservent les étoiles, forks, dernier push et dernière version GitHub en direct, avec un instantané de build en secours.
 - **Parcours :** six lignes, d'un atelier de chambre en 2018 à HUST en 2026.
 - **Prix et presse :** premier prix du 38e CASTIC, deuxième prix du 37e CASTIC et le reportage *Young Edison* de la télévision de Shanghai.
 - **Autres projets :** quatre dépôts, une ligne chacun.
-- **À propos :** un paragraphe sur October Sky, l'allumage du propergol au sucre, la lampe du père professeur d'art, la courbe de von Kármán, l'assemblage des PCB de fusée, les tests de perte LoRa et les tons d'encre qui relient l'ingénierie au sens.
+- **À propos :** trois courts paragraphes et une citation sur October Sky, l'allumage du propergol au sucre, la lampe du père professeur d'art, la courbe de von Kármán, l'assemblage des PCB de fusée, les tests de perte LoRa et les tons d'encre qui relient l'ingénierie au sens.
 - **Contact :** e-mail, GitHub, Anteportal Labs, localisation, liens de langue et signature.
 - **Arrière-plan :** deux illustrations au trait de l'IP personnelle, un portrait collage en bas à droite et une silhouette debout en bas à gauche, sur un fond papier chaud avec une fine trame de points dans les marges. La silhouette apparaît à partir de 1200 px ; le mobile utilise une version 480 px du portrait.
 
@@ -48,12 +48,12 @@ Toutes les versions partagent le même modèle de contenu et le même ordre de s
 | Framework | Astro 7, sortie statique, sans framework client |
 | Styles | propriétés CSS natives, sans framework utilitaire |
 | Typographie | Inter variable auto-hébergée, pile système pour le chinois |
-| Images | planches projets : 20 panneaux en WebP 800×450, un GIF 400–640 px à lecture unique par projet, et stills WebP/JPEG 960 px en mouvement réduit ; portrait en 260 et 512 px, Mini Lab en 480/960/1440 px avec un fallback JPEG 1440 px, deux illustrations IP transparentes dimensionnées pour leur emplacement ; WebP et fallbacks JPEG |
+| Images | 20 planches projets en WebP 1600×900 ; 10 boucles MP4/WebM silencieuses avec posters et stills d'impression 800 px ; les panneaux A sont des scans de focalisation, Hsiwu C / DustArrow B / OnesArm C des composites CAO ou MATLAB, DustArrow C les images réelles du lancement ; portrait en 260 et 512 px, Mini Lab en 480/960/1440 px avec un fallback JPEG 1440 px, deux illustrations IP transparentes dimensionnées pour leur emplacement ; WebP et fallbacks JPEG |
 | Icônes | favicon SVG sur fond papier : bras robotique à l’encre, articulations creuses, pince en C et base bleu-vert ; PNG 16/32/180 px et manifeste web |
-| JavaScript | environ 2,3 Ko d'amélioration progressive |
+| JavaScript | environ 6 Ko non compressés d'amélioration progressive (carrousel, lightbox, contrôle d'animation, GitHub en direct) |
 | Données GitHub | instantané produit au build depuis l'API GitHub ; rafraîchissement `/api/github` mis en cache en périphérie par une Cloudflare Pages Function |
 | Confidentialité | aucune analyse, cookie, police tierce ou intégration ; les requêtes GitHub partent de Cloudflare, pas du navigateur du visiteur |
-| Impression | feuille de style A4 avec couverture print-only : masque navigation, fonds et métadonnées live ; conserve les planches, dates et URL externes |
+| Impression | feuille de style A4 avec couverture print-only : masque navigation, fonds et métadonnées live ; conserve les quatre panneaux, dates et URL externes ; stills 800 px, couverture mise à niveau en 960 px sur `beforeprint` |
 | Partage social | une carte OG 1200×630 par langue, construite autour de la planche Mini Lab et de la devise localisée |
 | Déploiement | Cloudflare Pages et Pages Functions, intégration Git, Node 22 |
 | CI | GitHub Actions exécute `npm run verify` sur les push et les pull requests |
@@ -83,7 +83,7 @@ Tous les textes visibles sont pilotés par les données.
 |---|---|
 | `src/data/profile.json` | nom, positionnement, introduction, statut, liens, portrait, légende du portrait, paragraphe À propos |
 | `src/data/projects.json` | cinq projets phares avec textes par langue, technologies, preuves et statut |
-| `src/data/project-figures.json` | légendes A/B/C/D, labels, notes de source et chemins GIF/statiques |
+| `src/data/project-figures.json` | légendes A/B/C/D, labels, notes de source et chemins image/vidéo/poster |
 | `src/data/timeline.json` | six lignes de parcours |
 | `src/data/awards.json` | trois prix et mentions presse |
 | `src/data/more-work.json` | quatre projets secondaires |
@@ -134,24 +134,24 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 | Build et contrôles | `npm run verify` passe : contenu, `astro check` sans erreur, 4 pages |
 | Synchronisation GitHub | l'instantané couvre 8 dépôts ; Vulcan résout v1.3.0 ; le test local du gestionnaire `/api/github` a renvoyé 24 dépôts publics et la version Vulcan ; un point d'accès simulé a mis la carte à 99 étoiles et v9.9.9 dans un contrôle Playwright le 2026-11-26 |
 | Production | `/`, `/zh/`, `/fr/` renvoient 200 ; HTTP redirige vers HTTPS ; `www` renvoie 200 et attend encore un 301 |
-| Lighthouse mobile, aperçu local (2026-10-22) | Performance 99, Accessibilité 100, Best Practices 100, SEO 100 dans les trois langues |
+| Lighthouse mobile, aperçu local (2026-11-27) | EN 98/100/100/100, ZH 97/100/100/100, FR 98/100/100/100 ; LCP 2,3–2,4 s ; CLS 0–0,001 ; 864–905 KiB |
 | Lighthouse mobile, production (2026-10-22) | EN 97/100/92/100, ZH 98/100/92/100, FR 99/100/92/100 |
 | LCP / CLS, production | LCP 1,8–2,2 s ; CLS 0–0,069, mesuré avant le correctif `aspect-ratio` du portrait |
 | Largeurs de mise en page | 1440, 1024, 768 et 390 px, sans débordement horizontal |
 | JavaScript désactivé | tout le contenu reste lisible ; les cartes GitHub utilisent l'instantané |
 | Ressources Mini Lab | WebP 480/960/1440 et fallback JPEG 1440 ; EXIF supprimé ; légende et alt dans les trois langues |
-| Planches projets | 5 planches × 4 panneaux ; quatre issues des dépôts et une planche Sencillo d’objectif de conception fournie par l’auteur ; OnesArm utilise uniquement le matériel v2 ; l’image de lancement DustArrow est autorisée et créditée |
-| GIF projets | automatisation Vulcan, liaison Hsiwu, déploiement DustArrow, scan FEA OnesArm et flux de forces Sencillo ; lecture unique, still WebP en mouvement réduit |
-| OG et impression | cartes OG v3 1200×630 pour EN/ZH/FR avec la planche Mini Lab ; la feuille A4 avec couverture print-only (8 pages) conserve planches, dates et URL externes et masque navigation et métadonnées live |
-| Système visuel | cadres du portrait et des projets, tableaux de spécifications, ticks de section, OG localisées, couverture imprimée et page 404 « feuille manquante » |
+| Planches projets | 5 planches × 4 panneaux, toutes redessinées et auditées en SVG éditable ; Sencillo est un matériel d’objectif de conception ; OnesArm utilise uniquement le matériel v2 ; les images de lancement DustArrow sont fournies par l’auteur et créditées à Shanghai TV, Young Edison S8 |
+| Animation projets | 10 boucles MP4/WebM silencieuses : Vulcan A/C, Hsiwu A/C, DustArrow A/B/C, OnesArm A/C, Sencillo A ; scans de focalisation et composites CAO, MATLAB et lancement réel ; posters en mouvement réduit |
+| OG et impression | cartes OG v3 1200×630 pour EN/ZH/FR avec la planche Mini Lab ; la feuille A4 avec couverture print-only (10 pages au test du 2026-11-27) conserve les quatre panneaux, dates et URL externes et masque navigation et métadonnées live |
+| Système visuel | carrousel A–D et lightbox, cadres du portrait et des projets, tableaux de spécifications, ticks de section, OG localisées, couverture imprimée et page 404 « feuille manquante » |
 | Icônes | favicon SVG, PNG 16/32/180 px et manifeste ; vérifiés en 16/32/64/180 px sur onglets clairs et sombres |
 | Liens externes | GitHub et les liens presse renvoient 200 |
 
-Les chiffres Lighthouse précèdent le module GitHub en direct et doivent être remesurés pour ce build. Best Practices vaut 92 en production parce que Cloudflare injecte encore le beacon Web Analytics et que la CSP le bloque. Email Address Obfuscation et Managed robots.txt restent aussi appliqués en périphérie : la page en ligne diffère donc du build local. Ces réglages appartiennent à la zone, pas au dépôt. Résultats en ligne dans `qa/lighthouse-live-summary.json`.
+Les chiffres Lighthouse du 2026-11-27 couvrent le build local du carrousel et des vidéos ; les chiffres de production datent du 2026-10-22 et précèdent le module GitHub en direct, à remesurer après déploiement. Best Practices vaut 92 en production parce que Cloudflare injecte encore le beacon Web Analytics et que la CSP le bloque. Email Address Obfuscation et Managed robots.txt restent aussi appliqués en périphérie : la page en ligne diffère donc du build local. Ces réglages appartiennent à la zone, pas au dépôt. Résultats en ligne dans `qa/lighthouse-live-summary.json`.
 
 Preuves complètes : [QA.md](QA.md). Captures : [screenshots/](screenshots/). Rapports Lighthouse bruts : [qa/](qa/).
 
-Les scripts QA utilisent Playwright, à installer séparément avec `npm install --no-save playwright@1.64.1`. L'image OG se régénère avec `python3 scripts/make-og.py` ; les illustrations de fond se régénèrent depuis `Robusr IP/` avec `python3 scripts/make-ip-assets.py` ; la photo Mini Lab se régénère avec `python3 scripts/make-minilab-assets.py /chemin/vers/minilab.jpeg` ; le portrait se réétalonne avec `python3 scripts/make-portrait-assets.py` ; les planches A/B/C/D se reconstruisent avec `python3 scripts/make-project-figures.py --assets /chemin/vers/assets --gifs /chemin/vers/gifs --pdf-pages /chemin/vers/pages`. Les générateurs nécessitent Pillow ; les scripts Mini Lab et portrait suppriment les métadonnées EXIF, et le script portrait lit le fichier v2 de 512 px pour écrire les ressources v3. Les sources des dépôts et les rendus des planches Sencillo ne sont pas versionnés.
+Les scripts QA utilisent Playwright, à installer séparément avec `npm install --no-save playwright@1.64.1`. L'image OG se régénère avec `python3 scripts/make-og.py` ; les illustrations de fond se régénèrent depuis `Robusr IP/` avec `python3 scripts/make-ip-assets.py` ; la photo Mini Lab se régénère avec `python3 scripts/make-minilab-assets.py /chemin/vers/minilab.jpeg` ; le portrait se réétalonne avec `python3 scripts/make-portrait-assets.py`. Les nouvelles planches se construisent avec `python3 figures/build_vulcan.py` et `python3 figures/build_batch.py`, se rendent avec `node figures/render.mjs`, les scans de focalisation s'encodent avec `node figures/animate_batch.mjs`, et les composites vidéo avec ffmpeg. L'ancien `scripts/make-project-figures.py` reste pour les anciennes planches de dépôt. Les scripts de figures nécessitent Pillow ; les scripts Mini Lab et portrait suppriment les métadonnées EXIF, et le script portrait lit le fichier v2 de 512 px pour écrire les ressources v3. Les sources des dépôts, l'extrait de lancement fourni par l'auteur et les rendus Sencillo ne sont pas versionnés.
 
 ## Déploiement
 
@@ -175,7 +175,7 @@ Cloudflare Pages déploie le dossier `functions/` avec `dist/`, donc `/api/githu
 - Quand le contenu visible change, mettre à jour `contentDate` dans `src/data/profile.json` ; `sitemap.xml` l'utilise comme `lastmod`.
 - Lancer `npm run verify` avant de pousser. GitHub Actions exécute la même commande.
 - Ne pas ajouter de détails familiaux, d'adresse, de date de naissance, de notes, de classement ou de relations privées ; la phrase sur le professeur d'art dans À propos est l'exception demandée par l'auteur.
-- Ne pas utiliser d'images de télévision, de logos de concours, de figures d'articles tiers ou de comptes non vérifiés ; l'image de lancement DustArrow de la Fig. 03C est l'unique exception, autorisée et créditée à Shanghai TV, Young Edison S8. Les figures Sencillo sont un matériel d'objectif de conception fourni par l'auteur.
+- Ne pas utiliser d'images de télévision, de logos de concours, de figures d'articles tiers ou de comptes non vérifiés ; l'extrait de lancement DustArrow de la Fig. 03C est l'unique exception, autorisée et créditée à Shanghai TV, Young Edison S8. Les figures Sencillo sont un matériel d'objectif de conception fourni par l'auteur.
 
 ## Documentation du projet
 
@@ -190,4 +190,4 @@ Cloudflare Pages déploie le dossier `functions/` avec `dist/`, donc `/api/githu
 
 ## Crédits
 
-Le portrait et les deux illustrations au trait de l'IP personnelle sont fournis par Robusr. Les deux dessins servent d'arrière-plan à faible opacité. Les figures et GIF de projets viennent des dépôts de chaque projet ; OnesArm utilise uniquement le matériel v2 ; les figures Sencillo sont un matériel d’objectif de conception fourni par l’auteur ; l’image de lancement DustArrow est autorisée et créditée à Shanghai TV, Young Edison S8. La photo Mini Lab est fournie par Robusr ; les copies publiées ont leurs métadonnées EXIF supprimées. Le site n'utilise pas d'autres images de télévision, de logos de concours ni de figures d'articles tiers. Les étoiles, forks, dates de dernier push et versions GitHub proviennent de l'API publique GitHub et sont mis en cache en périphérie.
+Le portrait et les deux illustrations au trait de l'IP personnelle sont fournis par Robusr. Les deux dessins servent d'arrière-plan à faible opacité. Toutes les planches projets sont redessinées d’après les README des dépôts, les rendus et les captures d’extension/CAO ; les interfaces et modèles restent ceux des projets ; OnesArm utilise uniquement le matériel v2 ; les figures Sencillo sont un matériel d’objectif de conception fourni par l’auteur ; les images de lancement DustArrow proviennent de l’épisode *Young Edison* fourni par l’auteur et sont créditées à Shanghai TV, Young Edison S8. La photo Mini Lab est fournie par Robusr ; les copies publiées ont leurs métadonnées EXIF supprimées. Le site n'utilise pas d'autres images de télévision, de logos de concours ni de figures d'articles tiers. Les étoiles, forks, dates de dernier push et versions GitHub proviennent de l'API publique GitHub et sont mis en cache en périphérie.

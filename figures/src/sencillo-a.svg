@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="220mm" height="123.75mm" viewBox="0 0 1600 900" role="img">
+<title>Sencillo A — force flow</title>
+<defs><marker id="sencilloaforceflow-ink" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#0A0D29"/></marker><marker id="sencilloaforceflow-accent" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#0F6B5F"/></marker><marker id="sencilloaforceflow-warm" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#B26A3C"/></marker><marker id="sencilloaforceflow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#6B6B6B"/></marker></defs>
+<rect width="1600" height="900" fill="#FBFBF9"/>
+<rect x="56.0" y="42.0" width="34.0" height="34.0" rx="3" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<text x="73.0" y="66.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#FBFBF9" text-anchor="middle" letter-spacing="0" opacity="1" >A</text>
+<text x="106.0" y="58.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.4" opacity="1" >FORCE FLOW</text>
+<text x="104.0" y="100.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="33" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >Two force loops, one frame</text>
+<text x="104.0" y="132.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Milling force closes through the fixed gantry; riveting force closes through the independent C-frame; the XY stage only positions.</text>
+<line x1="56.0" y1="158.0" x2="1544.0" y2="158.0" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
+<text x="1544.0" y="58.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#6B6B6B" text-anchor="end" letter-spacing="0.6" opacity="1" >SENCILLO · design target</text>
+<rect x="56.0" y="196.0" width="700.0" height="560.0" rx="5" fill="#FFFFFF" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
+<text x="74.0" y="222.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >FORCE-FLOW DECOUPLING</text>
+<text x="74.0" y="250.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >Two closed loops, not one</text>
+<rect x="110.0" y="330.0" width="210.0" height="18.0" rx="2" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<rect x="110.0" y="348.0" width="18.0" height="178.0" rx="2" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<rect x="302.0" y="348.0" width="18.0" height="178.0" rx="2" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<rect x="170.0" y="330.0" width="70.0" height="26.0" rx="3" fill="#FBFBF9" stroke="#0F6B5F" stroke-width="1" opacity="1" />
+<rect x="190.0" y="356.0" width="30.0" height="80.0" rx="3" fill="#FBFBF9" stroke="#0F6B5F" stroke-width="1" opacity="1" />
+<text x="205.0" y="382.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12" font-weight="600" fill="#0F6B5F" text-anchor="middle" letter-spacing="0" opacity="1" >Z</text>
+<rect x="160.0" y="470.0" width="180.0" height="22.0" rx="2" fill="#FBFBF9" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="250.0" y="486.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="middle" letter-spacing="0" opacity="1" >PCB / work</text>
+<text x="110.0" y="552.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0.8" opacity="1" >FIXED GANTRY + MILLING</text>
+<text x="110.0" y="574.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >spindle → gantry → base</text>
+<rect x="480.0" y="348.0" width="20.0" height="178.0" rx="2" fill="#B26A3C" stroke="none" stroke-width="0" opacity="1" />
+<rect x="480.0" y="348.0" width="180.0" height="20.0" rx="2" fill="#B26A3C" stroke="none" stroke-width="0" opacity="1" />
+<rect x="480.0" y="506.0" width="180.0" height="20.0" rx="2" fill="#B26A3C" stroke="none" stroke-width="0" opacity="1" />
+<rect x="560.0" y="368.0" width="34.0" height="70.0" rx="3" fill="#FBFBF9" stroke="#B26A3C" stroke-width="1" opacity="1" />
+<rect x="570.0" y="438.0" width="14.0" height="30.0" rx="2" fill="#B26A3C" stroke="none" stroke-width="0" opacity="1" />
+<rect x="520.0" y="470.0" width="120.0" height="22.0" rx="2" fill="#FBFBF9" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="580.0" y="486.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="middle" letter-spacing="0" opacity="1" >PCB / work</text>
+<text x="480.0" y="552.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#B26A3C" text-anchor="start" letter-spacing="0.8" opacity="1" >INDEPENDENT C-FRAME</text>
+<text x="480.0" y="574.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >rivet head → C-frame → base</text>
+<path d="M205,470 L205,360 L160,360 L160,330 L320,330 L320,348 L302,348" fill="none" stroke="#0F6B5F" stroke-width="1.6"  stroke-dasharray="4 4"/>
+<path d="M576,470 L576,438 L480,438 L480,348 L660,348 L660,506 L600,506" fill="none" stroke="#B26A3C" stroke-width="1.6"  stroke-dasharray="4 4"/>
+<line x1="205.0" y1="430.0" x2="205.0" y2="468.0" stroke="#B26A3C" stroke-width="1.5" opacity="1"  marker-end="url(#sencilloaforceflow-ink)" pathLength="1"/>
+<text x="213.0" y="452.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12" font-weight="600" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >F</text>
+<line x1="576.0" y1="438.0" x2="576.0" y2="470.0" stroke="#B26A3C" stroke-width="1.5" opacity="1"  marker-end="url(#sencilloaforceflow-ink)" pathLength="1"/>
+<text x="584.0" y="458.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12" font-weight="600" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >F</text>
+<text x="74.0" y="660.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >The XY stage moves the work; it does not carry the process force.</text>
+<text x="74.0" y="690.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >The two loops close independently through the base.</text>
+<text x="74.0" y="720.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="500" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >Design target; no measured machine exists yet.</text>
+<rect x="780.0" y="196.0" width="764.0" height="300.0" rx="5" fill="#FFFFFF" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
+<text x="798.0" y="222.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >WHY TWO LOOPS</text>
+<text x="798.0" y="250.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >Decoupling is the architecture</text>
+<text x="798.0" y="292.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >Milling</text>
+<text x="930.0" y="292.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >spindle → fixed gantry → base</text>
+<text x="798.0" y="338.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >Riveting</text>
+<text x="930.0" y="338.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >head → independent C-frame → base</text>
+<text x="798.0" y="384.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Positioning</text>
+<text x="930.0" y="384.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >XY stage · no process force</text>
+<text x="798.0" y="438.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="500" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >Large Z forces never pass through the positioning stage.</text>
+<text x="798.0" y="462.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >The fixed gantry and the C-frame can be optimised separately.</text>
+<rect x="780.0" y="516.0" width="764.0" height="240.0" rx="5" fill="#FFFFFF" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
+<text x="798.0" y="542.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >DESIGN TARGET</text>
+<text x="798.0" y="570.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >8/8 mil · 0.8 mm via · ≤ 30 min</text>
+<rect x="798.0" y="596.0" width="129.0" height="24.0" rx="12.0" fill="#FBFBF9" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="807.0" y="612.7" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >dry isolation milling</text>
+<rect x="935.0" y="596.0" width="115.0" height="24.0" rx="12.0" fill="#FBFBF9" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="944.0" y="612.7" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >copper-rivet vias</text>
+<rect x="1058.0" y="596.0" width="53.0" height="24.0" rx="12.0" fill="#FBFBF9" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="1067.0" y="612.7" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >offline</text>
+<rect x="1119.0" y="596.0" width="96.0" height="24.0" rx="12.0" fill="#FBFBF9" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="1128.0" y="612.7" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >pre-prototype</text>
+<text x="798.0" y="654.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Anteportal Labs · student-founded team</text>
+<text x="798.0" y="684.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="500" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >All performance numbers are design targets, not measurements.</text>
+<rect x="56.0" y="196.0" width="700.0" height="560.0" rx="5" fill="none" stroke="#0F6B5F" stroke-width="3" opacity="0" id="s-a-focus1"/>
+<rect x="780.0" y="196.0" width="764.0" height="300.0" rx="5" fill="none" stroke="#0F6B5F" stroke-width="3" opacity="0" id="s-a-focus2"/>
+<rect x="780.0" y="516.0" width="764.0" height="240.0" rx="5" fill="none" stroke="#0F6B5F" stroke-width="3" opacity="0" id="s-a-focus3"/>
+<line x1="56.0" y1="858.0" x2="1544.0" y2="858.0" stroke="#E8E8E2" stroke-width="1" opacity="1" />
+<text x="56.0" y="880.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Source: Sencillo design-target material, Anteportal Labs; no public repository.</text>
+<text x="1544.0" y="880.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15.5" font-weight="500" fill="#0F6B5F" text-anchor="end" letter-spacing="0.4" opacity="1" >A · force flow</text>
+</svg>

@@ -2,7 +2,7 @@
   "zoom200": {
     "scrollWidth": 720,
     "innerWidth": 720,
-    "scrollHeight": 7121,
+    "scrollHeight": 9012,
     "overflow": false
   },
   "keyboard": [
@@ -38,6 +38,12 @@
     },
     {
       "tag": "A",
+      "text": "Lab",
+      "href": "#lab",
+      "outline": true
+    },
+    {
+      "tag": "A",
       "text": "Work",
       "href": "#work",
       "outline": true
@@ -46,6 +52,12 @@
       "tag": "A",
       "text": "Journey",
       "href": "#journey",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "Awards",
+      "href": "#awards",
       "outline": true
     },
     {
@@ -88,6 +100,114 @@
       "tag": "A",
       "text": "Anteportal Labs",
       "href": "https://github.com/Anteportal",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "Vulcan",
+      "href": "https://github.com/Robusr/Vulcan",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "v1.3.0",
+      "href": "https://github.com/Robusr/Vulcan/releases/tag/v1.3.0",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "A",
+      "href": "#panel-vulcan-A",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "B",
+      "href": "#panel-vulcan-B",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "C",
+      "href": "#panel-vulcan-C",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "D",
+      "href": "#panel-vulcan-D",
+      "outline": true
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Pause motion",
+      "href": null,
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "Enlarge figure ↗",
+      "href": "/assets/projects/plates/v2/vulcan-a-poster-1600.webp",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "Enlarge figure ↗",
+      "href": "/assets/projects/plates/v2/vulcan-b-1600.webp",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "Enlarge figure ↗",
+      "href": "/assets/projects/plates/v2/vulcan-c-poster-1600.webp",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "Enlarge figure ↗",
+      "href": "/assets/projects/plates/v2/vulcan-d-1600.webp",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "Repository →",
+      "href": "https://github.com/Robusr/Vulcan",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "Hsiwu",
+      "href": "https://github.com/Robusr/Hsiwu",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "A",
+      "href": "#panel-hsiwu-A",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "B",
+      "href": "#panel-hsiwu-B",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "C",
+      "href": "#panel-hsiwu-C",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "D",
+      "href": "#panel-hsiwu-D",
+      "outline": true
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Pause motion",
+      "href": null,
       "outline": true
     }
   ]

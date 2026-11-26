@@ -25,13 +25,13 @@ for (const [label, path] of [['en', '/'], ['zh', '/zh/']]) {
         background: cs.backgroundColor,
       };
     };
-    const h1 = document.querySelector('h1');
+    const h1 = document.querySelector('.hero h1');
     const r = h1.getBoundingClientRect();
     const hit = document.elementFromPoint(r.left + 10, Math.max(r.top + 10, 1));
     return {
       scrollY,
       docHeight: document.documentElement.scrollHeight,
-      elements: ['.site-header', '.header-inner', '.brand', '.site-nav', '.langs', '.hero', '.hero .eyebrow', 'h1', '.lang-hint'].map(q),
+      elements: ['.site-header', '.header-inner', '.brand', '.site-nav', '.langs', '.hero', '.hero .eyebrow', '.hero h1', '.lang-hint'].map(q),
       h1Top: Math.round(r.top),
       elementAtH1Top: hit ? `${hit.tagName}.${String(hit.className).slice(0, 30)}` : null,
     };

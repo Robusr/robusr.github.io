@@ -7,16 +7,42 @@
     "imageAlt": "Le Mini Lab de chambre : bras robotique, équations au tableau, ordinateur portable ouvert et la devise du site : bâtisseur IA × ingénierie."
   },
   "navLabel": "Navigation principale",
-  "nav": { "work": "Travaux", "journey": "Parcours", "about": "À propos", "contact": "Contact" },
+  "nav": {
+    "lab": "Labo",
+    "work": "Travaux",
+    "journey": "Parcours",
+    "awards": "Distinctions",
+    "about": "À propos",
+    "contact": "Contact"
+  },
   "skip": "Aller au contenu",
-  "sections": { "work": "Travaux sélectionnés", "journey": "Parcours", "awards": "Prix et presse", "moreWork": "Autres projets", "about": "À propos" },
+  "sections": {
+    "work": "Travaux sélectionnés",
+    "journey": "Parcours",
+    "awards": "Prix et presse",
+    "moreWork": "Autres projets",
+    "about": "À propos"
+  },
   "statusPrefix": "Actuellement :",
-  "status": { "Active": "Actif", "Complete": "Terminé", "Archive": "Archivé", "v2 current": "v2 actuelle", "Pre-prototype": "Pré-prototype" },
-  "exit": { "repository": "Dépôt →", "organization": "Organisation →" },
+  "status": {
+    "Active": "Actif",
+    "Complete": "Terminé",
+    "Archive": "Archivé",
+    "v2 current": "v2 actuelle",
+    "Pre-prototype": "Pré-prototype"
+  },
+  "exit": {
+    "repository": "Dépôt →",
+    "organization": "Organisation →"
+  },
   "designTarget": "Objectif de conception, non mesuré",
   "watch": "regarder le reportage",
   "contactHeading": "Contact",
-  "contactLabels": { "email": "E-mail", "github": "GitHub", "org": "Org" },
+  "contactLabels": {
+    "email": "E-mail",
+    "github": "GitHub",
+    "org": "Org"
+  },
   "languagesLabel": "Langue",
   "langHint": "Également disponible en",
   "dismiss": "Fermer",
@@ -31,5 +57,13 @@
     "evidence": "Preuves",
     "github": "GitHub"
   },
-  "colophon": "Composé en Inter · papier · Wuhan · 2026"
+  "colophon": "Composé en Inter · papier · Wuhan · 2026",
+  "plate": {
+    "panel": "Panneau",
+    "enlarge": "Agrandir la figure",
+    "close": "Fermer",
+    "pause": "Mettre en pause",
+    "play": "Lire l’animation",
+    "pager": "Panneaux de la figure"
+  }
 }

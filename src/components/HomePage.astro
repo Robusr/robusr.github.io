@@ -23,6 +23,18 @@ const { locale, t } = Astro.props as { locale: Locale; t: Messages };
       <button type="button" data-lang-hint-close>{t.dismiss}</button>
     </div>
   </div>
+  <script is:inline>
+    (function () {
+      try {
+        var lang = (navigator.language || '').toLowerCase();
+        var dismissed = sessionStorage.getItem('lang-hint-dismissed') === '1';
+        if (!dismissed && (lang.indexOf('zh') === 0 || lang.indexOf('fr') === 0)) {
+          var hint = document.querySelector('[data-lang-hint]');
+          if (hint) hint.hidden = false;
+        }
+      } catch (e) {}
+    })();
+  </script>
 )}
 <PrintCover locale={locale} t={t} />
 <Header locale={locale} t={t} />
@@ -36,3 +48,11 @@ const { locale, t } = Astro.props as { locale: Locale; t: Messages };
   <About locale={locale} t={t} />
 </main>
 <Footer locale={locale} t={t} />
+<dialog class="plate-dialog" data-plate-dialog aria-labelledby="plate-dialog-title">
+  <div class="plate-dialog-head">
+    <p class="plate-dialog-title" id="plate-dialog-title" data-dialog-title></p>
+    <button class="plate-dialog-close" type="button" data-dialog-close>{t.plate.close}</button>
+  </div>
+  <div class="plate-dialog-media" data-dialog-media></div>
+  <p class="plate-dialog-caption" data-dialog-caption></p>
+</dialog>

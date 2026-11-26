@@ -73,46 +73,165 @@
       "label": "en-1440",
       "imgs": [
         {
-          "src": "portrait-robusr-260-v2.webp",
+          "src": "minilab-480.webp",
+          "ok": true,
+          "alt": "",
+          "width": "960",
+          "height": "720"
+        },
+        {
+          "src": "portrait-robusr-260-v3.webp",
           "ok": true,
           "alt": "Robusr Guo under a ginkgo tree in autumn",
           "width": "512",
           "height": "644"
         },
         {
-          "src": "vulcan-card-480.webp",
+          "src": "minilab-960.webp",
           "ok": true,
-          "alt": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
-          "width": "960",
-          "height": "540"
+          "alt": "A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.",
+          "width": "1440",
+          "height": "1080"
         },
         {
-          "src": "hsiwu-card-480.webp",
+          "src": "vulcan-a-poster-800.webp",
           "ok": true,
-          "alt": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
-          "width": "960",
-          "height": "540"
+          "alt": "System loop: a sentence becomes a validated, editable feature tree.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "dustarrow-card-480.webp",
+          "src": "vulcan-b-1600.webp",
           "ok": true,
-          "alt": "DustArrow X full assembly render: a 40 mm sounding rocket",
-          "width": "960",
-          "height": "540"
+          "alt": "Deployed architecture: Windows client, Flask server, and a replaceable model provider.",
+          "width": "1600",
+          "height": "900"
         },
         {
-          "src": "onesarm-card-480.webp",
+          "src": "vulcan-c-poster-800.webp",
           "ok": true,
-          "alt": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
-          "width": "960",
-          "height": "540"
+          "alt": "Operator workflow: describe, review, then execute native features.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "anteportal-card-480.webp",
+          "src": "vulcan-d-1600.webp",
           "ok": true,
-          "alt": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
-          "width": "960",
-          "height": "540"
+          "alt": "Typed JSON contract and the seven-stage request lifecycle.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-a-poster-800.webp",
+          "ok": true,
+          "alt": "System overview: three segments per wing, three analog channels.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-b-1600.webp",
+          "ok": true,
+          "alt": "Analog control and power chain: 3.7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-c-poster-800.webp",
+          "ok": true,
+          "alt": "As-built wing drive: lead screw, traveling nut, and H-bridge reversal.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-d-1600.webp",
+          "ok": true,
+          "alt": "Bench evidence: verified electronics; membrane and flight are not tested.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "dustarrow-a-poster-800.webp",
+          "ok": true,
+          "alt": "Modular architecture: nine modules, four sections, ten bays.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-b-poster-800.webp",
+          "ok": true,
+          "alt": "Deployment: nose separation, canard deployment, and recovery.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-c-poster-800.webp",
+          "ok": true,
+          "alt": "Launch, Gobi 2023: actual footage from the TV feature.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-d-1600.webp",
+          "ok": true,
+          "alt": "Telemetry: avionics, CRC-16 frame proposal, and ground station.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-a-poster-800.webp",
+          "ok": true,
+          "alt": "Modular architecture: four layers, one T/N interface.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-b-1600.webp",
+          "ok": true,
+          "alt": "FCF grammar: face–channel–face and the T/N mortise-and-tenon.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-c-poster-800.webp",
+          "ok": true,
+          "alt": "24 layouts and the MATLAB analysis of AyCxBy-D.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-d-1600.webp",
+          "ok": true,
+          "alt": "FEA of the v2 XY link and the CAN control chain.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-a-poster-800.webp",
+          "ok": true,
+          "alt": "Force-flow decoupling: two independent closed loops.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "sencillo-b-1600.webp",
+          "ok": true,
+          "alt": "Machine layout: fixed gantry and independent C-frame.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-c-1600.webp",
+          "ok": true,
+          "alt": "Error budget: RSS 27.5 µm against a 50 µm target.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-d-1600.webp",
+          "ok": true,
+          "alt": "Constraint compilation and five validation gates.",
+          "width": "1600",
+          "height": "900"
         }
       ]
     },
@@ -120,46 +239,165 @@
       "label": "en-1024",
       "imgs": [
         {
-          "src": "portrait-robusr-260-v2.webp",
+          "src": "minilab-480.webp",
+          "ok": true,
+          "alt": "",
+          "width": "960",
+          "height": "720"
+        },
+        {
+          "src": "portrait-robusr-260-v3.webp",
           "ok": true,
           "alt": "Robusr Guo under a ginkgo tree in autumn",
           "width": "512",
           "height": "644"
         },
         {
-          "src": "vulcan-card-480.webp",
+          "src": "minilab-960.webp",
           "ok": true,
-          "alt": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
-          "width": "960",
-          "height": "540"
+          "alt": "A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.",
+          "width": "1440",
+          "height": "1080"
         },
         {
-          "src": "hsiwu-card-480.webp",
+          "src": "vulcan-a-poster-800.webp",
           "ok": true,
-          "alt": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
-          "width": "960",
-          "height": "540"
+          "alt": "System loop: a sentence becomes a validated, editable feature tree.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "dustarrow-card-480.webp",
+          "src": "vulcan-b-1600.webp",
           "ok": true,
-          "alt": "DustArrow X full assembly render: a 40 mm sounding rocket",
-          "width": "960",
-          "height": "540"
+          "alt": "Deployed architecture: Windows client, Flask server, and a replaceable model provider.",
+          "width": "1600",
+          "height": "900"
         },
         {
-          "src": "onesarm-card-480.webp",
+          "src": "vulcan-c-poster-800.webp",
           "ok": true,
-          "alt": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
-          "width": "960",
-          "height": "540"
+          "alt": "Operator workflow: describe, review, then execute native features.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "anteportal-card-480.webp",
+          "src": "vulcan-d-1600.webp",
           "ok": true,
-          "alt": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
-          "width": "960",
-          "height": "540"
+          "alt": "Typed JSON contract and the seven-stage request lifecycle.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-a-poster-800.webp",
+          "ok": true,
+          "alt": "System overview: three segments per wing, three analog channels.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-b-1600.webp",
+          "ok": true,
+          "alt": "Analog control and power chain: 3.7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-c-poster-800.webp",
+          "ok": true,
+          "alt": "As-built wing drive: lead screw, traveling nut, and H-bridge reversal.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-d-1600.webp",
+          "ok": true,
+          "alt": "Bench evidence: verified electronics; membrane and flight are not tested.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "dustarrow-a-poster-800.webp",
+          "ok": true,
+          "alt": "Modular architecture: nine modules, four sections, ten bays.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-b-poster-800.webp",
+          "ok": true,
+          "alt": "Deployment: nose separation, canard deployment, and recovery.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-c-poster-800.webp",
+          "ok": true,
+          "alt": "Launch, Gobi 2023: actual footage from the TV feature.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-d-1600.webp",
+          "ok": true,
+          "alt": "Telemetry: avionics, CRC-16 frame proposal, and ground station.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-a-poster-800.webp",
+          "ok": true,
+          "alt": "Modular architecture: four layers, one T/N interface.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-b-1600.webp",
+          "ok": true,
+          "alt": "FCF grammar: face–channel–face and the T/N mortise-and-tenon.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-c-poster-800.webp",
+          "ok": true,
+          "alt": "24 layouts and the MATLAB analysis of AyCxBy-D.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-d-1600.webp",
+          "ok": true,
+          "alt": "FEA of the v2 XY link and the CAN control chain.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-a-poster-800.webp",
+          "ok": true,
+          "alt": "Force-flow decoupling: two independent closed loops.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "sencillo-b-1600.webp",
+          "ok": true,
+          "alt": "Machine layout: fixed gantry and independent C-frame.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-c-1600.webp",
+          "ok": true,
+          "alt": "Error budget: RSS 27.5 µm against a 50 µm target.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-d-1600.webp",
+          "ok": true,
+          "alt": "Constraint compilation and five validation gates.",
+          "width": "1600",
+          "height": "900"
         }
       ]
     },
@@ -167,46 +405,165 @@
       "label": "en-768",
       "imgs": [
         {
-          "src": "portrait-robusr-260-v2.webp",
+          "src": "minilab-480.webp",
+          "ok": true,
+          "alt": "",
+          "width": "960",
+          "height": "720"
+        },
+        {
+          "src": "portrait-robusr-260-v3.webp",
           "ok": true,
           "alt": "Robusr Guo under a ginkgo tree in autumn",
           "width": "512",
           "height": "644"
         },
         {
-          "src": "vulcan-card-960.webp",
+          "src": "minilab-960.webp",
           "ok": true,
-          "alt": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
-          "width": "960",
-          "height": "540"
+          "alt": "A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.",
+          "width": "1440",
+          "height": "1080"
         },
         {
-          "src": "hsiwu-card-960.webp",
+          "src": "vulcan-a-poster-800.webp",
           "ok": true,
-          "alt": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
-          "width": "960",
-          "height": "540"
+          "alt": "System loop: a sentence becomes a validated, editable feature tree.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "dustarrow-card-960.webp",
+          "src": "vulcan-b-800.webp",
           "ok": true,
-          "alt": "DustArrow X full assembly render: a 40 mm sounding rocket",
-          "width": "960",
-          "height": "540"
+          "alt": "Deployed architecture: Windows client, Flask server, and a replaceable model provider.",
+          "width": "1600",
+          "height": "900"
         },
         {
-          "src": "onesarm-card-960.webp",
+          "src": "vulcan-c-poster-800.webp",
           "ok": true,
-          "alt": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
-          "width": "960",
-          "height": "540"
+          "alt": "Operator workflow: describe, review, then execute native features.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "anteportal-card-960.webp",
+          "src": "vulcan-d-800.webp",
           "ok": true,
-          "alt": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
-          "width": "960",
-          "height": "540"
+          "alt": "Typed JSON contract and the seven-stage request lifecycle.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-a-poster-800.webp",
+          "ok": true,
+          "alt": "System overview: three segments per wing, three analog channels.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-b-800.webp",
+          "ok": true,
+          "alt": "Analog control and power chain: 3.7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-c-poster-800.webp",
+          "ok": true,
+          "alt": "As-built wing drive: lead screw, traveling nut, and H-bridge reversal.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-d-800.webp",
+          "ok": true,
+          "alt": "Bench evidence: verified electronics; membrane and flight are not tested.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "dustarrow-a-poster-800.webp",
+          "ok": true,
+          "alt": "Modular architecture: nine modules, four sections, ten bays.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-b-poster-800.webp",
+          "ok": true,
+          "alt": "Deployment: nose separation, canard deployment, and recovery.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-c-poster-800.webp",
+          "ok": true,
+          "alt": "Launch, Gobi 2023: actual footage from the TV feature.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-d-800.webp",
+          "ok": true,
+          "alt": "Telemetry: avionics, CRC-16 frame proposal, and ground station.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-a-poster-800.webp",
+          "ok": true,
+          "alt": "Modular architecture: four layers, one T/N interface.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-b-800.webp",
+          "ok": true,
+          "alt": "FCF grammar: face–channel–face and the T/N mortise-and-tenon.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-c-poster-800.webp",
+          "ok": true,
+          "alt": "24 layouts and the MATLAB analysis of AyCxBy-D.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-d-800.webp",
+          "ok": true,
+          "alt": "FEA of the v2 XY link and the CAN control chain.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-a-poster-800.webp",
+          "ok": true,
+          "alt": "Force-flow decoupling: two independent closed loops.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "sencillo-b-800.webp",
+          "ok": true,
+          "alt": "Machine layout: fixed gantry and independent C-frame.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-c-800.webp",
+          "ok": true,
+          "alt": "Error budget: RSS 27.5 µm against a 50 µm target.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-d-800.webp",
+          "ok": true,
+          "alt": "Constraint compilation and five validation gates.",
+          "width": "1600",
+          "height": "900"
         }
       ]
     },
@@ -214,46 +571,165 @@
       "label": "en-390",
       "imgs": [
         {
-          "src": "portrait-robusr-260-v2.webp",
+          "src": "minilab-480.webp",
+          "ok": true,
+          "alt": "",
+          "width": "960",
+          "height": "720"
+        },
+        {
+          "src": "portrait-robusr-260-v3.webp",
           "ok": true,
           "alt": "Robusr Guo under a ginkgo tree in autumn",
           "width": "512",
           "height": "644"
         },
         {
-          "src": "vulcan-card-480.webp",
+          "src": "minilab-480.webp",
           "ok": true,
-          "alt": "Vulcan banner: natural language in, parametric SolidWorks geometry out",
-          "width": "960",
-          "height": "540"
+          "alt": "A bedroom workbench crowded with a whiteboard covered in equations, a robotic arm, an open laptop, circuit boards, tools, and shelves of books.",
+          "width": "1440",
+          "height": "1080"
         },
         {
-          "src": "hsiwu-card-480.webp",
+          "src": "vulcan-a-poster-800.webp",
           "ok": true,
-          "alt": "Hsiwu full-color render: a bat-inspired robot with six segmented wings",
-          "width": "960",
-          "height": "540"
+          "alt": "System loop: a sentence becomes a validated, editable feature tree.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "dustarrow-card-480.webp",
+          "src": "vulcan-b-800.webp",
           "ok": true,
-          "alt": "DustArrow X full assembly render: a 40 mm sounding rocket",
-          "width": "960",
-          "height": "540"
+          "alt": "Deployed architecture: Windows client, Flask server, and a replaceable model provider.",
+          "width": "1600",
+          "height": "900"
         },
         {
-          "src": "onesarm-card-480.webp",
+          "src": "vulcan-c-poster-800.webp",
           "ok": true,
-          "alt": "OnesArm v2 modular robotic arm on a 4040 aluminium platform",
-          "width": "960",
-          "height": "540"
+          "alt": "Operator workflow: describe, review, then execute native features.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "anteportal-card-480.webp",
+          "src": "vulcan-d-800.webp",
           "ok": true,
-          "alt": "Anteportal Labs logo and Sencillo desktop PCB fabrication",
-          "width": "960",
-          "height": "540"
+          "alt": "Typed JSON contract and the seven-stage request lifecycle.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-a-poster-800.webp",
+          "ok": true,
+          "alt": "System overview: three segments per wing, three analog channels.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-b-800.webp",
+          "ok": true,
+          "alt": "Analog control and power chain: 3.7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-c-poster-800.webp",
+          "ok": true,
+          "alt": "As-built wing drive: lead screw, traveling nut, and H-bridge reversal.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-d-800.webp",
+          "ok": true,
+          "alt": "Bench evidence: verified electronics; membrane and flight are not tested.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "dustarrow-a-poster-800.webp",
+          "ok": true,
+          "alt": "Modular architecture: nine modules, four sections, ten bays.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-b-poster-800.webp",
+          "ok": true,
+          "alt": "Deployment: nose separation, canard deployment, and recovery.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-c-poster-800.webp",
+          "ok": true,
+          "alt": "Launch, Gobi 2023: actual footage from the TV feature.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-d-800.webp",
+          "ok": true,
+          "alt": "Telemetry: avionics, CRC-16 frame proposal, and ground station.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-a-poster-800.webp",
+          "ok": true,
+          "alt": "Modular architecture: four layers, one T/N interface.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-b-800.webp",
+          "ok": true,
+          "alt": "FCF grammar: face–channel–face and the T/N mortise-and-tenon.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-c-poster-800.webp",
+          "ok": true,
+          "alt": "24 layouts and the MATLAB analysis of AyCxBy-D.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-d-800.webp",
+          "ok": true,
+          "alt": "FEA of the v2 XY link and the CAN control chain.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-a-poster-800.webp",
+          "ok": true,
+          "alt": "Force-flow decoupling: two independent closed loops.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "sencillo-b-800.webp",
+          "ok": true,
+          "alt": "Machine layout: fixed gantry and independent C-frame.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-c-800.webp",
+          "ok": true,
+          "alt": "Error budget: RSS 27.5 µm against a 50 µm target.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-d-800.webp",
+          "ok": true,
+          "alt": "Constraint compilation and five validation gates.",
+          "width": "1600",
+          "height": "900"
         }
       ]
     },
@@ -261,46 +737,165 @@
       "label": "zh-1440",
       "imgs": [
         {
-          "src": "portrait-robusr-260-v2.webp",
+          "src": "minilab-480.webp",
+          "ok": true,
+          "alt": "",
+          "width": "960",
+          "height": "720"
+        },
+        {
+          "src": "portrait-robusr-260-v3.webp",
           "ok": true,
           "alt": "郭沫晗在秋天的银杏树下",
           "width": "512",
           "height": "644"
         },
         {
-          "src": "vulcan-card-480.webp",
+          "src": "minilab-960.webp",
           "ok": true,
-          "alt": "Vulcan 横幅：自然语言输入，参数化 SolidWorks 几何输出",
-          "width": "960",
-          "height": "540"
+          "alt": "摆满设备的卧室工作台：写满公式的白板、机械臂、打开的笔记本电脑、电路板、工具和书架。",
+          "width": "1440",
+          "height": "1080"
         },
         {
-          "src": "hsiwu-card-480.webp",
+          "src": "vulcan-a-poster-800.webp",
           "ok": true,
-          "alt": "Hsiwu 全彩渲染：一台拥有六段翼面的仿生机器人",
-          "width": "960",
-          "height": "540"
+          "alt": "系统闭环：一句话变成可校验、可编辑的特征树。",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "dustarrow-card-480.webp",
+          "src": "vulcan-b-1600.webp",
           "ok": true,
-          "alt": "DustArrow X 整机渲染：一枚 40 mm 探空火箭",
-          "width": "960",
-          "height": "540"
+          "alt": "部署架构：Windows 客户端、Flask 服务端与可替换的模型提供方。",
+          "width": "1600",
+          "height": "900"
         },
         {
-          "src": "onesarm-card-480.webp",
+          "src": "vulcan-c-poster-800.webp",
           "ok": true,
-          "alt": "OnesArm v2 模块化机械臂，安装在 4040 铝型材平台上",
-          "width": "960",
-          "height": "540"
+          "alt": "操作流程：描述、复核，再执行原生特征。",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "anteportal-card-480.webp",
+          "src": "vulcan-d-1600.webp",
           "ok": true,
-          "alt": "Anteportal Labs 标志与 Sencillo 桌面 PCB 制造",
-          "width": "960",
-          "height": "540"
+          "alt": "类型化 JSON 契约与七段请求生命周期。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-a-poster-800.webp",
+          "ok": true,
+          "alt": "系统总览：每侧三段翼、三路模拟通道。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-b-1600.webp",
+          "ok": true,
+          "alt": "模拟控制与供电链：3.7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-c-poster-800.webp",
+          "ok": true,
+          "alt": "实机翼驱动：丝杠、行进螺母与 H 桥换向。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-d-1600.webp",
+          "ok": true,
+          "alt": "台架证据：电子部分已验证；翼膜与飞行未测试。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "dustarrow-a-poster-800.webp",
+          "ok": true,
+          "alt": "模块化架构：九个模块、四个功能段、十个舱位。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-b-poster-800.webp",
+          "ok": true,
+          "alt": "展开：头锥分离、鸭翼展开与回收。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-c-poster-800.webp",
+          "ok": true,
+          "alt": "2023 年戈壁发射：电视专题实拍画面。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-d-1600.webp",
+          "ok": true,
+          "alt": "遥测：航电、CRC-16 帧建议与地面站。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-a-poster-800.webp",
+          "ok": true,
+          "alt": "模块化架构：四层模块、一套 T/N 接口。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-b-1600.webp",
+          "ok": true,
+          "alt": "FCF 语法：面–通道–面与 T/N 榫卯接口。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-c-poster-800.webp",
+          "ok": true,
+          "alt": "24 种构型与 AyCxBy-D 的 MATLAB 分析。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-d-1600.webp",
+          "ok": true,
+          "alt": "v2 XY 长连杆有限元分析与 CAN 控制链。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-a-poster-800.webp",
+          "ok": true,
+          "alt": "力流解耦：两条独立闭环。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "sencillo-b-1600.webp",
+          "ok": true,
+          "alt": "整机布局：固定龙门与独立 C 型架。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-c-1600.webp",
+          "ok": true,
+          "alt": "误差预算：RSS 27.5 µm，目标 50 µm。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-d-1600.webp",
+          "ok": true,
+          "alt": "约束编译与五道验证门。",
+          "width": "1600",
+          "height": "900"
         }
       ]
     },
@@ -308,46 +903,165 @@
       "label": "zh-390",
       "imgs": [
         {
-          "src": "portrait-robusr-260-v2.webp",
+          "src": "minilab-480.webp",
+          "ok": true,
+          "alt": "",
+          "width": "960",
+          "height": "720"
+        },
+        {
+          "src": "portrait-robusr-260-v3.webp",
           "ok": true,
           "alt": "郭沫晗在秋天的银杏树下",
           "width": "512",
           "height": "644"
         },
         {
-          "src": "vulcan-card-480.webp",
+          "src": "minilab-480.webp",
           "ok": true,
-          "alt": "Vulcan 横幅：自然语言输入，参数化 SolidWorks 几何输出",
-          "width": "960",
-          "height": "540"
+          "alt": "摆满设备的卧室工作台：写满公式的白板、机械臂、打开的笔记本电脑、电路板、工具和书架。",
+          "width": "1440",
+          "height": "1080"
         },
         {
-          "src": "hsiwu-card-480.webp",
+          "src": "vulcan-a-poster-800.webp",
           "ok": true,
-          "alt": "Hsiwu 全彩渲染：一台拥有六段翼面的仿生机器人",
-          "width": "960",
-          "height": "540"
+          "alt": "系统闭环：一句话变成可校验、可编辑的特征树。",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "dustarrow-card-480.webp",
+          "src": "vulcan-b-800.webp",
           "ok": true,
-          "alt": "DustArrow X 整机渲染：一枚 40 mm 探空火箭",
-          "width": "960",
-          "height": "540"
+          "alt": "部署架构：Windows 客户端、Flask 服务端与可替换的模型提供方。",
+          "width": "1600",
+          "height": "900"
         },
         {
-          "src": "onesarm-card-480.webp",
+          "src": "vulcan-c-poster-800.webp",
           "ok": true,
-          "alt": "OnesArm v2 模块化机械臂，安装在 4040 铝型材平台上",
-          "width": "960",
-          "height": "540"
+          "alt": "操作流程：描述、复核，再执行原生特征。",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "anteportal-card-480.webp",
+          "src": "vulcan-d-800.webp",
           "ok": true,
-          "alt": "Anteportal Labs 标志与 Sencillo 桌面 PCB 制造",
-          "width": "960",
-          "height": "540"
+          "alt": "类型化 JSON 契约与七段请求生命周期。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-a-poster-800.webp",
+          "ok": true,
+          "alt": "系统总览：每侧三段翼、三路模拟通道。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-b-800.webp",
+          "ok": true,
+          "alt": "模拟控制与供电链：3.7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-c-poster-800.webp",
+          "ok": true,
+          "alt": "实机翼驱动：丝杠、行进螺母与 H 桥换向。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-d-800.webp",
+          "ok": true,
+          "alt": "台架证据：电子部分已验证；翼膜与飞行未测试。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "dustarrow-a-poster-800.webp",
+          "ok": true,
+          "alt": "模块化架构：九个模块、四个功能段、十个舱位。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-b-poster-800.webp",
+          "ok": true,
+          "alt": "展开：头锥分离、鸭翼展开与回收。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-c-poster-800.webp",
+          "ok": true,
+          "alt": "2023 年戈壁发射：电视专题实拍画面。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-d-800.webp",
+          "ok": true,
+          "alt": "遥测：航电、CRC-16 帧建议与地面站。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-a-poster-800.webp",
+          "ok": true,
+          "alt": "模块化架构：四层模块、一套 T/N 接口。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-b-800.webp",
+          "ok": true,
+          "alt": "FCF 语法：面–通道–面与 T/N 榫卯接口。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-c-poster-800.webp",
+          "ok": true,
+          "alt": "24 种构型与 AyCxBy-D 的 MATLAB 分析。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-d-800.webp",
+          "ok": true,
+          "alt": "v2 XY 长连杆有限元分析与 CAN 控制链。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-a-poster-800.webp",
+          "ok": true,
+          "alt": "力流解耦：两条独立闭环。",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "sencillo-b-800.webp",
+          "ok": true,
+          "alt": "整机布局：固定龙门与独立 C 型架。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-c-800.webp",
+          "ok": true,
+          "alt": "误差预算：RSS 27.5 µm，目标 50 µm。",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-d-800.webp",
+          "ok": true,
+          "alt": "约束编译与五道验证门。",
+          "width": "1600",
+          "height": "900"
         }
       ]
     },
@@ -355,46 +1069,165 @@
       "label": "fr-1440",
       "imgs": [
         {
-          "src": "portrait-robusr-260-v2.webp",
+          "src": "minilab-480.webp",
+          "ok": true,
+          "alt": "",
+          "width": "960",
+          "height": "720"
+        },
+        {
+          "src": "portrait-robusr-260-v3.webp",
           "ok": true,
           "alt": "Robusr Guo sous un ginkgo en automne",
           "width": "512",
           "height": "644"
         },
         {
-          "src": "vulcan-card-480.webp",
+          "src": "minilab-960.webp",
           "ok": true,
-          "alt": "Bannière Vulcan : langage naturel en entrée, géométrie paramétrique SolidWorks en sortie",
-          "width": "960",
-          "height": "540"
+          "alt": "Un établi de chambre encombré : tableau blanc couvert d’équations, bras robotique, ordinateur portable ouvert, cartes de circuit, outils et étagères de livres.",
+          "width": "1440",
+          "height": "1080"
         },
         {
-          "src": "hsiwu-card-480.webp",
+          "src": "vulcan-a-poster-800.webp",
           "ok": true,
-          "alt": "Rendu couleur de Hsiwu : un robot bio-inspiré à six segments d’aile",
-          "width": "960",
-          "height": "540"
+          "alt": "Boucle système : une phrase devient un arbre de fonctions validé et modifiable.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "dustarrow-card-480.webp",
+          "src": "vulcan-b-1600.webp",
           "ok": true,
-          "alt": "Rendu de l’assemblage complet de DustArrow X : une fusée-sonde de 40 mm",
-          "width": "960",
-          "height": "540"
+          "alt": "Architecture déployée : client Windows, serveur Flask et fournisseur de modèle remplaçable.",
+          "width": "1600",
+          "height": "900"
         },
         {
-          "src": "onesarm-card-480.webp",
+          "src": "vulcan-c-poster-800.webp",
           "ok": true,
-          "alt": "Bras robotique modulaire OnesArm v2 sur une plateforme en aluminium 4040",
-          "width": "960",
-          "height": "540"
+          "alt": "Flux opérateur : décrire, vérifier, puis exécuter des fonctions natives.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "anteportal-card-480.webp",
+          "src": "vulcan-d-1600.webp",
           "ok": true,
-          "alt": "Logo d’Anteportal Labs et fabrication de PCB de bureau Sencillo",
-          "width": "960",
-          "height": "540"
+          "alt": "Contrat JSON typé et cycle de requête en sept étapes.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-a-poster-800.webp",
+          "ok": true,
+          "alt": "Vue d’ensemble : trois segments par aile, trois canaux analogiques.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-b-1600.webp",
+          "ok": true,
+          "alt": "Chaîne d’alimentation et de commande analogique : 3,7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-c-poster-800.webp",
+          "ok": true,
+          "alt": "Entraînement d’aile réalisé : vis mère, écrou mobile et inversion en pont H.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-d-1600.webp",
+          "ok": true,
+          "alt": "Preuves au banc : électronique validée ; membrane et vol non testés.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "dustarrow-a-poster-800.webp",
+          "ok": true,
+          "alt": "Architecture modulaire : neuf modules, quatre sections, dix baies.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-b-poster-800.webp",
+          "ok": true,
+          "alt": "Déploiement : séparation du nez, déploiement des canards et récupération.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-c-poster-800.webp",
+          "ok": true,
+          "alt": "Lancement, Gobi 2023 : images réelles du reportage télévisé.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-d-1600.webp",
+          "ok": true,
+          "alt": "Télémétrie : avionique, trame CRC-16 proposée et station sol.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-a-poster-800.webp",
+          "ok": true,
+          "alt": "Architecture modulaire : quatre couches, une interface T/N.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-b-1600.webp",
+          "ok": true,
+          "alt": "Grammaire FCF : face–canal–face et assemblage T/N.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-c-poster-800.webp",
+          "ok": true,
+          "alt": "24 agencements et analyse MATLAB de AyCxBy-D.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-d-1600.webp",
+          "ok": true,
+          "alt": "FEA du lien XY v2 et chaîne de commande CAN.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-a-poster-800.webp",
+          "ok": true,
+          "alt": "Découplage des flux : deux boucles fermées indépendantes.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "sencillo-b-1600.webp",
+          "ok": true,
+          "alt": "Agencement : portique fixe et bâti en C indépendant.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-c-1600.webp",
+          "ok": true,
+          "alt": "Budget d’erreur : RSS 27,5 µm pour une cible de 50 µm.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-d-1600.webp",
+          "ok": true,
+          "alt": "Compilation de contraintes et cinq portes de validation.",
+          "width": "1600",
+          "height": "900"
         }
       ]
     },
@@ -402,46 +1235,165 @@
       "label": "fr-390",
       "imgs": [
         {
-          "src": "portrait-robusr-260-v2.webp",
+          "src": "minilab-480.webp",
+          "ok": true,
+          "alt": "",
+          "width": "960",
+          "height": "720"
+        },
+        {
+          "src": "portrait-robusr-260-v3.webp",
           "ok": true,
           "alt": "Robusr Guo sous un ginkgo en automne",
           "width": "512",
           "height": "644"
         },
         {
-          "src": "vulcan-card-480.webp",
+          "src": "minilab-480.webp",
           "ok": true,
-          "alt": "Bannière Vulcan : langage naturel en entrée, géométrie paramétrique SolidWorks en sortie",
-          "width": "960",
-          "height": "540"
+          "alt": "Un établi de chambre encombré : tableau blanc couvert d’équations, bras robotique, ordinateur portable ouvert, cartes de circuit, outils et étagères de livres.",
+          "width": "1440",
+          "height": "1080"
         },
         {
-          "src": "hsiwu-card-480.webp",
+          "src": "vulcan-a-poster-800.webp",
           "ok": true,
-          "alt": "Rendu couleur de Hsiwu : un robot bio-inspiré à six segments d’aile",
-          "width": "960",
-          "height": "540"
+          "alt": "Boucle système : une phrase devient un arbre de fonctions validé et modifiable.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "dustarrow-card-480.webp",
+          "src": "vulcan-b-800.webp",
           "ok": true,
-          "alt": "Rendu de l’assemblage complet de DustArrow X : une fusée-sonde de 40 mm",
-          "width": "960",
-          "height": "540"
+          "alt": "Architecture déployée : client Windows, serveur Flask et fournisseur de modèle remplaçable.",
+          "width": "1600",
+          "height": "900"
         },
         {
-          "src": "onesarm-card-480.webp",
+          "src": "vulcan-c-poster-800.webp",
           "ok": true,
-          "alt": "Bras robotique modulaire OnesArm v2 sur une plateforme en aluminium 4040",
-          "width": "960",
-          "height": "540"
+          "alt": "Flux opérateur : décrire, vérifier, puis exécuter des fonctions natives.",
+          "width": "800",
+          "height": "450"
         },
         {
-          "src": "anteportal-card-480.webp",
+          "src": "vulcan-d-800.webp",
           "ok": true,
-          "alt": "Logo d’Anteportal Labs et fabrication de PCB de bureau Sencillo",
-          "width": "960",
-          "height": "540"
+          "alt": "Contrat JSON typé et cycle de requête en sept étapes.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-a-poster-800.webp",
+          "ok": true,
+          "alt": "Vue d’ensemble : trois segments par aile, trois canaux analogiques.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-b-800.webp",
+          "ok": true,
+          "alt": "Chaîne d’alimentation et de commande analogique : 3,7 V → 5 V → 3× NE555 → 74HC04 → 3× L293D.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "hsiwu-c-poster-800.webp",
+          "ok": true,
+          "alt": "Entraînement d’aile réalisé : vis mère, écrou mobile et inversion en pont H.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "hsiwu-d-800.webp",
+          "ok": true,
+          "alt": "Preuves au banc : électronique validée ; membrane et vol non testés.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "dustarrow-a-poster-800.webp",
+          "ok": true,
+          "alt": "Architecture modulaire : neuf modules, quatre sections, dix baies.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-b-poster-800.webp",
+          "ok": true,
+          "alt": "Déploiement : séparation du nez, déploiement des canards et récupération.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-c-poster-800.webp",
+          "ok": true,
+          "alt": "Lancement, Gobi 2023 : images réelles du reportage télévisé.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "dustarrow-d-800.webp",
+          "ok": true,
+          "alt": "Télémétrie : avionique, trame CRC-16 proposée et station sol.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-a-poster-800.webp",
+          "ok": true,
+          "alt": "Architecture modulaire : quatre couches, une interface T/N.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-b-800.webp",
+          "ok": true,
+          "alt": "Grammaire FCF : face–canal–face et assemblage T/N.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "onesarm-c-poster-800.webp",
+          "ok": true,
+          "alt": "24 agencements et analyse MATLAB de AyCxBy-D.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "onesarm-d-800.webp",
+          "ok": true,
+          "alt": "FEA du lien XY v2 et chaîne de commande CAN.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-a-poster-800.webp",
+          "ok": true,
+          "alt": "Découplage des flux : deux boucles fermées indépendantes.",
+          "width": "800",
+          "height": "450"
+        },
+        {
+          "src": "sencillo-b-800.webp",
+          "ok": true,
+          "alt": "Agencement : portique fixe et bâti en C indépendant.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-c-800.webp",
+          "ok": true,
+          "alt": "Budget d’erreur : RSS 27,5 µm pour une cible de 50 µm.",
+          "width": "1600",
+          "height": "900"
+        },
+        {
+          "src": "sencillo-d-800.webp",
+          "ok": true,
+          "alt": "Compilation de contraintes et cinq portes de validation.",
+          "width": "1600",
+          "height": "900"
         }
       ]
     }
@@ -449,31 +1401,335 @@
   "tapTargets": [
     {
       "label": "en-390",
-      "small": [
+      "small": []
+    },
+    {
+      "label": "zh-390",
+      "small": []
+    },
+    {
+      "label": "fr-390",
+      "small": []
+    }
+  ],
+  "carousels": [
+    {
+      "label": "en-1440",
+      "projects": [
         {
-          "text": "watch the feature",
-          "h": 16,
-          "w": 111
+          "name": "Vulcan",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Hsiwu",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "DustArrow X",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 3,
+          "scrollable": true
+        },
+        {
+          "name": "OnesArm",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Anteportal Labs · Sencillo",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 1,
+          "scrollable": true
+        }
+      ]
+    },
+    {
+      "label": "en-1024",
+      "projects": [
+        {
+          "name": "Vulcan",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Hsiwu",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "DustArrow X",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 3,
+          "scrollable": true
+        },
+        {
+          "name": "OnesArm",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Anteportal Labs · Sencillo",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 1,
+          "scrollable": true
+        }
+      ]
+    },
+    {
+      "label": "en-768",
+      "projects": [
+        {
+          "name": "Vulcan",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Hsiwu",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "DustArrow X",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 3,
+          "scrollable": true
+        },
+        {
+          "name": "OnesArm",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Anteportal Labs · Sencillo",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 1,
+          "scrollable": true
+        }
+      ]
+    },
+    {
+      "label": "en-390",
+      "projects": [
+        {
+          "name": "Vulcan",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Hsiwu",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "DustArrow X",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 3,
+          "scrollable": true
+        },
+        {
+          "name": "OnesArm",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Anteportal Labs · Sencillo",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 1,
+          "scrollable": true
+        }
+      ]
+    },
+    {
+      "label": "zh-1440",
+      "projects": [
+        {
+          "name": "Vulcan",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Hsiwu",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "DustArrow X",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 3,
+          "scrollable": true
+        },
+        {
+          "name": "OnesArm",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Anteportal Labs · Sencillo",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 1,
+          "scrollable": true
         }
       ]
     },
     {
       "label": "zh-390",
-      "small": [
+      "projects": [
         {
-          "text": "观看节目",
-          "h": 16,
-          "w": 54
+          "name": "Vulcan",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Hsiwu",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "DustArrow X",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 3,
+          "scrollable": true
+        },
+        {
+          "name": "OnesArm",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Anteportal Labs · Sencillo",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 1,
+          "scrollable": true
+        }
+      ]
+    },
+    {
+      "label": "fr-1440",
+      "projects": [
+        {
+          "name": "Vulcan",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Hsiwu",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "DustArrow X",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 3,
+          "scrollable": true
+        },
+        {
+          "name": "OnesArm",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Anteportal Labs · Sencillo",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 1,
+          "scrollable": true
         }
       ]
     },
     {
       "label": "fr-390",
-      "small": [
+      "projects": [
         {
-          "text": "regarder le reportage",
-          "h": 39,
-          "w": 185
+          "name": "Vulcan",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Hsiwu",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "DustArrow X",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 3,
+          "scrollable": true
+        },
+        {
+          "name": "OnesArm",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 2,
+          "scrollable": true
+        },
+        {
+          "name": "Anteportal Labs · Sencillo",
+          "panels": 4,
+          "tabs": 4,
+          "videos": 1,
+          "scrollable": true
         }
       ]
     }
@@ -482,7 +1738,7 @@
     "hasVulcan": true,
     "hasSencillo": true,
     "hasEmail": true,
-    "sections": 6
+    "sections": 8
   },
   "anchors": [
     {
