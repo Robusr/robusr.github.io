@@ -397,24 +397,19 @@ def dust_a():
     s.text(284, 742, "9 modules · 10 bays", 14, 500, ACCENT)
 
     # render
-    card(s, 560, 196, 984, 590)
+    card(s, 560, 196, 984, 614)
     label(s, 580, 222, "Full airframe")
     s.text(580, 250, "40 mm modular sounding rocket", 22, 600, INK)
-    s.image(B / "dust-render.webp", 580, 268, 700, 486)
-    cx = 1300
-    facts = [("10", "CAD bays", ["incl. propulsion/fin"]),
-             ("9", "replaceable modules", ["whiteboard names"]),
-             ("4", "functional sections", ["maneuver · detection", "control · power"]),
-             ("40", "mm diameter", ["gold-finger + FPC"])]
-    for i, (n, t1, subs) in enumerate(facts):
-        y = 300 + i * 92
-        s.text(cx, y, n, 34, 600, ACCENT if i < 3 else WARM)
-        s.text(cx + 56, y - 8, t1, 15.5, 600, INK)
-        for j, line in enumerate(subs):
-            s.text(cx + 56, y + 12 + j * 17, line, 13, 400, MUTED)
-    s.text(580, 770, "Archived design; module names follow the January 2024 TV whiteboard; no flight log is included.", 13.5, 400, MUTED)
+    s.image(B / "dust-banner.webp", 580, 268, 944, 451)
+    facts = [("10", "CAD bays"), ("9", "replaceable modules"),
+             ("4", "functional sections"), ("40", "mm diameter")]
+    for i, (n, t1) in enumerate(facts):
+        x = 580 + i * 236
+        s.text(x, 752, n, 24, 600, ACCENT if i < 3 else WARM)
+        s.text(x + 38, 752, t1, 12.5, 500, INK)
+    s.text(580, 790, "Archived design; module names follow the January 2024 TV whiteboard; no flight log is included.", 13.5, 400, MUTED)
 
-    for i, (x, y, w, h) in enumerate([(56, 196, 480, 360), (56, 576, 480, 210), (560, 196, 984, 590)], 1):
+    for i, (x, y, w, h) in enumerate([(56, 196, 480, 360), (56, 576, 480, 210), (560, 196, 984, 614)], 1):
         s.rect(x, y, w, h, "none", ACCENT, 3, 5, opacity=0, extra=f'id="d-a-focus{i}"')
 
     footer(s, "Source: DustArrow repository README; module nomenclature from the TV feature; render from the repository.", "A · modular architecture")
