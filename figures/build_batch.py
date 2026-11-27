@@ -702,6 +702,17 @@ def ones_b():
     s.text(1102, 672, "as the geometric inspiration.", 13.5, 400, MUTED)
     s.text(1102, 710, "The Pro and Con sides are not interchangeable.", 13, 400, MUTED)
 
+    # formula card fills the lower-left blank
+    card(s, 56, 516, 520, 240)
+    label(s, 74, 542, "FCF method count")
+    s.text(74, 570, "Formula and the 24 build layouts", 19, 600, INK)
+    s.text(74, 604, "N_com = 8^F · 18^(N_LL) · 12^(N_LS)", 17, 500, INK, family=MONO)
+    s.text(74, 626, "F joint modules · N_LL long links · N_LS short links", 12.5, 400, MUTED)
+    s.text(74, 660, "N₃ = 3! · 2² = 24", 24, 600, ACCENT)
+    s.text(74, 684, "Base-adjacent orientation fixed; the remaining two choose 2.", 13, 400, MUTED)
+    s.text(74, 716, "Reported: 18 long · 12 short · 8 joint · 3 base", 12.5, 400, TEXT, family=MONO)
+    s.text(74, 738, "24 is the three-module build enumeration, not the full FCF product.", 12.5, 500, WARM)
+
     footer(s, "Source: OnesArm repository README, Figures 6–8; v2 material only.", "B · FCF grammar")
     return s.render("\n".join(s.parts))
 
@@ -736,6 +747,12 @@ def ones_c():
     s.text(74, 600, "AyCxBy-D is highlighted; every cell is a SolidWorks assembly.", 13, 400, MUTED)
     s.text(74, 630, "N₃ = 3! × 2² = 24; the base-adjacent orientation is fixed.", 14, 500, ACCENT)
     s.text(74, 660, "The 24 files are a three-module enumeration, not the full FCF product.", 12.5, 400, MUTED)
+    # legend row in the lower left
+    s.rect(74, 702, 18, 12, ACCENT_SOFT, ACCENT, 1, 2)
+    s.text(102, 713, "analysed chain (AyCxBy-D)", 12.5, 400, MUTED)
+    s.rect(310, 702, 18, 12, PAPER, LINE, 1, 2)
+    s.text(338, 713, "remaining CAD layouts", 12.5, 400, MUTED)
+    s.text(74, 740, "24 = permutations × orientation choices", 12.5, 500, INK)
 
     # DH table
     card(s, 680, 196, 420, 280)
@@ -753,12 +770,53 @@ def ones_c():
     s.text(698, 444, "Link sum 354 mm; ~450 mm reach from 10,000 samples.", 13, 500, ACCENT)
     s.text(698, 468, "Report order is not standard DH (errata E-01/E-02).", 12.5, 500, WARM)
 
-    # video slot
+    # MATLAB reading guide
     card(s, 680, 496, 420, 300)
-    label(s, 698, 522, "MATLAB")
-    s.text(698, 548, "Simulation · AyCxBy-D", 18, 600, INK)
-    video_slot(s, 700, 566, 380, 214)
-    s.text(698, 786, "Simulation, not measurement · joint-limit conflict open.", 12.5, 400, MUTED)
+    label(s, 698, 522, "MATLAB reading guide")
+    s.text(698, 550, "Standard-DH chain", 19, 600, INK)
+    # four-joint chain schematic
+    base_y = 596
+    s.rect(706, base_y - 22, 22, 44, PAPER, LINE, 1, 2)
+    s.text(717, base_y + 42, "base", 11, 400, MUTED, "middle")
+    for i in range(4):
+        x = 750 + i * 66
+        s.add(f'<circle cx="{x}" cy="{base_y}" r="6" fill="{ACCENT_SOFT}" stroke="{ACCENT}" stroke-width="1.4"/>')
+        s.text(x, base_y - 14, f"θ{['₁','₂','₃','₄'][i]}", 11.5, 600, ACCENT, "middle", family=MONO)
+        if i < 3:
+            s.line(x + 6, base_y, x + 60, base_y, INK, 1.2)
+            s.text(x + 34, base_y + 18, ["a₂", "a₃", "a₄"][i], 11.5, 400, MUTED, "middle", family=MONO)
+    s.line(728, base_y, 744, base_y, INK, 1.2)
+    s.text(736, base_y + 18, "d₁", 11.5, 400, MUTED, "middle", family=MONO)
+    s.text(698, 660, "T = A₁ A₂ A₃ A₄", 15, 500, INK, family=MONO)
+    s.text(698, 684, "354 mm link sum · ≈450 mm reach", 12.5, 400, MUTED)
+    # legend
+    s.line(698, 704, 1078, 704, LINE_SOFT, 1)
+    s.text(698, 724, "—", 12, 600, ACCENT)
+    s.text(716, 724, "standard DH (implemented)", 12, 400, MUTED)
+    s.text(698, 746, "—", 12, 600, WARM)
+    s.text(716, 746, "report order (E-01/E-02)", 12, 400, MUTED)
+    s.text(698, 768, "—", 12, 600, MUTED)
+    s.text(716, 768, "joint-limit conflict (E-03)", 12, 400, MUTED)
+
+    # MATLAB simulation
+    card(s, 1124, 196, 420, 560)
+    label(s, 1142, 222, "MATLAB simulation")
+    s.text(1142, 250, "AyCxBy-D · 4 DOF", 20, 600, INK)
+    video_slot(s, 1144, 270, 380, 214)
+    s.text(1142, 512, "WORKSPACE", 13, 600, MUTED, ls=0.8)
+    s.text(1142, 548, "≈ 450 mm", 30, 600, ACCENT)
+    s.text(1142, 570, "10,000 samples · standard DH", 12.5, 400, MUTED)
+    s.text(1142, 596, "link sum 354 mm", 14, 500, INK)
+    # reach bar
+    s.rect(1142, 620, 380, 16, LINE_SOFT, "none", 0, 2)
+    s.rect(1142, 620, 299, 16, ACCENT, "none", 0, 2)
+    s.line(1142 + 380, 612, 1142 + 380, 644, WARM, 1.2)
+    s.text(1142, 654, "0", 11, 400, MUTED)
+    s.text(1142 + 299, 654, "354", 11, 500, ACCENT, "middle", family=MONO)
+    s.text(1522, 654, "450 mm", 11, 500, WARM, "end", family=MONO)
+    s.text(1142, 684, "Simulation, not measurement.", 13, 500, WARM)
+    s.text(1142, 710, "Joint limits: report 0–180°; MATLAB −90–90°", 12, 400, MUTED)
+    s.text(1142, 734, "No measured workspace in the archive.", 12.5, 400, MUTED)
 
     footer(s, "Source: OnesArm repository README, §3–4 and errata; v2 material only.", "C · layouts and MATLAB")
     return s.render("\n".join(s.parts))

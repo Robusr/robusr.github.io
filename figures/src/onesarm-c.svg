@@ -70,6 +70,11 @@
 <text x="74.0" y="600.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >AyCxBy-D is highlighted; every cell is a SolidWorks assembly.</text>
 <text x="74.0" y="630.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >N₃ = 3! × 2² = 24; the base-adjacent orientation is fixed.</text>
 <text x="74.0" y="660.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >The 24 files are a three-module enumeration, not the full FCF product.</text>
+<rect x="74.0" y="702.0" width="18.0" height="12.0" rx="2" fill="#E9F1EE" stroke="#0F6B5F" stroke-width="1" opacity="1" />
+<text x="102.0" y="713.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >analysed chain (AyCxBy-D)</text>
+<rect x="310.0" y="702.0" width="18.0" height="12.0" rx="2" fill="#FBFBF9" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="338.0" y="713.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >remaining CAD layouts</text>
+<text x="74.0" y="740.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >24 = permutations × orientation choices</text>
 <rect x="680.0" y="196.0" width="420.0" height="280.0" rx="5" fill="#FFFFFF" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
 <text x="698.0" y="222.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >STANDARD DH</text>
 <text x="698.0" y="250.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >AyCxBy-D · 4 DOF</text>
@@ -100,11 +105,53 @@
 <text x="698.0" y="444.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >Link sum 354 mm; ~450 mm reach from 10,000 samples.</text>
 <text x="698.0" y="468.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >Report order is not standard DH (errata E-01/E-02).</text>
 <rect x="680.0" y="496.0" width="420.0" height="300.0" rx="5" fill="#FFFFFF" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
-<text x="698.0" y="522.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >MATLAB</text>
-<text x="698.0" y="548.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >Simulation · AyCxBy-D</text>
-<rect x="700.0" y="566.0" width="380.0" height="214.0" rx="3" fill="#0E1118" stroke="none" stroke-width="0" opacity="1" />
-<rect x="700.0" y="566.0" width="380.0" height="214.0" rx="3" fill="none" stroke="#D8D8D1" stroke-width="1" opacity="1" />
-<text x="698.0" y="786.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Simulation, not measurement · joint-limit conflict open.</text>
+<text x="698.0" y="522.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >MATLAB READING GUIDE</text>
+<text x="698.0" y="550.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >Standard-DH chain</text>
+<rect x="706.0" y="574.0" width="22.0" height="44.0" rx="2" fill="#FBFBF9" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="717.0" y="638.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" fill="#6B6B6B" text-anchor="middle" letter-spacing="0" opacity="1" >base</text>
+<circle cx="750" cy="596" r="6" fill="#E9F1EE" stroke="#0F6B5F" stroke-width="1.4"/>
+<text x="750.0" y="582.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11.5" font-weight="600" fill="#0F6B5F" text-anchor="middle" letter-spacing="0" opacity="1" >θ₁</text>
+<line x1="756.0" y1="596.0" x2="810.0" y2="596.0" stroke="#0A0D29" stroke-width="1.2" opacity="1" />
+<text x="784.0" y="614.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="middle" letter-spacing="0" opacity="1" >a₂</text>
+<circle cx="816" cy="596" r="6" fill="#E9F1EE" stroke="#0F6B5F" stroke-width="1.4"/>
+<text x="816.0" y="582.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11.5" font-weight="600" fill="#0F6B5F" text-anchor="middle" letter-spacing="0" opacity="1" >θ₂</text>
+<line x1="822.0" y1="596.0" x2="876.0" y2="596.0" stroke="#0A0D29" stroke-width="1.2" opacity="1" />
+<text x="850.0" y="614.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="middle" letter-spacing="0" opacity="1" >a₃</text>
+<circle cx="882" cy="596" r="6" fill="#E9F1EE" stroke="#0F6B5F" stroke-width="1.4"/>
+<text x="882.0" y="582.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11.5" font-weight="600" fill="#0F6B5F" text-anchor="middle" letter-spacing="0" opacity="1" >θ₃</text>
+<line x1="888.0" y1="596.0" x2="942.0" y2="596.0" stroke="#0A0D29" stroke-width="1.2" opacity="1" />
+<text x="916.0" y="614.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="middle" letter-spacing="0" opacity="1" >a₄</text>
+<circle cx="948" cy="596" r="6" fill="#E9F1EE" stroke="#0F6B5F" stroke-width="1.4"/>
+<text x="948.0" y="582.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11.5" font-weight="600" fill="#0F6B5F" text-anchor="middle" letter-spacing="0" opacity="1" >θ₄</text>
+<line x1="728.0" y1="596.0" x2="744.0" y2="596.0" stroke="#0A0D29" stroke-width="1.2" opacity="1" />
+<text x="736.0" y="614.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11.5" font-weight="400" fill="#6B6B6B" text-anchor="middle" letter-spacing="0" opacity="1" >d₁</text>
+<text x="698.0" y="660.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="15" font-weight="500" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >T = A₁ A₂ A₃ A₄</text>
+<text x="698.0" y="684.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >354 mm link sum · ≈450 mm reach</text>
+<line x1="698.0" y1="704.0" x2="1078.0" y2="704.0" stroke="#E8E8E2" stroke-width="1" opacity="1" />
+<text x="698.0" y="724.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >—</text>
+<text x="716.0" y="724.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >standard DH (implemented)</text>
+<text x="698.0" y="746.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >—</text>
+<text x="716.0" y="746.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >report order (E-01/E-02)</text>
+<text x="698.0" y="768.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >—</text>
+<text x="716.0" y="768.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >joint-limit conflict (E-03)</text>
+<rect x="1124.0" y="196.0" width="420.0" height="560.0" rx="5" fill="#FFFFFF" stroke="#D8D8D1" stroke-width="1.2" opacity="1" />
+<text x="1142.0" y="222.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="1.2" opacity="1" >MATLAB SIMULATION</text>
+<text x="1142.0" y="250.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >AyCxBy-D · 4 DOF</text>
+<rect x="1144.0" y="270.0" width="380.0" height="214.0" rx="3" fill="#0E1118" stroke="none" stroke-width="0" opacity="1" />
+<rect x="1144.0" y="270.0" width="380.0" height="214.0" rx="3" fill="none" stroke="#D8D8D1" stroke-width="1" opacity="1" />
+<text x="1142.0" y="512.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="600" fill="#6B6B6B" text-anchor="start" letter-spacing="0.8" opacity="1" >WORKSPACE</text>
+<text x="1142.0" y="548.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="600" fill="#0F6B5F" text-anchor="start" letter-spacing="0" opacity="1" >≈ 450 mm</text>
+<text x="1142.0" y="570.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >10,000 samples · standard DH</text>
+<text x="1142.0" y="596.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#0A0D29" text-anchor="start" letter-spacing="0" opacity="1" >link sum 354 mm</text>
+<rect x="1142.0" y="620.0" width="380.0" height="16.0" rx="2" fill="#E8E8E2" stroke="none" stroke-width="0" opacity="1" />
+<rect x="1142.0" y="620.0" width="299.0" height="16.0" rx="2" fill="#0F6B5F" stroke="none" stroke-width="0" opacity="1" />
+<line x1="1522.0" y1="612.0" x2="1522.0" y2="644.0" stroke="#B26A3C" stroke-width="1.2" opacity="1" />
+<text x="1142.0" y="654.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >0</text>
+<text x="1441.0" y="654.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11" font-weight="500" fill="#0F6B5F" text-anchor="middle" letter-spacing="0" opacity="1" >354</text>
+<text x="1522.0" y="654.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11" font-weight="500" fill="#B26A3C" text-anchor="end" letter-spacing="0" opacity="1" >450 mm</text>
+<text x="1142.0" y="684.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#B26A3C" text-anchor="start" letter-spacing="0" opacity="1" >Simulation, not measurement.</text>
+<text x="1142.0" y="710.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Joint limits: report 0–180°; MATLAB −90–90°</text>
+<text x="1142.0" y="734.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >No measured workspace in the archive.</text>
 <line x1="56.0" y1="858.0" x2="1544.0" y2="858.0" stroke="#E8E8E2" stroke-width="1" opacity="1" />
 <text x="56.0" y="880.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15.5" font-weight="400" fill="#6B6B6B" text-anchor="start" letter-spacing="0" opacity="1" >Source: OnesArm repository README, §3–4 and errata; v2 material only.</text>
 <text x="1544.0" y="880.0" font-family="Inter, 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif" font-size="15.5" font-weight="500" fill="#0F6B5F" text-anchor="end" letter-spacing="0.4" opacity="1" >C · layouts and MATLAB</text>
