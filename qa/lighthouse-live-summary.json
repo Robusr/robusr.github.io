@@ -1,38 +1,38 @@
 [
   {
     "locale": "en",
-    "performance": 98,
+    "performance": 99,
     "accessibility": 100,
     "best-practices": 93,
     "seo": 92,
-    "fcp": "1.9\u00a0s",
-    "lcp": "1.9\u00a0s",
+    "fcp": "1.3\u00a0s",
+    "lcp": "1.6\u00a0s",
     "cls": "0",
     "tbt": "0\u00a0ms",
-    "bytes": "Total size was 878\u00a0KiB"
+    "bytes": "Total size was 887\u00a0KiB"
   },
   {
     "locale": "zh",
-    "performance": 98,
+    "performance": 99,
     "accessibility": 100,
     "best-practices": 93,
     "seo": 92,
-    "fcp": "1.9\u00a0s",
-    "lcp": "1.9\u00a0s",
+    "fcp": "1.7\u00a0s",
+    "lcp": "1.7\u00a0s",
     "cls": "0",
     "tbt": "0\u00a0ms",
-    "bytes": "Total size was 919\u00a0KiB"
+    "bytes": "Total size was 928\u00a0KiB"
   },
   {
     "locale": "fr",
-    "performance": 100,
+    "performance": 99,
     "accessibility": 100,
     "best-practices": 93,
     "seo": 92,
-    "fcp": "1.2\u00a0s",
-    "lcp": "1.2\u00a0s",
+    "fcp": "1.7\u00a0s",
+    "lcp": "1.7\u00a0s",
     "cls": "0",
     "tbt": "0\u00a0ms",
-    "bytes": "Total size was 879\u00a0KiB"
+    "bytes": "Total size was 888\u00a0KiB"
   }
 ]

@@ -125,7 +125,7 @@ curl -sS https://robusr.cn/robots.txt
 curl -sS https://robusr.cn/ | grep -Eo '<link rel="canonical"[^>]*>|<meta property="og:url"[^>]*>'
 ```
 
-Expected: `200` on all three locales, a `301` from `www.robusr.cn/zh/` to `robusr.cn/zh/`, canonical and Open Graph URLs on `https://robusr.cn`, `Sitemap: https://robusr.cn/sitemap.xml`, and a `404` status for an unknown path. Until this middleware is deployed, the `www` request returns `200`.
+Expected: `200` on all three locales, a `301` from `www.robusr.cn/zh/` to `robusr.cn/zh/`, canonical and Open Graph URLs on `https://robusr.cn`, `Sitemap: https://robusr.cn/sitemap.xml`, and a `404` status for an unknown path. Verified on 2026-11-27: `www.robusr.cn/zh/?x=1` returns 301 to `https://robusr.cn/zh/?x=1`; the apex API remains 200.
 
 ## 7. Rollback
 

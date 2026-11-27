@@ -34,7 +34,7 @@ Scope: all five projects redrawn (20 panels, 10 silent loops), the plate carouse
 - `scripts/qa-capture.mjs`: 0 console/page errors, 0 horizontal overflow at 1440/1024/768/390, 0 missing images, 0 tap targets under 44 px, 4 panels / 4 tabs per project, 10 loops total, 8 screenshots.
 - Geometry: EN 9,568 px, ZH 9,086 px; h1 at 229/183 px and not covered. 200% zoom: 720 px viewport, no overflow; keyboard order includes the six nav links, four plate tabs, four media links, and the motion control.
 - Lighthouse mobile, local preview 2026-11-27: EN 99/100/100/100, ZH 99/100/100/100, FR 99/100/100/100; LCP 2.3 s; CLS 0; 878–918 KiB. Raw JSON is in `qa/lighthouse-*-mobile.json`.
-- Lighthouse mobile, production 2026-11-27: EN 98/100/93/92, ZH 98/100/93/92, FR 100/100/93/92; FCP/LCP 1.2–1.9 s; CLS 0; 878–919 KiB. Best Practices 93 is the CSP-blocked Cloudflare Web Analytics beacon; SEO 92 is Cloudflare's Managed robots.txt content-signal block, which Lighthouse's robots parser reports as one error. Both are zone settings.
+- Lighthouse mobile, production 2026-11-27: EN 99/100/93/92, ZH 99/100/93/92, FR 99/100/93/92; FCP/LCP 1.3–1.7 s; CLS 0; 887–928 KiB. Best Practices 93 is the CSP-blocked Cloudflare Web Analytics beacon; SEO 92 is Cloudflare's Managed robots.txt content-signal block, which Lighthouse's robots parser reports as one error. Both are zone settings.
 - Motion is opt-out: `prefers-reduced-motion` starts paused with the "Play motion" label; the control is hidden without JavaScript.
 
 ## 2026-10-22 follow-up
@@ -68,7 +68,7 @@ Deployed commit: `3bf258f`. The live HTML matches the local build except for the
 | HTTP to HTTPS | 301 |
 | IPv6 | 200 |
 | TLS certificate | `robusr.cn` and `www.robusr.cn` each serve a certificate for that host |
-| `www.robusr.cn` | 2026-10-22: 200 with apex canonical. A 301 is now implemented in `functions/_middleware.js`; verify after the next deploy. |
+| `www.robusr.cn` | 2026-11-27: 301 to the apex for `/`, `/zh/?x=1`, `/fr/`, and `/api/github`, preserving path and query. |
 | Canonical, hreflang, OG, JSON-LD | `https://robusr.cn` in all three locales |
 | `sitemap.xml`, `robots.txt` | 200; the live sitemap still has lastmod 2026-10-20; the next build uses 2026-10-22 from `contentDate` |
 | `_headers` | HSTS, CSP, X-Frame-Options, Permissions-Policy, and immutable asset caching present |
@@ -170,7 +170,7 @@ With JavaScript disabled at 390 px, all six sections and the hero, contact, and 
 ## Links and assets
 
 - All GitHub profile, repository, organization, and Kankanews links returned HTTP 200 on 2026-10-20.
-- `https://robusr.cn` resolves through Cloudflare and returns 200; it is the production host. `https://www.robusr.cn` resolves and returns 200 with an apex canonical; the 301 is implemented in `functions/_middleware.js` and must be verified after deployment.
+- `https://robusr.cn` resolves through Cloudflare and returns 200; it is the production host. `https://www.robusr.cn` now returns a 301 to the apex for `/`, `/zh/`, `/fr/`, and `/api/github`, preserving path and query; verified 2026-11-27.
 - Local routes `/`, `/zh/`, `/fr/`, `/404.html`, `/sitemap.xml`, `/robots.txt`, `/og/og-default-v2.png`, and `/favicon.svg` return 200 with correct content types.
 - No broken in-page anchors in any locale.
 

@@ -134,10 +134,10 @@ English is the source of truth. When editing:
 |---|---|
 | Build and checks | `npm run verify` passes: content check, `astro check` with 0 errors, 4 pages built |
 | GitHub sync | Snapshot covers 8 repositories; Vulcan resolves to v1.3.0; `/api/github` returned 24 public repositories and the Vulcan release in a local handler test; a mocked endpoint updated the card to 99 stars and v9.9.9 in a Playwright check on 2026-11-26 |
-| Production | `/`, `/zh/`, `/fr/` return 200; HTTP redirects to HTTPS; the `www` 301 is implemented in `functions/_middleware.js` and is verified after the next deploy |
+| Production | `/`, `/zh/`, `/fr/` return 200; HTTP redirects to HTTPS; the `www` 301 is live and verified (2026-11-27) |
 | Lighthouse mobile, local preview (2026-11-27) | EN 99/100/100/100, ZH 99/100/100/100, FR 99/100/100/100; LCP 2.3 s; CLS 0; 878–918 KiB |
-| Lighthouse mobile, production (2026-11-27) | EN 98/100/93/92, ZH 98/100/93/92, FR 100/100/93/92 |
-| FCP / LCP / CLS, production | 1.2–1.9 s / 1.2–1.9 s / 0 |
+| Lighthouse mobile, production (2026-11-27) | EN 99/100/93/92, ZH 99/100/93/92, FR 99/100/93/92 |
+| FCP / LCP / CLS, production | 1.3–1.7 s / 1.6–1.7 s / 0 |
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow; carousel is 4 panels / 4 tabs per project; 10 loops total (Vulcan 2, Hsiwu 2, DustArrow 3, OnesArm 2, Sencillo 1) |
 | JavaScript disabled | all content readable; GitHub cards use the build-time snapshot |
 | Mini Lab assets | 480/960/1440 WebP and a 1440 JPEG fallback; EXIF stripped; caption and alt text in three languages |
@@ -165,7 +165,7 @@ Production is Cloudflare Pages at <https://robusr.cn>. The project builds with `
 
 Cloudflare Pages deploys the `functions/` directory alongside `dist/`, so `/api/github` works without a separate worker. The function reads public repository metadata with a 10-minute edge cache; set an optional `GITHUB_TOKEN` environment variable to raise GitHub's rate limit. Without Functions, or when the endpoint fails, the page keeps the build-time snapshot.
 
-`public/_headers` adds security and cache headers. Cloudflare Pages cannot redirect by host from `_redirects`, so the `www` → apex 301 is implemented in `functions/_middleware.js`; `public/_routes.json` keeps static assets out of the Functions path so their immutable caching is unchanged. Verify the redirect after the next deploy. GitHub Pages is retired; disable the Pages site in repository settings if it is still enabled. See [DEPLOY.md](DEPLOY.md).
+`public/_headers` adds security and cache headers. Cloudflare Pages cannot redirect by host from `_redirects`, so the `www` → apex 301 is implemented in `functions/_middleware.js`; `public/_routes.json` keeps static assets out of the Functions path so their immutable caching is unchanged. The redirect is live and verified for `/`, `/zh/`, `/fr/`, and `/api/github`. GitHub Pages is retired; disable the Pages site in repository settings if it is still enabled. See [DEPLOY.md](DEPLOY.md).
 
 ## Content rules
 

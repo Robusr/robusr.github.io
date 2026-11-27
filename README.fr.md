@@ -133,10 +133,10 @@ L'anglais est la source de vérité. Pour modifier le contenu :
 |---|---|
 | Build et contrôles | `npm run verify` passe : contenu, `astro check` sans erreur, 4 pages |
 | Synchronisation GitHub | l'instantané couvre 8 dépôts ; Vulcan résout v1.3.0 ; le test local du gestionnaire `/api/github` a renvoyé 24 dépôts publics et la version Vulcan ; un point d'accès simulé a mis la carte à 99 étoiles et v9.9.9 dans un contrôle Playwright le 2026-11-26 |
-| Production | `/`, `/zh/`, `/fr/` renvoient 200 ; HTTP redirige vers HTTPS ; le 301 de `www` est implémenté dans `functions/_middleware.js` et se vérifie après le prochain déploiement |
+| Production | `/`, `/zh/`, `/fr/` renvoient 200 ; HTTP redirige vers HTTPS ; le 301 de `www` est en ligne et vérifié (2026-11-27) |
 | Lighthouse mobile, aperçu local (2026-11-27) | EN 99/100/100/100, ZH 99/100/100/100, FR 99/100/100/100 ; LCP 2,3 s ; CLS 0 ; 878–918 KiB |
-| Lighthouse mobile, production (2026-11-27) | EN 98/100/93/92, ZH 98/100/93/92, FR 100/100/93/92 |
-| FCP / LCP / CLS, production | 1,2–1,9 s / 1,2–1,9 s / 0 |
+| Lighthouse mobile, production (2026-11-27) | EN 99/100/93/92, ZH 99/100/93/92, FR 99/100/93/92 |
+| FCP / LCP / CLS, production | 1,3–1,7 s / 1,6–1,7 s / 0 |
 | Largeurs de mise en page | 1440, 1024, 768 et 390 px, sans débordement horizontal |
 | JavaScript désactivé | tout le contenu reste lisible ; les cartes GitHub utilisent l'instantané |
 | Ressources Mini Lab | WebP 480/960/1440 et fallback JPEG 1440 ; EXIF supprimé ; légende et alt dans les trois langues |
@@ -164,7 +164,7 @@ Le site est hébergé sur Cloudflare Pages : <https://robusr.cn>. Le projet se c
 
 Cloudflare Pages déploie le dossier `functions/` avec `dist/`, donc `/api/github` ne nécessite pas de Worker séparé. La fonction lit les métadonnées publiques des dépôts avec un cache de périphérie de 10 minutes ; définir éventuellement `GITHUB_TOKEN` pour augmenter la limite de GitHub. Sans Functions, ou en cas d'échec, la page conserve l'instantané de build.
 
-`public/_headers` ajoute les en-têtes de sécurité et de cache. Cloudflare Pages ne peut pas rediriger par hôte depuis `_redirects` ; le 301 de `www` vers l'apex est donc implémenté dans `functions/_middleware.js`, et `public/_routes.json` garde les actifs statiques hors du chemin Functions pour préserver leur cache immutable. Vérifier la redirection après le prochain déploiement. GitHub Pages est retiré ; désactiver le site dans les réglages du dépôt s'il est encore activé. Voir [DEPLOY.md](DEPLOY.md).
+`public/_headers` ajoute les en-têtes de sécurité et de cache. Cloudflare Pages ne peut pas rediriger par hôte depuis `_redirects` ; le 301 de `www` vers l'apex est donc implémenté dans `functions/_middleware.js`, et `public/_routes.json` garde les actifs statiques hors du chemin Functions pour préserver leur cache immutable. La redirection est en ligne et vérifiée pour `/`, `/zh/`, `/fr/` et `/api/github`. GitHub Pages est retiré ; désactiver le site dans les réglages du dépôt s'il est encore activé. Voir [DEPLOY.md](DEPLOY.md).
 
 ## Règles de contenu
 

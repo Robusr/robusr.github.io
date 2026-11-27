@@ -134,10 +134,10 @@ npm run verify    # check + typecheck + build
 |---|---|
 | 构建与检查 | `npm run verify` 通过：内容检查、`astro check` 0 错误、构建 4 个页面 |
 | GitHub 同步 | 快照覆盖 8 个仓库；Vulcan 解析为 v1.3.0；本地处理器测试中 `/api/github` 返回 24 个公开仓库与 Vulcan Release；2026-11-26 的 Playwright 测试用 mock 接口把卡片更新为 99 stars 与 v9.9.9 |
-| 线上 | `/`、`/zh/`、`/fr/` 返回 200；HTTP 跳转 HTTPS；`www` 的 301 已在 `functions/_middleware.js` 实现，部署后验证 |
+| 线上 | `/`、`/zh/`、`/fr/` 返回 200；HTTP 跳转 HTTPS；`www` 的 301 已上线并验证（2026-11-27） |
 | 本地 Lighthouse，移动端（2026-11-27） | EN 99/100/100/100，ZH 99/100/100/100，FR 99/100/100/100；LCP 2.3 s；CLS 0；878–918 KiB |
-| 线上 Lighthouse，移动端（2026-11-27） | EN 98/100/93/92，ZH 98/100/93/92，FR 100/100/93/92 |
-| 线上 FCP / LCP / CLS | 1.2–1.9 s / 1.2–1.9 s / 0 |
+| 线上 Lighthouse，移动端（2026-11-27） | EN 99/100/93/92，ZH 99/100/93/92，FR 99/100/93/92 |
+| 线上 FCP / LCP / CLS | 1.3–1.7 s / 1.6–1.7 s / 0 |
 | 布局宽度 | 1440、1024、768、390 px 均无横向溢出 |
 | 关闭 JavaScript | 正文完整可读；GitHub 卡片使用构建快照 |
 | 迷你实验室素材 | 480/960/1440 WebP 与 1440 JPEG 回退；已去除 EXIF；三语说明与 alt |
@@ -165,7 +165,7 @@ QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright
 
 Cloudflare Pages 会把 `functions/` 与 `dist/` 一起部署，因此 `/api/github` 无需单独 Worker。该函数读取公开仓库信息，边缘缓存 10 分钟；可设置可选的 `GITHUB_TOKEN` 环境变量提高 GitHub 限额。Functions 不可用或接口失败时，页面保留构建快照。
 
-`public/_headers` 添加安全与缓存响应头。Cloudflare Pages 无法通过 `_redirects` 做域名级跳转，因此 `www` → 主域名的 301 改在 `functions/_middleware.js` 中实现；`public/_routes.json` 让静态资源不经过 Functions，保持 immutable 缓存。部署后验证跳转。GitHub Pages 已停用；如果仓库后台仍启用 Pages，请关闭。详见 [DEPLOY.md](DEPLOY.md)。
+`public/_headers` 添加安全与缓存响应头。Cloudflare Pages 无法通过 `_redirects` 做域名级跳转，因此 `www` → 主域名的 301 改在 `functions/_middleware.js` 中实现；`public/_routes.json` 让静态资源不经过 Functions，保持 immutable 缓存。跳转已在 `/`、`/zh/`、`/fr/` 与 `/api/github` 上验证。GitHub Pages 已停用；如果仓库后台仍启用 Pages，请关闭。详见 [DEPLOY.md](DEPLOY.md)。
 
 ## 内容规则
 
