@@ -11,7 +11,7 @@ Production host switched to <https://robusr.cn> on 2026-10-21. Production checks
 - Focused More Work on four items selected by the owner: Huginn, Robusr-skill, Lynx, and Gungnir; updated snapshot and content dates to 2026-11-26.
 - Added a Mini Lab section after the Hero, numbered 00 and placed before Selected Work: a full-width bedroom workbench photo at 480/960/1440 WebP plus a 1440 JPEG fallback, set on a paper mat with a `Fig. 00` caption in three languages. EXIF metadata is stripped and the published images carry a subtle warm grade.
 - Visual pass: a hairline rule leads into section 00; Journey now has a vertical timeline and accent nodes while Awards uses a ledger rule and accent ticks; project status/release chips share a right-aligned flag group; all small metadata uses a 12 px mono token; wide screens show faint sheet rules and crop marks; About has a top rule, a 62ch measure, and a larger first line; the footer adds a colophon.
-- Added an A4 print stylesheet with a print-only cover that hides navigation, backgrounds, live metadata, and repeated URLs while keeping plates, dates, and outbound links; the current test PDF is 8 pages. OG cards are now generated per locale: `og-default-v3.png`, `og-default-v3-zh.png`, and `og-default-v3-fr.png`.
+- Added an A4 print stylesheet with a print-only cover that hides navigation, backgrounds, live metadata, and repeated URLs while keeping plates, dates, and outbound links; the test PDF at that time was 8 pages; the current 2026-11-27 one-panel-per-row test is 18 pages. OG cards are now generated per locale: `og-default-v3.png`, `og-default-v3-zh.png`, and `og-default-v3-fr.png`.
 - Visual system pass: regraded the portrait into v3 assets and added a hairline frame plus a mono caption; framed project thumbnails; replaced scattered project metadata with a Tech / Evidence / GitHub spec table; added section-start ticks in the wide margins; rebuilt 404 as a missing-sheet page; added More Work arrows, footer contact labels, an active-section nav underline, an accent selection color, and a paper/ink robotic-arm favicon set with a teal base accent, hollow joints, and a C gripper (SVG, 16/32/180 PNG, manifest) checked at 16/32/64/180 px on light and dark tabs.
 - Project cards now open with full-width A/B/C/D academic plates: one short one-shot GIF panel and three static architecture, render, or analysis panels at 800×450 WebP. Vulcan: automation / architecture / request lifecycle / result. Hsiwu: linkage / analog control / assembly / line drawing. DustArrow: deployment / CFD / authorized TV launch / telemetry architecture. OnesArm: v2 render / FCF / 24-layout derivation / v2 FEA GIF. Sencillo: force-flow / layout / error table / constraint compilation. Panel captions and sources are localized; Sencillo figures are owner-supplied design-target material; OnesArm uses v2 material only; the TV launch still is credited to Shanghai TV, Young Edison S8. `prefers-reduced-motion` serves WebP stills.
 - `npm run verify` passes: content check, 0 type errors, 4 pages built.
@@ -25,17 +25,30 @@ Scope: all five projects redrawn (20 panels, 10 silent loops), the plate carouse
 - Vulcan A/C, Hsiwu A, DustArrow A, OnesArm A, and Sencillo A are 6.4 s focus-scan loops over the complete plates. Hsiwu C (lead-screw CAD), DustArrow B (canard/parachute CAD), and OnesArm C (MATLAB) are source-video composites. DustArrow C is the actual Gobi launch footage from the owner-provided *Young Edison* episode, credited to Shanghai TV, Young Edison S8.
 - Ten loops in total: Vulcan 2, Hsiwu 2, DustArrow 3, OnesArm 2, Sencillo 1; every video has an 800/1600 WebP poster. The old GIF set is no longer referenced.
 - All 20 SVG sources pass `audit_svg_schematic.py` at the web figure scale (4.2 pt floor, 220 mm canvas; the canvas-width warning is intentional for the 880 px web plate). Sencillo C's 27.5 µm hero number is 20.27 pt, above the 20 pt ordinary ceiling by design.
-- Projects are a four-panel snap carousel at every width (880×495 desktop, 350×197 at 390 px), with A–D anchors, a motion pause/play control, and a native `<dialog>` lightbox. Media links open the full image/video panel with JavaScript disabled.
-- Mobile order is title → tagline → carousel → summary/spec; desktop keeps the plate first. The first project name on mobile is at 1,629 px (was 2,687 px). Page height: EN 9,568 px desktop / 10,595 px mobile; ZH 9,086 / 9,040; FR 9,710 / 11,029. Desktop is 7% taller than the old 432 px grid because the plate is now 880 px wide; mobile is 21% shorter.
+- Projects are a four-panel snap carousel at every width (880×495 desktop, 350×197 at 390 px), with A–D anchors, a per-project motion pause/play control, and a native `<dialog>` lightbox. Media links open the full image/video panel with JavaScript disabled. A compact project index at the top of Selected Work links to each `#project-*` anchor; status chips now carry a maturity dot (Active, Complete, v2 current, Pre-prototype, Archive).
+- Mobile order is title → tagline → carousel → summary/spec; desktop keeps the plate first. The first project name on mobile is at 1,767 px (was 2,687 px before the redesign; the project index adds about 138 px). Page height: EN 9,572 px desktop / 10,733 px mobile; ZH 9,126 / 9,248; FR 9,721 / 11,222. The plate is now 880 px wide on desktop; mobile remains shorter than the old 432 px grid.
 - The six-item nav adds Lab and Awards; mobile targets are 44 px for primary controls and the release/award links. About is split into three paragraphs with a pull quote. JSON-LD uses the v3 portrait; the CJK stack adds Microsoft YaHei / Source Han Sans; Chinese headings use zero negative tracking.
 - Inter is now self-hosted at `public/fonts/inter-latin-variable.woff2` and preloaded. The language hint is shown by an inline head-adjacent script for zh/fr browsers, eliminating the 0.069 CLS caused by unhiding it after paint (now 0–0.001).
-- Print: print-only images are eager 800 px stills; the cover uses a 480 px screen image and upgrades to 960 px on `beforeprint`. The current A4 test PDF is 10 pages and shows every project's four panels in 2×2.
+- Print: the A4 layout now uses one panel per row instead of 2×2. Print stills are 800 px on screen and upgrade to 1600 px on `beforeprint`; the cover uses a 480 px screen image and upgrades to 960 px. The 2026-11-27 Chrome test PDF is 18 pages and every panel is full-width.
 - `npm run check`, `npm run typecheck`, and `npm run build` pass (0 errors, 0 warnings, 0 hints; 4 pages).
-- `scripts/qa-capture.mjs`: 0 console/page errors, 0 horizontal overflow at 1440/1024/768/390, 0 missing images, 0 tap targets under 44 px, 4 panels / 4 tabs per project, 10 loops total, 8 screenshots.
+- `scripts/qa-capture.mjs`: 0 console/page errors, 0 horizontal overflow at 1440/1024/768/390, 0 missing images, 0 tap targets under 44 px, 4 panels / 4 tabs per project, 10 loops total, 8 screenshots. The new project index wraps to two 44 px columns below 900 px.
 - Geometry: EN 9,568 px, ZH 9,086 px; h1 at 229/183 px and not covered. 200% zoom: 720 px viewport, no overflow; keyboard order includes the six nav links, four plate tabs, four media links, and the motion control.
-- Lighthouse mobile, local preview 2026-11-27: EN 99/100/100/100, ZH 99/100/100/100, FR 99/100/100/100; LCP 2.3 s; CLS 0; 878–918 KiB. Raw JSON is in `qa/lighthouse-*-mobile.json`.
+- Lighthouse mobile, local preview 2026-11-27: EN 100/100/100/100, ZH 99/100/100/100, FR 100/100/100/100; LCP 0.8–2.3 s; CLS 0; 878–919 KiB. Raw JSON is in `qa/lighthouse-*-mobile.json`.
 - Lighthouse mobile, production 2026-11-27: EN 99/100/93/92, ZH 99/100/93/92, FR 99/100/93/92; FCP/LCP 1.3–1.7 s; CLS 0; 887–928 KiB. Best Practices 93 is the CSP-blocked Cloudflare Web Analytics beacon; SEO 92 is Cloudflare's Managed robots.txt content-signal block, which Lighthouse's robots parser reports as one error. Both are zone settings.
-- Motion is opt-out: `prefers-reduced-motion` starts paused with the "Play motion" label; the control is hidden without JavaScript.
+- Motion is opt-out and scoped per project: `prefers-reduced-motion` or `navigator.connection.saveData` starts paused with the "Play motion" label; pressing one project's control does not start another project. The control is hidden without JavaScript.
+
+## 2026-11-27 — follow-up fixes
+
+- Print is now one panel per row, not 2×2. The 800 px on-screen print still is swapped for the 1600 px poster on `beforeprint`; a Chrome PDF test measured 18 A4 pages, all plates full-width, with the project index hidden.
+- Motion is scoped to each project: one project's button no longer starts another project's loops. `navigator.connection.saveData` starts all loops paused; `prefers-reduced-motion` still wins.
+- Selected Work has a compact index (`#project-*`) and status dots for Active / Complete / v2 current / Pre-prototype / Archive; mobile index links are 44 px tall.
+- `scripts/check-assets.mjs` audits `/assets` references, fails on missing files, and reports unreferenced files; `--strict` now passes after the approved cleanup: 65 public files deleted (5.83 MB) and the portrait build source moved to `figures/source/`. `npm run verify` includes the non-strict audit.
+- `scripts/version-plate.mjs` copies a selected panel set to a new immutable version directory and rewrites `project-figures.json`; `--dry-run` previews the change and `--force` controls overwrites.
+- `scripts/check-live.mjs` (also `npm run check:live`) checks the three apex pages, `/api/github`, a v3 asset, and the `www` 301 for root, path/query, and API. It passed on 2026-11-27.
+- Hero intro is tighter and the About pull quote now condenses the theory-to-engineering argument instead of repeating the ink paragraph.
+- Local Lighthouse after these changes: EN 100/100/100/100, ZH 99/100/100/100, FR 100/100/100/100; LCP 0.8–2.3 s; CLS 0; 878–919 KiB.
+- Still blocked: Cloudflare zone settings (Managed robots.txt, Web Analytics beacon, Email Obfuscation) need dashboard credentials. The 65 legacy public assets were deleted on owner approval; `qa/legacy-assets.txt` records the removed paths, and the portrait build source now lives in `figures/source/`.
+
 
 ## 2026-10-22 follow-up
 
@@ -178,11 +191,11 @@ With JavaScript disabled at 390 px, all six sections and the hero, contact, and 
 
 | Locale | Performance | Accessibility | Best Practices | SEO | LCP | CLS | Transfer |
 |---|---|---|---|---|---|---|---|
-| EN | 99 | 100 | 100 | 100 | 2.0 s | 0.001 | 262 KiB |
-| ZH | 99 | 100 | 100 | 100 | 2.0 s | 0 | 280 KiB |
-| FR | 99 | 100 | 100 | 100 | 2.0 s | 0.001 | 263 KiB |
+| EN | 100 | 100 | 100 | 100 | 0.8 s | 0 | 878 KiB |
+| ZH | 99 | 100 | 100 | 100 | 2.3 s | 0 | 919 KiB |
+| FR | 100 | 100 | 100 | 100 | 0.9 s | 0 | 878 KiB |
 
-Targets from the brief: all four categories ≥ 95, LCP < 2.0 s, CLS < 0.05. Categories and CLS are met. LCP displays as 2.0 s in all three locales, at the target boundary. Raw reports were refreshed on 2026-10-22: `qa/lighthouse-en-mobile.json`, `qa/lighthouse-zh-mobile.json`, `qa/lighthouse-fr-mobile.json`; summary: `qa/lighthouse-summary.json`.
+Targets from the brief: all four categories ≥ 95, LCP < 2.0 s, CLS < 0.05. All categories and CLS are met; EN and FR LCP are below 2.0 s, while ZH remains at 2.3 s. Raw reports were refreshed on 2026-11-27: `qa/lighthouse-en-mobile.json`, `qa/lighthouse-zh-mobile.json`, `qa/lighthouse-fr-mobile.json`; summary: `qa/lighthouse-summary.json`.
 
 Lighthouse ran against a local preview with Chrome headless and simulated mobile throttling; scores on Pages/CDN may differ slightly.
 
@@ -201,6 +214,9 @@ Lighthouse ran against a local preview with Chrome headless and simulated mobile
 - Production is Cloudflare Pages at `https://robusr.cn`. Canonical, hreflang, Open Graph, JSON-LD, sitemap, and robots use that host.
 - Cloudflare Email Address Obfuscation rewrites `mailto:` links and injects `/cdn-cgi/scripts/.../email-decode.min.js`. With JavaScript disabled, the footer shows `[email protected]` and the email link does not open a mail client. This feature is pending removal.
 - Cloudflare Managed robots.txt and Web Analytics are also pending removal. The beacon is blocked by the CSP, so it transfers no data, but it lowers Best Practices to 92 and logs a console error. The local preview scores 100 because the edge features are absent.
+- `www` HTML and API requests redirect with a 301, but `www` asset and font requests still return 200 because `public/_routes.json` excludes those paths from Functions. A zone Redirect Rule (or a deliberate decision to route every asset through the Function) is required for strict host canonicalization; the repository middleware cannot see excluded assets.
+- The CSP still allows `'unsafe-inline'` scripts for the pre-paint language hint. Hashing that script would remove the allowance but couples the header to the exact inline bytes; it is left for a follow-up with a build-time header generator.
+- The legacy cleanup removed 65 public assets (5.83 MB) on 2026-11-27 after explicit owner approval; the portrait source was moved to `figures/source/` instead of deleted because `make-portrait-assets.py` reads it. `qa/legacy-assets.txt` records the removed paths, and `npm run check:assets:strict` passes.
 - ZH LCP is 2.2 s in production, above the 2.0 s target. EN and FR measure 1.8 s and 1.6 s.
 - Chinese and French copy need a native technical review before publishing.
 - The 37th CASTIC second prize is medium-confidence; see `CONTENT_CONFLICTS.md`.
@@ -213,6 +229,8 @@ Lighthouse ran against a local preview with Chrome headless and simulated mobile
 ```bash
 npm ci
 npm run verify
+npm run check:assets
+npm run check:live                         # optional, needs network
 npm run preview -- --host 127.0.0.1 --port 4321
 npm install --no-save playwright@1.64.1   # QA tooling only, not a site dependency
 node scripts/qa-capture.mjs

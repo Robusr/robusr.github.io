@@ -18,7 +18,7 @@ Instantané : 2026-11-26. Traduction de `content/copy-en.md`, qui reste la sourc
 - Sur-titre : Génie robotique · HUST
 - Nom : Robusr Guo
 - Accroche : Bâtisseur IA × ingénierie. Je transforme des problèmes réels en matériel fonctionnel, puis j’utilise l’IA pour réduire la distance entre une idée et une pièce.
-- Présentation : Robusr Guo, geek de chambre depuis dix ans, est étudiant dans la classe expérimentale d’innovation en génie robotique de l’Université des sciences et technologies de Huazhong (HUST). À 13 ans, il a transformé sa chambre en atelier de mécatronique.
+- Présentation : Geek de chambre depuis dix ans, désormais étudiant dans la classe expérimentale d’innovation en génie robotique de HUST. À 13 ans, il a transformé sa chambre en atelier de mécatronique.
 - Statut : Actuellement : Vulcan · Sencillo · HUST Robotics.
 - Liens : GitHub · E-mail · Anteportal Labs
 - Alt du portrait : Robusr Guo sous un ginkgo en automne

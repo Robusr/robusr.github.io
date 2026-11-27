@@ -14,7 +14,7 @@
 | **Hosting** | Cloudflare Pages, deployed from `main` |
 | **Stack** | Astro 7, static output, no client framework |
 | **Locales** | English `/`, 简体中文 `/zh/`, Français `/fr/` |
-| **Design** | single-column editorial layout, 880 px max width, one deep-teal accent |
+| **Design** | single-column editorial layout, 880 px max width, one deep-teal accent with small warm status dots |
 | **Quality gates** | `npm run verify`, build-time GitHub sync, Playwright, Lighthouse |
 
 ---
@@ -33,11 +33,11 @@ All versions share one content model and the same section order. With JavaScript
 ## What the page contains
 
 - **Mini Lab (00):** a full-width photo of the bedroom workbench directly after the Hero, before Selected Work, set on a paper mat with a `Fig. 00` caption in each language.
-- **Selected Work:** Vulcan, Hsiwu, DustArrow X, OnesArm, and Anteportal Labs · Sencillo, in that fixed order. Each project opens with a four-panel A–D carousel (one 880 px panel at a time; swipe and snap on mobile) and a click-to-enlarge lightbox; every panel keeps its own localized caption. Animated panels are silent looping MP4/WebM with posters, paused by `prefers-reduced-motion` or the motion control. All five sets are redrawn: Vulcan (system loop, deployment, operator workflow, contract), Hsiwu (three-segment wing, analog chain, lead screw, bench evidence), DustArrow (modular bays, deployment, actual Gobi launch, telemetry), OnesArm (modular layers, FCF, 24 layouts + MATLAB, FEA), and Sencillo (force flow, layout, error budget, constraint compiler). The DustArrow launch panel uses the owner-provided *Young Edison* footage, credited to Shanghai TV. The body below pairs the project narrative with a Tech / Evidence / GitHub spec table. Repository cards still show live GitHub stars, forks, last push, and the latest release tag, with a build-time snapshot fallback.
+- **Selected Work:** Vulcan, Hsiwu, DustArrow X, OnesArm, and Anteportal Labs · Sencillo, in that fixed order. Each project opens with a four-panel A–D carousel (one 880 px panel at a time; swipe and snap on mobile) and a click-to-enlarge lightbox; every panel keeps its own localized caption. Animated panels are silent looping MP4/WebM with posters, paused by `prefers-reduced-motion` or a per-project motion control, and kept still when the browser reports Save-Data. A compact project index above the list links to each plate. All five sets are redrawn: Vulcan (system loop, deployment, operator workflow, contract), Hsiwu (three-segment wing, analog chain, lead screw, bench evidence), DustArrow (modular bays, deployment, actual Gobi launch, telemetry), OnesArm (modular layers, FCF, 24 layouts + MATLAB, FEA), and Sencillo (force flow, layout, error budget, constraint compiler). The DustArrow launch panel uses the owner-provided *Young Edison* footage, credited to Shanghai TV. The body below pairs the project narrative with a Tech / Evidence / GitHub spec table. Repository cards still show live GitHub stars, forks, last push, and the latest release tag, with a build-time snapshot fallback.
 - **Journey:** six rows from a bedroom workshop in 2018 to HUST in 2026.
 - **Awards & Media:** 38th CASTIC first prize, 37th CASTIC second prize, and the Shanghai TV *Young Edison* feature.
 - **More Work:** four repositories, one line each.
-- **About:** three short paragraphs and a pull quote on October Sky, the sugar-propellant ignition that started it all, the floor lamp borrowed from his art-teacher father, the von Kármán curve, modular rocket PCB assembly, LoRa packet-loss tests, and the ink tones that connect engineering to meaning.
+- **About:** three short paragraphs on October Sky, the sugar-propellant ignition that started it all, the floor lamp borrowed from his art-teacher father, the von Kármán curve, modular rocket PCB assembly, LoRa packet-loss tests, and the ink tones that connect engineering to meaning; the pull quote condenses the theory-to-engineering argument.
 - **Contact:** email, GitHub, Anteportal Labs, location, language links, and the signature.
 - **Background:** two hand-drawn personal IP illustrations, a collage portrait anchored bottom-right and a standing figure bottom-left, over a warm paper wash with a faint drafting dot grid in the margins. The standing figure appears from 1200 px up; mobile uses a 480 px version of the portrait.
 
@@ -48,15 +48,15 @@ All versions share one content model and the same section order. With JavaScript
 | Framework | Astro 7, static output, no client framework |
 | Styling | native CSS custom properties, no utility framework |
 | Type | self-hosted, preloaded Inter variable WOFF2; system CJK stack |
-| Images | 20 project plates at 1600×900 WebP; 10 silent MP4/WebM loops with 800 px posters and 800 px print stills; A plates use focus scans, Hsiwu C / DustArrow B / OnesArm C use repository CAD or MATLAB composites, and DustArrow C uses the actual launch footage; portrait at 260 and 512 px, Mini Lab at 480/960/1440 px with a 1440 px JPEG fallback, two transparent line-art IP assets sized for their display slots; WebP, with JPEG fallbacks |
+| Images | 20 project plates at 1600×900 WebP; 10 silent MP4/WebM loops with 800 px posters and print stills that upgrade to 1600 px on `beforeprint`; A plates use focus scans, Hsiwu C / DustArrow B / OnesArm C use repository CAD or MATLAB composites, and DustArrow C uses the actual launch footage; portrait at 260 and 512 px, Mini Lab at 480/960/1440 px with a 1440 px JPEG fallback, two transparent line-art IP assets sized for their display slots; WebP, with JPEG fallbacks |
 | Icons | paper-field SVG favicon with an ink robotic-arm line drawing, hollow joints, a C gripper, and a teal base accent; 16/32/180 px PNG fallbacks and a web manifest |
-| JavaScript | about 6 KB uncompressed of progressive enhancement (carousel, lightbox, motion control, live GitHub) |
+| JavaScript | about 7 KB uncompressed of progressive enhancement (carousel, lightbox, per-project motion control with Save-Data, live GitHub) |
 | GitHub data | build-time snapshot from the GitHub API; edge-cached `/api/github` refresh through a Cloudflare Pages Function |
 | Privacy | no analytics, cookies, third-party fonts, or embeds; GitHub requests leave from Cloudflare, not the visitor's browser |
-| Print | A4 print stylesheet with a print-only cover: hides navigation, backgrounds, and live metadata; keeps all four panels, dates, and outbound URLs; print-only images load at 800 px, the cover upgrades to 960 px on `beforeprint` |
+| Print | A4 print stylesheet with a print-only cover: hides navigation, backgrounds, live metadata, and the project index; keeps all four panels, dates, and outbound URLs; one panel per row, with print stills upgraded to 1600 px on `beforeprint` (18 pages in the 2026-11-27 Chrome test) |
 | Social | 1200×630 OG cards per locale, built around the Mini Lab plate and localized taglines |
 | Deployment | Cloudflare Pages and Pages Functions, Git integration, Node 22 |
-| CI | GitHub Actions runs `npm run verify` on pushes and pull requests |
+| CI | GitHub Actions runs `npm run verify` on pushes and pull requests, including the asset-reference audit |
 
 ## Local development
 
@@ -67,13 +67,16 @@ npm ci
 npm run dev       # http://localhost:4321
 npm run build     # sync GitHub stats, then render static output in dist/
 npm run preview   # preview dist/ at http://localhost:4321
-npm run check     # content, locale, asset, and GitHub snapshot consistency
+npm run check     # content, locale, and GitHub snapshot consistency
+npm run check:assets # asset references; add --strict to fail on unreferenced files
+npm run check:live # production apex, API, v3 asset, and www 301 smoke checks
 npm run sync:github # refresh the checked-in GitHub snapshot
 npm run typecheck # astro check
-npm run verify    # check + typecheck + build
+npm run version:plate -- --from v2 --to v3 --prefix onesarm-b # copy a plate to a new immutable version
+npm run verify    # check + asset audit + typecheck + build
 ```
 
-`npm run verify` syncs the GitHub snapshot, runs the content check, the type check, and the build; the build refreshes the snapshot again and produces four HTML pages. `dist/` is ignored by git and rebuilt in CI. `npm run sync:github` and `npm run build` keep the existing snapshot when GitHub is unreachable; set `GITHUB_TOKEN` to raise the API rate limit. The live `/api/github` endpoint is served by Cloudflare Pages Functions and is not part of `astro preview`; the page falls back to the snapshot there.
+`npm run verify` syncs the GitHub snapshot, runs the content check, the asset-reference audit, the type check, and the build; the build refreshes the snapshot again and produces four HTML pages. `dist/` is ignored by git and rebuilt in CI. `npm run sync:github` and `npm run build` keep the existing snapshot when GitHub is unreachable; set `GITHUB_TOKEN` to raise the API rate limit. The live `/api/github` endpoint is served by Cloudflare Pages Functions and is not part of `astro preview`; the page falls back to the snapshot there.
 
 ## Content model
 
@@ -120,7 +123,7 @@ English is the source of truth. When editing:
 ├── functions/        Cloudflare Pages Functions for /api/github and the www 301
 ├── public/           images, hand-drawn IP art, mini lab photo, favicon set, OG cards, manifest, _headers, _redirects
 ├── content/          copy manuscripts and glossary
-├── scripts/          content check, GitHub sync, OG/IP/Mini Lab/portrait/project figure generators, and QA helpers
+├── scripts/          content and asset checks, GitHub sync, plate version helper, asset generators, and QA helpers
 ├── qa/               Lighthouse, consistency, and layout reports
 ├── screenshots/      full-page captures at 1440, 1024, 768, and 390 px
 ├── Robusr IP/        source scans for the background artwork
@@ -132,10 +135,10 @@ English is the source of truth. When editing:
 
 | Check | Result |
 |---|---|
-| Build and checks | `npm run verify` passes: content check, `astro check` with 0 errors, 4 pages built |
+| Build and checks | `npm run verify` passes: content check, asset-reference audit (0 missing, 0 unreferenced), `astro check` with 0 errors, 4 pages built |
 | GitHub sync | Snapshot covers 8 repositories; Vulcan resolves to v1.3.0; `/api/github` returned 24 public repositories and the Vulcan release in a local handler test; a mocked endpoint updated the card to 99 stars and v9.9.9 in a Playwright check on 2026-11-26 |
-| Production | `/`, `/zh/`, `/fr/` return 200; HTTP redirects to HTTPS; the `www` 301 is live and verified (2026-11-27) |
-| Lighthouse mobile, local preview (2026-11-27) | EN 99/100/100/100, ZH 99/100/100/100, FR 99/100/100/100; LCP 2.3 s; CLS 0; 878–918 KiB |
+| Production | `/`, `/zh/`, `/fr/` return 200; HTTP redirects to HTTPS; `npm run check:live` verifies the `www` 301 for root, path/query, and API plus the v3 asset (2026-11-27) |
+| Lighthouse mobile, local preview (2026-11-27) | EN 100/100/100/100, ZH 99/100/100/100, FR 100/100/100/100; LCP 0.8–2.3 s; CLS 0; 878–919 KiB |
 | Lighthouse mobile, production (2026-11-27) | EN 99/100/93/92, ZH 99/100/93/92, FR 99/100/93/92 |
 | FCP / LCP / CLS, production | 1.3–1.7 s / 1.6–1.7 s / 0 |
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow; carousel is 4 panels / 4 tabs per project; 10 loops total (Vulcan 2, Hsiwu 2, DustArrow 3, OnesArm 2, Sencillo 1) |
@@ -143,8 +146,8 @@ English is the source of truth. When editing:
 | Mini Lab assets | 480/960/1440 WebP and a 1440 JPEG fallback; EXIF stripped; caption and alt text in three languages |
 | Project figures | Five plates × four panels, all redrawn and audited as editable SVG at the web figure scale; Sencillo is design-target material; OnesArm uses v2 material only; the DustArrow launch excerpt is owner-provided and credited to Shanghai TV, Young Edison S8 |
 | Project motion | 10 silent MP4/WebM loops: Vulcan A/C, Hsiwu A/C, DustArrow A/B/C, OnesArm A/C, Sencillo A; focus scans plus CAD, MATLAB, and actual-launch composites; posters for reduced motion |
-| OG and print | v3 1200×630 OG cards for EN/ZH/FR with the Mini Lab plate; A4 print CSS with a print-only cover (10 pages in the 2026-11-27 test) keeps all four panels, dates, and outbound URLs while hiding navigation and live metadata |
-| Visual system | Plate carousel with A–D anchors and lightbox, portrait and project frames, spec tables, section ticks, localized OG cards, print cover, and a missing-sheet 404 page |
+| OG and print | v3 1200×630 OG cards for EN/ZH/FR with the Mini Lab plate; A4 print CSS with a print-only cover (18 pages in the 2026-11-27 Chrome test) keeps all four panels at one per row, dates, and outbound URLs while hiding navigation, the project index, and live metadata |
+| Visual system | Project index with status dots, plate carousel with A–D anchors and lightbox, portrait and project frames, spec tables, section ticks, localized OG cards, print cover, and a missing-sheet 404 page |
 | Icons | SVG favicon plus 16/32/180 px PNGs and a manifest; checked at 16/32/64/180 px on light and dark tab backgrounds |
 | Outbound links | GitHub and media links return 200 |
 
@@ -152,7 +155,7 @@ The 2026-11-27 local Lighthouse figures cover the carousel/video build with the 
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 
-The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`; the Mini Lab photo is regenerated with `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg`; the portrait is regraded with `python3 scripts/make-portrait-assets.py`. The new plates are built with `python3 figures/build_vulcan.py` and `python3 figures/build_batch.py`, rendered with `node figures/render.mjs`, focus-scans encoded with `node figures/animate_batch.mjs`, and source-video composites assembled with ffmpeg. The legacy `scripts/make-project-figures.py` remains for the old repository plates. The figure scripts require Pillow, and the Mini Lab and portrait scripts strip EXIF metadata; the portrait script reads the v2 512 px file and writes v3 assets. Source repository assets, the owner-provided launch excerpt, and Sencillo design-target renders are not committed.
+The QA scripts use Playwright, installed separately with `npm install --no-save playwright@1.64.1`. The OG image is regenerated with `python3 scripts/make-og.py`; the background art is regenerated from `Robusr IP/` with `python3 scripts/make-ip-assets.py`; the Mini Lab photo is regenerated with `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg`; the portrait is regraded with `python3 scripts/make-portrait-assets.py`. The new plates are built with `python3 figures/build_vulcan.py` and `python3 figures/build_batch.py`, rendered with `node figures/render.mjs`, focus-scans encoded with `node figures/animate_batch.mjs`, and source-video composites assembled with ffmpeg. The legacy `scripts/make-project-figures.py` remains for the old repository plates. The figure scripts require Pillow, and the Mini Lab and portrait scripts strip EXIF metadata; the portrait script reads `figures/source/portrait-robusr-512-v2.jpg` and writes v3 assets. Source repository assets, the owner-provided launch excerpt, and Sencillo design-target renders are not committed.
 
 ## Deployment
 

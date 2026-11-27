@@ -191,11 +191,15 @@ plateCarousels.forEach((carousel) => {
   });
 });
 
-/* Silent, looping plate videos: play only in view, and only when motion is on. */
-const plateVideos = [...document.querySelectorAll('video[data-plate-video]')];
-const motionButtons = [...document.querySelectorAll('[data-plate-motion]')];
-if (plateVideos.length) {
-  let playing = !reduceMotion.matches;
+/* Silent, looping plate videos: per-project motion, in-view playback, Save-Data. */
+const motionProjects = [...document.querySelectorAll('.project')]
+  .map((project) => ({
+    videos: [...project.querySelectorAll('video[data-plate-video]')],
+    button: project.querySelector('[data-plate-motion]'),
+  }))
+  .filter((entry) => entry.videos.length);
+if (motionProjects.length) {
+  const saveData = navigator.connection?.saveData === true;
   const setVideo = (video, on) => {
     if (on) {
       const promise = video.play();
@@ -204,40 +208,49 @@ if (plateVideos.length) {
       video.pause();
     }
   };
-  const visible = new Map();
-  const syncButtons = () => motionButtons.forEach((button) => {
-    button.hidden = false;
-    button.textContent = playing ? button.dataset.pauseLabel : button.dataset.playLabel;
-  });
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        visible.set(entry.target, entry.isIntersecting);
-        setVideo(entry.target, playing && entry.isIntersecting);
-      });
-    }, { threshold: 0.55 });
-    plateVideos.forEach((video) => observer.observe(video));
-  } else {
-    plateVideos.forEach((video) => setVideo(video, playing));
-  }
-
-  motionButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      playing = !playing;
-      plateVideos.forEach((video) => setVideo(video, playing && (visible.get(video) ?? true)));
-      syncButtons();
+  const controllers = motionProjects.map(({ videos, button }) => {
+    let playing = !reduceMotion.matches && !saveData;
+    const visible = new Map();
+    const sync = () => {
+      if (!button) return;
+      button.hidden = false;
+      button.textContent = playing ? button.dataset.pauseLabel : button.dataset.playLabel;
+    };
+    const apply = () => videos.forEach((video) => {
+      setVideo(video, playing && (visible.get(video) ?? false));
     });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          visible.set(entry.target, entry.isIntersecting);
+          setVideo(entry.target, playing && entry.isIntersecting);
+        });
+      }, { threshold: 0.55 });
+      videos.forEach((video) => observer.observe(video));
+    } else {
+      videos.forEach((video) => visible.set(video, true));
+      apply();
+    }
+
+    button?.addEventListener('click', () => {
+      playing = !playing;
+      apply();
+      sync();
+    });
+    sync();
+    return {
+      pause: () => {
+        playing = false;
+        videos.forEach((video) => video.pause());
+        sync();
+      },
+    };
   });
 
   reduceMotion.addEventListener?.('change', () => {
-    if (reduceMotion.matches) {
-      playing = false;
-      plateVideos.forEach((video) => video.pause());
-      syncButtons();
-    }
+    if (reduceMotion.matches) controllers.forEach((controller) => controller.pause());
   });
-  syncButtons();
 }
 
 /* Plate lightbox: native <dialog>, with image/video and caption. */
@@ -300,10 +313,10 @@ if (plateDialog && typeof plateDialog.showModal === 'function') {
   });
 }
 
-// Upgrade the print-only cover image to its high-resolution copy when printing.
+// Swap low-weight screen copies for high-resolution print copies at print time.
 window.addEventListener('beforeprint', () => {
-  document.querySelectorAll('img[data-hires]').forEach((img) => {
-    const hires = img.getAttribute('data-hires');
+  document.querySelectorAll('img[data-hires], img[data-print-src]').forEach((img) => {
+    const hires = img.getAttribute('data-hires') ?? img.getAttribute('data-print-src');
     if (hires && img.getAttribute('src') !== hires) img.setAttribute('src', hires);
   });
 });

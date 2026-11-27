@@ -18,7 +18,7 @@ Snapshot: 2026-11-26. Sources: `01-identity-and-bio.md`, `02-project-cards.md`, 
 - Label: Robotics Engineering · HUST
 - Name: Robusr Guo
 - Positioning: AI × Engineering builder. I turn real-world problems into working hardware, then use AI to compress the distance from idea to part.
-- Intro: Robusr Guo, a bedroom geek for ten years, is an undergraduate in the Robotics Engineering Innovation Experimental Class at Huazhong University of Science and Technology. At 13, he turned his bedroom into a mechatronics workshop.
+- Intro: A bedroom geek for ten years, now an undergraduate in the Robotics Engineering Innovation Experimental Class at Huazhong University of Science and Technology. At 13, he turned his bedroom into a mechatronics workshop.
 - Status: Currently: Vulcan · Sencillo · HUST Robotics.
 - Links: GitHub · Email · Anteportal Labs
 - Portrait alt: Robusr Guo under a ginkgo tree in autumn

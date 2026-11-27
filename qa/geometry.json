@@ -1,7 +1,7 @@
 {
   "en": {
     "scrollY": 0,
-    "docHeight": 9568,
+    "docHeight": 9572,
     "elements": [
       {
         "sel": ".site-header",
@@ -90,7 +90,7 @@
   },
   "zh": {
     "scrollY": 0,
-    "docHeight": 9086,
+    "docHeight": 9126,
     "elements": [
       {
         "sel": ".site-header",

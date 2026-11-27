@@ -19,9 +19,9 @@
     "fr": "Bâtisseur IA × ingénierie. Je transforme des problèmes réels en matériel fonctionnel, puis j’utilise l’IA pour réduire la distance entre une idée et une pièce."
   },
   "intro": {
-    "en": "Robusr Guo, a bedroom geek for ten years, is an undergraduate in the Robotics Engineering Innovation Experimental Class at Huazhong University of Science and Technology. At 13, he turned his bedroom into a mechatronics workshop.",
-    "zh": "郭沫晗，十年卧室极客，华中科技大学机器人工程科创实验班本科生。13岁把卧室改造成机械电子工作室。",
-    "fr": "Robusr Guo, geek de chambre depuis dix ans, est étudiant dans la classe expérimentale d’innovation en génie robotique de l’Université des sciences et technologies de Huazhong (HUST). À 13 ans, il a transformé sa chambre en atelier de mécatronique."
+    "en": "A bedroom geek for ten years, now an undergraduate in the Robotics Engineering Innovation Experimental Class at Huazhong University of Science and Technology. At 13, he turned his bedroom into a mechatronics workshop.",
+    "zh": "十年卧室极客，现为华中科技大学机器人工程科创实验班本科生。13 岁把卧室改造成机械电子工作室。",
+    "fr": "Geek de chambre depuis dix ans, désormais étudiant dans la classe expérimentale d’innovation en génie robotique de HUST. À 13 ans, il a transformé sa chambre en atelier de mécatronique."
   },
   "status": {
     "en": "Vulcan · Sencillo · HUST Robotics.",
@@ -103,8 +103,8 @@
     "fr": "Dernière mise à jour : novembre 2026"
   },
   "pullQuote": {
-    "en": "From intention to form — like the burnt, dense, heavy, pale, and clear tones of ink: a landscape painted in one breath.",
-    "zh": "由意到形——如墨色的焦、浓、重、淡、清，山水写意，一气呵成。",
-    "fr": "De l’intention à la forme — comme les tons d’encre brûlée, dense, lourde, pâle et claire : un paysage peint d’un seul geste."
+    "en": "From intent to form: every stiffener and op-amp is where abstract theory becomes engineering.",
+    "zh": "由意到形：每一处加强筋和运放器，都是抽象理论工程化落地的节点。",
+    "fr": "De l’intention à la forme : chaque raidisseur et chaque amplificateur opérationnel est un point où la théorie devient ingénierie."
   }
 }

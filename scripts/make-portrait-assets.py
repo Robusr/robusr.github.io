@@ -4,15 +4,15 @@
 Usage:
     python3 scripts/make-portrait-assets.py
 
-Reads the published 512 px portrait and writes 512 JPEG/WebP and 260 WebP
-without EXIF metadata.
+Reads the archived 512 px portrait from figures/source and writes 512 JPEG/WebP
+and 260 WebP without EXIF metadata.
 """
 from pathlib import Path
 
 from PIL import Image, ImageEnhance, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "public/assets/profile/portrait-robusr-512-v2.jpg"
+SRC = ROOT / "figures/source/portrait-robusr-512-v2.jpg"
 OUT = ROOT / "public/assets/profile"
 WARM = (252, 245, 235)
 

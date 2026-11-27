@@ -14,7 +14,7 @@
 | **托管** | Cloudflare Pages，从 `main` 分支自动部署 |
 | **技术栈** | Astro 7，静态输出，无客户端框架 |
 | **语言** | English `/`、简体中文 `/zh/`、Français `/fr/` |
-| **设计** | 单栏编辑式布局，最大宽度 880 px，只有一个深青强调色 |
+| **设计** | 单栏编辑式布局，最大宽度 880 px，一个深青强调色，配小面积暖色状态点 |
 | **质量检查** | `npm run verify`、构建时 GitHub 同步、Playwright、Lighthouse |
 
 ---
@@ -33,11 +33,11 @@
 ## 页面内容
 
 - **迷你实验室（00）：** Hero 之后、代表项目之前的全宽卧室工作台照片，带纸白图版边框与三语「图 00」图注。
-- **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。每个项目以四联 A–D 轮播开头（桌面一次显示 880 px 面板，移动端吸附滑动），点击可放大；每个面板保留本地化图注。动画面板为静音循环 MP4/WebM，带海报图；`prefers-reduced-motion` 或动效按钮可暂停。五组图版均已重绘：Vulcan（系统闭环、部署架构、操作流程、契约）、Hsiwu（三段翼、模拟链路、丝杠、台架证据）、DustArrow（模块舱、展开、戈壁发射实拍、遥测）、OnesArm（模块分层、FCF、24 构型 + MATLAB、有限元）、Sencillo（力流、布局、误差预算、约束编译）。DustArrow 发射画面来自作者提供的《少年爱迪生》素材，并标注上海电视台。下方正文与「技术 / 证据 / GitHub」规格表组成双栏。仓库数据仍显示实时的 stars、forks、最近推送与 Release，无 JavaScript 时回退构建快照。
+- **代表项目：** Vulcan、Hsiwu、DustArrow X、OnesArm、Anteportal Labs · Sencillo，顺序固定。每个项目以四联 A–D 轮播开头（桌面一次显示 880 px 面板，移动端吸附滑动），点击可放大；每个面板保留本地化图注。动画面板为静音循环 MP4/WebM，带海报图；`prefers-reduced-motion` 或每个项目独立的动效按钮可暂停，浏览器报告 Save-Data 时保持静止。列表上方有紧凑的项目索引，可直接跳到每块图版。五组图版均已重绘：Vulcan（系统闭环、部署架构、操作流程、契约）、Hsiwu（三段翼、模拟链路、丝杠、台架证据）、DustArrow（模块舱、展开、戈壁发射实拍、遥测）、OnesArm（模块分层、FCF、24 构型 + MATLAB、有限元）、Sencillo（力流、布局、误差预算、约束编译）。DustArrow 发射画面来自作者提供的《少年爱迪生》素材，并标注上海电视台。下方正文与「技术 / 证据 / GitHub」规格表组成双栏。仓库数据仍显示实时的 stars、forks、最近推送与 Release，无 JavaScript 时回退构建快照。
 - **经历：** 6 行，从 2018 年的卧室工作室到 2026 年的华中科技大学。
 - **奖项与报道：** 第 38 届全国青少年科技创新大赛一等奖、第 37 届二等奖，以及上海电视台《少年爱迪生》。
 - **其他项目：** 4 个仓库，每个一行。
-- **关于：** 三段文字加一句引文，从《十月的天空》和硝糖燃料点火讲起，到美术老师父亲的落地台灯、冯卡门曲线、箭体 PCB 装配、LoRa 丢包测试与水墨五色。
+- **关于：** 三段文字谈《十月的天空》和硝糖燃料点火、美术老师父亲的落地台灯、冯卡门曲线、箭体 PCB 装配、LoRa 丢包测试与水墨五色；引文把“抽象理论如何变成工程”压缩成一句。
 - **联系：** 邮箱、GitHub、Anteportal Labs、所在地、语言链接与签名。
 - **背景：** 两幅手绘个人 IP 线稿，右下角拼贴肖像、左下角站立人物，叠在带有极淡制图点阵的暖色纸感底色上。站立人物从 1200 px 起显示；移动端使用 480 px 版本的肖像。
 
@@ -48,15 +48,15 @@
 | 框架 | Astro 7，静态输出，无客户端框架 |
 | 样式 | 原生 CSS 自定义属性，无工具类框架 |
 | 字体 | 自托管 Inter 可变字体，中文使用系统字体栈 |
-| 图片 | 20 块项目图版使用 1600×900 WebP；10 段静音 MP4/WebM 循环，带 800 px 海报与 800 px 打印静帧；A 图使用聚焦扫描，Hsiwu C / DustArrow B / OnesArm C 使用 CAD 或 MATLAB 合成，DustArrow C 使用发射实拍；肖像 260/512 px，迷你实验室 480/960/1440 px 并提供 1440 px JPEG 回退，两套透明线稿 IP 素材按展示位置裁切；WebP 与 JPEG 回退 |
+| 图片 | 20 块项目图版使用 1600×900 WebP；10 段静音 MP4/WebM 循环，带 800 px 海报与在 `beforeprint` 升级到 1600 px 的打印静帧；A 图使用聚焦扫描，Hsiwu C / DustArrow B / OnesArm C 使用 CAD 或 MATLAB 合成，DustArrow C 使用发射实拍；肖像 260/512 px，迷你实验室 480/960/1440 px 并提供 1440 px JPEG 回退，两套透明线稿 IP 素材按展示位置裁切；WebP 与 JPEG 回退 |
 | 图标 | 纸白底 + 墨色机械臂线稿 + 空心关节 + C 形夹爪 + 深青底座点缀的 SVG favicon、16/32/180 px PNG 回退与 web manifest |
-| JavaScript | 约 6 KB（未压缩）渐进增强（轮播、灯箱、动效控制、实时 GitHub） |
+| JavaScript | 约 7 KB（未压缩）渐进增强（轮播、灯箱、按项目控制的动效与 Save-Data、实时 GitHub） |
 | GitHub 数据 | 构建时从 GitHub API 生成快照；Cloudflare Pages Function 提供 `/api/github` 边缘缓存刷新 |
 | 隐私 | 无统计、Cookie、第三方字体或嵌入；GitHub 请求由 Cloudflare 发出，不暴露访客浏览器 |
-| 打印 | A4 打印样式并附带 print-only 封面：隐藏导航、背景与实时元信息，保留全部四块面板、日期与站外 URL；打印图 800 px，封面在 `beforeprint` 升级到 960 px |
+| 打印 | A4 打印样式并附带 print-only 封面：隐藏导航、背景、实时元信息与项目索引，保留全部四块面板、日期与站外 URL；每行一个面板，打印静帧在 `beforeprint` 升级到 1600 px（2026-11-27 Chrome 测试为 18 页） |
 | 社交分享 | 每种语言一张 1200×630 OG 卡片，使用迷你实验室图版与本地化标语 |
 | 部署 | Cloudflare Pages 与 Pages Functions，Git 集成，Node 22 |
-| CI | GitHub Actions 在推送和 PR 时运行 `npm run verify` |
+| CI | GitHub Actions 在推送和 PR 时运行 `npm run verify`，包含资源引用审计 |
 
 ## 本地开发
 
@@ -67,13 +67,16 @@ npm ci
 npm run dev       # http://localhost:4321
 npm run build     # 先同步 GitHub 数据，再静态输出到 dist/
 npm run preview   # 预览 dist/
-npm run check     # 内容、语言、资源与 GitHub 快照一致性检查
+npm run check     # 内容、语言与 GitHub 快照一致性检查
+npm run check:assets # 资源引用；加 --strict 可让未引用文件导致失败
+npm run check:live # 线上主域、API、v3 资源与 www 301 冒烟检查
 npm run sync:github # 刷新仓库内的 GitHub 快照
 npm run typecheck # astro check
-npm run verify    # check + typecheck + build
+npm run version:plate -- --from v2 --to v3 --prefix onesarm-b # 把图版复制到新的不可变版本
+npm run verify    # check + 资源审计 + typecheck + build
 ```
 
-`npm run verify` 会先同步 GitHub 快照，再依次运行内容检查、类型检查和构建；构建时会再刷新一次快照，最终生成 4 个 HTML 页面。`dist/` 不进入 Git，由 CI 重建。GitHub 不可达时，`npm run sync:github` 与 `npm run build` 保留现有快照；设置 `GITHUB_TOKEN` 可提高 API 限额。`/api/github` 由 Cloudflare Pages Functions 提供，`astro preview` 中不存在；此时页面使用构建快照。
+`npm run verify` 会先同步 GitHub 快照，再依次运行内容检查、资源引用审计、类型检查和构建；构建时会再刷新一次快照，最终生成 4 个 HTML 页面。`dist/` 不进入 Git，由 CI 重建。GitHub 不可达时，`npm run sync:github` 与 `npm run build` 保留现有快照；设置 `GITHUB_TOKEN` 可提高 API 限额。`/api/github` 由 Cloudflare Pages Functions 提供，`astro preview` 中不存在；此时页面使用构建快照。
 
 ## 内容模型
 
@@ -120,7 +123,7 @@ npm run verify    # check + typecheck + build
 ├── functions/        Cloudflare Pages Functions：/api/github 与 www 301
 ├── public/           图片、手绘 IP 素材、迷你实验室照片、favicon 套件、OG 卡片、manifest、_headers、_redirects
 ├── content/          三语文稿与术语表
-├── scripts/          内容检查、GitHub 同步、OG/IP/迷你实验室/肖像/项目图版生成、QA 脚本
+├── scripts/          内容与资源检查、GitHub 同步、图版版本助手、素材生成与 QA 脚本
 ├── qa/               Lighthouse、一致性与布局报告
 ├── screenshots/      1440、1024、768、390 px 全页截图
 ├── Robusr IP/        背景线稿的原始扫描
@@ -132,10 +135,10 @@ npm run verify    # check + typecheck + build
 
 | 检查 | 结果 |
 |---|---|
-| 构建与检查 | `npm run verify` 通过：内容检查、`astro check` 0 错误、构建 4 个页面 |
+| 构建与检查 | `npm run verify` 通过：内容检查、资源引用审计（0 缺失，0 未引用）、`astro check` 0 错误、构建 4 个页面 |
 | GitHub 同步 | 快照覆盖 8 个仓库；Vulcan 解析为 v1.3.0；本地处理器测试中 `/api/github` 返回 24 个公开仓库与 Vulcan Release；2026-11-26 的 Playwright 测试用 mock 接口把卡片更新为 99 stars 与 v9.9.9 |
-| 线上 | `/`、`/zh/`、`/fr/` 返回 200；HTTP 跳转 HTTPS；`www` 的 301 已上线并验证（2026-11-27） |
-| 本地 Lighthouse，移动端（2026-11-27） | EN 99/100/100/100，ZH 99/100/100/100，FR 99/100/100/100；LCP 2.3 s；CLS 0；878–918 KiB |
+| 线上 | `/`、`/zh/`、`/fr/` 返回 200；HTTP 跳转 HTTPS；`npm run check:live` 验证根路径、路径/查询与 API 的 `www` 301，以及 v3 资源（2026-11-27） |
+| 本地 Lighthouse，移动端（2026-11-27） | EN 100/100/100/100，ZH 99/100/100/100，FR 100/100/100/100；LCP 0.8–2.3 s；CLS 0；878–919 KiB |
 | 线上 Lighthouse，移动端（2026-11-27） | EN 99/100/93/92，ZH 99/100/93/92，FR 99/100/93/92 |
 | 线上 FCP / LCP / CLS | 1.3–1.7 s / 1.6–1.7 s / 0 |
 | 布局宽度 | 1440、1024、768、390 px 均无横向溢出 |
@@ -143,8 +146,8 @@ npm run verify    # check + typecheck + build
 | 迷你实验室素材 | 480/960/1440 WebP 与 1440 JPEG 回退；已去除 EXIF；三语说明与 alt |
 | 项目图版 | 5 张图版 × 4 个面板，全部重绘并通过可编辑 SVG 审核；Sencillo 为设计目标资料；OnesArm 仅使用 v2 资料；DustArrow 发射画面为作者提供并标注上海电视台《少年爱迪生》第八季 |
 | 项目动效 | 10 段静音 MP4/WebM：Vulcan A/C、Hsiwu A/C、DustArrow A/B/C、OnesArm A/C、Sencillo A；聚焦扫描 + CAD/MATLAB/发射实拍合成；减少动态时显示海报 |
-| OG 与打印 | 中英法三张 1200×630 OG 卡片使用迷你实验室图版；A4 打印样式带 print-only 封面（2026-11-27 测试为 10 页），保留全部四块面板、日期与站外 URL，隐藏导航与实时元信息 |
-| 视觉系统 | A–D 图版轮播与灯箱、肖像与项目图细框、规格表、章节页边刻度、本地化 OG、打印封面与缺失图纸 404 |
+| OG 与打印 | 中英法三张 1200×630 OG 卡片使用迷你实验室图版；A4 打印样式带 print-only 封面（2026-11-27 Chrome 测试为 18 页），每行一个面板，保留全部四块面板、日期与站外 URL，隐藏导航、项目索引与实时元信息 |
+| 视觉系统 | 带状态点的项目索引、A–D 图版轮播与灯箱、肖像与项目图细框、规格表、章节页边刻度、本地化 OG、打印封面与缺失图纸 404 |
 | 图标 | SVG favicon、16/32/180 px PNG 与 manifest；已在浅色/深色标签栏的 16/32/64/180 px 下检查 |
 | 站外链接 | GitHub 与媒体链接返回 200 |
 
@@ -152,7 +155,7 @@ npm run verify    # check + typecheck + build
 
 完整证据见 [QA.md](QA.md)；截图见 [screenshots/](screenshots/)；Lighthouse 原始报告见 [qa/](qa/)。
 
-QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright@1.64.1`。OG 图片可用 `python3 scripts/make-og.py` 重新生成；背景素材可用 `python3 scripts/make-ip-assets.py` 从 `Robusr IP/` 重新生成；迷你实验室图片可用 `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg` 重新生成；肖像可用 `python3 scripts/make-portrait-assets.py` 重新调色。新图版用 `python3 figures/build_vulcan.py` 与 `python3 figures/build_batch.py` 构建，`node figures/render.mjs` 渲染，`node figures/animate_batch.mjs` 编码聚焦扫描，源视频用 ffmpeg 合成。旧的 `scripts/make-project-figures.py` 仅保留给旧仓库图版。图版脚本需要 Pillow；迷你实验室与肖像脚本会去除 EXIF；肖像脚本读取 v2 的 512 px 文件并写出 v3 资源。源仓库素材、作者提供的发射片段与 Sencillo 设计目标渲染不进入本仓库。
+QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright@1.64.1`。OG 图片可用 `python3 scripts/make-og.py` 重新生成；背景素材可用 `python3 scripts/make-ip-assets.py` 从 `Robusr IP/` 重新生成；迷你实验室图片可用 `python3 scripts/make-minilab-assets.py /path/to/minilab.jpeg` 重新生成；肖像可用 `python3 scripts/make-portrait-assets.py` 重新调色。新图版用 `python3 figures/build_vulcan.py` 与 `python3 figures/build_batch.py` 构建，`node figures/render.mjs` 渲染，`node figures/animate_batch.mjs` 编码聚焦扫描，源视频用 ffmpeg 合成。旧的 `scripts/make-project-figures.py` 仅保留给旧仓库图版。图版脚本需要 Pillow；迷你实验室与肖像脚本会去除 EXIF；肖像脚本读取 `figures/source/portrait-robusr-512-v2.jpg` 并写出 v3 资源。源仓库素材、作者提供的发射片段与 Sencillo 设计目标渲染不进入本仓库。
 
 ## 部署
 

@@ -2,7 +2,7 @@
   "zoom200": {
     "scrollWidth": 720,
     "innerWidth": 720,
-    "scrollHeight": 9012,
+    "scrollHeight": 9052,
     "overflow": false
   },
   "keyboard": [
@@ -104,6 +104,36 @@
     },
     {
       "tag": "A",
+      "text": "01Vulcan",
+      "href": "#project-vulcan",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "02Hsiwu",
+      "href": "#project-hsiwu",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "03DustArrow X",
+      "href": "#project-dustarrow",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "04OnesArm",
+      "href": "#project-onesarm",
+      "outline": true
+    },
+    {
+      "tag": "A",
+      "text": "05Anteportal Labs · Sencillo",
+      "href": "#project-sencillo",
+      "outline": true
+    },
+    {
+      "tag": "A",
       "text": "Vulcan",
       "href": "https://github.com/Robusr/Vulcan",
       "outline": true
@@ -178,36 +208,6 @@
       "tag": "A",
       "text": "Hsiwu",
       "href": "https://github.com/Robusr/Hsiwu",
-      "outline": true
-    },
-    {
-      "tag": "A",
-      "text": "A",
-      "href": "#panel-hsiwu-A",
-      "outline": true
-    },
-    {
-      "tag": "A",
-      "text": "B",
-      "href": "#panel-hsiwu-B",
-      "outline": true
-    },
-    {
-      "tag": "A",
-      "text": "C",
-      "href": "#panel-hsiwu-C",
-      "outline": true
-    },
-    {
-      "tag": "A",
-      "text": "D",
-      "href": "#panel-hsiwu-D",
-      "outline": true
-    },
-    {
-      "tag": "BUTTON",
-      "text": "Pause motion",
-      "href": null,
       "outline": true
     }
   ]

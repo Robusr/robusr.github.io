@@ -1,13 +1,13 @@
 [
   {
     "locale": "en",
-    "performance": 99,
+    "performance": 100,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100,
-    "lcp": "2.3\u00a0s",
+    "lcp": "0.8 s",
     "cls": "0",
-    "bytes": "Total size was 878\u00a0KiB"
+    "bytes": "Total size was 878 KiB"
   },
   {
     "locale": "zh",
@@ -15,18 +15,18 @@
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100,
-    "lcp": "2.3\u00a0s",
+    "lcp": "2.3 s",
     "cls": "0",
-    "bytes": "Total size was 918\u00a0KiB"
+    "bytes": "Total size was 919 KiB"
   },
   {
     "locale": "fr",
-    "performance": 99,
+    "performance": 100,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100,
-    "lcp": "2.3\u00a0s",
+    "lcp": "0.9 s",
     "cls": "0",
-    "bytes": "Total size was 878\u00a0KiB"
+    "bytes": "Total size was 878 KiB"
   }
 ]

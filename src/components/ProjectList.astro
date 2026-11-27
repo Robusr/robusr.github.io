@@ -41,6 +41,18 @@ const formatDate = (value?: string | null) => {
       <span class="section-index" aria-hidden="true">01</span>
       <h2 id="work-title">{t.sections.work}</h2>
     </div>
+    <nav class="work-index" aria-label={t.sections.work}>
+      <ol>
+        {featured.map((project, index) => (
+          <li>
+            <a href={`#project-${project.id}`}>
+              <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              {project.name}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
     <ol class="projects">
       {featured.map((project, index) => {
         const stats = project.repo
@@ -50,7 +62,7 @@ const formatDate = (value?: string | null) => {
         const plate = (figures as Record<string, Plate>)[project.id];
         const hasVideo = plate.panels.some((panel) => panel.type === 'video');
         return (
-          <li class="project">
+          <li class="project" id={`project-${project.id}`}>
             <div class="project-intro">
               <div class="project-head">
                 <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
@@ -61,7 +73,7 @@ const formatDate = (value?: string | null) => {
                   ) : project.repo ? (
                     <a class="release" href={`https://github.com/Robusr/${project.repo}/releases`} data-release-repo={project.repo} hidden></a>
                   ) : null}
-                  <span class="status">{t.status[project.statusKey as keyof Messages['status']]}</span>
+                  <span class="status" data-status={project.statusKey}>{t.status[project.statusKey as keyof Messages['status']]}</span>
                 </div>
               </div>
               <p class="project-category">{project.category[locale]}</p>
@@ -136,6 +148,7 @@ const formatDate = (value?: string | null) => {
                             <img
                               class="plate-print-still"
                               src={panel.poster ?? panel.fallback ?? panel.full ?? panel.src}
+                              data-print-src={panel.full ?? panel.poster ?? panel.fallback ?? panel.src}
                               width="800"
                               height="450"
                               alt={caption}
@@ -159,6 +172,7 @@ const formatDate = (value?: string | null) => {
                             <img
                               class="plate-print-still"
                               src={panel.fallback}
+                              data-print-src={panel.full ?? panel.fallback}
                               width="800"
                               height="450"
                               alt={caption}

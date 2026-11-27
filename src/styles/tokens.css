@@ -10,6 +10,7 @@
   --accent: #0f6b5f;
   --accent-strong: #0a4f46;
   --accent-soft: #e9f1ee;
+  --warm: #b26a3c;
   --max-width: 880px;
   --gutter: clamp(20px, 5vw, 48px);
   --radius: 3px;
