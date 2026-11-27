@@ -146,11 +146,11 @@
       {
         "label": "A",
         "type": "video",
-        "src": "/assets/projects/plates/v2/dustarrow-a.mp4",
-        "webm": "/assets/projects/plates/v2/dustarrow-a.webm",
-        "poster": "/assets/projects/plates/v2/dustarrow-a-poster-800.webp",
-        "full": "/assets/projects/plates/v2/dustarrow-a-poster-1600.webp",
-        "fallback": "/assets/projects/plates/v2/dustarrow-a-poster-1600.webp",
+        "src": "/assets/projects/plates/v3/dustarrow-a.mp4",
+        "webm": "/assets/projects/plates/v3/dustarrow-a.webm",
+        "poster": "/assets/projects/plates/v3/dustarrow-a-poster-800.webp",
+        "full": "/assets/projects/plates/v3/dustarrow-a-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v3/dustarrow-a-poster-1600.webp",
         "caption": {
           "en": "Modular architecture: nine modules, four sections, ten bays.",
           "zh": "模块化架构：九个模块、四个功能段、十个舱位。",
@@ -214,11 +214,11 @@
       {
         "label": "A",
         "type": "video",
-        "src": "/assets/projects/plates/v2/onesarm-a.mp4",
-        "webm": "/assets/projects/plates/v2/onesarm-a.webm",
-        "poster": "/assets/projects/plates/v2/onesarm-a-poster-800.webp",
-        "full": "/assets/projects/plates/v2/onesarm-a-poster-1600.webp",
-        "fallback": "/assets/projects/plates/v2/onesarm-a-poster-1600.webp",
+        "src": "/assets/projects/plates/v3/onesarm-a.mp4",
+        "webm": "/assets/projects/plates/v3/onesarm-a.webm",
+        "poster": "/assets/projects/plates/v3/onesarm-a-poster-800.webp",
+        "full": "/assets/projects/plates/v3/onesarm-a-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v3/onesarm-a-poster-1600.webp",
         "caption": {
           "en": "Modular architecture: four layers, one T/N interface.",
           "zh": "模块化架构：四层模块、一套 T/N 接口。",
@@ -228,9 +228,9 @@
       {
         "label": "B",
         "type": "image",
-        "src": "/assets/projects/plates/v2/onesarm-b-1600.webp",
-        "small": "/assets/projects/plates/v2/onesarm-b-800.webp",
-        "full": "/assets/projects/plates/v2/onesarm-b-1600.webp",
+        "src": "/assets/projects/plates/v3/onesarm-b-1600.webp",
+        "small": "/assets/projects/plates/v3/onesarm-b-800.webp",
+        "full": "/assets/projects/plates/v3/onesarm-b-1600.webp",
         "caption": {
           "en": "FCF grammar: face–channel–face and the T/N mortise-and-tenon.",
           "zh": "FCF 语法：面–通道–面与 T/N 榫卯接口。",
@@ -240,11 +240,11 @@
       {
         "label": "C",
         "type": "video",
-        "src": "/assets/projects/plates/v2/onesarm-c.mp4",
-        "webm": "/assets/projects/plates/v2/onesarm-c.webm",
-        "poster": "/assets/projects/plates/v2/onesarm-c-poster-800.webp",
-        "full": "/assets/projects/plates/v2/onesarm-c-poster-1600.webp",
-        "fallback": "/assets/projects/plates/v2/onesarm-c-poster-1600.webp",
+        "src": "/assets/projects/plates/v3/onesarm-c.mp4",
+        "webm": "/assets/projects/plates/v3/onesarm-c.webm",
+        "poster": "/assets/projects/plates/v3/onesarm-c-poster-800.webp",
+        "full": "/assets/projects/plates/v3/onesarm-c-poster-1600.webp",
+        "fallback": "/assets/projects/plates/v3/onesarm-c-poster-1600.webp",
         "caption": {
           "en": "24 layouts and the MATLAB analysis of AyCxBy-D.",
           "zh": "24 种构型与 AyCxBy-D 的 MATLAB 分析。",

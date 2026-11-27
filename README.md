@@ -117,7 +117,7 @@ English is the source of truth. When editing:
 │   ├── scripts/      progressive enhancement and live GitHub refresh
 │   └── styles/       tokens.css, global.css
 ├── figures/          editable SVG sources, Vulcan plate generator, render and animation scripts
-├── functions/        Cloudflare Pages Function for /api/github
+├── functions/        Cloudflare Pages Functions for /api/github and the www 301
 ├── public/           images, hand-drawn IP art, mini lab photo, favicon set, OG cards, manifest, _headers, _redirects
 ├── content/          copy manuscripts and glossary
 ├── scripts/          content check, GitHub sync, OG/IP/Mini Lab/portrait/project figure generators, and QA helpers
@@ -134,10 +134,10 @@ English is the source of truth. When editing:
 |---|---|
 | Build and checks | `npm run verify` passes: content check, `astro check` with 0 errors, 4 pages built |
 | GitHub sync | Snapshot covers 8 repositories; Vulcan resolves to v1.3.0; `/api/github` returned 24 public repositories and the Vulcan release in a local handler test; a mocked endpoint updated the card to 99 stars and v9.9.9 in a Playwright check on 2026-11-26 |
-| Production | `/`, `/zh/`, `/fr/` return 200; HTTP redirects to HTTPS; `www` returns 200 and still needs a 301 |
-| Lighthouse mobile, local preview (2026-11-27) | EN 98/100/100/100, ZH 97/100/100/100, FR 98/100/100/100; LCP 2.3–2.4 s; CLS 0–0.001; 864–905 KiB |
-| Lighthouse mobile, production (2026-10-22) | EN 97/100/92/100, ZH 98/100/92/100, FR 99/100/92/100 |
-| LCP / CLS, production | LCP 1.8–2.2 s; CLS 0–0.069, measured before the portrait `aspect-ratio` fix |
+| Production | `/`, `/zh/`, `/fr/` return 200; HTTP redirects to HTTPS; the `www` 301 is implemented in `functions/_middleware.js` and is verified after the next deploy |
+| Lighthouse mobile, local preview (2026-11-27) | EN 99/100/100/100, ZH 99/100/100/100, FR 99/100/100/100; LCP 2.3 s; CLS 0; 878–918 KiB |
+| Lighthouse mobile, production (2026-11-27) | EN 98/100/93/92, ZH 98/100/93/92, FR 100/100/93/92 |
+| FCP / LCP / CLS, production | 1.2–1.9 s / 1.2–1.9 s / 0 |
 | Layout widths | 1440, 1024, 768, and 390 px, no horizontal overflow; carousel is 4 panels / 4 tabs per project; 10 loops total (Vulcan 2, Hsiwu 2, DustArrow 3, OnesArm 2, Sencillo 1) |
 | JavaScript disabled | all content readable; GitHub cards use the build-time snapshot |
 | Mini Lab assets | 480/960/1440 WebP and a 1440 JPEG fallback; EXIF stripped; caption and alt text in three languages |
@@ -148,7 +148,7 @@ English is the source of truth. When editing:
 | Icons | SVG favicon plus 16/32/180 px PNGs and a manifest; checked at 16/32/64/180 px on light and dark tab backgrounds |
 | Outbound links | GitHub and media links return 200 |
 
-The 2026-11-27 Lighthouse figures are from the local preview of the carousel/video build. Production figures are the 2026-10-22 run and predate the live GitHub module; re-run after deploy. Production Best Practices is 92 because Cloudflare still injects the Web Analytics beacon and the CSP blocks it. Email Address Obfuscation and Managed robots.txt are also still applied at the edge, so the live page differs from the local build. These are zone settings, not repository settings. Production results are in `qa/lighthouse-live-summary.json`.
+The 2026-11-27 local Lighthouse figures cover the carousel/video build with the preloaded Inter font; the production figures are a separate 2026-11-27 run against `robusr.cn`. Production Best Practices is 93 because Cloudflare still injects the Web Analytics beacon and the CSP blocks it; SEO is 92 because Cloudflare's Managed robots.txt prepends content-signal directives that Lighthouse's robots parser reports as one error. Email Address Obfuscation is also still applied at the edge. These are zone settings, not repository settings. Production results are in `qa/lighthouse-live-summary.json`.
 
 Full evidence: [QA.md](QA.md). Screenshots: [screenshots/](screenshots/). Raw Lighthouse reports: [qa/](qa/).
 
@@ -165,7 +165,7 @@ Production is Cloudflare Pages at <https://robusr.cn>. The project builds with `
 
 Cloudflare Pages deploys the `functions/` directory alongside `dist/`, so `/api/github` works without a separate worker. The function reads public repository metadata with a 10-minute edge cache; set an optional `GITHUB_TOKEN` environment variable to raise GitHub's rate limit. Without Functions, or when the endpoint fails, the page keeps the build-time snapshot.
 
-`public/_headers` adds security and cache headers. Cloudflare Pages cannot redirect by host from `_redirects`, so that file only documents the limitation. `www.robusr.cn` currently resolves and returns 200; configure a Redirect Rule to send it to the apex with a 301. GitHub Pages is retired; disable the Pages site in repository settings if it is still enabled. See [DEPLOY.md](DEPLOY.md).
+`public/_headers` adds security and cache headers. Cloudflare Pages cannot redirect by host from `_redirects`, so the `www` → apex 301 is implemented in `functions/_middleware.js`; `public/_routes.json` keeps static assets out of the Functions path so their immutable caching is unchanged. Verify the redirect after the next deploy. GitHub Pages is retired; disable the Pages site in repository settings if it is still enabled. See [DEPLOY.md](DEPLOY.md).
 
 ## Content rules
 

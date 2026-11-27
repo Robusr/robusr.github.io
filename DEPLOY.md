@@ -36,17 +36,17 @@ The apex and `www` hosts each serve a certificate covering that host. Keep both 
 
 ## 3. www
 
-`www.robusr.cn` currently resolves through Cloudflare and returns 200 with the same site. Its canonical tag points to `https://robusr.cn/`, but the host still needs a 301. Cloudflare Pages `_redirects` only supports path redirects, so a host rule in that file does nothing. `public/_redirects` now records this limitation instead of carrying a rule.
+`www.robusr.cn` resolves through Cloudflare and returns the same static site. `functions/_middleware.js` now issues a 301 from `www.robusr.cn` to the apex, preserving path and query. `public/_routes.json` routes HTML and `/api/*` through the Pages Function layer while excluding static assets (`/assets/*`, `/_astro/*`, `/og/*`, `/fonts/*`, icons, sitemap, robots) so their immutable CDN caching is unchanged.
 
-Create a Redirect Rule on the zone:
+After deployment, verify with:
 
-1. Open **Rules → Redirect Rules → Create rule**.
-2. Set the expression to `http.host eq "www.robusr.cn"`.
-3. Use a dynamic redirect with the expression `concat("https://robusr.cn", http.request.uri.path)`, preserve the query string, and use status `301`.
-4. Alternatively, create a Bulk Redirect with source `https://www.robusr.cn/*` and target `https://robusr.cn/$1`, preserving the query string, status `301`.
-5. Verify that `https://www.robusr.cn/zh/` returns a 301 to `https://robusr.cn/zh/`.
+```bash
+curl -sSI https://www.robusr.cn/zh/?x=1 | grep -Ei 'HTTP/|location'
+# HTTP/2 301
+# location: https://robusr.cn/zh/?x=1
+```
 
-Until the rule exists, `www` serves a duplicate of the site. Search engines should consolidate on the canonical URL, but the redirect is still the correct fix.
+If the platform-level redirect is preferred instead, the equivalent zone Redirect Rule is: expression `http.host eq "www.robusr.cn"`, dynamic target `concat("https://robusr.cn", http.request.uri.path)`, preserve query, status 301.
 
 ## 4. Headers, redirects, and zone features
 
@@ -125,7 +125,7 @@ curl -sS https://robusr.cn/robots.txt
 curl -sS https://robusr.cn/ | grep -Eo '<link rel="canonical"[^>]*>|<meta property="og:url"[^>]*>'
 ```
 
-Expected: `200` on all three locales, a `301` from `www.robusr.cn/zh/` to `robusr.cn/zh/`, canonical and Open Graph URLs on `https://robusr.cn`, `Sitemap: https://robusr.cn/sitemap.xml`, and a `404` status for an unknown path. Until the redirect rule is created, the `www` request returns `200`.
+Expected: `200` on all three locales, a `301` from `www.robusr.cn/zh/` to `robusr.cn/zh/`, canonical and Open Graph URLs on `https://robusr.cn`, `Sitemap: https://robusr.cn/sitemap.xml`, and a `404` status for an unknown path. Until this middleware is deployed, the `www` request returns `200`.
 
 ## 7. Rollback
 

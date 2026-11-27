@@ -1,49 +1,38 @@
-{
-  "deployedCommit": "3bf258f",
-  "date": "2026-10-22",
-  "notes": "Best Practices 92 comes from the CSP-blocked Cloudflare Web Analytics beacon, which is still injected for browser user agents. Email Address Obfuscation and Managed robots.txt are also still applied. TBT is 0 ms. EN CLS was 0.069 in this run; the local build with the portrait aspect-ratio fix measures 0.001.",
-  "locales": [
-    {
-      "locale": "en",
-      "url": "https://robusr.cn/",
-      "performance": 97,
-      "accessibility": 100,
-      "best-practices": 92,
-      "seo": 100,
-      "fcp": "1.8 s",
-      "lcp": "1.8 s",
-      "speed-index": "2.7 s",
-      "tbt": "0 ms",
-      "cls": "0.069",
-      "transfer": "Total size was 266 KiB"
-    },
-    {
-      "locale": "zh",
-      "url": "https://robusr.cn/zh/",
-      "performance": 98,
-      "accessibility": 100,
-      "best-practices": 92,
-      "seo": 100,
-      "fcp": "1.6 s",
-      "lcp": "2.2 s",
-      "speed-index": "3.0 s",
-      "tbt": "0 ms",
-      "cls": "0",
-      "transfer": "Total size was 285 KiB"
-    },
-    {
-      "locale": "fr",
-      "url": "https://robusr.cn/fr/",
-      "performance": 99,
-      "accessibility": 100,
-      "best-practices": 92,
-      "seo": 100,
-      "fcp": "1.6 s",
-      "lcp": "1.6 s",
-      "speed-index": "2.0 s",
-      "tbt": "0 ms",
-      "cls": "0.001",
-      "transfer": "Total size was 268 KiB"
-    }
-  ]
-}
+[
+  {
+    "locale": "en",
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 93,
+    "seo": 92,
+    "fcp": "1.9\u00a0s",
+    "lcp": "1.9\u00a0s",
+    "cls": "0",
+    "tbt": "0\u00a0ms",
+    "bytes": "Total size was 878\u00a0KiB"
+  },
+  {
+    "locale": "zh",
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 93,
+    "seo": 92,
+    "fcp": "1.9\u00a0s",
+    "lcp": "1.9\u00a0s",
+    "cls": "0",
+    "tbt": "0\u00a0ms",
+    "bytes": "Total size was 919\u00a0KiB"
+  },
+  {
+    "locale": "fr",
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 93,
+    "seo": 92,
+    "fcp": "1.2\u00a0s",
+    "lcp": "1.2\u00a0s",
+    "cls": "0",
+    "tbt": "0\u00a0ms",
+    "bytes": "Total size was 879\u00a0KiB"
+  }
+]

@@ -117,7 +117,7 @@ npm run verify    # check + typecheck + build
 │   ├── scripts/      渐进增强与 GitHub 实时刷新
 │   └── styles/       tokens.css、global.css
 ├── figures/          可编辑 SVG 源文件、Vulcan 图版生成器、渲染与动画脚本
-├── functions/        Cloudflare Pages Function，提供 /api/github
+├── functions/        Cloudflare Pages Functions：/api/github 与 www 301
 ├── public/           图片、手绘 IP 素材、迷你实验室照片、favicon 套件、OG 卡片、manifest、_headers、_redirects
 ├── content/          三语文稿与术语表
 ├── scripts/          内容检查、GitHub 同步、OG/IP/迷你实验室/肖像/项目图版生成、QA 脚本
@@ -134,10 +134,10 @@ npm run verify    # check + typecheck + build
 |---|---|
 | 构建与检查 | `npm run verify` 通过：内容检查、`astro check` 0 错误、构建 4 个页面 |
 | GitHub 同步 | 快照覆盖 8 个仓库；Vulcan 解析为 v1.3.0；本地处理器测试中 `/api/github` 返回 24 个公开仓库与 Vulcan Release；2026-11-26 的 Playwright 测试用 mock 接口把卡片更新为 99 stars 与 v9.9.9 |
-| 线上 | `/`、`/zh/`、`/fr/` 返回 200；HTTP 跳转 HTTPS；`www` 返回 200，仍需 301 |
-| 本地 Lighthouse，移动端（2026-11-27） | EN 98/100/100/100，ZH 97/100/100/100，FR 98/100/100/100；LCP 2.3–2.4 s；CLS 0–0.001；864–905 KiB |
-| 线上 Lighthouse，移动端（2026-10-22） | EN 97/100/92/100，ZH 98/100/92/100，FR 99/100/92/100 |
-| 线上 LCP / CLS | LCP 1.8–2.2 s；CLS 0–0.069，测量于肖像 `aspect-ratio` 修复之前 |
+| 线上 | `/`、`/zh/`、`/fr/` 返回 200；HTTP 跳转 HTTPS；`www` 的 301 已在 `functions/_middleware.js` 实现，部署后验证 |
+| 本地 Lighthouse，移动端（2026-11-27） | EN 99/100/100/100，ZH 99/100/100/100，FR 99/100/100/100；LCP 2.3 s；CLS 0；878–918 KiB |
+| 线上 Lighthouse，移动端（2026-11-27） | EN 98/100/93/92，ZH 98/100/93/92，FR 100/100/93/92 |
+| 线上 FCP / LCP / CLS | 1.2–1.9 s / 1.2–1.9 s / 0 |
 | 布局宽度 | 1440、1024、768、390 px 均无横向溢出 |
 | 关闭 JavaScript | 正文完整可读；GitHub 卡片使用构建快照 |
 | 迷你实验室素材 | 480/960/1440 WebP 与 1440 JPEG 回退；已去除 EXIF；三语说明与 alt |
@@ -148,7 +148,7 @@ npm run verify    # check + typecheck + build
 | 图标 | SVG favicon、16/32/180 px PNG 与 manifest；已在浅色/深色标签栏的 16/32/64/180 px 下检查 |
 | 站外链接 | GitHub 与媒体链接返回 200 |
 
-2026-11-27 的本地 Lighthouse 数据覆盖当前轮播/视频构建；线上数据仍为 2026-10-22，早于实时 GitHub 模块，部署后应重新测量。线上 Best Practices 为 92，因为 Cloudflare 仍注入 Web Analytics beacon，并被 CSP 拦截；Email Address Obfuscation 与 Managed robots.txt 也仍在边缘生效，因此线上页面与本地构建不同。这些是 zone 设置，不在仓库内。线上数据见 `qa/lighthouse-live-summary.json`。
+2026-11-27 的本地 Lighthouse 覆盖预加载 Inter 的轮播/视频构建；线上数据为同日对 `robusr.cn` 的独立测量。线上 Best Practices 为 93，因为 Cloudflare 仍注入 Web Analytics beacon 并被 CSP 拦截；SEO 为 92，因为 Cloudflare Managed robots.txt 在站点 robots 前加入了 content-signal 指令，Lighthouse 的解析器将其记为 1 个错误。Email Address Obfuscation 也仍在边缘生效。这些是 zone 设置，不在仓库内。线上数据见 `qa/lighthouse-live-summary.json`。
 
 完整证据见 [QA.md](QA.md)；截图见 [screenshots/](screenshots/)；Lighthouse 原始报告见 [qa/](qa/)。
 
@@ -165,7 +165,7 @@ QA 脚本使用 Playwright，需单独安装：`npm install --no-save playwright
 
 Cloudflare Pages 会把 `functions/` 与 `dist/` 一起部署，因此 `/api/github` 无需单独 Worker。该函数读取公开仓库信息，边缘缓存 10 分钟；可设置可选的 `GITHUB_TOKEN` 环境变量提高 GitHub 限额。Functions 不可用或接口失败时，页面保留构建快照。
 
-`public/_headers` 添加安全与缓存响应头。Cloudflare Pages 无法通过 `_redirects` 做域名级跳转，因此该文件只记录这一限制。`www.robusr.cn` 当前可访问并返回 200；需要在 Cloudflare 创建 Redirect Rule，将其 301 到主域名。GitHub Pages 已停用；如果仓库后台仍启用 Pages，请关闭。详见 [DEPLOY.md](DEPLOY.md)。
+`public/_headers` 添加安全与缓存响应头。Cloudflare Pages 无法通过 `_redirects` 做域名级跳转，因此 `www` → 主域名的 301 改在 `functions/_middleware.js` 中实现；`public/_routes.json` 让静态资源不经过 Functions，保持 immutable 缓存。部署后验证跳转。GitHub Pages 已停用；如果仓库后台仍启用 Pages，请关闭。详见 [DEPLOY.md](DEPLOY.md)。
 
 ## 内容规则
 

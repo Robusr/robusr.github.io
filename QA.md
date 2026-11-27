@@ -21,7 +21,7 @@ Production host switched to <https://robusr.cn> on 2026-10-21. Production checks
 
 Scope: all five projects redrawn (20 panels, 10 silent loops), the plate carousel/lightbox mechanics, the accessibility/content fixes, and a fresh QA/Lighthouse run.
 
-- New editable SVG sources and the render pipeline live in `figures/` (`build_vulcan.py`, `build_batch.py`, `render.mjs`, `animate.mjs`, `animate_batch.mjs`); final assets are in `public/assets/projects/plates/v2/`.
+- New editable SVG sources and the render pipeline live in `figures/` (`build_vulcan.py`, `build_batch.py`, `render.mjs`, `animate.mjs`, `animate_batch.mjs`); final assets are in `public/assets/projects/plates/v2/`; cache-sensitive post-launch updates (OnesArm A/B/C, DustArrow A) are served from `plates/v3/` under new filenames.
 - Vulcan A/C, Hsiwu A, DustArrow A, OnesArm A, and Sencillo A are 6.4 s focus-scan loops over the complete plates. Hsiwu C (lead-screw CAD), DustArrow B (canard/parachute CAD), and OnesArm C (MATLAB) are source-video composites. DustArrow C is the actual Gobi launch footage from the owner-provided *Young Edison* episode, credited to Shanghai TV, Young Edison S8.
 - Ten loops in total: Vulcan 2, Hsiwu 2, DustArrow 3, OnesArm 2, Sencillo 1; every video has an 800/1600 WebP poster. The old GIF set is no longer referenced.
 - All 20 SVG sources pass `audit_svg_schematic.py` at the web figure scale (4.2 pt floor, 220 mm canvas; the canvas-width warning is intentional for the 880 px web plate). Sencillo C's 27.5 µm hero number is 20.27 pt, above the 20 pt ordinary ceiling by design.
@@ -33,7 +33,8 @@ Scope: all five projects redrawn (20 panels, 10 silent loops), the plate carouse
 - `npm run check`, `npm run typecheck`, and `npm run build` pass (0 errors, 0 warnings, 0 hints; 4 pages).
 - `scripts/qa-capture.mjs`: 0 console/page errors, 0 horizontal overflow at 1440/1024/768/390, 0 missing images, 0 tap targets under 44 px, 4 panels / 4 tabs per project, 10 loops total, 8 screenshots.
 - Geometry: EN 9,568 px, ZH 9,086 px; h1 at 229/183 px and not covered. 200% zoom: 720 px viewport, no overflow; keyboard order includes the six nav links, four plate tabs, four media links, and the motion control.
-- Lighthouse mobile, local preview 2026-11-27: EN 98/100/100/100, ZH 97/100/100/100, FR 98/100/100/100; LCP 2.3–2.4 s; CLS 0–0.001; 864–905 KiB. Raw JSON is in `qa/lighthouse-*-mobile.json`.
+- Lighthouse mobile, local preview 2026-11-27: EN 99/100/100/100, ZH 99/100/100/100, FR 99/100/100/100; LCP 2.3 s; CLS 0; 878–918 KiB. Raw JSON is in `qa/lighthouse-*-mobile.json`.
+- Lighthouse mobile, production 2026-11-27: EN 98/100/93/92, ZH 98/100/93/92, FR 100/100/93/92; FCP/LCP 1.2–1.9 s; CLS 0; 878–919 KiB. Best Practices 93 is the CSP-blocked Cloudflare Web Analytics beacon; SEO 92 is Cloudflare's Managed robots.txt content-signal block, which Lighthouse's robots parser reports as one error. Both are zone settings.
 - Motion is opt-out: `prefers-reduced-motion` starts paused with the "Play motion" label; the control is hidden without JavaScript.
 
 ## 2026-10-22 follow-up
@@ -67,7 +68,7 @@ Deployed commit: `3bf258f`. The live HTML matches the local build except for the
 | HTTP to HTTPS | 301 |
 | IPv6 | 200 |
 | TLS certificate | `robusr.cn` and `www.robusr.cn` each serve a certificate for that host |
-| `www.robusr.cn` | resolves and returns 200 with the apex canonical; a 301 redirect is still missing; see `DEPLOY.md` |
+| `www.robusr.cn` | 2026-10-22: 200 with apex canonical. A 301 is now implemented in `functions/_middleware.js`; verify after the next deploy. |
 | Canonical, hreflang, OG, JSON-LD | `https://robusr.cn` in all three locales |
 | `sitemap.xml`, `robots.txt` | 200; the live sitemap still has lastmod 2026-10-20; the next build uses 2026-10-22 from `contentDate` |
 | `_headers` | HSTS, CSP, X-Frame-Options, Permissions-Policy, and immutable asset caching present |
@@ -169,7 +170,7 @@ With JavaScript disabled at 390 px, all six sections and the hero, contact, and 
 ## Links and assets
 
 - All GitHub profile, repository, organization, and Kankanews links returned HTTP 200 on 2026-10-20.
-- `https://robusr.cn` resolves through Cloudflare and returns 200; it is the production host. `https://www.robusr.cn` also resolves and returns 200, with a canonical tag pointing to the apex; a 301 is still missing.
+- `https://robusr.cn` resolves through Cloudflare and returns 200; it is the production host. `https://www.robusr.cn` resolves and returns 200 with an apex canonical; the 301 is implemented in `functions/_middleware.js` and must be verified after deployment.
 - Local routes `/`, `/zh/`, `/fr/`, `/404.html`, `/sitemap.xml`, `/robots.txt`, `/og/og-default-v2.png`, and `/favicon.svg` return 200 with correct content types.
 - No broken in-page anchors in any locale.
 

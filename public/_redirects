@@ -1,3 +1,4 @@
-# Cloudflare Pages _redirects only handles path redirects. Host-level redirects
-# such as www.robusr.cn to robusr.cn must be configured as a Cloudflare
-# Redirect Rule on the zone. See DEPLOY.md section 3.
+# Cloudflare Pages _redirects only handles path redirects.
+# The www.robusr.cn -> robusr.cn canonical redirect is handled in
+# functions/_middleware.js, with public/_routes.json excluding static assets.
+# Keep _redirects for path-level redirects only.

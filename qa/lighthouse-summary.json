@@ -1,32 +1,32 @@
 [
   {
     "locale": "en",
-    "performance": 98,
+    "performance": 99,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100,
     "lcp": "2.3\u00a0s",
     "cls": "0",
-    "bytes": "Total size was 864\u00a0KiB"
+    "bytes": "Total size was 878\u00a0KiB"
   },
   {
     "locale": "zh",
-    "performance": 97,
+    "performance": 99,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100,
     "lcp": "2.3\u00a0s",
     "cls": "0",
-    "bytes": "Total size was 905\u00a0KiB"
+    "bytes": "Total size was 918\u00a0KiB"
   },
   {
     "locale": "fr",
-    "performance": 98,
+    "performance": 99,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100,
-    "lcp": "2.4\u00a0s",
-    "cls": "0.001",
-    "bytes": "Total size was 864\u00a0KiB"
+    "lcp": "2.3\u00a0s",
+    "cls": "0",
+    "bytes": "Total size was 878\u00a0KiB"
   }
 ]
